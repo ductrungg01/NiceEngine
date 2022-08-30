@@ -5,6 +5,7 @@ import org.joml.Vector2f;
 public class Transform {
     public Vector2f position;
     public Vector2f scale;
+    public float rotation = 0.0f;
 
     public Transform(){
         init(new Vector2f(), new Vector2f());

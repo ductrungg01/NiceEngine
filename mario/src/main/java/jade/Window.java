@@ -220,4 +220,7 @@ public class Window {
     public static float getTargetAspectRatio(){
         return 16.0f / 9.0f;
     }
+    public static ImGuiLayer getImguiLayer(){
+        return get().imGuiLayer;
+    }
 }
