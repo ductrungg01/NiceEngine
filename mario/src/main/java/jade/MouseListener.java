@@ -76,6 +76,8 @@ public class MouseListener {
         get().scrollY = 0;
         get().lastX = get().xPos;
         get().lastY = get().yPos;
+        get().lastWorldX = get().worldX;
+        get().lastWorldY = get().worldY;
     }
 
     public static float getX(){
