@@ -70,14 +70,14 @@
         "properties": {
           "position": {
             "x": 380.728,
-            "y": 345.0266
+            "y": 327.78485
           },
           "scale": {
             "x": 32.0,
-            "y": 35.6
+            "y": 32.0
           },
-          "rotation": 98.3,
-          "zIndex": -18,
+          "rotation": 0.0,
+          "zIndex": 47,
           "uid": 39
         }
       },
