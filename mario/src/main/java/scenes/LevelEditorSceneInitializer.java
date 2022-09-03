@@ -5,58 +5,30 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import jade.*;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
-import renderer.DebugDraw;
-import scenes.Scene;
 import util.AssetPool;
 
-import javax.swing.*;
-
-public class LevelEditorScene extends Scene {
-    private GameObject obj1;
+public class LevelEditorSceneInitializer extends SceneInitializer {
     private Spritesheet sprites;
-    SpriteRenderer obj1Sprite;
-    GameObject levelEditorStuff = this.createGameObject("LevelEditor");
-    public LevelEditorScene(){
+    private GameObject levelEditorStuff;
+    public LevelEditorSceneInitializer(){
 
     }
     @Override
-    public void init(){
-        loadResources();
+    public void init(Scene scene){
         sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
         Spritesheet gizmos = AssetPool.getSpritesheet("assets/images/gizmos.png");
 
-        this.camera = new Camera(new Vector2f(-250, 0));
-
+        levelEditorStuff = scene.createGameObject("LevelEditor");
+        levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new MouseControls());
         levelEditorStuff.addComponent(new GridLines());
-        levelEditorStuff.addComponent(new EditorCamera(this.camera));
+        levelEditorStuff.addComponent(new EditorCamera(scene.camera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
-
-
-        levelEditorStuff.start();
-
-//        obj1 = new GameObject("Object 1",
-//                new Transform(new Vector2f(500, 400), new Vector2f(256, 256)), 2);
-//        obj1Sprite = new SpriteRenderer();
-//        obj1Sprite.setColor(new Vector4f(1, 0, 0, 1));
-//        obj1.addComponent(obj1Sprite);
-//        obj1.addComponent(new Rigidbody());
-//        this.addGameObjectToScene(obj1);
-//        this.activeGameObject = obj1;
-//
-//        GameObject obj2= new GameObject("Object 2",
-//                new Transform(new Vector2f(700, 400), new Vector2f(256, 256)), 2);
-//        SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
-//        Sprite obj2Sprite = new Sprite();
-//        obj2Sprite.setTexture(AssetPool.getTexture("assets/images/blendImage2.png"));
-//        obj2SpriteRenderer.setSprite(obj2Sprite);
-//        obj2.addComponent(obj2SpriteRenderer);
-//        this.addGameObjectToScene(obj2);
+        scene.addGameObjectToScene(levelEditorStuff);
     }
 
-    private void loadResources() {
+    @Override
+    public void loadResources(Scene scene) {
         AssetPool.getShader("assets/shaders/default.glsl");
 
         AssetPool.addSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png",
@@ -67,7 +39,7 @@ public class LevelEditorScene extends Scene {
                         24, 48, 3, 0));
         AssetPool.getTexture("assets/images/blendImage2.png");
 
-        for (GameObject g : gameObjects){
+        for (GameObject g : scene.getGameObjects()){
             if (g.getComponent(SpriteRenderer.class) != null){
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
                 if (spr.getTexture() != null){
@@ -77,32 +49,11 @@ public class LevelEditorScene extends Scene {
         }
     }
 
-//    float x = 0.0f;
-//    float y = 0.0f;
-    @Override
-    public void update(float dt) {
-        levelEditorStuff.update(dt);
-        this.camera.adjustProjection();
-
-//        DebugDraw.addCircle(new Vector2f(x, y), 64, new Vector3f(0, 1, 0), 1);
-//        x += 50f * dt;
-//        y += 50f * dt;
-
-        for (GameObject go: this.gameObjects){
-            go.update(dt);
-        }
-    }
-
-    @Override
-    public void render(){
-        this.renderer.render();
-    }
-
     @Override
     public void imgui(){
-        ImGui.begin("Level Editor Stuff");
-        levelEditorStuff.imgui();
-        ImGui.end();
+//        ImGui.begin("Level Editor Stuff");
+//        levelEditorStuff.imgui();
+//        ImGui.end();
 
         ImGui.begin("Test window");
 

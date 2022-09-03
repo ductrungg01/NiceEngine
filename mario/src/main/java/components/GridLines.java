@@ -9,7 +9,7 @@ import util.Settings;
 
 public class GridLines extends Component{
     @Override
-    public void update(float dt){
+    public void editorUpdate(float dt){
         Camera camera = Window.getScene().camera();
 
         Vector2f cameraPos = camera.position;

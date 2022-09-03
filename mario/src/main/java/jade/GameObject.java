@@ -13,12 +13,7 @@ public class GameObject {
     private List<Component> components;
     public transient Transform transform;
     private boolean doSerialization = true;
-
-//    public GameObject(String name){
-//        this.name = name;
-//        this.components = new ArrayList<>();
-//        this.transform = new Transform();
-//    }
+    private boolean isDead = false;
 
     public GameObject(String name){
         this.name = name;
@@ -77,9 +72,27 @@ public class GameObject {
         }
     }
 
+    public void editorUpdate(float dt){
+        for (int i = 0; i < this.components.size(); i++){
+            components.get(i).editorUpdate(dt);
+        }
+    }
+
+    public void destroy(){
+        isDead = true;
+        for (int i = 0; i < components.size(); i++){
+            components.get(i).destroy();
+        }
+    }
+
+    public boolean isDead(){
+        return isDead;
+    }
+
     public static void init(int maxId){
         ID_COUNTER = maxId;
     }
+
 
     public int getUid() {return this.uid;}
 

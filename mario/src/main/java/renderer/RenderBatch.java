@@ -1,6 +1,7 @@
 package renderer;
 
 import components.SpriteRenderer;
+import jade.GameObject;
 import jade.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
@@ -110,6 +111,22 @@ public class RenderBatch implements Comparable<RenderBatch>{
         if (numSprites > this.maxBatchSize){
             this.hasRoom = false;
         }
+    }
+
+    public boolean destroyIfExists(GameObject go){
+        SpriteRenderer sprite = go.getComponent(SpriteRenderer.class);
+        for (int i = 0; i < numSprites; i++){
+            if (sprites[i] == sprite){
+                for (int j = i; j < numSprites - 1; j++){
+                    sprites[j] = sprites[j + 1];
+                    sprites[j].setDirty();
+                }
+                numSprites--;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void loadVertexProperties(int index){
