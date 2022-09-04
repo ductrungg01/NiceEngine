@@ -37,7 +37,7 @@ public class Scene {
         this.isRunning = false;
     }
     public void init(){
-        this.camera = new Camera(new Vector2f(-250, 0));
+        this.camera = new Camera(new Vector2f(0, 0));
         this.sceneInitializer.loadResources(this);
         this.sceneInitializer.init(this);
 
