@@ -10,7 +10,7 @@ public class AnimationState {
     private static Sprite defaultSprite = new Sprite();
     private transient float timeTracker = 0.0f;
     private transient int currentSprite = 0;
-    private boolean doesLoop = false;
+    public boolean doesLoop = false;
 
     public void addFrame(Sprite sprite, float frameTime){
         animationFrames.add(new Frame(sprite, frameTime));
