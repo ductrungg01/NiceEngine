@@ -52,6 +52,11 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                     spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
                 }
             }
+
+            if (g.getComponent(StateMachine.class) != null){
+                StateMachine stateMachine = g.getComponent(StateMachine.class);
+                stateMachine.refreshTextures();
+            }
         }
     }
 
@@ -113,6 +118,18 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
                         texCoords[0].x, texCoords[2].y)) {
                     GameObject object = Prefabs.generateMario();
+                    levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
+                }
+                ImGui.sameLine();
+
+                Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+                sprite = items.getSprite(0);
+                id = sprite.getTexId();
+                texCoords = sprite.getTexCoords();
+
+                if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
+                        texCoords[0].x, texCoords[2].y)) {
+                    GameObject object = Prefabs.generateQuestionBlock();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
                 ImGui.sameLine();

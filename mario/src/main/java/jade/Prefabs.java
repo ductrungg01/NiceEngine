@@ -36,4 +36,23 @@ public class Prefabs {
 
         return mario;
     }
+    public static GameObject generateQuestionBlock(){
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject questionBlock = generateSpriteObject(items.getSprite(0), 0.25f, 0.25f);
+
+        AnimationState run = new AnimationState();
+        run.title = "Flicker";
+        float defaultFrameTime = 0.23f;
+        run.addFrame(items.getSprite(0), 0.57f);
+        run.addFrame(items.getSprite(1), defaultFrameTime);
+        run.addFrame(items.getSprite(2), defaultFrameTime);
+        run.setLoop(true);
+
+        StateMachine stateMachine = new StateMachine();
+        stateMachine.addState(run);
+        stateMachine.setDefaultState(run.title);
+        questionBlock.addComponent(stateMachine);
+
+        return questionBlock;
+    }
 }
