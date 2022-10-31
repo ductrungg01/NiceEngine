@@ -23,8 +23,8 @@ public class AnimationState {
     public void update(float dt){
         if (currentSprite < animationFrames.size()){
             timeTracker -= dt;
-            if (timeTracker < 0) {
-                if (!(currentSprite == animationFrames.size() - 1 && !doesLoop)){
+            if (timeTracker <= 0) {
+                if (currentSprite != animationFrames.size() - 1 || doesLoop){
                     currentSprite = (currentSprite + 1) % animationFrames.size();
                 }
                 timeTracker = animationFrames.get(currentSprite).frameTime;

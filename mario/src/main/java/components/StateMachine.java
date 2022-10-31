@@ -47,6 +47,20 @@ public class StateMachine extends Component{
         this.states.add(state);
     }
 
+    public void setDefaultState(String animationTitle){
+        for (AnimationState state : states){
+            if (state.title.equals(animationTitle)){
+                defaultStateTitle = animationTitle;
+                if (currentState == null){
+                    currentState = state;
+                    return;
+                }
+            }
+        }
+
+        System.out.println("Unable to find state '" + animationTitle + "' in the default state");
+    }
+
     public void trigger(String trigger){
         for (StateTrigger state: stateTransfers.keySet()){
             if (state.state.equals(currentState.title) && state.trigger.equals(trigger)){
