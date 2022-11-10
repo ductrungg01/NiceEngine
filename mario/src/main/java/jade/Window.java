@@ -234,11 +234,14 @@ public class Window implements Observer {
     }
 
     public static int getWidth(){
-
+        // TODO: fix bug about select multiple gameobject
+        // return 3840;
         return get().width;
     }
 
     public static int getHeight(){
+        // TODO: fix bug about select multiple gameobject
+        // return 2160;
         return get().height;
     }
 

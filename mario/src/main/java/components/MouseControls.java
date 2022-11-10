@@ -132,10 +132,6 @@ public class MouseControls extends Component{
                 if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
                     Window.getImguiLayer().getPropertiesWindow().addActiveGameObject(pickedObj);
                 }
-
-
-
-
             }
         }
     }
