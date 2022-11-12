@@ -17,6 +17,8 @@ import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
 
+import java.security.Key;
+
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.glfw.GLFW.glfwGetTime;
@@ -223,6 +225,7 @@ public class Window implements Observer {
 
             this.imGuiLayer.update(dt, currentScene);
 
+            KeyListener.endframe();
             MouseListener.endFrame();
             glfwSwapBuffers(glfwWindow);
             MouseListener.endFrame();
