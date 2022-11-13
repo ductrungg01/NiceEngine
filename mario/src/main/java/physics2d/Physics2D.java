@@ -26,6 +26,10 @@ public class Physics2D {
         world.setContactListener(new JadeContactListener());
     }
 
+    public Vector2f getGravity(){
+        return new Vector2f(world.getGravity().x, world.getGravity().y);
+    }
+
     public void add(GameObject go){
         RigidBody2D rb = go.getComponent(RigidBody2D.class);
         if (rb != null && rb.getRawBody() == null){
