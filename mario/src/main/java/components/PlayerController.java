@@ -58,6 +58,17 @@ public class PlayerController extends Component{
             } else {
                 this.stateMachine.trigger("startRunning");
             }
+        } else {
+            this.acceleration.x = 0;
+            if (this.velocity.x > 0){
+                this.velocity.x = Math.max(0, this.velocity.x - slowDownForce);
+            } else if (this.velocity.x < 0){
+                this.velocity.x = Math.min(0, this.velocity.x + slowDownForce);
+            }
+
+            if (this.velocity.x == 0){
+                this.stateMachine.trigger("stopRunning");
+            }
         }
 
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
