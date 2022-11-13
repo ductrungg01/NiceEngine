@@ -49,6 +49,10 @@ public class StateMachine extends Component{
         this.stateTransfers.put(new StateTrigger(from, onTrigger), to);
     }
 
+    public void addState(String from, String to, String onTrigger) {
+        this.stateTransfers.put(new StateTrigger(from, onTrigger), to);
+    }
+
     public void addState(AnimationState state){
         this.states.add(state);
     }
