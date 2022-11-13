@@ -1,7 +1,9 @@
 package components;
 
+import jade.GameObject;
 import jade.KeyListener;
 import jade.Window;
+import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Math;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -140,7 +142,23 @@ public class PlayerController extends Component{
         onGround = (info.hit && info.hitObject != null && info.hitObject.getComponent(Ground.class) != null) ||
                 (info2.hit && info2.hitObject != null && info2.hitObject.getComponent(Ground.class) != null);
 
-        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
-        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
+        //DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+        //DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
     }
+
+    @Override
+    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
+        if (isDead) return;
+
+        if (collidingObject.getComponent(Ground.class) != null) {
+            if (Math.abs(contactNormal.x) > 0.8f) {
+                this.velocity.x = 0;
+            } else if (contactNormal.y > 0.8f) {
+                this.velocity.y = 0;
+                this.acceleration.y = 0;
+                this.jumpTime = 0;
+            }
+        }
+    }
+
 }
