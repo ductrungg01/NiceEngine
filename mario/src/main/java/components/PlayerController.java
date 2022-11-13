@@ -4,18 +4,29 @@ import jade.KeyListener;
 import jade.Window;
 import org.joml.Math;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.lwjgl.system.CallbackI;
+import physics2d.RaycastInfo;
 import physics2d.components.RigidBody2D;
+import renderer.DebugDraw;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class PlayerController extends Component{
+    private enum PlayerState {
+        Small,
+        Big,
+        Fire,
+        Invincible
+    }
+
     public float walkSpeed = 1.9f;
     public float jumpBoost = 1.0f;
     public float jumpImpulse = 3.0f;
     public float slowDownForce = 0.05f;
     public Vector2f terminalVelocity = new Vector2f(2.1f, 3.1f);
 
+    private PlayerState playerState = PlayerState.Small;
     public transient boolean onGround = false;
     private transient float groundDebounce = 0.0f;
     private transient float groundDebounceTime = 0.1f;
@@ -71,6 +82,8 @@ public class PlayerController extends Component{
             }
         }
 
+        checkOnGround();
+
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
 
         this.velocity.x += this.acceleration.x * dt;
@@ -79,5 +92,25 @@ public class PlayerController extends Component{
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), - this.terminalVelocity.y);
         this.rb.setVelocity(this.velocity);
         this.rb.setAngularVelocity(0);
+    }
+
+    public void checkOnGround(){
+        Vector2f raycastBegin = new Vector2f(this.gameObject.transform.position);
+        float innerPlayerWidth = this.playerWidth * 0.6f;
+        raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f);
+        float yVal = playerState == PlayerState.Small ? -0.14f : -0.24f;
+        Vector2f raycastEnd = new Vector2f(raycastBegin).add(0.0f, yVal);
+
+        RaycastInfo info = Window.getPhysics().raycast(gameObject, raycastBegin, raycastEnd);
+
+        Vector2f raycast2Begin = new Vector2f(raycastBegin).add(innerPlayerWidth, 0.0f);
+        Vector2f raycast2End = new Vector2f(raycastEnd).add(innerPlayerWidth, 0.0f);
+        RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
+
+        onGround = (info.hit && info.hitObject != null && info.hitObject.getComponent(Ground.class) != null) ||
+                (info2.hit && info2.hitObject != null && info2.hitObject.getComponent(Ground.class) != null);
+
+        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
     }
 }
