@@ -6,6 +6,9 @@ import imgui.ImVec2;
 import jade.*;
 import org.joml.Vector2f;
 import org.lwjgl.system.CallbackI;
+import physics2d.components.Box2DCollider;
+import physics2d.components.RigidBody2D;
+import physics2d.enums.BodyType;
 import util.AssetPool;
 
 import java.io.File;
@@ -112,6 +115,10 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
                 float windowX2 = windowPos.x + windowSize.x;
                 for (int i = 0; i < sprites.size(); i++) {
+                    if (i == 34) continue;
+                    if (i >= 38 && i < 61) continue;
+
+
                     Sprite sprite = sprites.getSprite(i);
                     float spriteWidth = sprite.getWidth() * 2;
                     float spriteHeight = sprite.getHeight() * 2;
@@ -122,6 +129,18 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
                             texCoords[0].x, texCoords[2].y)) {
                         GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
+                        RigidBody2D rb = new RigidBody2D();
+                        rb.setBodyType(BodyType.Static);
+                        object.addComponent(rb);
+                        Box2DCollider b2d = new Box2DCollider();
+                        b2d.setHalfSize(new Vector2f(0.25f, 0.25f));
+                        object.addComponent(b2d);
+                        object.addComponent(new Ground());
+
+                        if (i == 12){
+                            //object.addComponent(new BreakableBrick());
+                        }
+
                         levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                     }
                     ImGui.popID();
