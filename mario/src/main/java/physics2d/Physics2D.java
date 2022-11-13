@@ -53,6 +53,7 @@ public class Physics2D {
             rb.setRawBody(body);
             CircleCollider circle2DCollider;
             Box2DCollider box2DCollider;
+            PillboxCollider pillboxCollider;
 
             if ((circle2DCollider = go.getComponent(CircleCollider.class)) != null){
                 addCircle2DCollider(rb, circle2DCollider);
@@ -60,6 +61,10 @@ public class Physics2D {
 
             if ((box2DCollider = go.getComponent(Box2DCollider.class)) != null){
                 addBox2DCollider(rb, box2DCollider);
+            }
+
+            if ((pillboxCollider = go.getComponent(PillboxCollider.class)) != null){
+                addPillboxCollider(rb, pillboxCollider);
             }
         }
     }
