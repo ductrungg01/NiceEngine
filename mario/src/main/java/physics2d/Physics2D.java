@@ -21,6 +21,10 @@ public class Physics2D {
     private int velocityIterations = 8;
     private int positionIterations = 3;
 
+    public Physics2D(){
+        world.setContactListener(new JadeContactListener());
+    }
+
     public void add(GameObject go){
         RigidBody2D rb = go.getComponent(RigidBody2D.class);
         if (rb != null && rb.getRawBody() == null){
