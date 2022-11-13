@@ -9,6 +9,7 @@ import org.lwjgl.system.CallbackI;
 import physics2d.RaycastInfo;
 import physics2d.components.RigidBody2D;
 import renderer.DebugDraw;
+import util.AssetPool;
 
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -84,7 +85,30 @@ public class PlayerController extends Component{
 
         checkOnGround();
 
-        this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
+        if ((KeyListener.isKeyPressed(GLFW_KEY_SPACE)) && (jumpTime > 0 || onGround || groundDebounce > 0)) {
+            if ((onGround || groundDebounce > 0) && jumpTime == 0) {
+                AssetPool.getSound("assets/sounds/jump-small.ogg").play();
+                jumpTime = 28;
+                this.velocity.y = jumpImpulse;
+            } else if (jumpTime > 0) {
+                jumpTime--;
+                this.velocity.y = ((jumpTime / 2.2f) * jumpBoost);
+            } else {
+                this.velocity.y = 0;
+            }
+            groundDebounce = 0f;
+        } else if (!onGround) {
+            if (this.jumpTime > 0) {
+                this.velocity.y *= 0.35f;
+                this.jumpTime = 0;
+            }
+            groundDebounce -= dt;
+            this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
+        } else {
+            this.velocity.y = 0;
+            this.acceleration.y = 0;
+            groundDebounce = groundDebounceTime;
+        }
 
         this.velocity.x += this.acceleration.x * dt;
         this.velocity.y += this.acceleration.y * dt;
@@ -92,6 +116,12 @@ public class PlayerController extends Component{
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), - this.terminalVelocity.y);
         this.rb.setVelocity(this.velocity);
         this.rb.setAngularVelocity(0);
+
+        if (!onGround) {
+            stateMachine.trigger("jump");
+        } else {
+            stateMachine.trigger("stopJumping");
+        }
     }
 
     public void checkOnGround(){
