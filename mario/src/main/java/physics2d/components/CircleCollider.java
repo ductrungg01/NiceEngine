@@ -2,6 +2,7 @@ package physics2d.components;
 
 import components.Component;
 import org.joml.Vector2f;
+import renderer.DebugDraw;
 
 public class CircleCollider extends Component {
     private Vector2f offset = new Vector2f();
@@ -16,5 +17,11 @@ public class CircleCollider extends Component {
 
     public void setRadius(float radius) {
         this.radius = radius;
+    }
+
+    @Override
+    public void editorUpdate(float dt){
+        Vector2f center = new Vector2f(this.gameObject.transform.position).add(this.offset);
+        DebugDraw.addCircle(center, this.radius);
     }
 }
