@@ -161,4 +161,7 @@ public class PlayerController extends Component{
         }
     }
 
+    public boolean isSmall() {
+        return this.playerState == PlayerState.Small;
+    }
 }
