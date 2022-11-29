@@ -30,10 +30,14 @@ public class MushroomAI extends Component{
 
     @Override
     public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal){
+        PlayerController playerController = obj.getComponent(PlayerController.class);
+        if (playerController !=null){
+            contact.setEnabled(false);
+            return;
+        }
+
         if (Math.abs(contactNormal.y) < 0.1f){
             goingRight = contactNormal.x < 0;
         }
-
-
     }
 }
