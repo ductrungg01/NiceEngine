@@ -4,6 +4,7 @@ import components.*;
 import org.joml.Vector2f;
 import org.lwjgl.system.CallbackI;
 import physics2d.components.Box2DCollider;
+import physics2d.components.CircleCollider;
 import physics2d.components.PillboxCollider;
 import physics2d.components.RigidBody2D;
 import physics2d.enums.BodyType;
@@ -260,5 +261,22 @@ public class Prefabs {
         coinObject.addComponent(new BlockCoin());
 
         return coinObject;
+    }
+    public static GameObject generateMushroom() {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinousCollision(false);
+        mushroom.addComponent(rb);
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.14f);
+        mushroom.addComponent(circleCollider);
+        mushroom.addComponent(new MushroomAI());
+
+        return mushroom;
     }
 }
