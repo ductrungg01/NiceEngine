@@ -1,5 +1,7 @@
 package components;
 
+import jade.GameObject;
+import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.components.RigidBody2D;
 import util.AssetPool;
@@ -24,5 +26,14 @@ public class MushroomAI extends Component{
         } else if (!goingRight && Math.abs(rb.getVelocity().x) < maxSpeed){
             rb.addVelocity(new Vector2f(-speed.x, speed.y));
         }
+    }
+
+    @Override
+    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal){
+        if (Math.abs(contactNormal.y) < 0.1f){
+            goingRight = contactNormal.x < 0;
+        }
+
+
     }
 }
