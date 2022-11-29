@@ -14,7 +14,7 @@ public class MushroomAI extends Component{
     @Override
     public void start(){
         this.rb = gameObject.getComponent(RigidBody2D.class);
-        AssetPool.getSound("assets/sounds/powerup_appears.ogg");
+        AssetPool.getSound("assets/sounds/powerup_appears.ogg").play();
     }
 
     @Override
