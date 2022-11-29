@@ -33,7 +33,11 @@ public class MushroomAI extends Component{
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (playerController !=null){
             contact.setEnabled(false);
-            return;
+            if (!hitPlayer){
+                playerController.powerup();
+                this.gameObject.destroy();
+                hitPlayer = true;
+            }
         }
 
         if (Math.abs(contactNormal.y) < 0.1f){
