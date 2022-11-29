@@ -14199,7 +14199,7 @@
       {
         "type": "components.QuestionBlock",
         "properties": {
-          "blockType": "Coin",
+          "blockType": "Powerup",
           "bopSpeed": 0.4,
           "uid": 219
         }

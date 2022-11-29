@@ -160,7 +160,7 @@ public class PlayerController extends Component{
             }
         } else if (playerState == PlayerState.Big){
             playerState = PlayerState.Fire;
-            AssetPool.getSound("assets/sounds/powerups.ogg").play();
+            AssetPool.getSound("assets/sounds/powerup.ogg").play();
         }
 
         stateMachine.trigger("powerup");

@@ -279,4 +279,22 @@ public class Prefabs {
 
         return mushroom;
     }
+
+    public static GameObject generateFlower(){
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject flower = generateSpriteObject(items.getSprite(20), 0.25f, 0.25f);
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Static);
+        rb.setFixedRotation(true);
+        rb.setContinousCollision(false);
+        flower.addComponent(rb);
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.14f);
+        flower.addComponent(circleCollider);
+        flower.addComponent(new Flower());
+
+        return flower;
+    }
 }
