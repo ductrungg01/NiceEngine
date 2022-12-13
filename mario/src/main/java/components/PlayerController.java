@@ -12,7 +12,9 @@ import physics2d.Physics2D;
 import physics2d.RaycastInfo;
 import physics2d.components.PillboxCollider;
 import physics2d.components.RigidBody2D;
+import physics2d.enums.BodyType;
 import renderer.DebugDraw;
+import scenes.LevelEditorSceneInitializer;
 import util.AssetPool;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -44,8 +46,12 @@ public class PlayerController extends Component{
     private transient Vector2f velocity = new Vector2f();
     private transient boolean isDead = false;
     private transient int enemyBounce = 0;
-    private transient int hurtInvincibilityTimeLeft = 0;
-
+    private transient float hurtInvincibilityTimeLeft = 0;
+    private transient float hurtInvincibilityTime = 1.4f;
+    private transient float deadMaxHeight = 0;
+    private transient float deadMinHeight = 0;
+    private transient boolean deadGoingUp = true;
+    private transient float blinkTime = 0.0f;
     @Override
     public void start(){
         this.rb = gameObject.getComponent(RigidBody2D.class);
@@ -55,6 +61,24 @@ public class PlayerController extends Component{
 
     @Override
     public void update(float dt){
+        if (isDead){
+            if (this.gameObject.transform.position.y < deadMaxHeight && deadGoingUp){
+                this.gameObject.transform.position.y += dt * walkSpeed / 2.0f;
+            } else if (this.gameObject.transform.position.y >= deadMaxHeight && deadGoingUp){
+                deadGoingUp = false;
+            } else if (!deadGoingUp && gameObject.transform.position.y > deadMinHeight){
+                this.rb.setBodyType(BodyType.Kinematic);
+                this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
+                this.velocity.y += this.acceleration.y * dt;
+                this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), - this.terminalVelocity.y);
+                this.rb.setVelocity(this.velocity);
+                this.rb.setAngularVelocity(0);
+            } else if (!deadGoingUp && gameObject.transform.position.y <= deadMinHeight){
+                Window.changeScene(new LevelEditorSceneInitializer());
+            }
+            return;
+        }
+
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)){
             this.gameObject.transform.scale.x = playerWidth;
             this.acceleration.x = walkSpeed;
@@ -185,6 +209,38 @@ public class PlayerController extends Component{
     }
     public boolean isHurtInvincible(){
         return this.hurtInvincibilityTimeLeft > 0;
+    }
+
+    public void die(){
+        this.stateMachine.trigger("die");
+        if (this.playerState == PlayerState.Small) {
+            this.velocity.set(0, 0);
+            this.acceleration.set(0, 0);
+            this.rb.setVelocity(new Vector2f());
+            this.isDead = true;
+            this.rb.setIsSensor();
+            AssetPool.getSound("assets/sounds/mario_die.ogg").play();
+            deadMaxHeight = this.gameObject.transform.position.y + 0.3f;
+            this.rb.setBodyType(BodyType.Static);
+            if (gameObject.transform.position.y > 0) {
+                deadMinHeight = -0.25f;
+            }
+        } else if (this.playerState == PlayerState.Big) {
+            this.playerState = PlayerState.Small;
+            gameObject.transform.scale.y = 0.25f;
+            PillboxCollider pb = gameObject.getComponent(PillboxCollider.class);
+            if (pb != null) {
+                jumpBoost /= bigJumpBoostFactor;
+                walkSpeed /= bigJumpBoostFactor;
+                pb.setHeight(0.31f);
+            }
+            hurtInvincibilityTimeLeft = hurtInvincibilityTime;
+            AssetPool.getSound("assets/sounds/pipe.ogg").play();
+        } else if (this.playerState == PlayerState.Fire) {
+            this.playerState = PlayerState.Big;
+            hurtInvincibilityTimeLeft = hurtInvincibilityTime;
+            AssetPool.getSound("assets/sounds/pipe.ogg").play();
+        }
     }
 
     public boolean isInvincible(){
