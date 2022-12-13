@@ -235,6 +235,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                     GameObject object = Prefabs.generateGoomba();
                     levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                 }
+                ImGui.popID();
 
                 ImGui.endTabItem();
             }
