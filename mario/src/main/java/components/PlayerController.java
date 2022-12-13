@@ -7,6 +7,7 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Math;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
+import org.joml.Vector4f;
 import org.lwjgl.system.CallbackI;
 import physics2d.Physics2D;
 import physics2d.RaycastInfo;
@@ -52,8 +53,10 @@ public class PlayerController extends Component{
     private transient float deadMinHeight = 0;
     private transient boolean deadGoingUp = true;
     private transient float blinkTime = 0.0f;
+    private transient SpriteRenderer spr;
     @Override
     public void start(){
+        this.spr = gameObject.getComponent(SpriteRenderer.class);
         this.rb = gameObject.getComponent(RigidBody2D.class);
         this.stateMachine = gameObject.getComponent(StateMachine.class);
         this.rb.setGravityScale(0.0f);
@@ -77,6 +80,24 @@ public class PlayerController extends Component{
                 Window.changeScene(new LevelEditorSceneInitializer());
             }
             return;
+        }
+
+        if (hurtInvincibilityTimeLeft > 0){
+            hurtInvincibilityTimeLeft -= dt;
+            blinkTime -= dt;
+
+            if (blinkTime <= 0){
+                blinkTime = 0.2f;
+                if (spr.getColor().w == 1){
+                    spr.setColor(new Vector4f(1,1,1,0));
+                } else {
+                    spr.setColor(new Vector4f(1,1 , 1,1));
+                }
+            } else {
+                if (spr.getColor().w == 0){
+                    spr.setColor(new Vector4f(1,1 , 1,1));
+                }
+            }
         }
 
         if (KeyListener.isKeyPressed(GLFW_KEY_RIGHT) || KeyListener.isKeyPressed(GLFW_KEY_D)){
