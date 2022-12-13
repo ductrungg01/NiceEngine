@@ -44,6 +44,7 @@ public class PlayerController extends Component{
     private transient Vector2f velocity = new Vector2f();
     private transient boolean isDead = false;
     private transient int enemyBounce = 0;
+    private transient int hurtInvincibilityTimeLeft = 0;
 
     @Override
     public void start(){
@@ -170,5 +171,16 @@ public class PlayerController extends Component{
 
     public boolean isSmall() {
         return this.playerState == PlayerState.Small;
+    }
+    public boolean isDead(){
+        return this.isDead;
+    }
+    public boolean isHurtInvincible(){
+        return this.hurtInvincibilityTimeLeft > 0;
+    }
+
+    public boolean isInvincible(){
+        return this.playerState == PlayerState.Invincible
+                || this.hurtInvincibilityTimeLeft > 0;
     }
 }

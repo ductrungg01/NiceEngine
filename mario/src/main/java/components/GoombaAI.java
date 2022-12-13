@@ -1,7 +1,9 @@
 package components;
 
 import jade.Camera;
+import jade.GameObject;
 import jade.Window;
+import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.lwjgl.system.CallbackI;
 import physics2d.Physics2D;
@@ -59,5 +61,25 @@ public class GoombaAI extends Component {
         float innerPlayerWidth = 0.25f * 0.7f;
         float yVal = -0.14f;
         onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+    }
+
+    @Override
+    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal){
+        if (isDead){
+            return;
+        }
+
+        PlayerController playerController = obj.getComponent(PlayerController.class);
+        if (playerController != null){
+            if (!playerController.isDead() && playerController.isHurtInvincible()
+                    && contactNormal.y > 0.58f){
+                //playerController.enemyBounce();
+                //stomp();
+            } else if (!playerController.isDead() && !playerController.isInvincible()){
+                //playerController.die();
+            }
+        } else if (Math.abs(contactNormal.y) < 0.1f){
+            goingRight = contactNormal.x < 0;
+        }
     }
 }
