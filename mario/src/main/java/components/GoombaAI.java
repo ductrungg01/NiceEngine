@@ -8,6 +8,7 @@ import org.joml.Vector2f;
 import org.lwjgl.system.CallbackI;
 import physics2d.Physics2D;
 import physics2d.components.RigidBody2D;
+import util.AssetPool;
 
 public class GoombaAI extends Component {
 
@@ -34,6 +35,15 @@ public class GoombaAI extends Component {
         Camera camera = Window.getScene().camera();
         if (this.gameObject.transform.position.x >
                 camera.position.x + camera.getProjectionSize().x * camera.getZoom()){
+            return;
+        }
+
+        if (isDead){
+            timeToKill -= dt;
+            if (timeToKill <= 0){
+                this.gameObject.destroy();
+            }
+            this.rb.setVelocity(new Vector2f());
             return;
         }
 
@@ -71,15 +81,32 @@ public class GoombaAI extends Component {
 
         PlayerController playerController = obj.getComponent(PlayerController.class);
         if (playerController != null){
-            if (!playerController.isDead() && playerController.isHurtInvincible()
+            if (!playerController.isDead() && !playerController.isHurtInvincible()
                     && contactNormal.y > 0.58f){
-                //playerController.enemyBounce();
-                //stomp();
+                playerController.enemyBounce();
+                stomp();
             } else if (!playerController.isDead() && !playerController.isInvincible()){
                 //playerController.die();
             }
         } else if (Math.abs(contactNormal.y) < 0.1f){
             goingRight = contactNormal.x < 0;
+        }
+    }
+
+    public void stomp(){
+        stomp(true);
+    }
+
+    public void stomp(boolean playSound){
+        this.isDead = true;
+        this.velocity.zero();
+        this.rb.setVelocity(new Vector2f());
+        this.rb.setAngularVelocity(0.0f);
+        this.rb.setGravityScale(0.0f);
+        this.stateMachine.trigger("SquashMe");
+        this.rb.setIsSensor();
+        if (playSound){
+            AssetPool.getSound("assets/sounds/bump.ogg").play();
         }
     }
 }

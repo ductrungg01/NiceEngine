@@ -262,19 +262,19 @@ public class Prefabs {
         return coinObject;
     }
     public static GameObject generateGoomba() {
-        Spritesheet sprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
-        GameObject goomba = generateSpriteObject(sprites.getSprite(14), 0.25f, 0.25f);
+        Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
+        GameObject goomba = generateSpriteObject(playerSprites.getSprite(14), 0.25f, 0.25f);
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
         float defaultFrameTime = 0.23f;
-        walk.addFrame(sprites.getSprite(14), defaultFrameTime);
-        walk.addFrame(sprites.getSprite(15), defaultFrameTime);
+        walk.addFrame(playerSprites.getSprite(14), defaultFrameTime);
+        walk.addFrame(playerSprites.getSprite(15), defaultFrameTime);
         walk.setLoop(true);
 
         AnimationState squashed = new AnimationState();
         squashed.title = "Squashed";
-        squashed.addFrame(sprites.getSprite(16), 0.1f);
+        squashed.addFrame(playerSprites.getSprite(16), 0.1f);
         squashed.setLoop(false);
 
         StateMachine stateMachine = new StateMachine();
@@ -283,6 +283,7 @@ public class Prefabs {
         stateMachine.setDefaultState(walk.title);
         stateMachine.addState(walk.title, squashed.title, "SquashMe");
         goomba.addComponent(stateMachine);
+        goomba.addComponent(new GoombaAI());
 
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -293,8 +294,6 @@ public class Prefabs {
         CircleCollider circleCollider = new CircleCollider();
         circleCollider.setRadius(0.12f);
         goomba.addComponent(circleCollider);
-
-        goomba.addComponent(new GoombaAI());
 
         return goomba;
     }

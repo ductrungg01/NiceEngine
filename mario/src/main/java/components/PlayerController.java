@@ -102,6 +102,9 @@ public class PlayerController extends Component{
                 this.velocity.y = 0;
             }
             groundDebounce = 0f;
+        } else if (enemyBounce > 0) {
+            enemyBounce--;
+            this.velocity.y = ((enemyBounce / 2.2f) * jumpBoost);
         } else if (!onGround) {
             if (this.jumpTime > 0) {
                 this.velocity.y *= 0.35f;
@@ -172,6 +175,11 @@ public class PlayerController extends Component{
     public boolean isSmall() {
         return this.playerState == PlayerState.Small;
     }
+
+    public void enemyBounce(){
+        this.enemyBounce = 8;
+    }
+
     public boolean isDead(){
         return this.isDead;
     }
