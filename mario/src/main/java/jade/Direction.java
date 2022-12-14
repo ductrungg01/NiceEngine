@@ -1,4 +1,4 @@
-package editor;
+package jade;
 
 public enum Direction {
     Up,
