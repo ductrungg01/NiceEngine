@@ -7884,19 +7884,19 @@
             },
             "texCoords": [
               {
-                "x": 0.071428575,
+                "x": 0.14285715,
                 "y": 0.5
               },
               {
+                "x": 0.14285715,
+                "y": 0.0
+              },
+              {
                 "x": 0.071428575,
                 "y": 0.0
               },
               {
-                "x": 0.0,
-                "y": 0.0
-              },
-              {
-                "x": 0.0,
+                "x": 0.071428575,
                 "y": 0.5
               }
             ]
@@ -8104,19 +8104,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8369,19 +8369,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8634,19 +8634,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8899,19 +8899,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -9119,6 +9119,582 @@
         "type": "components.Ground",
         "properties": {
           "uid": 63
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 76,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 2.875,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 84
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.5,
+                "y": 1.0
+              },
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 85
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 86
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 87
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Up",
+          "uid": 88
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 89
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 79,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 2.375,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 91
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 1.0
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 92
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 93
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 94
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Down",
+          "uid": 95
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 96
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 82,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 3.375,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 98
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 99
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 100
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 101
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Right",
+          "uid": 102
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 103
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 83,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": -0.875,
+            "y": 3.125
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 105
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8,
+            "w": 0.5
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.75,
+                "y": 0.5
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 106
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 107
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 108
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Left",
+          "uid": 109
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 110
+        }
+      },
+      {
+        "type": "components.NonPickable",
+        "properties": {
+          "uid": 111
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 85,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 3.875,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 105
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.75,
+                "y": 0.5
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 106
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 107
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 108
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Left",
+          "uid": 109
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 110
         }
       }
     ],
