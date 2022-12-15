@@ -73,6 +73,17 @@ public class Scene {
             go.destroy();
         }
     }
+
+    public <T extends Component> GameObject findGameObjectWith(Class<T> clazz) {
+        for (GameObject go : gameObjects) {
+            if (go.getComponent(clazz) != null) {
+                return go;
+            }
+        }
+
+        return null;
+    }
+
     public List<GameObject> getGameObjects(){
         return this.gameObjects;
     }
