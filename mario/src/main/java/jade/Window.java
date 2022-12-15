@@ -198,8 +198,8 @@ public class Window implements Observer {
 
             glViewport(0, 0, 1920, 1080);
 
-            Vector4f clearColor = currentScene.camera().clearColor;
-            glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
+
+            glClearColor(0, 0, 0 ,0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             Renderer.bindShader(pickingShader);
@@ -212,8 +212,8 @@ public class Window implements Observer {
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
-
-            glClearColor(1,1,1,1);
+            Vector4f clearColor = currentScene.camera().clearColor;
+            glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
 
 
