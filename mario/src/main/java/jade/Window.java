@@ -15,6 +15,7 @@ import org.lwjgl.opengl.GL;
 import physics2d.Physics2D;
 import renderer.*;
 import scenes.LevelEditorSceneInitializer;
+import scenes.LevelSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
@@ -271,7 +272,7 @@ public class Window implements Observer {
             case GameEngineStartPlay :
                 this.runtimePlaying = true;
                 currentScene.save();
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new LevelSceneInitializer());
                 break;
             case GameEngineStopPlay :
                 this.runtimePlaying = false;
