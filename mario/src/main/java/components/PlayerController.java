@@ -54,6 +54,7 @@ public class PlayerController extends Component{
     private transient boolean deadGoingUp = true;
     private transient float blinkTime = 0.0f;
     private transient SpriteRenderer spr;
+
     @Override
     public void start(){
         this.spr = gameObject.getComponent(SpriteRenderer.class);
@@ -272,5 +273,8 @@ public class PlayerController extends Component{
     public boolean isInvincible(){
         return this.playerState == PlayerState.Invincible
                 || this.hurtInvincibilityTimeLeft > 0;
+    }
+    public boolean hasWon(){
+        return false;
     }
 }
