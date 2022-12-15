@@ -262,19 +262,19 @@ public class Prefabs {
         return coinObject;
     }
     public static GameObject generateGoomba() {
-        Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
-        GameObject goomba = generateSpriteObject(playerSprites.getSprite(14), 0.25f, 0.25f);
+        Spritesheet goombaSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
+        GameObject goomba = generateSpriteObject(goombaSprites.getSprite(14), 0.25f, 0.25f);
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
         float defaultFrameTime = 0.23f;
-        walk.addFrame(playerSprites.getSprite(14), defaultFrameTime);
-        walk.addFrame(playerSprites.getSprite(15), defaultFrameTime);
+        walk.addFrame(goombaSprites.getSprite(14), defaultFrameTime);
+        walk.addFrame(goombaSprites.getSprite(15), defaultFrameTime);
         walk.setLoop(true);
 
         AnimationState squashed = new AnimationState();
         squashed.title = "Squashed";
-        squashed.addFrame(playerSprites.getSprite(16), 0.1f);
+        squashed.addFrame(goombaSprites.getSprite(16), 0.1f);
         squashed.setLoop(false);
 
         StateMachine stateMachine = new StateMachine();
@@ -296,6 +296,43 @@ public class Prefabs {
         goomba.addComponent(circleCollider);
 
         return goomba;
+    }
+    public static GameObject generateTurtle() {
+        Spritesheet turtleSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
+        GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
+
+        AnimationState walk = new AnimationState();
+        walk.title = "Walk";
+        float defaultFrameTime = 0.23f;
+        walk.addFrame(turtleSprites.getSprite(0), defaultFrameTime);
+        walk.addFrame(turtleSprites.getSprite(1), defaultFrameTime);
+        walk.setLoop(true);
+
+        AnimationState squashed = new AnimationState();
+        squashed.title = "TurtleShellSpin";
+        squashed.addFrame(turtleSprites.getSprite(2), 0.1f);
+        squashed.setLoop(false);
+
+        StateMachine stateMachine = new StateMachine();
+        stateMachine.addState(walk);
+        stateMachine.addState(squashed);
+        stateMachine.setDefaultState(walk.title);
+        stateMachine.addState(walk.title, squashed.title, "SquashMe");
+        turtle.addComponent(stateMachine);
+        turtle.addComponent(new TurtleAI());
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setMass(0.1f);
+        rb.setFixedRotation(true);
+        turtle.addComponent(rb);
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.13f);
+        circleCollider.setOffset(new Vector2f(0, -0.05f));
+        turtle.addComponent(circleCollider);
+
+        return turtle;
     }
     public static GameObject generateMushroom() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
