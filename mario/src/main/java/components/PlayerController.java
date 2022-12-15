@@ -184,6 +184,11 @@ public class PlayerController extends Component{
         onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }
 
+    public void setPosition(Vector2f newPos){
+        this.gameObject.transform.position.set(newPos);
+        this.rb.setPosition(newPos);
+    }
+
     public void powerup(){
         if (playerState == PlayerState.Small){
             playerState = PlayerState.Big;
