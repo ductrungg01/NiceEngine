@@ -82,7 +82,7 @@ public class TurtleAI extends Component{
         this.rb.setVelocity(new Vector2f());
         this.rb.setAngularVelocity(0.0f);
         this.rb.setGravityScale(0.0f);
-        this.stateMachine.trigger("squashMe");
+        this.stateMachine.trigger("SquashMe");
         AssetPool.getSound("assets/sounds/bump.ogg").play();
     }
     @Override
