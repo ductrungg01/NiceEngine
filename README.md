@@ -1,5 +1,4 @@
 # 2dGameEngine
-#### ------------   Processing ... 80% --------------
 
 ## Project purpose 
 Build a 2D Game Engine inspired by [Hazel Engine](https://hazelengine.com/). 
