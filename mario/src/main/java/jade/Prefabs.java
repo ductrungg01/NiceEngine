@@ -334,6 +334,43 @@ public class Prefabs {
 
         return turtle;
     }
+    public static GameObject generateFlagtop() {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinousCollision(false);
+        flagtop.addComponent(rb);
+
+        Box2DCollider b2d = new Box2DCollider();
+        b2d.setHalfSize(new Vector2f(0.1f, 0.25f));
+        b2d.setOffset(new Vector2f(-0.075f, 0.0f));
+        flagtop.addComponent(b2d);
+        flagtop.addComponent(new Flagpole(true));
+
+        return flagtop;
+    }
+
+    public static GameObject generateFlagPole() {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject flagpole = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinousCollision(false);
+        flagpole.addComponent(rb);
+
+        Box2DCollider b2d = new Box2DCollider();
+        b2d.setHalfSize(new Vector2f(0.1f, 0.25f));
+        b2d.setOffset(new Vector2f(-0.075f, 0.0f));
+        flagpole.addComponent(b2d);
+        flagpole.addComponent(new Flagpole(false));
+
+        return flagpole;
+    }
     public static GameObject generateMushroom() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
