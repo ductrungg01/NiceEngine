@@ -89,7 +89,7 @@ public class PlayerController extends Component{
                 walkTime -= dt;
 
                 if (timeToCastle <= 0){
-                    Window.changeScene(new LevelSceneInitializer());
+                    Window.changeScene(new LevelEditorSceneInitializer());
                 }
             }
 
