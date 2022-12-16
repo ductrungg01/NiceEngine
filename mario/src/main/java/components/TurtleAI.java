@@ -1,11 +1,14 @@
 package components;
 
 import jade.Camera;
+import jade.GameObject;
 import jade.Window;
+import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import physics2d.RaycastInfo;
 import physics2d.components.RigidBody2D;
+import util.AssetPool;
 
 public class TurtleAI extends Component{
     private transient boolean goingRight = false;
@@ -58,7 +61,8 @@ public class TurtleAI extends Component{
 
         if (this.gameObject.transform.position.x
                 < Window.getScene().camera().position.x - 0.5f
-                || this.gameObject.transform.position.y < 0.0f) {
+                //|| this.gameObject.transform.position.y < 0.0f
+        ) {
             this.gameObject.destroy();
         }
     }
@@ -67,6 +71,54 @@ public class TurtleAI extends Component{
         float innerPlayerWidth = 0.25f* 0.7f;
         float yVal = -0.2f;
         onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+    }
+
+    public void stomp() {
+        this.isDead = true;
+        this.isMoving = false;
+        this.velocity.zero();
+        this.rb.setVelocity(new Vector2f());
+        this.rb.setAngularVelocity(0.0f);
+        this.rb.setGravityScale(0.0f);
+        this.stateMachine.trigger("squashMe");
+        AssetPool.getSound("assets/sounds/bump.ogg").play();
+    }
+    @Override
+    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
+        PlayerController playerController = obj.getComponent(PlayerController.class);
+        if (playerController != null) {
+            if (!isDead && !playerController.isDead() && !playerController.isHurtInvincible() && contactNormal.y > 0.58f) {
+                playerController.enemyBounce();
+                stomp();
+                walkSpeed *= 3.0f;
+            } else if (movingDebounce < 0 && !playerController.isDead() && !playerController.isInvincible() &&
+                    (isMoving || !isDead) && contactNormal.y < 0.58f) {
+                playerController.die();
+            } else if (!playerController.isDead() && !playerController.isHurtInvincible()) {
+                if (isDead && contactNormal.y > 0.58f) {
+                    playerController.enemyBounce();
+                    isMoving = !isMoving;
+                    goingRight = contactNormal.x < 0;
+                } else if (isDead && !isMoving) {
+                    isMoving = true;
+                    goingRight = contactNormal.x < 0;
+                    movingDebounce = 0.32f;
+                }
+            }
+        } else if (Math.abs(contactNormal.y) < 0.1f && !obj.isDead()) {
+            goingRight = contactNormal.x < 0;
+            AssetPool.getSound("assets/sounds/bump.ogg").play();
+        }
+    }
+
+    @Override
+    public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal) {
+        GoombaAI goomba = obj.getComponent(GoombaAI.class);
+        if (isDead && isMoving && goomba != null) {
+            goomba.stomp(false);
+            contact.setEnabled(false);
+            AssetPool.getSound("assets/sounds/kick.ogg").play();
+        }
     }
 
 }
