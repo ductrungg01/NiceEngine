@@ -40,8 +40,10 @@ public class TurtleAI extends Component{
 
         if (!isDead || isMoving) {
             if (goingRight) {
+                this.gameObject.transform.scale.x = -0.25f;
                 velocity.x = walkSpeed;
             } else {
+                this.gameObject.transform.scale.x = 0.25f;
                 velocity.x = -walkSpeed;
             }
         } else {

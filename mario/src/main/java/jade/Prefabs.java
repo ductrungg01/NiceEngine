@@ -298,7 +298,7 @@ public class Prefabs {
         return goomba;
     }
     public static GameObject generateTurtle() {
-        Spritesheet turtleSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
+        Spritesheet turtleSprites = AssetPool.getSpritesheet("assets/images/turtle.png");
         GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
 
         AnimationState walk = new AnimationState();
