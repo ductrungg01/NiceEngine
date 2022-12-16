@@ -307,7 +307,8 @@ public class PlayerController extends Component{
     }
     public boolean isInvincible(){
         return this.playerState == PlayerState.Invincible
-                || this.hurtInvincibilityTimeLeft > 0;
+                || this.hurtInvincibilityTimeLeft > 0
+                || this.playWinAnimation;
     }
     public boolean hasWon(){
         return false;
