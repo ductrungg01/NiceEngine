@@ -9041,122 +9041,6 @@
   },
   {
     "uid": 67,
-    "name": "Exit1",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
-            "x": 4.0499997,
-            "y": -1.875
-          },
-          "scale": {
-            "x": 0.5,
-            "y": 0.5
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 139
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 0.8,
-            "y": 0.8,
-            "z": 0.0,
-            "w": 0.8
-          },
-          "sprite": {
-            "width": 32.0,
-            "height": 32.0,
-            "texture": {
-              "filePath": "assets/images/pipes.png",
-              "width": 128,
-              "height": 64
-            },
-            "texCoords": [
-              {
-                "x": 0.25,
-                "y": 1.0
-              },
-              {
-                "x": 0.25,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 140
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": true,
-          "continousCollision": false,
-          "uid": 141
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.5,
-            "y": 0.5
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 142
-        }
-      },
-      {
-        "type": "components.Pipe",
-        "properties": {
-          "direction": "Down",
-          "connectingPipeName": "Entrance1",
-          "isEntrance": true,
-          "uid": 143
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 144
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 68,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9225,7 +9109,7 @@
     "isDead": false
   },
   {
-    "uid": 69,
+    "uid": 68,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9294,7 +9178,7 @@
     "isDead": false
   },
   {
-    "uid": 70,
+    "uid": 69,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9363,7 +9247,7 @@
     "isDead": false
   },
   {
-    "uid": 71,
+    "uid": 70,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9432,7 +9316,7 @@
     "isDead": false
   },
   {
-    "uid": 72,
+    "uid": 71,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9539,7 +9423,7 @@
     "isDead": false
   },
   {
-    "uid": 73,
+    "uid": 72,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9646,7 +9530,7 @@
     "isDead": false
   },
   {
-    "uid": 74,
+    "uid": 73,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9753,7 +9637,7 @@
     "isDead": false
   },
   {
-    "uid": 75,
+    "uid": 74,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9860,7 +9744,7 @@
     "isDead": false
   },
   {
-    "uid": 76,
+    "uid": 75,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -9967,7 +9851,7 @@
     "isDead": false
   },
   {
-    "uid": 77,
+    "uid": 76,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10074,7 +9958,7 @@
     "isDead": false
   },
   {
-    "uid": 78,
+    "uid": 77,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10181,7 +10065,7 @@
     "isDead": false
   },
   {
-    "uid": 79,
+    "uid": 78,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10288,7 +10172,7 @@
     "isDead": false
   },
   {
-    "uid": 80,
+    "uid": 79,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10395,7 +10279,7 @@
     "isDead": false
   },
   {
-    "uid": 81,
+    "uid": 80,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10502,7 +10386,7 @@
     "isDead": false
   },
   {
-    "uid": 82,
+    "uid": 81,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10609,7 +10493,7 @@
     "isDead": false
   },
   {
-    "uid": 83,
+    "uid": 82,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10716,7 +10600,7 @@
     "isDead": false
   },
   {
-    "uid": 84,
+    "uid": 83,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10823,7 +10707,7 @@
     "isDead": false
   },
   {
-    "uid": 85,
+    "uid": 84,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -10930,7 +10814,7 @@
     "isDead": false
   },
   {
-    "uid": 86,
+    "uid": 85,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11037,7 +10921,7 @@
     "isDead": false
   },
   {
-    "uid": 87,
+    "uid": 86,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11144,7 +11028,7 @@
     "isDead": false
   },
   {
-    "uid": 88,
+    "uid": 87,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11251,7 +11135,7 @@
     "isDead": false
   },
   {
-    "uid": 89,
+    "uid": 88,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11358,7 +11242,7 @@
     "isDead": false
   },
   {
-    "uid": 90,
+    "uid": 89,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11465,7 +11349,7 @@
     "isDead": false
   },
   {
-    "uid": 91,
+    "uid": 90,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11473,6 +11357,113 @@
         "properties": {
           "position": {
             "x": 5.375,
+            "y": -4.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.0,
+            "w": 0.8
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 21
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 23
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 24
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 91,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 5.625,
             "y": -4.125
           },
           "scale": {
@@ -11580,113 +11571,6 @@
         "properties": {
           "position": {
             "x": 5.625,
-            "y": -4.125
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 20
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 0.8,
-            "y": 0.8,
-            "z": 0.0,
-            "w": 0.8
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 1.0
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 21
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 22
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 23
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 24
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 93,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
-            "x": 5.625,
             "y": -4.375
           },
           "scale": {
@@ -11786,7 +11670,7 @@
     "isDead": false
   },
   {
-    "uid": 94,
+    "uid": 93,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -11893,7 +11777,7 @@
     "isDead": false
   },
   {
-    "uid": 95,
+    "uid": 94,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12000,7 +11884,7 @@
     "isDead": false
   },
   {
-    "uid": 96,
+    "uid": 95,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12107,7 +11991,7 @@
     "isDead": false
   },
   {
-    "uid": 97,
+    "uid": 96,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12214,7 +12098,7 @@
     "isDead": false
   },
   {
-    "uid": 98,
+    "uid": 97,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12321,7 +12205,7 @@
     "isDead": false
   },
   {
-    "uid": 99,
+    "uid": 98,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12428,7 +12312,7 @@
     "isDead": false
   },
   {
-    "uid": 100,
+    "uid": 99,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12535,7 +12419,7 @@
     "isDead": false
   },
   {
-    "uid": 101,
+    "uid": 100,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12642,7 +12526,7 @@
     "isDead": false
   },
   {
-    "uid": 102,
+    "uid": 101,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12749,7 +12633,7 @@
     "isDead": false
   },
   {
-    "uid": 103,
+    "uid": 102,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12856,7 +12740,7 @@
     "isDead": false
   },
   {
-    "uid": 104,
+    "uid": 103,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -12963,7 +12847,7 @@
     "isDead": false
   },
   {
-    "uid": 105,
+    "uid": 104,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13070,7 +12954,7 @@
     "isDead": false
   },
   {
-    "uid": 106,
+    "uid": 105,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13177,7 +13061,7 @@
     "isDead": false
   },
   {
-    "uid": 107,
+    "uid": 106,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13284,7 +13168,7 @@
     "isDead": false
   },
   {
-    "uid": 108,
+    "uid": 107,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13391,7 +13275,7 @@
     "isDead": false
   },
   {
-    "uid": 109,
+    "uid": 108,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13498,7 +13382,7 @@
     "isDead": false
   },
   {
-    "uid": 110,
+    "uid": 109,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13605,7 +13489,7 @@
     "isDead": false
   },
   {
-    "uid": 111,
+    "uid": 110,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13712,7 +13596,7 @@
     "isDead": false
   },
   {
-    "uid": 112,
+    "uid": 111,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13819,7 +13703,7 @@
     "isDead": false
   },
   {
-    "uid": 113,
+    "uid": 112,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -13926,7 +13810,7 @@
     "isDead": false
   },
   {
-    "uid": 114,
+    "uid": 113,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14033,7 +13917,7 @@
     "isDead": false
   },
   {
-    "uid": 115,
+    "uid": 114,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14140,7 +14024,7 @@
     "isDead": false
   },
   {
-    "uid": 116,
+    "uid": 115,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14247,7 +14131,7 @@
     "isDead": false
   },
   {
-    "uid": 117,
+    "uid": 116,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14354,7 +14238,7 @@
     "isDead": false
   },
   {
-    "uid": 118,
+    "uid": 117,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14461,7 +14345,7 @@
     "isDead": false
   },
   {
-    "uid": 119,
+    "uid": 118,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14568,7 +14452,7 @@
     "isDead": false
   },
   {
-    "uid": 120,
+    "uid": 119,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14675,7 +14559,7 @@
     "isDead": false
   },
   {
-    "uid": 121,
+    "uid": 120,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14782,7 +14666,7 @@
     "isDead": false
   },
   {
-    "uid": 122,
+    "uid": 121,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14889,7 +14773,7 @@
     "isDead": false
   },
   {
-    "uid": 123,
+    "uid": 122,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -14996,7 +14880,7 @@
     "isDead": false
   },
   {
-    "uid": 124,
+    "uid": 123,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15103,7 +14987,7 @@
     "isDead": false
   },
   {
-    "uid": 125,
+    "uid": 124,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15210,7 +15094,7 @@
     "isDead": false
   },
   {
-    "uid": 126,
+    "uid": 125,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15317,7 +15201,7 @@
     "isDead": false
   },
   {
-    "uid": 127,
+    "uid": 126,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15424,7 +15308,7 @@
     "isDead": false
   },
   {
-    "uid": 128,
+    "uid": 127,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15531,7 +15415,7 @@
     "isDead": false
   },
   {
-    "uid": 129,
+    "uid": 128,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15638,7 +15522,7 @@
     "isDead": false
   },
   {
-    "uid": 130,
+    "uid": 129,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15745,7 +15629,7 @@
     "isDead": false
   },
   {
-    "uid": 131,
+    "uid": 130,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15852,7 +15736,7 @@
     "isDead": false
   },
   {
-    "uid": 132,
+    "uid": 131,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -15959,7 +15843,7 @@
     "isDead": false
   },
   {
-    "uid": 133,
+    "uid": 132,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16066,7 +15950,7 @@
     "isDead": false
   },
   {
-    "uid": 134,
+    "uid": 133,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16173,7 +16057,7 @@
     "isDead": false
   },
   {
-    "uid": 135,
+    "uid": 134,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16280,7 +16164,7 @@
     "isDead": false
   },
   {
-    "uid": 136,
+    "uid": 135,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16387,7 +16271,7 @@
     "isDead": false
   },
   {
-    "uid": 137,
+    "uid": 136,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16494,7 +16378,7 @@
     "isDead": false
   },
   {
-    "uid": 138,
+    "uid": 137,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16601,7 +16485,7 @@
     "isDead": false
   },
   {
-    "uid": 139,
+    "uid": 138,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16822,7 +16706,7 @@
     "isDead": false
   },
   {
-    "uid": 140,
+    "uid": 139,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -16936,7 +16820,7 @@
     "isDead": false
   },
   {
-    "uid": 141,
+    "uid": 140,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17043,7 +16927,7 @@
     "isDead": false
   },
   {
-    "uid": 142,
+    "uid": 141,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17150,7 +17034,7 @@
     "isDead": false
   },
   {
-    "uid": 143,
+    "uid": 142,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17257,7 +17141,7 @@
     "isDead": false
   },
   {
-    "uid": 144,
+    "uid": 143,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17364,7 +17248,7 @@
     "isDead": false
   },
   {
-    "uid": 145,
+    "uid": 144,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17471,7 +17355,7 @@
     "isDead": false
   },
   {
-    "uid": 146,
+    "uid": 145,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17578,7 +17462,7 @@
     "isDead": false
   },
   {
-    "uid": 147,
+    "uid": 146,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17685,7 +17569,7 @@
     "isDead": false
   },
   {
-    "uid": 148,
+    "uid": 147,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17792,7 +17676,7 @@
     "isDead": false
   },
   {
-    "uid": 149,
+    "uid": 148,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -17899,7 +17783,7 @@
     "isDead": false
   },
   {
-    "uid": 150,
+    "uid": 149,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -18006,7 +17890,7 @@
     "isDead": false
   },
   {
-    "uid": 151,
+    "uid": 150,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -18113,7 +17997,7 @@
     "isDead": false
   },
   {
-    "uid": 152,
+    "uid": 151,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -18220,7 +18104,7 @@
     "isDead": false
   },
   {
-    "uid": 153,
+    "uid": 152,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -18228,6 +18112,113 @@
         "properties": {
           "position": {
             "x": 9.125,
+            "y": 0.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 21
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 23
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 24
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 153,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 9.375,
             "y": 0.375
           },
           "scale": {
@@ -18335,7 +18326,7 @@
         "properties": {
           "position": {
             "x": 9.375,
-            "y": 0.375
+            "y": 0.125
           },
           "scale": {
             "x": 0.25,
@@ -18441,7 +18432,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 9.375,
+            "x": 9.625,
             "y": 0.125
           },
           "scale": {
@@ -18548,7 +18539,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 9.625,
+            "x": 9.125,
             "y": 0.125
           },
           "scale": {
@@ -18655,7 +18646,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 9.125,
+            "x": 8.875,
             "y": 0.125
           },
           "scale": {
@@ -18762,7 +18753,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 8.875,
+            "x": 8.625,
             "y": 0.125
           },
           "scale": {
@@ -18869,7 +18860,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 8.625,
+            "x": 8.375,
             "y": 0.125
           },
           "scale": {
@@ -18976,7 +18967,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 8.375,
+            "x": 8.125,
             "y": 0.125
           },
           "scale": {
@@ -19083,7 +19074,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 8.125,
+            "x": 7.875,
             "y": 0.125
           },
           "scale": {
@@ -19190,7 +19181,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 7.875,
+            "x": 7.625,
             "y": 0.125
           },
           "scale": {
@@ -19297,7 +19288,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 7.625,
+            "x": 7.375,
             "y": 0.125
           },
           "scale": {
@@ -19404,7 +19395,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 7.375,
+            "x": 7.125,
             "y": 0.125
           },
           "scale": {
@@ -19511,7 +19502,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 7.125,
+            "x": 6.875,
             "y": 0.125
           },
           "scale": {
@@ -19618,7 +19609,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 6.875,
+            "x": 6.625,
             "y": 0.125
           },
           "scale": {
@@ -19725,7 +19716,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 6.625,
+            "x": 6.375,
             "y": 0.125
           },
           "scale": {
@@ -19832,7 +19823,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 6.375,
+            "x": 6.125,
             "y": 0.125
           },
           "scale": {
@@ -19939,8 +19930,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 6.125,
-            "y": 0.125
+            "x": 9.625,
+            "y": 0.375
           },
           "scale": {
             "x": 0.25,
@@ -20046,8 +20037,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 9.625,
-            "y": 0.375
+            "x": 12.375,
+            "y": 0.125
           },
           "scale": {
             "x": 0.25,
@@ -20153,7 +20144,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 12.375,
+            "x": 12.125,
             "y": 0.125
           },
           "scale": {
@@ -20260,7 +20251,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 12.125,
+            "x": 11.875,
             "y": 0.125
           },
           "scale": {
@@ -20367,7 +20358,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.875,
+            "x": 11.625,
             "y": 0.125
           },
           "scale": {
@@ -20474,7 +20465,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.625,
+            "x": 11.375,
             "y": 0.125
           },
           "scale": {
@@ -20581,7 +20572,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.375,
+            "x": 11.125,
             "y": 0.125
           },
           "scale": {
@@ -20688,7 +20679,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.125,
+            "x": 10.875,
             "y": 0.125
           },
           "scale": {
@@ -20795,7 +20786,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.875,
+            "x": 10.625,
             "y": 0.125
           },
           "scale": {
@@ -20902,7 +20893,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.625,
+            "x": 10.375,
             "y": 0.125
           },
           "scale": {
@@ -21009,7 +21000,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.375,
+            "x": 10.125,
             "y": 0.125
           },
           "scale": {
@@ -21116,7 +21107,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.125,
+            "x": 9.875,
             "y": 0.125
           },
           "scale": {
@@ -21223,8 +21214,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 9.875,
-            "y": 0.125
+            "x": 13.375,
+            "y": 0.375
           },
           "scale": {
             "x": 0.25,
@@ -21330,7 +21321,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 13.375,
+            "x": 9.875,
             "y": 0.375
           },
           "scale": {
@@ -21437,7 +21428,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 9.875,
+            "x": 10.125,
             "y": 0.375
           },
           "scale": {
@@ -21544,7 +21535,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.125,
+            "x": 10.375,
             "y": 0.375
           },
           "scale": {
@@ -21651,7 +21642,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.375,
+            "x": 10.625,
             "y": 0.375
           },
           "scale": {
@@ -21758,7 +21749,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.625,
+            "x": 10.875,
             "y": 0.375
           },
           "scale": {
@@ -21865,7 +21856,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 10.875,
+            "x": 11.125,
             "y": 0.375
           },
           "scale": {
@@ -21972,7 +21963,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.125,
+            "x": 11.375,
             "y": 0.375
           },
           "scale": {
@@ -22079,7 +22070,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.375,
+            "x": 11.625,
             "y": 0.375
           },
           "scale": {
@@ -22186,7 +22177,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.625,
+            "x": 11.875,
             "y": 0.375
           },
           "scale": {
@@ -22293,7 +22284,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 11.875,
+            "x": 12.125,
             "y": 0.375
           },
           "scale": {
@@ -22400,7 +22391,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 12.125,
+            "x": 12.375,
             "y": 0.375
           },
           "scale": {
@@ -22507,7 +22498,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 12.375,
+            "x": 12.625,
             "y": 0.375
           },
           "scale": {
@@ -22614,7 +22605,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 12.625,
+            "x": 12.875,
             "y": 0.375
           },
           "scale": {
@@ -22721,7 +22712,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 12.875,
+            "x": 13.125,
             "y": 0.375
           },
           "scale": {
@@ -22829,113 +22820,6 @@
         "properties": {
           "position": {
             "x": 13.125,
-            "y": 0.375
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 20
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 1.0
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 21
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 22
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 23
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 24
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 197,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
-            "x": 13.125,
             "y": 0.125
           },
           "scale": {
@@ -23035,7 +22919,7 @@
     "isDead": false
   },
   {
-    "uid": 198,
+    "uid": 197,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -23142,7 +23026,7 @@
     "isDead": false
   },
   {
-    "uid": 199,
+    "uid": 198,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -23249,7 +23133,7 @@
     "isDead": false
   },
   {
-    "uid": 200,
+    "uid": 199,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -23356,7 +23240,7 @@
     "isDead": false
   },
   {
-    "uid": 201,
+    "uid": 200,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -23364,6 +23248,113 @@
         "properties": {
           "position": {
             "x": 16.125,
+            "y": 0.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 21
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 23
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 24
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 201,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 15.875,
             "y": 0.125
           },
           "scale": {
@@ -23470,7 +23461,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.875,
+            "x": 15.625,
             "y": 0.125
           },
           "scale": {
@@ -23577,7 +23568,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.625,
+            "x": 15.375,
             "y": 0.125
           },
           "scale": {
@@ -23684,7 +23675,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.375,
+            "x": 15.125,
             "y": 0.125
           },
           "scale": {
@@ -23791,7 +23782,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.125,
+            "x": 14.875,
             "y": 0.125
           },
           "scale": {
@@ -23898,7 +23889,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.875,
+            "x": 14.625,
             "y": 0.125
           },
           "scale": {
@@ -24005,7 +23996,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.625,
+            "x": 14.375,
             "y": 0.125
           },
           "scale": {
@@ -24112,7 +24103,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
+            "x": 14.125,
             "y": 0.125
           },
           "scale": {
@@ -24219,7 +24210,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.125,
+            "x": 13.875,
             "y": 0.125
           },
           "scale": {
@@ -24326,7 +24317,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 13.875,
+            "x": 13.625,
             "y": 0.125
           },
           "scale": {
@@ -24433,8 +24424,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 13.625,
-            "y": 0.125
+            "x": 17.125,
+            "y": 0.375
           },
           "scale": {
             "x": 0.25,
@@ -24540,7 +24531,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 17.125,
+            "x": 13.625,
             "y": 0.375
           },
           "scale": {
@@ -24647,7 +24638,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 13.625,
+            "x": 13.875,
             "y": 0.375
           },
           "scale": {
@@ -24754,7 +24745,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 13.875,
+            "x": 14.125,
             "y": 0.375
           },
           "scale": {
@@ -24861,7 +24852,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.125,
+            "x": 14.375,
             "y": 0.375
           },
           "scale": {
@@ -24968,7 +24959,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
+            "x": 15.125,
             "y": 0.375
           },
           "scale": {
@@ -25075,7 +25066,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.125,
+            "x": 15.375,
             "y": 0.375
           },
           "scale": {
@@ -25182,7 +25173,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.375,
+            "x": 15.625,
             "y": 0.375
           },
           "scale": {
@@ -25289,7 +25280,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.625,
+            "x": 15.875,
             "y": 0.375
           },
           "scale": {
@@ -25396,7 +25387,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.875,
+            "x": 16.125,
             "y": 0.375
           },
           "scale": {
@@ -25503,7 +25494,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 16.125,
+            "x": 16.375,
             "y": 0.375
           },
           "scale": {
@@ -25610,7 +25601,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 16.375,
+            "x": 16.625,
             "y": 0.375
           },
           "scale": {
@@ -25717,7 +25708,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 16.625,
+            "x": 16.875,
             "y": 0.375
           },
           "scale": {
@@ -25825,113 +25816,6 @@
         "properties": {
           "position": {
             "x": 16.875,
-            "y": 0.375
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 20
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 1.0
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 21
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 22
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 23
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 24
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 225,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
-            "x": 16.875,
             "y": 0.125
           },
           "scale": {
@@ -26031,7 +25915,7 @@
     "isDead": false
   },
   {
-    "uid": 226,
+    "uid": 225,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -26138,7 +26022,7 @@
     "isDead": false
   },
   {
-    "uid": 227,
+    "uid": 226,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -26245,7 +26129,7 @@
     "isDead": false
   },
   {
-    "uid": 228,
+    "uid": 227,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -26352,7 +26236,7 @@
     "isDead": false
   },
   {
-    "uid": 229,
+    "uid": 228,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -26460,7 +26344,7 @@
     "isDead": false
   },
   {
-    "uid": 230,
+    "uid": 229,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -26469,6 +26353,114 @@
           "position": {
             "x": 13.375,
             "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 288
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/items.png",
+              "width": 112,
+              "height": 80
+            },
+            "texCoords": [
+              {
+                "x": 0.85714287,
+                "y": 0.2
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.0
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.0
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.2
+              }
+            ]
+          },
+          "uid": 289
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 290
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": -0.075,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.1,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 291
+        }
+      },
+      {
+        "type": "components.Flagpole",
+        "properties": {
+          "isTop": false,
+          "uid": 292
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 230,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 13.375,
+            "y": 1.125
           },
           "scale": {
             "x": 0.25,
@@ -26576,7 +26568,7 @@
         "properties": {
           "position": {
             "x": 13.375,
-            "y": 1.125
+            "y": 0.875
           },
           "scale": {
             "x": 0.25,
@@ -26684,7 +26676,7 @@
         "properties": {
           "position": {
             "x": 13.375,
-            "y": 0.875
+            "y": 0.625
           },
           "scale": {
             "x": 0.25,
@@ -26791,114 +26783,6 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 13.375,
-            "y": 0.625
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 288
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/items.png",
-              "width": 112,
-              "height": 80
-            },
-            "texCoords": [
-              {
-                "x": 0.85714287,
-                "y": 0.2
-              },
-              {
-                "x": 0.85714287,
-                "y": 0.0
-              },
-              {
-                "x": 0.71428573,
-                "y": 0.0
-              },
-              {
-                "x": 0.71428573,
-                "y": 0.2
-              }
-            ]
-          },
-          "uid": 289
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": true,
-          "continousCollision": false,
-          "uid": 290
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": -0.075,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.1,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 291
-        }
-      },
-      {
-        "type": "components.Flagpole",
-        "properties": {
-          "isTop": false,
-          "uid": 292
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 234,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
             "x": 14.125,
             "y": 1.125
           },
@@ -26999,7 +26883,7 @@
     "isDead": false
   },
   {
-    "uid": 235,
+    "uid": 234,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -27106,7 +26990,7 @@
     "isDead": false
   },
   {
-    "uid": 236,
+    "uid": 235,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -27213,7 +27097,7 @@
     "isDead": false
   },
   {
-    "uid": 237,
+    "uid": 236,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -27320,7 +27204,7 @@
     "isDead": false
   },
   {
-    "uid": 238,
+    "uid": 237,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -27427,7 +27311,7 @@
     "isDead": false
   },
   {
-    "uid": 239,
+    "uid": 238,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -27534,7 +27418,7 @@
     "isDead": false
   },
   {
-    "uid": 240,
+    "uid": 239,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -27634,6 +27518,113 @@
         "type": "components.Ground",
         "properties": {
           "uid": 322
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 240,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 15.125,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 324
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 325
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 326
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 327
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 328
         }
       }
     ],
@@ -27756,7 +27747,7 @@
         "properties": {
           "position": {
             "x": 15.125,
-            "y": 1.375
+            "y": 1.625
           },
           "scale": {
             "x": 0.25,
@@ -27969,7 +27960,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.125,
+            "x": 14.625,
             "y": 1.625
           },
           "scale": {
@@ -28076,7 +28067,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.625,
+            "x": 14.375,
             "y": 1.625
           },
           "scale": {
@@ -28183,7 +28174,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
+            "x": 14.125,
             "y": 1.625
           },
           "scale": {
@@ -28291,7 +28282,7 @@
         "properties": {
           "position": {
             "x": 14.125,
-            "y": 1.625
+            "y": 1.375
           },
           "scale": {
             "x": 0.25,
@@ -28397,7 +28388,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.125,
+            "x": 14.375,
             "y": 1.375
           },
           "scale": {
@@ -28504,7 +28495,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
+            "x": 14.625,
             "y": 1.375
           },
           "scale": {
@@ -28611,113 +28602,6 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.625,
-            "y": 1.375
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 324
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 1.0
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 325
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 326
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 327
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 328
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 251,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
             "x": 14.125,
             "y": 1.875
           },
@@ -28818,7 +28702,7 @@
     "isDead": false
   },
   {
-    "uid": 252,
+    "uid": 251,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -28925,7 +28809,7 @@
     "isDead": false
   },
   {
-    "uid": 253,
+    "uid": 252,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -29032,7 +28916,7 @@
     "isDead": false
   },
   {
-    "uid": 254,
+    "uid": 253,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -29139,7 +29023,7 @@
     "isDead": false
   },
   {
-    "uid": 255,
+    "uid": 254,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -29147,6 +29031,113 @@
         "properties": {
           "position": {
             "x": 15.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 330
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 331
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 332
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 333
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 334
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 255,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 15.375,
             "y": 1.875
           },
           "scale": {
@@ -29254,7 +29245,7 @@
         "properties": {
           "position": {
             "x": 15.375,
-            "y": 1.875
+            "y": 1.625
           },
           "scale": {
             "x": 0.25,
@@ -29361,7 +29352,7 @@
         "properties": {
           "position": {
             "x": 15.375,
-            "y": 1.625
+            "y": 1.375
           },
           "scale": {
             "x": 0.25,
@@ -29468,7 +29459,7 @@
         "properties": {
           "position": {
             "x": 15.375,
-            "y": 1.375
+            "y": 1.125
           },
           "scale": {
             "x": 0.25,
@@ -29574,7 +29565,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.375,
+            "x": 15.625,
             "y": 1.125
           },
           "scale": {
@@ -29681,7 +29672,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.625,
+            "x": 15.875,
             "y": 1.125
           },
           "scale": {
@@ -29788,8 +29779,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.875,
-            "y": 1.125
+            "x": 15.625,
+            "y": 1.375
           },
           "scale": {
             "x": 0.25,
@@ -29895,7 +29886,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.625,
+            "x": 15.875,
             "y": 1.375
           },
           "scale": {
@@ -30002,7 +29993,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.875,
+            "x": 16.125,
             "y": 1.375
           },
           "scale": {
@@ -30110,113 +30101,6 @@
         "properties": {
           "position": {
             "x": 16.125,
-            "y": 1.375
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 330
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 1.0
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 331
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 332
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 333
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 334
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 265,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
-            "x": 16.125,
             "y": 1.125
           },
           "scale": {
@@ -30316,7 +30200,7 @@
     "isDead": false
   },
   {
-    "uid": 266,
+    "uid": 265,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -30423,7 +30307,7 @@
     "isDead": false
   },
   {
-    "uid": 267,
+    "uid": 266,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -30431,6 +30315,113 @@
         "properties": {
           "position": {
             "x": 14.125,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 342
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.42857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.42857143,
+                "y": 0.8333333
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.8333333
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              }
+            ]
+          },
+          "uid": 343
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 344
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 345
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 346
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 267,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 14.375,
             "y": 2.125
           },
           "scale": {
@@ -30537,7 +30528,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
+            "x": 14.625,
             "y": 2.125
           },
           "scale": {
@@ -30644,8 +30635,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.625,
-            "y": 2.125
+            "x": 15.625,
+            "y": 1.625
           },
           "scale": {
             "x": 0.25,
@@ -30751,7 +30742,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.625,
+            "x": 15.875,
             "y": 1.625
           },
           "scale": {
@@ -30858,7 +30849,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.875,
+            "x": 16.125,
             "y": 1.625
           },
           "scale": {
@@ -30965,8 +30956,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 16.125,
-            "y": 1.625
+            "x": 15.375,
+            "y": 2.125
           },
           "scale": {
             "x": 0.25,
@@ -31072,8 +31063,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 15.375,
-            "y": 2.125
+            "x": 14.125,
+            "y": 0.875
           },
           "scale": {
             "x": 0.25,
@@ -31081,7 +31072,7 @@
           },
           "rotation": 0.0,
           "zIndex": 0,
-          "uid": 342
+          "uid": 367
         }
       },
       {
@@ -31103,24 +31094,24 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
                 "y": 0.9166667
               },
               {
-                "x": 0.42857143,
-                "y": 0.8333333
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.8333333
-              },
-              {
-                "x": 0.2857143,
+                "x": 0.85714287,
                 "y": 0.9166667
+              },
+              {
+                "x": 0.85714287,
+                "y": 1.0
               }
             ]
           },
-          "uid": 343
+          "uid": 368
         }
       },
       {
@@ -31140,7 +31131,7 @@
           "isSensor": false,
           "fixedRotation": false,
           "continousCollision": true,
-          "uid": 344
+          "uid": 369
         }
       },
       {
@@ -31158,13 +31149,13 @@
             "x": 0.0,
             "y": 0.0
           },
-          "uid": 345
+          "uid": 370
         }
       },
       {
         "type": "components.Ground",
         "properties": {
-          "uid": 346
+          "uid": 371
         }
       }
     ],
@@ -31179,7 +31170,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.125,
+            "x": 14.375,
             "y": 0.875
           },
           "scale": {
@@ -31286,8 +31277,8 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
-            "y": 0.875
+            "x": 14.125,
+            "y": 0.625
           },
           "scale": {
             "x": 0.25,
@@ -31393,7 +31384,7 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.125,
+            "x": 14.375,
             "y": 0.625
           },
           "scale": {
@@ -31500,113 +31491,6 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.375,
-            "y": 0.625
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 367
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.85714287,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.85714287,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 368
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 369
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 370
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 371
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 278,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
             "x": 15.125,
             "y": 0.875
           },
@@ -31707,7 +31591,7 @@
     "isDead": false
   },
   {
-    "uid": 279,
+    "uid": 278,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -31814,7 +31698,7 @@
     "isDead": false
   },
   {
-    "uid": 280,
+    "uid": 279,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -31921,7 +31805,7 @@
     "isDead": false
   },
   {
-    "uid": 281,
+    "uid": 280,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -31929,6 +31813,113 @@
         "properties": {
           "position": {
             "x": 15.875,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 367
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.85714287,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 368
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 369
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 370
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 371
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 281,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 16.125,
             "y": 0.875
           },
           "scale": {
@@ -32036,113 +32027,6 @@
         "properties": {
           "position": {
             "x": 16.125,
-            "y": 0.875
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 367
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 1.0,
-                "y": 1.0
-              },
-              {
-                "x": 1.0,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.85714287,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.85714287,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 368
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 369
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 370
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 371
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 283,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
-            "x": 16.125,
             "y": 0.625
           },
           "scale": {
@@ -32242,7 +32126,7 @@
     "isDead": false
   },
   {
-    "uid": 284,
+    "uid": 283,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -32349,7 +32233,7 @@
     "isDead": false
   },
   {
-    "uid": 285,
+    "uid": 284,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -32456,7 +32340,7 @@
     "isDead": false
   },
   {
-    "uid": 286,
+    "uid": 285,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -32563,7 +32447,7 @@
     "isDead": false
   },
   {
-    "uid": 287,
+    "uid": 286,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -32670,7 +32554,7 @@
     "isDead": false
   },
   {
-    "uid": 288,
+    "uid": 287,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -32678,6 +32562,113 @@
         "properties": {
           "position": {
             "x": 14.625,
+            "y": 0.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 404
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 1.0
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.9166667
+              },
+              {
+                "x": 0.14285715,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 405
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 406
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 407
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 408
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 288,
+    "name": "Sprite_Object_Gen",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 14.875,
             "y": 0.375
           },
           "scale": {
@@ -32784,113 +32775,6 @@
         "type": "jade.Transform",
         "properties": {
           "position": {
-            "x": 14.875,
-            "y": 0.375
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 0.0,
-          "zIndex": 0,
-          "uid": 404
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 16.0,
-            "height": 16.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
-              "width": 112,
-              "height": 192
-            },
-            "texCoords": [
-              {
-                "x": 0.2857143,
-                "y": 1.0
-              },
-              {
-                "x": 0.2857143,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 0.9166667
-              },
-              {
-                "x": 0.14285715,
-                "y": 1.0
-              }
-            ]
-          },
-          "uid": 405
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Static",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continousCollision": true,
-          "uid": 406
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 407
-        }
-      },
-      {
-        "type": "components.Ground",
-        "properties": {
-          "uid": 408
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 290,
-    "name": "Sprite_Object_Gen",
-    "components": [
-      {
-        "type": "jade.Transform",
-        "properties": {
-          "position": {
             "x": 14.625,
             "y": 0.875
           },
@@ -32991,7 +32875,7 @@
     "isDead": false
   },
   {
-    "uid": 291,
+    "uid": 290,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -33098,7 +32982,7 @@
     "isDead": false
   },
   {
-    "uid": 292,
+    "uid": 291,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -33205,7 +33089,7 @@
     "isDead": false
   },
   {
-    "uid": 293,
+    "uid": 292,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -33318,7 +33202,7 @@
     "isDead": false
   },
   {
-    "uid": 294,
+    "uid": 293,
     "name": "Sprite_Object_Gen",
     "components": [
       {
@@ -33418,6 +33302,238 @@
         "type": "components.Ground",
         "properties": {
           "uid": 426
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 294,
+    "name": "Exit1",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 3.625,
+            "y": -1.375
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 474
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 1.0
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 475
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 476
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 477
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Down",
+          "connectingPipeName": "Entrance1",
+          "isEntrance": true,
+          "uid": 478
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 479
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 295,
+    "name": "Entrance1",
+    "components": [
+      {
+        "type": "jade.Transform",
+        "properties": {
+          "position": {
+            "x": 2.625,
+            "y": 0.625
+          },
+          "scale": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 481
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.5,
+                "y": 1.0
+              },
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 482
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continousCollision": false,
+          "uid": 483
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 484
+        }
+      },
+      {
+        "type": "components.Pipe",
+        "properties": {
+          "direction": "Up",
+          "connectingPipeName": "Exit1",
+          "isEntrance": true,
+          "uid": 485
+        }
+      },
+      {
+        "type": "components.Ground",
+        "properties": {
+          "uid": 486
         }
       }
     ],
