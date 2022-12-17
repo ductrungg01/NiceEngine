@@ -352,7 +352,25 @@ public class Prefabs {
 
         return flagtop;
     }
+    public static GameObject generateFireball(Vector2f position) {
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
+        GameObject fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
 
+        fireball.transform.position = position;
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinousCollision(false);
+        fireball.addComponent(rb);
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.08f);
+        fireball.addComponent(circleCollider);
+        fireball.addComponent(new Fireball());
+
+        return fireball;
+    }
     public static GameObject generateFlagPole() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flagpole = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
