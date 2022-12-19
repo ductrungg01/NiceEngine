@@ -13,17 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertiesWindow {
+    //region Fields
     List<GameObject> activeGameObjects;
     private List<Vector4f> activeGameObjectOriginalColor;
     private GameObject activeGameObject = null;
     private PickingTexture pickingTexture;
+    //endregion
 
+    //region Contructors
     public PropertiesWindow(PickingTexture pickingTexture){
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectOriginalColor = new ArrayList<>();
     }
+    //endregion
 
+    //region Methods
     public void imgui(){
         if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null){
             activeGameObject = activeGameObjects.get(0);
@@ -100,4 +105,5 @@ public class PropertiesWindow {
     public PickingTexture getPickingTexture(){
         return this.pickingTexture;
     }
+    //endregion
 }

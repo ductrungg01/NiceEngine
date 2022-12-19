@@ -8,8 +8,11 @@ import system.Window;
 import java.util.List;
 
 public class SceneHierarchyWindow {
+    //region Fields
     private static String payloadDragDropType = "SceneHierarchy";
+    //endregion
 
+    //region Methods
     public void imgui(){
         ImGui.begin("Scene Hierarchy");
 
@@ -65,4 +68,5 @@ public class SceneHierarchyWindow {
 
         return treeNodeOpen;
     }
+    //endregion
 }

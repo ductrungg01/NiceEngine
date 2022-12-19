@@ -12,9 +12,12 @@ import org.joml.Vector2f;
 
 public class GameViewWindow {
 
+    //region Fields
     private float leftX, rightX, topY, bottomY;
     private boolean isPlaying = false;
+    //endregion
 
+    //region Methods
     public void imgui(){
         ImGui.begin("Game viewport", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse |
                 ImGuiWindowFlags.MenuBar);
@@ -80,4 +83,5 @@ public class GameViewWindow {
         return new ImVec2(viewportX + ImGui.getCursorPosX(),
                 viewportY + ImGui.getCursorPosY());
     }
+    //endregion
 }

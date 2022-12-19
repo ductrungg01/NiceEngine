@@ -9,8 +9,11 @@ import org.joml.Vector4f;
 
 public class JImGui {
 
+    //region Fields
     private static float defaultColumnWidth = 220.0f;
+    //endregion
 
+    //region Methods
     public static void drawVec2Control(String label, Vector2f values){
         drawVec2Control(label, values, 0.0f, defaultColumnWidth);
     }
@@ -152,4 +155,5 @@ public class JImGui {
 
         return text;
     }
+    //endregion
 }

@@ -7,6 +7,7 @@ import observers.events.EventType;
 
 public class MenuBar {
 
+    //region Methods
     public void imgui() {
         ImGui.beginMenuBar();
 
@@ -24,4 +25,5 @@ public class MenuBar {
 
         ImGui.endMenuBar();
     }
+    //endregion
 }
