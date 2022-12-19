@@ -8,19 +8,20 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.system.CallbackI;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public abstract class Component {
+    //region Fields
     private static int ID_COUNTER = 0;
     private int uid = -1;
     public transient GameObject gameObject = null;
-
+    //endregion
     public void start(){
 
     }
+
     public void update(float dt){
 
     }

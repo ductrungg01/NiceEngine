@@ -57,6 +57,7 @@ dependencies {
     implementation "org.joml:joml:${jomlVersion}"
 }
 
+/*
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
@@ -89,3 +90,4 @@ task fatJar(type: Jar) {
 artifacts {
     archives fatJar
 }
+*/
