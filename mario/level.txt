@@ -4,7 +4,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.125,
@@ -111,7 +111,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.125,
@@ -218,7 +218,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.125,
@@ -325,7 +325,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.125,
@@ -432,7 +432,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.125,
@@ -539,7 +539,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.375,
@@ -646,7 +646,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.625,
@@ -753,7 +753,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -860,7 +860,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.125,
@@ -967,7 +967,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.375,
@@ -1074,7 +1074,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.625,
@@ -1181,7 +1181,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.875,
@@ -1288,7 +1288,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.125,
@@ -1395,7 +1395,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.375,
@@ -1502,7 +1502,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625,
@@ -1609,7 +1609,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.875,
@@ -1716,7 +1716,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.125,
@@ -1823,7 +1823,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.375,
@@ -1930,7 +1930,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.625,
@@ -2037,7 +2037,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.875,
@@ -2144,7 +2144,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.125,
@@ -2251,7 +2251,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.375,
@@ -2358,7 +2358,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.625,
@@ -2465,7 +2465,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.875,
@@ -2572,7 +2572,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.125,
@@ -2679,7 +2679,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.375,
@@ -2786,7 +2786,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.625,
@@ -2893,7 +2893,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.625,
@@ -3000,7 +3000,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.875,
@@ -3107,7 +3107,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.375,
@@ -3214,7 +3214,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.125,
@@ -3321,7 +3321,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.875,
@@ -3428,7 +3428,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.625,
@@ -3535,7 +3535,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.375,
@@ -3642,7 +3642,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.125,
@@ -3749,7 +3749,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.875,
@@ -3856,7 +3856,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.625,
@@ -3963,7 +3963,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.375,
@@ -4070,7 +4070,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.125,
@@ -4177,7 +4177,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.875,
@@ -4284,7 +4284,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625,
@@ -4391,7 +4391,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.375,
@@ -4498,7 +4498,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.125,
@@ -4605,7 +4605,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.875,
@@ -4712,7 +4712,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.625,
@@ -4819,7 +4819,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.375,
@@ -4926,7 +4926,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.125,
@@ -5033,7 +5033,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -5140,7 +5140,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.625,
@@ -5247,7 +5247,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.375,
@@ -5354,7 +5354,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.875,
@@ -5461,7 +5461,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.875,
@@ -5568,7 +5568,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.875,
@@ -5675,7 +5675,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625,
@@ -5744,7 +5744,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.375,
@@ -5813,7 +5813,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.875,
@@ -5882,7 +5882,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.125,
@@ -5951,7 +5951,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -7315,7 +7315,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.875001,
@@ -7429,7 +7429,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.625,
@@ -7536,7 +7536,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.125,
@@ -7643,7 +7643,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.375,
@@ -7863,7 +7863,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.125001,
@@ -7897,19 +7897,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8128,7 +8128,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.375001,
@@ -8162,19 +8162,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8393,7 +8393,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625001,
@@ -8427,19 +8427,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8658,7 +8658,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.875001,
@@ -8692,19 +8692,19 @@
             },
             "texCoords": [
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 1.0
               },
               {
-                "x": 0.42857143,
+                "x": 0.14285715,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 0.8
               },
               {
-                "x": 0.2857143,
+                "x": 0.0,
                 "y": 1.0
               }
             ]
@@ -8923,7 +8923,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": -0.875,
@@ -9044,7 +9044,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -9113,7 +9113,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -9182,7 +9182,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.625,
@@ -9251,7 +9251,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.125,
@@ -9320,7 +9320,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.125,
@@ -9427,7 +9427,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.375,
@@ -9534,7 +9534,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.625,
@@ -9641,7 +9641,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -9748,7 +9748,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.125,
@@ -9855,7 +9855,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.375,
@@ -9962,7 +9962,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.625,
@@ -10069,7 +10069,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.875,
@@ -10176,7 +10176,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.125,
@@ -10283,7 +10283,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625,
@@ -10390,7 +10390,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.875,
@@ -10497,7 +10497,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.375,
@@ -10604,7 +10604,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.625,
@@ -10711,7 +10711,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.875,
@@ -10818,7 +10818,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.125,
@@ -10925,7 +10925,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.375,
@@ -11032,7 +11032,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.625,
@@ -11139,7 +11139,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.875,
@@ -11246,7 +11246,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.125,
@@ -11353,7 +11353,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.375,
@@ -11460,7 +11460,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.625,
@@ -11567,7 +11567,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.625,
@@ -11674,7 +11674,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.875,
@@ -11781,7 +11781,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.375,
@@ -11888,7 +11888,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.125,
@@ -11995,7 +11995,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.875,
@@ -12102,7 +12102,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.625,
@@ -12209,7 +12209,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.375,
@@ -12316,7 +12316,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 4.125,
@@ -12423,7 +12423,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.875,
@@ -12530,7 +12530,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.625,
@@ -12637,7 +12637,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.375,
@@ -12744,7 +12744,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.125,
@@ -12851,7 +12851,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.875,
@@ -12958,7 +12958,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625,
@@ -13065,7 +13065,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.375,
@@ -13172,7 +13172,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.125,
@@ -13279,7 +13279,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.875,
@@ -13386,7 +13386,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.625,
@@ -13493,7 +13493,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.375,
@@ -13600,7 +13600,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 1.125,
@@ -13707,7 +13707,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.875,
@@ -13814,7 +13814,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.625,
@@ -13921,7 +13921,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 0.375,
@@ -14028,7 +14028,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.875,
@@ -14135,7 +14135,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.375,
@@ -14242,7 +14242,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.125,
@@ -14349,7 +14349,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.125,
@@ -14456,7 +14456,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.875,
@@ -14563,7 +14563,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.875,
@@ -14670,7 +14670,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.625,
@@ -14777,7 +14777,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.625,
@@ -14884,7 +14884,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.375,
@@ -14991,7 +14991,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.375,
@@ -15098,7 +15098,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.125,
@@ -15205,7 +15205,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.125,
@@ -15312,7 +15312,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.875,
@@ -15419,7 +15419,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.625,
@@ -15526,7 +15526,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.375,
@@ -15633,7 +15633,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.125,
@@ -15740,7 +15740,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.875,
@@ -15847,7 +15847,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.625,
@@ -15954,7 +15954,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.375,
@@ -16061,7 +16061,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.125,
@@ -16168,7 +16168,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.875,
@@ -16275,7 +16275,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.625,
@@ -16382,7 +16382,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.375,
@@ -16489,7 +16489,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 5.125,
@@ -16710,7 +16710,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": -0.875,
@@ -16824,7 +16824,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.125,
@@ -16931,7 +16931,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.375,
@@ -17038,7 +17038,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.625,
@@ -17145,7 +17145,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.875,
@@ -17252,7 +17252,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.125,
@@ -17359,7 +17359,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.375,
@@ -17466,7 +17466,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.625,
@@ -17573,7 +17573,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.875,
@@ -17680,7 +17680,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.125,
@@ -17787,7 +17787,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.375,
@@ -17894,7 +17894,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.625,
@@ -18001,7 +18001,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.875,
@@ -18108,7 +18108,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.125,
@@ -18215,7 +18215,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.375,
@@ -18322,7 +18322,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.375,
@@ -18429,7 +18429,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.625,
@@ -18536,7 +18536,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.125,
@@ -18643,7 +18643,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.875,
@@ -18750,7 +18750,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.625,
@@ -18857,7 +18857,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.375,
@@ -18964,7 +18964,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 8.125,
@@ -19071,7 +19071,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.875,
@@ -19178,7 +19178,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.625,
@@ -19285,7 +19285,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.375,
@@ -19392,7 +19392,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 7.125,
@@ -19499,7 +19499,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.875,
@@ -19606,7 +19606,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.625,
@@ -19713,7 +19713,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.375,
@@ -19820,7 +19820,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 6.125,
@@ -19927,7 +19927,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.625,
@@ -20034,7 +20034,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.375,
@@ -20141,7 +20141,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.125,
@@ -20248,7 +20248,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.875,
@@ -20355,7 +20355,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.625,
@@ -20462,7 +20462,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.375,
@@ -20569,7 +20569,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.125,
@@ -20676,7 +20676,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.875,
@@ -20783,7 +20783,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.625,
@@ -20890,7 +20890,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.375,
@@ -20997,7 +20997,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.125,
@@ -21104,7 +21104,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.875,
@@ -21211,7 +21211,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -21318,7 +21318,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.875,
@@ -21425,7 +21425,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.125,
@@ -21532,7 +21532,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.375,
@@ -21639,7 +21639,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.625,
@@ -21746,7 +21746,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 10.875,
@@ -21853,7 +21853,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.125,
@@ -21960,7 +21960,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.375,
@@ -22067,7 +22067,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.625,
@@ -22174,7 +22174,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 11.875,
@@ -22281,7 +22281,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.125,
@@ -22388,7 +22388,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.375,
@@ -22495,7 +22495,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.625,
@@ -22602,7 +22602,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.875,
@@ -22709,7 +22709,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.125,
@@ -22816,7 +22816,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.125,
@@ -22923,7 +22923,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -23030,7 +23030,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.875,
@@ -23137,7 +23137,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 12.625,
@@ -23244,7 +23244,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -23351,7 +23351,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -23458,7 +23458,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -23565,7 +23565,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -23672,7 +23672,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -23779,7 +23779,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -23886,7 +23886,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -23993,7 +23993,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -24100,7 +24100,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -24207,7 +24207,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.875,
@@ -24314,7 +24314,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.625,
@@ -24421,7 +24421,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 17.125,
@@ -24528,7 +24528,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.625,
@@ -24635,7 +24635,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.875,
@@ -24742,7 +24742,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -24849,7 +24849,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -24956,7 +24956,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -25063,7 +25063,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -25170,7 +25170,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -25277,7 +25277,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -25384,7 +25384,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -25491,7 +25491,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.375,
@@ -25598,7 +25598,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.625,
@@ -25705,7 +25705,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.875,
@@ -25812,7 +25812,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.875,
@@ -25919,7 +25919,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 17.125,
@@ -26026,7 +26026,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.625,
@@ -26133,7 +26133,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.375,
@@ -26240,7 +26240,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -26348,7 +26348,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -26456,7 +26456,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -26564,7 +26564,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -26672,7 +26672,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 13.375,
@@ -26780,7 +26780,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -26887,7 +26887,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -26994,7 +26994,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -27101,7 +27101,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -27208,7 +27208,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -27315,7 +27315,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -27422,7 +27422,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -27529,7 +27529,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -27636,7 +27636,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -27743,7 +27743,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -27850,7 +27850,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -27957,7 +27957,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -28064,7 +28064,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -28171,7 +28171,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -28278,7 +28278,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -28385,7 +28385,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -28492,7 +28492,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -28599,7 +28599,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -28706,7 +28706,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -28813,7 +28813,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -28920,7 +28920,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -29027,7 +29027,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -29134,7 +29134,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -29241,7 +29241,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -29348,7 +29348,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -29455,7 +29455,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -29562,7 +29562,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -29669,7 +29669,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -29776,7 +29776,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -29883,7 +29883,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -29990,7 +29990,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -30097,7 +30097,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -30204,7 +30204,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -30311,7 +30311,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -30418,7 +30418,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -30525,7 +30525,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -30632,7 +30632,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -30739,7 +30739,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -30846,7 +30846,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -30953,7 +30953,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -31060,7 +31060,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -31167,7 +31167,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -31274,7 +31274,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.125,
@@ -31381,7 +31381,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.375,
@@ -31488,7 +31488,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -31595,7 +31595,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -31702,7 +31702,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -31809,7 +31809,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -31916,7 +31916,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -32023,7 +32023,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 16.125,
@@ -32130,7 +32130,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.875,
@@ -32237,7 +32237,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.625,
@@ -32344,7 +32344,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.375,
@@ -32451,7 +32451,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 15.125,
@@ -32558,7 +32558,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -32665,7 +32665,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -32772,7 +32772,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -32879,7 +32879,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -32986,7 +32986,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.875,
@@ -33093,7 +33093,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 9.125,
@@ -33206,7 +33206,7 @@
     "name": "Sprite_Object_Gen",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 14.625,
@@ -33313,7 +33313,7 @@
     "name": "Exit1",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.625,
@@ -33429,7 +33429,7 @@
     "name": "Entrance1",
     "components": [
       {
-        "type": "jade.Transform",
+        "type": "system.Transform",
         "properties": {
           "position": {
             "x": 2.625,

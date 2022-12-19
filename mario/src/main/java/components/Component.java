@@ -3,7 +3,7 @@ package components;
 import editor.JImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
-import jade.GameObject;
+import system.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;

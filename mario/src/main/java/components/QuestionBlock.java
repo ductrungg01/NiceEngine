@@ -1,10 +1,8 @@
 package components;
 
-import jade.GameObject;
-import jade.Prefabs;
-import jade.Window;
-import org.jbox2d.dynamics.contacts.Contact;
-import util.AssetPool;
+import system.GameObject;
+import system.Prefabs;
+import system.Window;
 
 public class QuestionBlock extends Block {
     private enum BlockType {

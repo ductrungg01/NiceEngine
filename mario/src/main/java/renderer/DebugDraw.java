@@ -1,7 +1,7 @@
 package renderer;
 
-import jade.Camera;
-import jade.Window;
+import system.Camera;
+import system.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import util.AssetPool;

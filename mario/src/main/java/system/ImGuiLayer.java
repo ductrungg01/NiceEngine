@@ -1,4 +1,4 @@
-package jade;
+package system;
 
 import editor.GameViewWindow;
 import editor.MenuBar;

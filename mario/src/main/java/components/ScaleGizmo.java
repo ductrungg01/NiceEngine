@@ -1,7 +1,7 @@
 package components;
 
 import editor.PropertiesWindow;
-import jade.MouseListener;
+import system.MouseListener;
 
 public class ScaleGizmo extends Gizmo{
     public ScaleGizmo(Sprite scaleSprite, PropertiesWindow propertiesWindow){

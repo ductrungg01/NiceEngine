@@ -1,9 +1,9 @@
 package components;
 
-import jade.Direction;
-import jade.GameObject;
-import jade.KeyListener;
-import jade.Window;
+import system.Direction;
+import system.GameObject;
+import system.KeyListener;
+import system.Window;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import util.AssetPool;

@@ -1,9 +1,8 @@
-package jade;
+package system;
 
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
-import observers.events.EventType;
 import org.joml.Vector4f;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -19,8 +18,6 @@ import scenes.LevelSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
-
-import java.security.Key;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;

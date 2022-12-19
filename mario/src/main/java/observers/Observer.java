@@ -1,6 +1,6 @@
 package observers;
 
-import jade.GameObject;
+import system.GameObject;
 import observers.events.Event;
 
 public interface Observer {

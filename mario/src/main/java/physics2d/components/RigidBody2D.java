@@ -1,7 +1,7 @@
 package physics2d.components;
 
 import components.Component;
-import jade.Window;
+import system.Window;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 import org.joml.Vector2f;

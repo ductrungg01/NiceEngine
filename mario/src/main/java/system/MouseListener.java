@@ -1,10 +1,8 @@
-package jade;
+package system;
 
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
-import org.joml.Vector2i;
 import org.joml.Vector4f;
-import org.lwjgl.system.CallbackI;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package jade;
+package system;
 
 import components.Component;
 import editor.JImGui;

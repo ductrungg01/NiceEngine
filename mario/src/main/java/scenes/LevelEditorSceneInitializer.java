@@ -1,10 +1,10 @@
 package scenes;
 
 import components.*;
-import jade.Direction;
+import system.Direction;
 import imgui.ImGui;
 import imgui.ImVec2;
-import jade.*;
+import system.*;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.RigidBody2D;

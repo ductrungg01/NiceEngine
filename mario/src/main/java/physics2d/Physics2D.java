@@ -1,22 +1,18 @@
 package physics2d;
 
 import components.Ground;
-import components.PlayerController;
-import jade.GameObject;
-import jade.Transform;
-import jade.Window;
+import system.GameObject;
+import system.Transform;
+import system.Window;
 import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.*;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.lwjgl.system.CallbackI;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.PillboxCollider;
 import physics2d.components.RigidBody2D;
-import renderer.DebugDraw;
 
 public class Physics2D {
     private Vec2 gravity = new Vec2(0, -10.0f);

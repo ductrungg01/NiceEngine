@@ -1,8 +1,8 @@
 package components;
 
-import jade.Camera;
-import jade.GameObject;
-import jade.Window;
+import system.Camera;
+import system.GameObject;
+import system.Window;
 import org.joml.Vector4f;
 
 public class GameCamera extends Component{

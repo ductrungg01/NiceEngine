@@ -1,7 +1,7 @@
 package physics2d;
 
 import components.Component;
-import jade.GameObject;
+import system.GameObject;
 import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;

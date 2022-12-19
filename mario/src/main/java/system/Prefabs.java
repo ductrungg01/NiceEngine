@@ -1,8 +1,7 @@
-package jade;
+package system;
 
 import components.*;
 import org.joml.Vector2f;
-import org.lwjgl.system.CallbackI;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.PillboxCollider;

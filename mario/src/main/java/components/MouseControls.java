@@ -1,10 +1,10 @@
 package components;
 
 import editor.PropertiesWindow;
-import jade.GameObject;
-import jade.KeyListener;
-import jade.MouseListener;
-import jade.Window;
+import system.GameObject;
+import system.KeyListener;
+import system.MouseListener;
+import system.Window;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector4f;

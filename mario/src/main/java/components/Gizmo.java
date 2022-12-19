@@ -1,7 +1,7 @@
 package components;
 
 import editor.PropertiesWindow;
-import jade.*;
+import system.*;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 

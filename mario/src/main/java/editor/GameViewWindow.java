@@ -2,10 +2,9 @@ package editor;
 
 import imgui.ImGui;
 import imgui.ImVec2;
-import imgui.flag.ImGuiConfigFlags;
 import imgui.flag.ImGuiWindowFlags;
-import jade.MouseListener;
-import jade.Window;
+import system.MouseListener;
+import system.Window;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
