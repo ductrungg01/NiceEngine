@@ -5,6 +5,7 @@ import system.Window;
 import org.joml.Vector2f;
 
 public class PillboxCollider extends Component {
+    //region Fields
     private transient CircleCollider topCircle = new CircleCollider();
     private transient CircleCollider bottomCircle = new CircleCollider();
     private transient Box2DCollider box = new Box2DCollider();
@@ -13,7 +14,9 @@ public class PillboxCollider extends Component {
     public float width = 0.1f;
     public float height = 0.2f;
     public Vector2f offset = new Vector2f();
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         this.topCircle.gameObject = this.gameObject;
@@ -39,7 +42,9 @@ public class PillboxCollider extends Component {
             resetFixture();
         }
     }
+    //endregion
 
+    //region Methods
     public void setWidth(float newValue){
         this.width = newValue;
         recalculateColliders();
@@ -78,7 +83,9 @@ public class PillboxCollider extends Component {
         box.setHalfSize(new Vector2f(width / 2.0f, boxHeight / 2.0f));
         box.setOffset(offset);
     }
+    //endregion
 
+    //region Properties
     public CircleCollider getTopCircle() {
         return topCircle;
     }
@@ -90,6 +97,6 @@ public class PillboxCollider extends Component {
     public Box2DCollider getBox() {
         return box;
     }
-
+    //endregion
 
 }

@@ -8,6 +8,7 @@ import org.joml.Vector2f;
 import physics2d.enums.BodyType;
 
 public class RigidBody2D extends Component {
+    //region Fields
     private Vector2f velocity = new Vector2f();
     private float angularDamping = 0.8f;
     private float linearDamping = 0.9f;
@@ -22,7 +23,9 @@ public class RigidBody2D extends Component {
     private boolean continousCollision = true;
 
     private transient Body rawBody = null;
+    //endregion
 
+    //region Override methods
     @Override
     public void update(float dt){
         if (rawBody != null) {
@@ -40,7 +43,9 @@ public class RigidBody2D extends Component {
             }
         }
     }
+    //endregion
 
+    //region Properties
     public void addVelocity(Vector2f forceToAdd){
         if (rawBody != null) {
             rawBody.applyForceToCenter(new Vec2(forceToAdd.x, forceToAdd.y));
@@ -54,9 +59,6 @@ public class RigidBody2D extends Component {
         }
     }
 
-    public Vector2f getVelocity() {
-        return velocity;
-    }
 
     public void setVelocity(Vector2f velocity) {
         this.velocity.set(velocity);
@@ -123,6 +125,10 @@ public class RigidBody2D extends Component {
     public void setLinearDamping(float linearDamping) {
         this.linearDamping = linearDamping;
     }
+    public Vector2f getVelocity() {
+        return velocity;
+    }
+
 
     public float getMass() {
         return mass;
@@ -163,4 +169,5 @@ public class RigidBody2D extends Component {
     public void setRawBody(Body rawBody) {
         this.rawBody = rawBody;
     }
+    //endregion
 }

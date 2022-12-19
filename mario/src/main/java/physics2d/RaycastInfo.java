@@ -7,6 +7,7 @@ import org.jbox2d.dynamics.Fixture;
 import org.joml.Vector2f;
 
 public class RaycastInfo implements RayCastCallback {
+    //region Fields
     public Fixture fixture;
     public Vector2f point;
     public Vector2f normal;
@@ -14,7 +15,9 @@ public class RaycastInfo implements RayCastCallback {
     public boolean hit;
     public GameObject hitObject;
     public GameObject requestingObject;
+    //endregion
 
+    //region Contructors
     public RaycastInfo(GameObject obj){
         fixture = null;
         point = new Vector2f();
@@ -24,7 +27,9 @@ public class RaycastInfo implements RayCastCallback {
         hitObject = null;
         this.requestingObject = obj;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public float reportFixture(Fixture fixture, Vec2 point, Vec2 normal, float fraction) {
         if (fixture.m_userData == requestingObject){
@@ -40,4 +45,5 @@ public class RaycastInfo implements RayCastCallback {
 
         return fraction;
     }
+    //endregion
 }

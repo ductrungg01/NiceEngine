@@ -11,6 +11,7 @@ import org.joml.Vector2f;
 
 public class JadeContactListener implements ContactListener {
 
+    //region Override methods
     @Override
     public void beginContact(Contact contact) {
         GameObject objA = (GameObject)contact.getFixtureA().getUserData();
@@ -82,4 +83,5 @@ public class JadeContactListener implements ContactListener {
             c.postSolve(objA, contact, bNormal);
         }
     }
+    //endregion
 }
