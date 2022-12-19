@@ -22,6 +22,7 @@ import java.util.Optional;
 
 public class Scene {
 
+    //region Fields
     private Renderer renderer;
     private Camera camera;
     private boolean isRunning;
@@ -29,6 +30,9 @@ public class Scene {
     private List<GameObject> pendingObjects;
     private Physics2D physics2D;
     private SceneInitializer sceneInitializer;
+    //endregion
+
+    //region Contructors
     public Scene(SceneInitializer sceneInitializer){
         this.sceneInitializer = sceneInitializer;
         this.physics2D = new Physics2D();
@@ -37,11 +41,34 @@ public class Scene {
         this.pendingObjects = new ArrayList<>();
         this.isRunning = false;
     }
+    //endregion
 
+    //region Properties
     public Physics2D getPhysics(){
         return this.physics2D;
     }
 
+    public List<GameObject> getGameObjects(){
+        return this.gameObjects;
+    }
+    public GameObject getGameObject(int gameObjectId){
+        Optional<GameObject> result = this.gameObjects.stream()
+                .filter(gameObject -> gameObject.getUid() == gameObjectId)
+                .findFirst();
+
+        return result.orElse(null);
+    }
+
+    public GameObject getGameObject(String gameObjectName){
+        Optional<GameObject> result = this.gameObjects.stream()
+                .filter(gameObject -> gameObject.name.equals(gameObjectName))
+                .findFirst();
+
+        return result.orElse(null);
+    }
+    //endregion
+
+    //region Methods
     public void init(){
         this.camera = new Camera(new Vector2f(0, 0));
         this.sceneInitializer.loadResources(this);
@@ -83,24 +110,7 @@ public class Scene {
         return null;
     }
 
-    public List<GameObject> getGameObjects(){
-        return this.gameObjects;
-    }
-    public GameObject getGameObject(int gameObjectId){
-        Optional<GameObject> result = this.gameObjects.stream()
-                .filter(gameObject -> gameObject.getUid() == gameObjectId)
-                .findFirst();
 
-        return result.orElse(null);
-    }
-
-    public GameObject getGameObject(String gameObjectName){
-        Optional<GameObject> result = this.gameObjects.stream()
-                .filter(gameObject -> gameObject.name.equals(gameObjectName))
-                .findFirst();
-
-        return result.orElse(null);
-    }
     public void editorUpdate(float dt){
         this.camera.adjustProjection();
 
@@ -234,4 +244,5 @@ public class Scene {
             Component.init(maxCompId);
         }
     }
+    //endregion
 }

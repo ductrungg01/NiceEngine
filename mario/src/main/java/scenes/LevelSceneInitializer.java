@@ -5,9 +5,13 @@ import system.*;
 import util.AssetPool;
 
 public class LevelSceneInitializer extends SceneInitializer {
+    //region Contructors
     public LevelSceneInitializer(){
 
     }
+    //endregion
+
+    //region Override methods
     @Override
     public void init(Scene scene){
         Spritesheet sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
@@ -82,4 +86,5 @@ public class LevelSceneInitializer extends SceneInitializer {
     public void imgui(){
 
     }
+    //endregion
 }

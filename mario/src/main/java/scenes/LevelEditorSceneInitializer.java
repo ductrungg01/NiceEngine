@@ -15,11 +15,18 @@ import java.io.File;
 import java.util.Collection;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
+    //region Fields
     private Spritesheet sprites;
     private GameObject levelEditorStuff;
+    //endregion
+
+    //region Contructors
     public LevelEditorSceneInitializer(){
 
     }
+    //endregion
+
+    //region Override methods
     @Override
     public void init(Scene scene){
         sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
@@ -350,4 +357,5 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         }
         ImGui.end();
     }
+    //endregion
 }
