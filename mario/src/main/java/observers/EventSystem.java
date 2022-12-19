@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventSystem {
+    //region FIelds
     private static List<Observer> observers = new ArrayList<>();
+    //endregion
 
+    //region Methods
     public static void addObserver(Observer observer){
         observers.add(observer);
     }
@@ -18,4 +21,5 @@ public class EventSystem {
             observer.onNotify(obj, event);
         }
     }
+    //endregion
 }

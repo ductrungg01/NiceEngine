@@ -1,8 +1,11 @@
 package observers.events;
 
 public class Event {
+    //region Fields
     public EventType type;
+    //endregion
 
+    //region Contructors
     public Event(EventType type){
         this.type = type;
     }
@@ -10,4 +13,5 @@ public class Event {
     public Event(){
         this.type = EventType.UserEvent;
     }
+    //endregion
 }
