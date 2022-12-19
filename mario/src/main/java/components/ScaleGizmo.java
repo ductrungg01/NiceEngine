@@ -4,9 +4,13 @@ import editor.PropertiesWindow;
 import system.MouseListener;
 
 public class ScaleGizmo extends Gizmo{
+    //region Contructors
     public ScaleGizmo(Sprite scaleSprite, PropertiesWindow propertiesWindow){
         super(scaleSprite, propertiesWindow);
     }
+    //endregion
+
+    //region Override methods
     @Override
     public void editorUpdate(float dt){
         if (activeGameObject != null){
@@ -19,4 +23,5 @@ public class ScaleGizmo extends Gizmo{
 
         super.editorUpdate(dt);
     }
+    //endregion
 }

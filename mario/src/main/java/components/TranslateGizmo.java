@@ -4,9 +4,13 @@ import editor.PropertiesWindow;
 import system.MouseListener;
 
 public class TranslateGizmo extends Gizmo{
+    //region Contructors
     public TranslateGizmo(Sprite arrowSprite, PropertiesWindow propertiesWindow){
         super(arrowSprite, propertiesWindow);
     }
+    //endregion
+
+    //region Override methods
     @Override
     public void editorUpdate(float dt){
         if (activeGameObject != null){
@@ -19,4 +23,5 @@ public class TranslateGizmo extends Gizmo{
 
         super.editorUpdate(dt);
     }
+    //endregion
 }

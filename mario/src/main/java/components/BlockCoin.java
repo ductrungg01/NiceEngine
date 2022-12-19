@@ -4,9 +4,12 @@ import org.joml.Vector2f;
 import util.AssetPool;
 
 public class BlockCoin extends Component {
+    //region Fields
     private Vector2f topY;
     private float coinSpeed = 1.4f;
+    //endregion
 
+    //region Override methods
     @Override
     public void start() {
         topY = new Vector2f(this.gameObject.transform.position.y).add(0, 0.5f);
@@ -22,4 +25,5 @@ public class BlockCoin extends Component {
             gameObject.destroy();
         }
     }
+    //endregion
 }

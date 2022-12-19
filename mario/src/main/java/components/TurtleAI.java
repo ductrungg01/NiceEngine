@@ -10,6 +10,7 @@ import physics2d.components.RigidBody2D;
 import util.AssetPool;
 
 public class TurtleAI extends Component{
+    //region Fields
     private transient boolean goingRight = false;
     private transient RigidBody2D rb;
     private transient float walkSpeed = 0.6f;
@@ -21,7 +22,9 @@ public class TurtleAI extends Component{
     private transient boolean isMoving = false;
     private transient StateMachine stateMachine;
     private float movingDebounce = 0.32f;
+    //endregion
 
+    //region Override methods
     @Override
     public void start() {
         this.stateMachine = gameObject.getComponent(StateMachine.class);
@@ -68,22 +71,6 @@ public class TurtleAI extends Component{
         }
     }
 
-    public void checkOnGround() {
-        float innerPlayerWidth = 0.25f* 0.7f;
-        float yVal = -0.2f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
-    }
-
-    public void stomp() {
-        this.isDead = true;
-        this.isMoving = false;
-        this.velocity.zero();
-        this.rb.setVelocity(new Vector2f());
-        this.rb.setAngularVelocity(0.0f);
-        this.rb.setGravityScale(0.0f);
-        this.stateMachine.trigger("SquashMe");
-        AssetPool.getSound("assets/sounds/bump.ogg").play();
-    }
     @Override
     public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
         PlayerController playerController = obj.getComponent(PlayerController.class);
@@ -126,5 +113,24 @@ public class TurtleAI extends Component{
             AssetPool.getSound("assets/sounds/kick.ogg").play();
         }
     }
+    //endregion
 
+    //region Methods
+    public void checkOnGround() {
+        float innerPlayerWidth = 0.25f* 0.7f;
+        float yVal = -0.2f;
+        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+    }
+
+    public void stomp() {
+        this.isDead = true;
+        this.isMoving = false;
+        this.velocity.zero();
+        this.rb.setVelocity(new Vector2f());
+        this.rb.setAngularVelocity(0.0f);
+        this.rb.setGravityScale(0.0f);
+        this.stateMachine.trigger("SquashMe");
+        AssetPool.getSound("assets/sounds/bump.ogg").play();
+    }
+    //endregion
 }

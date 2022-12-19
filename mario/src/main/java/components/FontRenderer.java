@@ -2,6 +2,7 @@ package components;
 
 public class FontRenderer extends Component {
 
+    //region Override methods
     @Override
     public void start(){
         if (gameObject.getComponent(SpriteRenderer.class) != null){
@@ -12,4 +13,5 @@ public class FontRenderer extends Component {
     public void update(float dt) {
 
     }
+    //endregion
 }

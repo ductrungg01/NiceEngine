@@ -18,6 +18,24 @@ public abstract class Component {
     private int uid = -1;
     public transient GameObject gameObject = null;
     //endregion
+
+    //region Properties
+    public int getUid(){
+        return this.uid;
+    }
+
+    private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType){
+        String[] enumValues = new String[enumType.getEnumConstants().length];
+        int i = 0;
+        for (T enumIntegerValue : enumType.getEnumConstants()){
+            enumValues[i] = enumIntegerValue.name();
+            i++;
+        }
+        return enumValues;
+    }
+    //endregion
+
+    //region Methods
     public void start(){
 
     }
@@ -115,16 +133,6 @@ public abstract class Component {
         }
     }
 
-    private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType){
-        String[] enumValues = new String[enumType.getEnumConstants().length];
-        int i = 0;
-        for (T enumIntegerValue : enumType.getEnumConstants()){
-            enumValues[i] = enumIntegerValue.name();
-            i++;
-        }
-        return enumValues;
-    }
-
     private int indexOf(String str, String[] arr){
         for (int i = 0; i < arr.length; i++){
             if (str.equals(arr[i])){
@@ -138,11 +146,8 @@ public abstract class Component {
 
     }
 
-    public int getUid(){
-        return this.uid;
-    }
-
     public static void init(int maxID){
         ID_COUNTER = maxID;
     }
+    //endregion
 }

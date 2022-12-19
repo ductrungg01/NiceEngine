@@ -8,6 +8,7 @@ import org.joml.Vector4f;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Gizmo extends Component{
+    //region Fields
     private Vector4f xAxisColor = new Vector4f(1, 0.3f, 0.3f , 1);
     private Vector4f xAxisColorHover = new Vector4f(1, 0, 0 , 1);
     private Vector4f yAxisColor = new Vector4f(0.3f, 1, 0.3f , 1);
@@ -30,7 +31,9 @@ public class Gizmo extends Component{
     protected boolean yAxisActive = false;
     private boolean using = false;
     private PropertiesWindow propertiesWindow;
+    //endregion
 
+    //region Contructors
     public Gizmo(Sprite arrowSprite, PropertiesWindow propertiesWindow){
         this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
         this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
@@ -44,7 +47,9 @@ public class Gizmo extends Component{
         Window.getScene().addGameObjectToScene(this.xAxisObject);
         Window.getScene().addGameObjectToScene(this.yAxisObject);
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         this.xAxisObject.transform.rotation = 90;
@@ -97,18 +102,9 @@ public class Gizmo extends Component{
             this.yAxisObject.transform.position.add(yAxisOffset);
         }
     }
+    //endregion
 
-    private void setActive(){
-        this.xAxisSprite.setColor(xAxisColor);
-        this.yAxisSprite.setColor(yAxisColor);
-    }
-
-    private void setInactive(){
-        this.activeGameObject = null;
-        this.xAxisSprite.setColor(new Vector4f(0, 0, 0,0));
-        this.yAxisSprite.setColor(new Vector4f(0, 0, 0,0));
-    }
-
+    //region Methods
     private boolean checkXHoverState(){
         Vector2f mousePos = MouseListener.getWorld();
         if (mousePos.x <= xAxisObject.transform.position.x + (gizmoHeight / 2.0f) &&
@@ -136,6 +132,19 @@ public class Gizmo extends Component{
         yAxisSprite.setColor(yAxisColor);
         return false;
     }
+    //endregion
+
+    //region Properties
+    private void setActive(){
+        this.xAxisSprite.setColor(xAxisColor);
+        this.yAxisSprite.setColor(yAxisColor);
+    }
+
+    private void setInactive(){
+        this.activeGameObject = null;
+        this.xAxisSprite.setColor(new Vector4f(0, 0, 0,0));
+        this.yAxisSprite.setColor(new Vector4f(0, 0, 0,0));
+    }
 
     public void setUsing(){
         this.using = true;
@@ -144,4 +153,6 @@ public class Gizmo extends Component{
         this.using = false;
         this.setInactive();
     }
+    //endregion
+
 }

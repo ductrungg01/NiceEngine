@@ -11,8 +11,11 @@ public class QuestionBlock extends Block {
         Invincibility
     }
 
+    //region Fields
     public BlockType blockType = BlockType.Coin;
+    //endregion
 
+    //region Override methods
     @Override
     void playerHit(PlayerController playerController) {
         switch (blockType) {
@@ -33,7 +36,9 @@ public class QuestionBlock extends Block {
             this.setInactive();
         }
     }
+    //endregion
 
+    //region Methods
     private void doCoin(PlayerController playerController) {
         GameObject coin = Prefabs.generateBlockCoin();
         coin.transform.position.set(this.gameObject.transform.position);
@@ -66,4 +71,5 @@ public class QuestionBlock extends Block {
         flower.transform.position.y += 0.25f;
         Window.getScene().addGameObjectToScene(flower);
     }
+    //endregion
 }

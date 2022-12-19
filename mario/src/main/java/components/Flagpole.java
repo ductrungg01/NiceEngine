@@ -5,12 +5,17 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 
 public class Flagpole extends Component{
+    //region Fields
     private boolean isTop = false;
+    //endregion
 
+    //region Constructors
     public Flagpole(boolean isTop){
         this.isTop = isTop;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
         PlayerController playerController = collidingObject.getComponent(PlayerController.class);
@@ -18,4 +23,5 @@ public class Flagpole extends Component{
             playerController.playWinAnimation(this.gameObject);
         }
     }
+    //endregion
 }

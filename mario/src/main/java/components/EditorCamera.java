@@ -9,6 +9,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class EditorCamera extends  Component{
 
+    //region Fields
     private float dragDebounce = 0.032f;
 
     private Camera levelEditorCamera;
@@ -17,12 +18,16 @@ public class EditorCamera extends  Component{
     private float lerpTime = 0.0f;
     private float dragSensitivity = 30.0f;
     private float scrollSensivity = 0.1f;
+    //endregion
 
+    //region Contructors
     public EditorCamera(Camera levelEditorCamera){
         this.levelEditorCamera = levelEditorCamera;
         this.clickOrigin = new Vector2f();
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void editorUpdate(float dt){
         if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE) && dragDebounce > 0){
@@ -67,4 +72,5 @@ public class EditorCamera extends  Component{
             }
         }
     }
+    //endregion
 }

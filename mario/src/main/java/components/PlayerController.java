@@ -26,6 +26,7 @@ public class PlayerController extends Component{
         Invincible
     }
 
+    //region Fields
     public float walkSpeed = 1.9f;
     public float jumpBoost = 1.0f;
     public float jumpImpulse = 3.0f;
@@ -56,7 +57,9 @@ public class PlayerController extends Component{
     private transient boolean playWinAnimation = false;
     private transient float timeToCastle = 4.5f;
     private transient float walkTime = 2.2f;
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         this.spr = gameObject.getComponent(SpriteRenderer.class);
@@ -215,46 +218,7 @@ public class PlayerController extends Component{
             stateMachine.trigger("stopJumping");
         }
     }
-    public void checkOnGround(){
-        float innerPlayerWidth = this.playerWidth * 0.6f;
-        float yVal = playerState == PlayerState.Small ? -0.14f : -0.24f;
 
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
-    }
-    public void setPosition(Vector2f newPos){
-        this.gameObject.transform.position.set(newPos);
-        this.rb.setPosition(newPos);
-    }
-    public void powerup(){
-        if (playerState == PlayerState.Small){
-            playerState = PlayerState.Big;
-            AssetPool.getSound("assets/sounds/powerup.ogg").play();
-            gameObject.transform.scale.y = 0.42f;
-            PillboxCollider pb = gameObject.getComponent(PillboxCollider.class);
-            if (pb != null){
-                jumpBoost *= bigJumpBoostFactor;
-                walkSpeed *= bigJumpBoostFactor;
-                pb.setHeight(0.63f);
-            }
-        } else if (playerState == PlayerState.Big){
-            playerState = PlayerState.Fire;
-            AssetPool.getSound("assets/sounds/powerup.ogg").play();
-        }
-
-        stateMachine.trigger("powerup");
-    }
-    public void playWinAnimation(GameObject flagpole){
-        if (!playWinAnimation){
-            playWinAnimation = true;
-            velocity.set(0.0f, 0.0f);
-            acceleration.set(0.0f, 0.0f);
-            rb.setVelocity(velocity);
-            rb.setIsSensor();
-            rb.setBodyType(BodyType.Static);
-            gameObject.transform.position.x = flagpole.transform.position.x;
-            AssetPool.getSound("assets/sounds/flagpose.ogg");
-        }
-    }
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
         if (isDead) return;
@@ -269,6 +233,9 @@ public class PlayerController extends Component{
             }
         }
     }
+    //endregion
+
+    //region Properties
     public boolean isSmall() {
         return this.playerState == PlayerState.Small;
     }
@@ -281,6 +248,11 @@ public class PlayerController extends Component{
     public boolean isHurtInvincible(){
         return this.hurtInvincibilityTimeLeft > 0;
     }
+    public void setPosition(Vector2f newPos){
+        this.gameObject.transform.position.set(newPos);
+        this.rb.setPosition(newPos);
+    }
+
     public void die(){
         this.stateMachine.trigger("die");
         if (this.playerState == PlayerState.Small) {
@@ -320,4 +292,45 @@ public class PlayerController extends Component{
     public boolean hasWon(){
         return false;
     }
+    //endregion
+
+    //region Methods
+    public void checkOnGround(){
+        float innerPlayerWidth = this.playerWidth * 0.6f;
+        float yVal = playerState == PlayerState.Small ? -0.14f : -0.24f;
+
+        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+    }
+    public void powerup(){
+        if (playerState == PlayerState.Small){
+            playerState = PlayerState.Big;
+            AssetPool.getSound("assets/sounds/powerup.ogg").play();
+            gameObject.transform.scale.y = 0.42f;
+            PillboxCollider pb = gameObject.getComponent(PillboxCollider.class);
+            if (pb != null){
+                jumpBoost *= bigJumpBoostFactor;
+                walkSpeed *= bigJumpBoostFactor;
+                pb.setHeight(0.63f);
+            }
+        } else if (playerState == PlayerState.Big){
+            playerState = PlayerState.Fire;
+            AssetPool.getSound("assets/sounds/powerup.ogg").play();
+        }
+
+        stateMachine.trigger("powerup");
+    }
+    public void playWinAnimation(GameObject flagpole){
+        if (!playWinAnimation){
+            playWinAnimation = true;
+            velocity.set(0.0f, 0.0f);
+            acceleration.set(0.0f, 0.0f);
+            rb.setVelocity(velocity);
+            rb.setIsSensor();
+            rb.setBodyType(BodyType.Static);
+            gameObject.transform.position.x = flagpole.transform.position.x;
+            AssetPool.getSound("assets/sounds/flagpose.ogg");
+        }
+    }
+    //endregion
+
 }

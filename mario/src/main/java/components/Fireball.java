@@ -8,6 +8,7 @@ import physics2d.Physics2D;
 import physics2d.components.RigidBody2D;
 
 public class Fireball extends Component{
+    //region Fields
     public transient boolean goingRight = false;
     private transient RigidBody2D rb;
     private transient float fireballSpeed = 1.7f;
@@ -21,7 +22,9 @@ public class Fireball extends Component{
     public static boolean canSpawn(){
         return fireballCount < 4;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         this.rb = this.gameObject.getComponent(RigidBody2D.class);
@@ -51,12 +54,6 @@ public class Fireball extends Component{
         this.rb.setVelocity(velocity);
     }
 
-    public void checkOnGround(){
-        float innerPlayerWidth = 0.25f * 0.7f;
-        float yVal = -0.09f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
-    }
-
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal){
         if (Math.abs(contactNormal.x ) > 0.8f){
@@ -67,13 +64,22 @@ public class Fireball extends Component{
     @Override
     public void preSolve(GameObject obj, Contact contact, Vector2f contactNormal){
         if (obj.getComponent(PlayerController.class) != null
-            || obj.getComponent(Fireball.class) != null){
+                || obj.getComponent(Fireball.class) != null){
             contact.setEnabled(false);
         }
+    }
+    //endregion
+
+    //region Methods
+    public void checkOnGround(){
+        float innerPlayerWidth = 0.25f * 0.7f;
+        float yVal = -0.09f;
+        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }
 
     public void disappear(){
         fireballCount--;
         this.gameObject.destroy();
     }
+    //endregion
 }

@@ -12,9 +12,12 @@ import java.util.List;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class KeyControls extends Component{
+    //region Fields
     private float debounceTime = 0.2f;
     private float debounce = 0;
+    //endregion
 
+    //region Override methods
     @Override
     public void editorUpdate(float dt){
         debounce -= dt;
@@ -85,4 +88,5 @@ public class KeyControls extends Component{
             }
         }
     }
+    //endregion
 }

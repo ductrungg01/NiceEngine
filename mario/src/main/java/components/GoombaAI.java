@@ -11,6 +11,7 @@ import util.AssetPool;
 
 public class GoombaAI extends Component {
 
+    //region Fields
     private transient boolean goingRight = false;
     private transient RigidBody2D rb;
     private transient float walkSpeed = 0.6f;
@@ -21,7 +22,9 @@ public class GoombaAI extends Component {
     private transient boolean isDead = false;
     private transient float timeToKill = 0.5f;
     private transient StateMachine stateMachine;
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         this.stateMachine = gameObject.getComponent(StateMachine.class);
@@ -66,12 +69,6 @@ public class GoombaAI extends Component {
         this.rb.setVelocity(velocity);
     }
 
-    public void checkOnGround(){
-        float innerPlayerWidth = 0.25f * 0.7f;
-        float yVal = -0.14f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
-    }
-
     @Override
     public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal){
         if (isDead){
@@ -96,7 +93,9 @@ public class GoombaAI extends Component {
             obj.getComponent(Fireball.class).disappear();
         }
     }
+    //endregion
 
+    //region Methods
     public void stomp(){
         stomp(true);
     }
@@ -113,4 +112,11 @@ public class GoombaAI extends Component {
             AssetPool.getSound("assets/sounds/bump.ogg").play();
         }
     }
+
+    public void checkOnGround(){
+        float innerPlayerWidth = 0.25f * 0.7f;
+        float yVal = -0.14f;
+        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+    }
+    //endregion
 }

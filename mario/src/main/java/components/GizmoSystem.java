@@ -6,13 +6,18 @@ import system.Window;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class GizmoSystem extends Component{
+    //region Fields
     private Spritesheet gizmos;
     private int usingGizmo = 0;
+    //endregion
 
+    //region Contructors
     public GizmoSystem(Spritesheet gizmoSprites){
         this.gizmos =gizmoSprites;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         gameObject.addComponent(new TranslateGizmo(gizmos.getSprite(1),
@@ -37,4 +42,5 @@ public class GizmoSystem extends Component{
             usingGizmo = 1;
         }
     }
+    //endregion
 }

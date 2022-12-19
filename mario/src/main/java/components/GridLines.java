@@ -8,6 +8,7 @@ import renderer.DebugDraw;
 import util.Settings;
 
 public class GridLines extends Component{
+    //region Override methods
     @Override
     public void editorUpdate(float dt){
         Camera camera = Window.getScene().camera();
@@ -39,4 +40,5 @@ public class GridLines extends Component{
             }
         }
     }
+    //endregion
 }

@@ -6,6 +6,7 @@ import org.joml.Vector2f;
 import util.AssetPool;
 
 public abstract class Block extends Component {
+    //region Fields
     private transient boolean bopGoingUp = true;
     private transient boolean doBopAnimation = false;
     private transient Vector2f bopStart;
@@ -13,7 +14,15 @@ public abstract class Block extends Component {
     private transient boolean active = true;
 
     public float bopSpeed = 0.4f;
+    //endregion
 
+    //region Properties
+    public void setInactive() {
+        this.active = false;
+    }
+    //endregion
+
+    //region Override methods
     @Override
     public void start() {
         this.bopStart = new Vector2f(this.gameObject.transform.position);
@@ -51,10 +60,9 @@ public abstract class Block extends Component {
             playerHit(playerController);
         }
     }
+    //endregion
 
-    public void setInactive() {
-        this.active = false;
-    }
-
+    //region Methods
     abstract void playerHit(PlayerController playerController);
+    //endregion
 }

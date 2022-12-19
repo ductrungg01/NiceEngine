@@ -20,6 +20,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component{
+    //region Fields
     GameObject holdingObject = null;
     private float debounceTime = 0.2f;
     private float debounce = debounceTime;
@@ -27,27 +28,9 @@ public class MouseControls extends Component{
     private boolean boxSelectSet = false;
     private Vector2f boxSelectStart = new Vector2f();
     private Vector2f boxSelectEnd = new Vector2f();
+    //endregion
 
-    public void pickupObject(GameObject go){
-        if (this.holdingObject != null){
-            this.holdingObject.destroy();
-        }
-        this.holdingObject = go;
-        this.holdingObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f,0.5f));
-        this.holdingObject.addComponent(new NonPickable());
-        Window.getScene().addGameObjectToScene(go);
-    }
-
-    public void place(){
-        GameObject newObj = this.holdingObject.copy();
-        if (newObj.getComponent(StateMachine.class) != null){
-            newObj.getComponent(StateMachine.class).refreshTextures();
-        }
-        newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1,1,1,1));
-        newObj.removeComponent(NonPickable.class);
-        Window.getScene().addGameObjectToScene(newObj);
-    }
-
+    //region Override methods
     @Override
     public void editorUpdate(float dt){
         debounce -= dt;
@@ -64,8 +47,8 @@ public class MouseControls extends Component{
                 float halfWidth = Settings.GRID_WIDTH / 2.0f;
                 float halfHeight = Settings.GRID_HEIGHT / 2.0f;
                 if (MouseListener.isDragging() &&
-                    !blockInSquare(holdingObject.transform.position.x - halfWidth,
-                            holdingObject.transform.position.y - halfHeight)) {
+                        !blockInSquare(holdingObject.transform.position.x - halfWidth,
+                                holdingObject.transform.position.y - halfHeight)) {
                     place();
                 } else if (!MouseListener.isDragging() && debounce < 0){
                     place();
@@ -144,6 +127,28 @@ public class MouseControls extends Component{
             }
         }
     }
+    //endregion
+
+    //region Methods
+    public void pickupObject(GameObject go){
+        if (this.holdingObject != null){
+            this.holdingObject.destroy();
+        }
+        this.holdingObject = go;
+        this.holdingObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f,0.5f));
+        this.holdingObject.addComponent(new NonPickable());
+        Window.getScene().addGameObjectToScene(go);
+    }
+
+    public void place(){
+        GameObject newObj = this.holdingObject.copy();
+        if (newObj.getComponent(StateMachine.class) != null){
+            newObj.getComponent(StateMachine.class).refreshTextures();
+        }
+        newObj.getComponent(SpriteRenderer.class).setColor(new Vector4f(1,1,1,1));
+        newObj.removeComponent(NonPickable.class);
+        Window.getScene().addGameObjectToScene(newObj);
+    }
 
     private boolean blockInSquare(float x, float y){
         PropertiesWindow propertiesWindow = Window.getImguiLayer().getPropertiesWindow();
@@ -166,4 +171,5 @@ public class MouseControls extends Component{
 
         return false;
     }
+    //endregion
 }

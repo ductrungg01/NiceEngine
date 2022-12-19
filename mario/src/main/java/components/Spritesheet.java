@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Spritesheet {
+    //region Fields
     private Texture texture;
     private List<Sprite> sprites;
+    //endregion
 
+    //region Contructors
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int numSprites, int spacing){
         this.sprites = new ArrayList<>();
 
@@ -44,7 +47,9 @@ public class Spritesheet {
             }
         }
     }
+    //endregion
 
+    //region Properties
     public Sprite getSprite(int index){
         return this.sprites.get(index);
     }
@@ -52,4 +57,5 @@ public class Spritesheet {
     public int size() {
         return this.sprites.size();
     }
+    //endregion
 }

@@ -34,11 +34,14 @@ public class StateMachine extends Component{
         }
     }
 
+    //region Fields
     public HashMap<StateTrigger, String> stateTransfers = new HashMap<>();
     private List<AnimationState> states = new ArrayList<>();
     private transient AnimationState currentState = null;
     private String defaultStateTitle = "";
+    //endregion
 
+    //region Methods
     public void refreshTextures(){
         for (AnimationState state : states){
             state.refreshTextures();
@@ -96,7 +99,9 @@ public class StateMachine extends Component{
 
         return -1;
     }
+    //endregion
 
+    //region Override Methods
     @Override
     public void start(){
         for (AnimationState state : states){
@@ -150,4 +155,5 @@ public class StateMachine extends Component{
             }
         }
     }
+    //endregion
 }

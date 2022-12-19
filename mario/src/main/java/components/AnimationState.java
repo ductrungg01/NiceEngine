@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimationState {
+    //region Fields
     public String title;
     public List<Frame> animationFrames = new ArrayList<>();
 
@@ -13,7 +14,15 @@ public class AnimationState {
     private transient float timeTracker = 0.0f;
     private transient int currentSprite = 0;
     public boolean doesLoop = false;
+    //endregion
 
+    //region Properties
+    public void setLoop(boolean doesLoop){
+        this.doesLoop = doesLoop;
+    }
+    //endregion
+
+    //region Methods
     public void refreshTextures(){
         for (Frame frame : animationFrames){
             frame.sprite.setTexture(AssetPool.getTexture(frame.sprite.getTexture().getFilePath()));
@@ -22,10 +31,6 @@ public class AnimationState {
 
     public void addFrame(Sprite sprite, float frameTime){
         animationFrames.add(new Frame(sprite, frameTime));
-    }
-
-    public void setLoop(boolean doesLoop){
-        this.doesLoop = doesLoop;
     }
 
     public void update(float dt){
@@ -46,4 +51,5 @@ public class AnimationState {
         }
         return defaultSprite;
     }
+    //endregion
 }

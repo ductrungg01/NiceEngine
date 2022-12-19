@@ -4,6 +4,7 @@ import org.joml.Vector2f;
 import renderer.Texture;
 
 public class Sprite {
+    //region Fields
     private float width, height;
 
     private Texture texture = null;
@@ -13,7 +14,9 @@ public class Sprite {
                 new Vector2f(0, 0),
                 new Vector2f(0, 1)
         };
+    //endregion
 
+    //region Properties
     public Texture getTexture(){
         return this.texture;
     }
@@ -48,4 +51,5 @@ public class Sprite {
     public int getTexId(){
         return texture == null ? -1 : texture.getId();
     }
+    //endregion
 }

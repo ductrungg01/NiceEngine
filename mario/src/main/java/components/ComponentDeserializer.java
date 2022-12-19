@@ -7,6 +7,7 @@ import java.lang.reflect.Type;
 
 public class ComponentDeserializer implements JsonSerializer<Component>,
         JsonDeserializer<Component> {
+    //region Override methods
     @Override
     public Component deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
@@ -27,4 +28,5 @@ public class ComponentDeserializer implements JsonSerializer<Component>,
         result.add("properties", context.serialize(src, src.getClass()));
         return result;
     }
+    //endregion
 }

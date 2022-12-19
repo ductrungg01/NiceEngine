@@ -3,6 +3,7 @@ package components;
 import util.AssetPool;
 
 public class BreakableBrick extends Block {
+    //region Override methods
     @Override
     void playerHit(PlayerController playerController) {
         if (playerController.isSmall()) {
@@ -12,4 +13,5 @@ public class BreakableBrick extends Block {
             gameObject.destroy();
         }
     }
+    //endregion
 }

@@ -12,17 +12,22 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Pipe extends Component{
 
+    //region Fields
     private Direction direction;
     private String connectingPipeName = "";
     private boolean isEntrance = false;
     private transient GameObject connectingPipe = null;
     private transient float entranceVectorTolerance = 0.6f;
     private transient PlayerController collidingPlayer = null;
+    //endregion
 
+    //region Contructors
     public Pipe(Direction direction){
         this.direction = direction;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         connectingPipe = Window.getScene().getGameObject(connectingPipeName);
@@ -80,23 +85,41 @@ public class Pipe extends Component{
         }
     }
 
+    @Override
+    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
+        PlayerController playerController = collidingObject.getComponent(PlayerController.class);
+        if (playerController != null) {
+            collidingPlayer = playerController;
+        }
+    }
+
+    @Override
+    public void endCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
+        PlayerController playerController = collidingObject.getComponent(PlayerController.class);
+        if (playerController != null) {
+            collidingPlayer = null;
+        }
+    }
+    //endregion
+
+    //region Methods
     public boolean playerAtEntrance(){
         if (collidingPlayer == null){
             return false;
         }
 
         Vector2f min = new Vector2f(gameObject.transform.position)
-                            .sub(new Vector2f(gameObject.transform.scale)
-                            .mul(0.5f));
+                .sub(new Vector2f(gameObject.transform.scale)
+                        .mul(0.5f));
         Vector2f max = new Vector2f(gameObject.transform.position)
                 .add(new Vector2f(gameObject.transform.scale)
-                .mul(0.5f));
+                        .mul(0.5f));
         Vector2f playerMin = new Vector2f(collidingPlayer.gameObject.transform.position)
                 .sub(new Vector2f(collidingPlayer.gameObject.transform.scale)
-                .mul(0.5f));
+                        .mul(0.5f));
         Vector2f playerMax = new Vector2f(collidingPlayer.gameObject.transform.position)
                 .add(new Vector2f(collidingPlayer.gameObject.transform.scale)
-                .mul(0.5f));
+                        .mul(0.5f));
 
         switch (direction){
             case Up:
@@ -119,23 +142,9 @@ public class Pipe extends Component{
 
         return false;
     }
+    //endregion
 
-    @Override
-    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
-        PlayerController playerController = collidingObject.getComponent(PlayerController.class);
-        if (playerController != null) {
-            collidingPlayer = playerController;
-        }
-    }
-
-    @Override
-    public void endCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
-        PlayerController playerController = collidingObject.getComponent(PlayerController.class);
-        if (playerController != null) {
-            collidingPlayer = null;
-        }
-    }
-
+    //region Properties
     private Vector2f getPlayerPosition(GameObject pipe){
         Pipe pipeComponent = pipe.getComponent(Pipe.class);
         switch (pipeComponent.direction){
@@ -150,4 +159,5 @@ public class Pipe extends Component{
         }
         return new Vector2f();
     }
+    //endregion
 }

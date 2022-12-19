@@ -7,8 +7,11 @@ import physics2d.components.RigidBody2D;
 import util.AssetPool;
 
 public class Flower extends Component{
+    //region Fields
     private transient RigidBody2D rb;
+    //endregion
 
+    //region Override methods
     @Override
     public void start(){
         this.rb = gameObject.getComponent(RigidBody2D.class);
@@ -24,4 +27,5 @@ public class Flower extends Component{
             this.gameObject.destroy();
         }
     }
+    //endregion
 }
