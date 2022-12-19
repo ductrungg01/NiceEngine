@@ -222,7 +222,7 @@ public class Window implements Observer {
         Window.changeScene(new LevelEditorSceneInitializer());
     }
     //endregion
-    
+
     //region Properties
     public static Window get(){
         if (Window.window == null){

@@ -11,11 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AssetPool {
+    //region Fields
     private static Map<String, Shader> shaders = new HashMap<>();
     private static Map<String, Texture> textures = new HashMap<>();
     private static Map<String, Spritesheet> spritesheets = new HashMap<>();
     private static Map<String, Sound> sounds = new HashMap<>();
+    //endregion
 
+    //region Properties
     public static Shader getShader(String resourceName){
         File file = new File(resourceName);
         if (AssetPool.shaders.containsKey(file.getAbsolutePath())){
@@ -40,12 +43,6 @@ public class AssetPool {
         }
     }
 
-    public static void addSpritesheet(String resourceName, Spritesheet spritesheet){
-        File file = new File(resourceName);
-        if (!AssetPool.spritesheets.containsKey(file.getAbsolutePath())){
-            AssetPool.spritesheets.put(file.getAbsolutePath(), spritesheet);
-        }
-    }
 
     public static Spritesheet getSpritesheet(String resourceName){
         File file = new File(resourceName);
@@ -70,6 +67,9 @@ public class AssetPool {
 
         return null;
     }
+    //endregion
+
+    //region Methods
     public static Sound addSound(String soundFile, boolean loops){
         File file = new File(soundFile);
         if (sounds.containsKey(file.getAbsolutePath())){
@@ -81,4 +81,13 @@ public class AssetPool {
             return sound;
         }
     }
+
+    public static void addSpritesheet(String resourceName, Spritesheet spritesheet){
+        File file = new File(resourceName);
+        if (!AssetPool.spritesheets.containsKey(file.getAbsolutePath())){
+            AssetPool.spritesheets.put(file.getAbsolutePath(), spritesheet);
+        }
+    }
+    //endregion
+
 }

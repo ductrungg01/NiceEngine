@@ -4,6 +4,7 @@ import org.joml.Vector2f;
 
 public class JMath {
 
+    //region Methods
     public static void rotate(Vector2f vec, float angleDeg, Vector2f origin) {
         float x = vec.x - origin.x;
         float y = vec.y - origin.y;
@@ -36,4 +37,5 @@ public class JMath {
     public static boolean compare(Vector2f vec1, Vector2f vec2) {
         return compare(vec1.x, vec2.x) && compare(vec1.y, vec2.y);
     }
+    //endregion
 }
