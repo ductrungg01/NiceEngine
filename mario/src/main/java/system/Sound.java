@@ -9,12 +9,15 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.libc.LibCStdlib.free;
 
 public class Sound {
+    //region Fields
     private int bufferId;
     private int sourceId;
     private String filepath;
 
     private boolean isPlaying = false;
+    //endregion
 
+    //region Contructors
     public Sound(String filepath, boolean loops){
         this.filepath = filepath;
 
@@ -61,7 +64,9 @@ public class Sound {
         // Free stb raw audio buffer
         free(rawAudioBuffer);
     }
+    //endregion
 
+    //region Methods
     public void delete(){
         alDeleteSources(sourceId);
         alDeleteBuffers(bufferId);
@@ -86,7 +91,9 @@ public class Sound {
             isPlaying = false;
         }
     }
+    //endregion
 
+    //region Properties
     public String getFilepath(){
         return this.filepath;
     }
@@ -99,4 +106,5 @@ public class Sound {
 
         return isPlaying;
     }
+    //endregion
 }

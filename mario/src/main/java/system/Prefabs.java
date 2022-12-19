@@ -10,6 +10,7 @@ import physics2d.enums.BodyType;
 import util.AssetPool;
 
 public class Prefabs {
+    //region Methods
     public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY){
         GameObject block = Window.getScene().createGameObject("Sprite_Object_Gen");
         block.transform.scale.x = sizeX;
@@ -20,6 +21,9 @@ public class Prefabs {
 
         return block;
     }
+    //endregion
+
+    //region user custom prefabs
     public static GameObject generateMario(){
         Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
         Spritesheet bigPlayerSprites = AssetPool.getSpritesheet("assets/images/bigSpritesheet.png");
@@ -446,4 +450,5 @@ public class Prefabs {
 
         return pipe;
     }
+    //endregion
 }

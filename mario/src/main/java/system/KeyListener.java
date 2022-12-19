@@ -6,14 +6,19 @@ import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
 
 public class KeyListener {
+    //region Fields
     private static KeyListener instance;
     private boolean keyPressed[] = new boolean[350];
     private boolean keyBeginPress[] = new boolean[350];
+    //endregion
 
+    //region Contructors
     private KeyListener(){
 
     }
+    //endregion
 
+    //region Methods
     public static void endframe(){
         Arrays.fill(get().keyBeginPress, false);
     }
@@ -47,4 +52,5 @@ public class KeyListener {
     public static boolean keyBeginPress(int keyCode){
         return get().keyBeginPress[keyCode];
     }
+    //endregion
 }

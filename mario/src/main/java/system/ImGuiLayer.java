@@ -20,6 +20,7 @@ import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER;
 import static org.lwjgl.opengl.GL30.glBindFramebuffer;
 
 public class ImGuiLayer {
+    //region Fields
     private long glfwWindow;
 
     // LWJGL3 renderer (SHOULD be initialized)
@@ -30,8 +31,9 @@ public class ImGuiLayer {
     private PropertiesWindow propertiesWindow;
     private MenuBar menuBar;
     private SceneHierarchyWindow sceneHierarchyWindow;
+    //endregion
 
-
+    //region Contructors
     public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture){
         this.glfwWindow = glfwWindow;
         this.gameViewWindow = new GameViewWindow();
@@ -39,11 +41,10 @@ public class ImGuiLayer {
         this.menuBar = new MenuBar();
         this.sceneHierarchyWindow = new SceneHierarchyWindow();
     }
+    //endregion
 
-    public GameViewWindow getGameViewWindow(){
-        return this.gameViewWindow;
-    }
 
+    //region Methods
     // Initialize Dear ImGui
     public void initImGui(){
         // IMPORTANT!
@@ -196,7 +197,6 @@ public class ImGuiLayer {
         glfwMakeContextCurrent(backupWindowPtr);
     }
 
-    // If you want to clean a room after yourself - do it by myself
     private void destroyImGui(){
         imGuiGl3.dispose();
         ImGui.destroyContext();
@@ -228,8 +228,15 @@ public class ImGuiLayer {
 
         ImGui.end();
     }
+    //endregion
 
+    //region Properties
     public PropertiesWindow getPropertiesWindow() {
         return propertiesWindow;
     }
+    public GameViewWindow getGameViewWindow(){
+        return this.gameViewWindow;
+    }
+    //endregion
+
 }

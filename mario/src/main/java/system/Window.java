@@ -27,6 +27,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window implements Observer {
+    //region Fields
     private int width, height;
     private String title;
     private long glfwWindow;
@@ -40,7 +41,9 @@ public class Window implements Observer {
     private long audioDevice;
 
     private static Scene currentScene;
+    //endregion
 
+    //region Contructors
     private Window(){
         this.width = 3840;
         this.height = 2160;
@@ -49,7 +52,9 @@ public class Window implements Observer {
         this.title = "Jade";
         EventSystem.addObserver(this);
     }
+    //endregion
 
+    //region Methods
     public static void changeScene(SceneInitializer sceneInitializer){
         if (currentScene != null){
             currentScene.destroy();
@@ -61,19 +66,67 @@ public class Window implements Observer {
         currentScene.init();
         currentScene.start();
     }
+    public void loop(){
+        float beginTime = (float)glfwGetTime();
+        float endTime;
+        float dt = -1.0f;
 
-    public static Window get(){
-        if (Window.window == null){
-            Window.window = new Window();
+        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
+        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
+
+        while (!glfwWindowShouldClose(glfwWindow)){
+            // Poll events
+            glfwPollEvents();
+
+            // Render pass 1.  Render to picking texture
+            glDisable(GL_BLEND);
+            pickingTexture.enableWriting();
+
+            glViewport(0, 0, 1920, 1080);
+
+
+            glClearColor(0, 0, 0 ,0);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            Renderer.bindShader(pickingShader);
+            currentScene.render();
+
+            pickingTexture.disableWriting();
+            glEnable(GL_BLEND);
+
+            // Render pass 2. Render actual game
+            DebugDraw.beginFrame();
+
+            this.framebuffer.bind();
+            Vector4f clearColor = currentScene.camera().clearColor;
+            glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
+            glClear(GL_COLOR_BUFFER_BIT);
+
+
+            if (dt >= 0){
+
+                Renderer.bindShader(defaultShader);
+                if (runtimePlaying) {
+                    currentScene.update(dt);
+                } else {
+                    currentScene.editorUpdate(dt);
+                }
+                DebugDraw.draw();
+                currentScene.render();
+            }
+            this.framebuffer.unbind();
+
+            this.imGuiLayer.update(dt, currentScene);
+
+            KeyListener.endframe();
+            MouseListener.endFrame();
+            glfwSwapBuffers(glfwWindow);
+            MouseListener.endFrame();
+
+            endTime = (float)glfwGetTime();
+            dt = endTime - beginTime;
+            beginTime = endTime;
         }
-
-        return Window.window;
-    }
-
-    public static Physics2D getPhysics() {return currentScene.getPhysics();}
-
-    public static Scene getScene(){
-        return currentScene;
     }
     public void run(){
         System.out.println("Hello LWJGL " + Version.getVersion() + "!");
@@ -168,6 +221,22 @@ public class Window implements Observer {
 
         Window.changeScene(new LevelEditorSceneInitializer());
     }
+    //endregion
+    
+    //region Properties
+    public static Window get(){
+        if (Window.window == null){
+            Window.window = new Window();
+        }
+
+        return Window.window;
+    }
+
+    public static Physics2D getPhysics() {return currentScene.getPhysics();}
+
+    public static Scene getScene(){
+        return currentScene;
+    }
 
     private static void setHeight(int newHeight) {
         get().height = newHeight;
@@ -177,68 +246,6 @@ public class Window implements Observer {
         get().width = newWidth;
     }
 
-    public void loop(){
-        float beginTime = (float)glfwGetTime();
-        float endTime;
-        float dt = -1.0f;
-
-        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
-        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
-
-        while (!glfwWindowShouldClose(glfwWindow)){
-            // Poll events
-            glfwPollEvents();
-
-            // Render pass 1.  Render to picking texture
-            glDisable(GL_BLEND);
-            pickingTexture.enableWriting();
-
-            glViewport(0, 0, 1920, 1080);
-
-
-            glClearColor(0, 0, 0 ,0);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-            Renderer.bindShader(pickingShader);
-            currentScene.render();
-
-            pickingTexture.disableWriting();
-            glEnable(GL_BLEND);
-
-            // Render pass 2. Render actual game
-            DebugDraw.beginFrame();
-
-            this.framebuffer.bind();
-            Vector4f clearColor = currentScene.camera().clearColor;
-            glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
-            glClear(GL_COLOR_BUFFER_BIT);
-
-
-            if (dt >= 0){
-
-                Renderer.bindShader(defaultShader);
-                if (runtimePlaying) {
-                    currentScene.update(dt);
-                } else {
-                    currentScene.editorUpdate(dt);
-                }
-                DebugDraw.draw();
-                currentScene.render();
-            }
-            this.framebuffer.unbind();
-
-            this.imGuiLayer.update(dt, currentScene);
-
-            KeyListener.endframe();
-            MouseListener.endFrame();
-            glfwSwapBuffers(glfwWindow);
-            MouseListener.endFrame();
-
-            endTime = (float)glfwGetTime();
-            dt = endTime - beginTime;
-            beginTime = endTime;
-        }
-    }
 
     public static int getWidth(){
         // TODO: fix bug about select multiple gameobject
@@ -262,7 +269,9 @@ public class Window implements Observer {
     public static ImGuiLayer getImguiLayer(){
         return get().imGuiLayer;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public void onNotify(GameObject object, Event event) {
         switch (event.type){
@@ -284,4 +293,5 @@ public class Window implements Observer {
                 break;
         }
     }
+    //endregion
 }

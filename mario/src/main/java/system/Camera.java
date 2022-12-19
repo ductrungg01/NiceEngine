@@ -6,6 +6,7 @@ import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 public class Camera {
+    //region Fields
     private Matrix4f projectionMatrix, viewMatrix, inverseProjection, inverseView;
     public Vector2f position;
 
@@ -14,6 +15,9 @@ public class Camera {
     public Vector4f clearColor = new Vector4f(1,1,1,1);
     private Vector2f projectionSize = new Vector2f(projectionWidth, projectionHeight);
     private float zoom = 1.0f;
+    //endregion
+
+    //region Contructors
     public Camera(Vector2f position){
         this.position = position;
         this.projectionMatrix = new Matrix4f();
@@ -22,14 +26,18 @@ public class Camera {
         this.inverseView = new Matrix4f();
         adjustProjection();
     }
+    //endregion
 
+    //region Methods
     public void adjustProjection(){
         projectionMatrix.identity();
         projectionMatrix.ortho(0.0f, projectionSize.x * this.zoom,
                 0.0f, projectionSize.y * this.zoom, 0.0f, 100.0f);
         projectionMatrix.invert(inverseProjection);
     }
+    //endregion
 
+    //region Properties
     public Matrix4f getViewMatrix(){
         Vector3f cameraFront = new Vector3f(0.0f, 0.0f, -1.0f);
         Vector3f cameraUp = new Vector3f(0.0f, 1.0f, 0.0f);
@@ -69,4 +77,5 @@ public class Camera {
     public void addZoom(float value){
         this.zoom += value;
     }
+    //endregion
 }

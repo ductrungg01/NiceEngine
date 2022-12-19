@@ -6,6 +6,7 @@ import components.Component;
 import java.lang.reflect.Type;
 
 public class GameObjectDeserializer implements JsonDeserializer<GameObject> {
+    //region Override methods
     @Override
     public GameObject deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
@@ -20,4 +21,5 @@ public class GameObjectDeserializer implements JsonDeserializer<GameObject> {
         go.transform = go.getComponent(Transform.class);
         return go;
     }
+    //endregion
 }

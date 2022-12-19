@@ -5,11 +5,14 @@ import editor.JImGui;
 import org.joml.Vector2f;
 
 public class Transform extends Component {
+    //region Fields
     public Vector2f position;
     public Vector2f scale;
     public float rotation = 0.0f;
     public int zIndex;
+    //endregion
 
+    //region Contructors
     public Transform(){
         init(new Vector2f(), new Vector2f());
     }
@@ -21,7 +24,9 @@ public class Transform extends Component {
     public Transform(Vector2f position, Vector2f scale){
         init(position, scale);
     }
+    //endregion
 
+    //region Methods
     public void init(Vector2f position, Vector2f scale){
         this.position = position;
         this.scale = scale;
@@ -32,6 +37,13 @@ public class Transform extends Component {
         return new Transform(new Vector2f(this.position), new Vector2f(this.scale));
     }
 
+    public void copy(Transform to){
+        to.position.set(this.position);
+        to.scale.set(this.scale);
+    }
+    //endregion
+
+    //region Override methods
     @Override
     public void imgui(){
         gameObject.name = JImGui.inputText("Name: ", gameObject.name);
@@ -39,11 +51,6 @@ public class Transform extends Component {
         JImGui.drawVec2Control("Scale", this.scale, 32.0f);
         this.rotation = JImGui.dragfloat("Rotation", this.rotation);
         this.zIndex = JImGui.dragInt("Z-Index", this.zIndex);
-    }
-
-    public void copy(Transform to){
-        to.position.set(this.position);
-        to.scale.set(this.scale);
     }
 
     @Override
@@ -55,4 +62,5 @@ public class Transform extends Component {
         return t.position.equals(this.position) && t.scale.equals(this.scale) &&
                 this.rotation == t.rotation && t.zIndex == this.zIndex;
     }
+    //endregion
 }
