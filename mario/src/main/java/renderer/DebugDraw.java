@@ -17,6 +17,7 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class DebugDraw {
+    //region Fields
     private static int MAX_LINES = 5000;
 
     private static List<Line2D> lines = new ArrayList<>();
@@ -28,7 +29,9 @@ public class DebugDraw {
     private static int vboID;
 
     private static boolean started = false;
+    //endregion
 
+    //region Methods
     public static void start(){
         // Generate the vao
         vaoID = glGenVertexArrays();
@@ -207,4 +210,5 @@ public class DebugDraw {
 
         addLine2D(points[points.length - 1], points[0], color, lifetime);
     }
+    //endregion
 }

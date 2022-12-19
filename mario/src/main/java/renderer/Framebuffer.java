@@ -3,9 +3,12 @@ package renderer;
 import static org.lwjgl.opengl.GL30.*;
 
 public class Framebuffer {
+    //region Fields
     private int fboID = 0;
     private Texture texture = null;
+    //endregion
 
+    //region Contructors
     public Framebuffer(int width, int height){
         // Generate framebuffer
         fboID = glGenFramebuffers();
@@ -27,7 +30,9 @@ public class Framebuffer {
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
+    //endregion
 
+    //region Methods
     public void bind(){
         glBindFramebuffer(GL_FRAMEBUFFER, fboID);
     }
@@ -35,7 +40,9 @@ public class Framebuffer {
     public void unbind(){
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
+    //endregion
 
+    //region Properties
     public int getFboID() {
         return fboID;
     }
@@ -43,4 +50,5 @@ public class Framebuffer {
     public int getTextureId() {
         return texture.getId();
     }
+    //endregion
 }

@@ -9,16 +9,21 @@ import static org.lwjgl.opengl.GL30.*;
 import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER;
 
 public class PickingTexture {
+    //region Fields
     private int pickingTextureId;
     private int fbo;
     private int depthTexture;
+    //endregion
 
+    //region Contructors
     public PickingTexture(int width, int height){
         if (!init(width, height)){
             assert false: "Error: initializing picking texture";
         }
     }
+    //endregion
 
+    //region Methods
     private boolean init(int width, int height){
         // Generate framebuffer
         fbo = glGenFramebuffers();
@@ -91,4 +96,5 @@ public class PickingTexture {
 
         return pixels;
     }
+    //endregion
 }

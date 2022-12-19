@@ -17,6 +17,7 @@ import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class RenderBatch implements Comparable<RenderBatch>{
+    //region Fields
     // Vertex
     // =============
     // Pos                    Color                         Tex coords       Tex ID
@@ -47,7 +48,9 @@ public class RenderBatch implements Comparable<RenderBatch>{
     private int zIndex;
 
     private Renderer renderer;
+    //endregion
 
+    //region Contructors
     public RenderBatch(int maxBatchSize, int zIndex, Renderer renderer){
         this.renderer = renderer;
         this.zIndex = zIndex;
@@ -61,7 +64,9 @@ public class RenderBatch implements Comparable<RenderBatch>{
         this.hasRoom = true;
         this.textures = new ArrayList<>();
     }
+    //endregion
 
+    //region Methods
     public void start(){
         // Generate and bind a Vertex array object
         vaoID = glGenVertexArrays();
@@ -287,7 +292,9 @@ public class RenderBatch implements Comparable<RenderBatch>{
         elements[offsetArrayIndex + 4] = offset + 2;
         elements[offsetArrayIndex + 5] = offset + 1;
     }
+    //endregion
 
+    //region Properties
     public boolean hasRoom(){
         return this.hasRoom;
     }
@@ -302,9 +309,12 @@ public class RenderBatch implements Comparable<RenderBatch>{
     public int zIndex(){
         return this.zIndex;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public int compareTo(RenderBatch o) {
         return Integer.compare(this.zIndex, o.zIndex());
     }
+    //endregion
 }

@@ -9,11 +9,14 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.stb.STBImage.*;
 
 public class Texture {
+    //region Fields
     private String filePath;
     private transient int texID;
     private int width, height;
+    //endregion
 
 
+    //region Contructors
     public Texture(){
         texID = -1;
         width = -1;
@@ -33,6 +36,9 @@ public class Texture {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height,
                 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
     }
+    //endregion
+
+    //region Methods
     public void init(String filePath){
         this.filePath = filePath;
 
@@ -82,7 +88,9 @@ public class Texture {
     public void unbind(){
         glBindTexture(GL_TEXTURE_2D, 0);
     }
+    //endregion
 
+    //region Properties
     public int getWidth(){ return this.width;}
     public int getHeight() { return this.height;}
     public String getFilePath(){
@@ -92,7 +100,9 @@ public class Texture {
     public int getId(){
         return this.texID;
     }
+    //endregion
 
+    //region Override methods
     @Override
     public boolean equals(Object o){
         if (o == null) return false;
@@ -102,4 +112,5 @@ public class Texture {
                 && oTex.getId() == this.texID
                 && oTex.getFilePath().equals(this.filePath);
     }
+    //endregion
 }

@@ -14,12 +14,15 @@ import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 
 public class Shader {
 
+    //region Fields
     private int shaderProgramID;
     private boolean beingUsed = false;
     private String vertexSource;
     private String fragmentSource;
     private String filePath;
+    //endregion
 
+    //region Contructors
     public Shader(String filePath){
         this.filePath = filePath;
         try {
@@ -56,7 +59,9 @@ public class Shader {
             assert false: "ERROR: Could not open file for shader '" + filePath + "'";
         }
     }
+    //endregion
 
+    //region Methods
     public void compile(){
         // ===============================================================
         // Compile and link shaders
@@ -173,4 +178,5 @@ public class Shader {
         use();
         glUniform1iv(varLocation, array);
     }
+    //endregion
 }

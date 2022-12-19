@@ -8,14 +8,19 @@ import java.util.Collections;
 import java.util.List;
 
 public class Renderer {
+    //region Fields
     private final int MAX_BATCH_SIZE = 10000;
     private List<RenderBatch> batches;
     private static Shader currentShader;
+    //endregion
 
+    //region Contructors
     public Renderer(){
         this.batches = new ArrayList<>();
     }
+    //endregion
 
+    //region Methods
     public void add(GameObject go){
         SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
         if (spr != null){
@@ -58,10 +63,6 @@ public class Renderer {
         currentShader = shader;
     }
 
-    public static Shader getBoundShader(){
-        return currentShader;
-    }
-
     public void render(){
         currentShader.use();
         for (int i = 0; i < batches.size(); i++){
@@ -69,4 +70,13 @@ public class Renderer {
             batch.render();
         }
     }
+    //endregion
+
+    //region Properties
+    public static Shader getBoundShader(){
+        return currentShader;
+    }
+    //endregion
+
+
 }
