@@ -26,6 +26,9 @@ public class GameCamera extends Component{
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start() {
         this.player = Window.getScene().findGameObjectWith(PlayerController.class);
@@ -33,7 +36,10 @@ public class GameCamera extends Component{
         this.undergroundYLevel = this.gameCamera.position.y -
                 this.gameCamera.getProjectionSize().y - this.cameraBuffer;
     }
-
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt) {
         if (player != null && player.getComponent(PlayerController.class) != null && !player.getComponent(PlayerController.class).hasWon()) {

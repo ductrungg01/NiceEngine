@@ -12,6 +12,9 @@ public class Flower extends Component{
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         this.rb = gameObject.getComponent(RigidBody2D.class);

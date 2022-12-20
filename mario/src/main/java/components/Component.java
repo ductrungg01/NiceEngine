@@ -36,10 +36,17 @@ public abstract class Component {
     //endregion
 
     //region Methods
+    /**
+     * Start is called before the first frame update
+     */
     public void start(){
 
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     public void update(float dt){
 
     }

@@ -23,12 +23,19 @@ public abstract class Block extends Component {
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start() {
         this.bopStart = new Vector2f(this.gameObject.transform.position);
         this.topBopLocation = new Vector2f(this.gameObject.transform.position).add(0.0f, 0.02f);
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt) {
         if (doBopAnimation) {
