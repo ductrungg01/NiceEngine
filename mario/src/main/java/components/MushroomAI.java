@@ -16,12 +16,20 @@ public class MushroomAI extends Component{
     //endregion
 
     //region Override methods
+
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         this.rb = gameObject.getComponent(RigidBody2D.class);
         AssetPool.getSound("assets/sounds/powerup_appears.ogg").play();
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt){
         if (goingRight && Math.abs(rb.getVelocity().x) < maxSpeed){

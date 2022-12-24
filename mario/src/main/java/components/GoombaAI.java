@@ -25,6 +25,9 @@ public class GoombaAI extends Component {
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         this.stateMachine = gameObject.getComponent(StateMachine.class);
@@ -32,6 +35,10 @@ public class GoombaAI extends Component {
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt){
         Camera camera = Window.getScene().camera();

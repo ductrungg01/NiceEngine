@@ -50,6 +50,10 @@ public class Gizmo extends Component{
     //endregion
 
     //region Override methods
+
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         this.xAxisObject.transform.rotation = 90;
@@ -60,6 +64,10 @@ public class Gizmo extends Component{
         this.yAxisObject.setNoSerialize();
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt) {
         if (using){

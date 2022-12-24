@@ -28,11 +28,18 @@ public class Pipe extends Component{
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         connectingPipe = Window.getScene().getGameObject(connectingPipeName);
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt){
         if (connectingPipe == null){

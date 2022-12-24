@@ -60,6 +60,9 @@ public class PlayerController extends Component{
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         this.spr = gameObject.getComponent(SpriteRenderer.class);
@@ -67,6 +70,11 @@ public class PlayerController extends Component{
         this.stateMachine = gameObject.getComponent(StateMachine.class);
         this.rb.setGravityScale(0.0f);
     }
+
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt){
         if (playWinAnimation){

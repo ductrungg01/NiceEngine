@@ -18,6 +18,9 @@ public class GizmoSystem extends Component{
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         gameObject.addComponent(new TranslateGizmo(gizmos.getSprite(1),
