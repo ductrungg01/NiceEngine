@@ -102,6 +102,9 @@ public class StateMachine extends Component{
     //endregion
 
     //region Override Methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         for (AnimationState state : states){
@@ -112,6 +115,10 @@ public class StateMachine extends Component{
         }
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt){
         if (currentState != null){

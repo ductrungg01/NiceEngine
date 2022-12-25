@@ -67,12 +67,19 @@ public class GameObject {
         ID_COUNTER = maxId;
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     public void update(float dt){
         for (int i = 0; i < this.components.size(); i++){
             components.get(i).update(dt);
         }
     }
 
+    /**
+     * Start is called before the first frame update
+     */
     public void start(){
         for (int i = 0; i < this.components.size(); i++){
             components.get(i).start();

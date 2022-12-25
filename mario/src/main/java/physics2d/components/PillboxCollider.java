@@ -17,6 +17,9 @@ public class PillboxCollider extends Component {
     //endregion
 
     //region Override methods
+    /**
+     * Start is called before the first frame update
+     */
     @Override
     public void start(){
         this.topCircle.gameObject = this.gameObject;
@@ -36,6 +39,10 @@ public class PillboxCollider extends Component {
         }
     }
 
+    /**
+     * // Update is called once per frame
+     * @param dt : The interval in seconds from the last frame to the current one
+     */
     @Override
     public void update(float dt){
         if (resetFixtureNextFrame){

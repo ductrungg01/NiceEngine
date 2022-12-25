@@ -67,6 +67,9 @@ public class RenderBatch implements Comparable<RenderBatch>{
     //endregion
 
     //region Methods
+    /**
+     * Start is called before the first frame update
+     */
     public void start(){
         // Generate and bind a Vertex array object
         vaoID = glGenVertexArrays();
