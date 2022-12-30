@@ -27,7 +27,7 @@ public class Physics2D {
 
     //region Contructors
     public Physics2D(){
-        world.setContactListener(new JadeContactListener());
+        world.setContactListener(new ContactListener());
     }
     //endregion
 

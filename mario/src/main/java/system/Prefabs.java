@@ -10,24 +10,22 @@ import physics2d.enums.BodyType;
 import util.AssetPool;
 
 public class Prefabs {
-    //region Methods
+    //region user custom prefabs
     public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY){
-        GameObject block = Window.getScene().createGameObject("Sprite_Object_Gen");
-        block.transform.scale.x = sizeX;
-        block.transform.scale.y = sizeY;
+        GameObject sprite_go = Window.getScene().createGameObject("Sprite_Object_Generated");
+        sprite_go.transform.scale.x = sizeX;
+        sprite_go.transform.scale.y = sizeY;
         SpriteRenderer renderer = new SpriteRenderer();
         renderer.setSprite(sprite);
-        block.addComponent(renderer);
+        sprite_go.addComponent(renderer);
 
-        return block;
+        return sprite_go;
     }
-    //endregion
-
-    //region user custom prefabs
     public static GameObject generateMario(){
         Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
         Spritesheet bigPlayerSprites = AssetPool.getSpritesheet("assets/images/bigSpritesheet.png");
         GameObject mario = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
+        mario.name = "Mario_MainCharacter";
 
         // Little mario animations
         AnimationState run = new AnimationState();
@@ -211,6 +209,7 @@ public class Prefabs {
     public static GameObject generateQuestionBlock(){
         Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject questionBlock = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
+        questionBlock.name = "Question_block";
 
         AnimationState flicker = new AnimationState();
         flicker.title = "Question";
@@ -246,6 +245,7 @@ public class Prefabs {
     public static GameObject generateBlockCoin() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject coinObject = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
+        coinObject.name = "Coin_block";
 
         AnimationState coinFlip = new AnimationState();
         coinFlip.title = "CoinFlip";
@@ -267,6 +267,7 @@ public class Prefabs {
     public static GameObject generateGoomba() {
         Spritesheet goombaSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
         GameObject goomba = generateSpriteObject(goombaSprites.getSprite(14), 0.25f, 0.25f);
+        goomba.name = "goomba";
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
@@ -303,6 +304,7 @@ public class Prefabs {
     public static GameObject generateTurtle() {
         Spritesheet turtleSprites = AssetPool.getSpritesheet("assets/images/turtle.png");
         GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
+        turtle.name = "Turtle";
 
         AnimationState walk = new AnimationState();
         walk.title = "Walk";
@@ -340,6 +342,7 @@ public class Prefabs {
     public static GameObject generateFlagtop() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
+        flagtop.name = "Flagtop";
 
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -358,6 +361,7 @@ public class Prefabs {
     public static GameObject generateFireball(Vector2f position) {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
+        fireball.name = "Fireball";
 
         fireball.transform.position = position;
 
@@ -377,6 +381,7 @@ public class Prefabs {
     public static GameObject generateFlagPole() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flagpole = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
+        flagpole.name = "Flagpole";
 
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -395,6 +400,7 @@ public class Prefabs {
     public static GameObject generateMushroom() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
+        mushroom.name = "Mushroom";
 
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
@@ -412,6 +418,7 @@ public class Prefabs {
     public static GameObject generateFlower(){
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flower = generateSpriteObject(items.getSprite(20), 0.25f, 0.25f);
+        flower.name = "Flower";
 
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Static);
@@ -434,6 +441,7 @@ public class Prefabs {
                     direction == Direction.Left ? 3 : -1;
         assert index != -1 : "Invalid pipes direction";
         GameObject pipe = generateSpriteObject(pipes.getSprite(index), 0.5f, 0.5f);
+        pipe.name = "Pipe";
 
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Static);
