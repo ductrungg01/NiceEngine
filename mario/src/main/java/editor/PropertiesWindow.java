@@ -87,6 +87,24 @@ public class PropertiesWindow {
                     }
                 }
 
+                if(ImGui.menuItem("Add Wood Script")){
+                    if(activeGameObject.getComponent(woodScript.class) == null){
+                        activeGameObject.addComponent(new woodScript());
+                    }
+                }
+
+                if(ImGui.menuItem("Add wrapper Screen Script")){
+                    if(activeGameObject.getComponent(wrapperScreen.class) == null){
+                        activeGameObject.addComponent(new wrapperScreen());
+                    }
+                }
+
+                if(ImGui.menuItem("Add Bird enemy Script")){
+                    if(activeGameObject.getComponent(birdEnemyScript.class) == null){
+                        activeGameObject.addComponent(new birdEnemyScript());
+                    }
+                }
+
                 ImGui.endPopup();
             }
 
