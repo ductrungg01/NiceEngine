@@ -46,6 +46,9 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     public void loadResources(Scene scene) {
         AssetPool.getShader("assets/shaders/default.glsl");
 
+        AssetPool.addSpritesheet("assets/images/birds.png",
+                new Spritesheet(AssetPool.getTexture("assets/images/birds.png"),
+                        532, 532, 2, 0));
         AssetPool.addSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/decorationsAndBlocks.png"),
                         16, 16, 81, 0));
@@ -60,7 +63,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                         16, 32, 42, 0));
         AssetPool.addSpritesheet("assets/images/pipes.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/pipes.png"),
-                        32, 32, 4, 0));
+                        32, 32, 6, 0));
         AssetPool.addSpritesheet("assets/images/items.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/items.png"),
                         16, 16, 43, 0));
@@ -68,6 +71,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 new Spritesheet(AssetPool.getTexture("assets/images/gizmos.png"),
                         24, 48, 3, 0));
         AssetPool.getTexture("assets/images/blendImage2.png");
+
 
         AssetPool.addSound("assets/sounds/main-theme-overworld.ogg", true);
         AssetPool.addSound("assets/sounds/flagpole.ogg", false);
@@ -102,17 +106,13 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
     @Override
     public void imgui(){
-//        System.out.println("X:" + MouseListener.getScreenX());
-//        System.out.println("Y:" + MouseListener.getScreenY());
-
         ImGui.begin("Level Editor Stuff");
         levelEditorStuff.imgui();
         ImGui.end();
 
         ImGui.begin("Objects");
-
         if (ImGui.beginTabBar("WindowTabBar")) {
-            if (ImGui.beginTabItem("Solid Blocks")) {
+            if (ImGui.beginTabItem("Sprite")) {
                 ImVec2 windowPos = new ImVec2();
                 ImGui.getWindowPos(windowPos);
                 ImVec2 windowSize = new ImVec2();
@@ -121,16 +121,58 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.getStyle().getItemSpacing(itemSpacing);
 
                 float windowX2 = windowPos.x + windowSize.x;
+                int id;
+                float spriteWidth;
+                float spriteHeight;
+                Vector2f[] texCoords;
+
+                Spritesheet birds = AssetPool.getSpritesheet("assets/images/birds.png");
+                for (int i = 0; i < birds.size(); i++) {
+                    Sprite bird = birds.getSprite(i);
+                    id = bird.getTexId();
+                    spriteWidth = bird.getWidth() / 16.625f;
+                    spriteHeight = bird.getHeight() / 16.625f;
+                    texCoords = bird.getTexCoords();
+
+                    ImGui.pushID(id);
+                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
+                            texCoords[0].x, texCoords[2].y)) {
+                        GameObject object = Prefabs.generateSpriteObject(bird, 0.25f, 0.25f);
+                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
+                    }
+                    ImGui.popID();
+                    ImGui.sameLine();
+                }
+
+                Spritesheet pipes = AssetPool.getSpritesheet("assets/images/pipes.png");
+                for (int i = 0; i < pipes.size(); i++){
+                    Sprite sprite = pipes.getSprite(i);
+                    spriteWidth = sprite.getWidth();
+                    spriteHeight = sprite.getHeight();
+                    id = sprite.getTexId();
+                    texCoords = sprite.getTexCoords();
+
+                    ImGui.pushID(i);
+
+                    if (ImGui.imageButton(id, spriteWidth, spriteHeight,texCoords[2].x, texCoords[0].y,
+                            texCoords[0].x, texCoords[2].y)) {
+                        GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
+                        levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
+                    }
+
+                    ImGui.popID();
+                    ImGui.sameLine();
+                }
+
                 for (int i = 0; i < sprites.size(); i++) {
                     if (i == 34) continue;
                     if (i >= 38 && i < 61) continue;
 
-
                     Sprite sprite = sprites.getSprite(i);
-                    float spriteWidth = sprite.getWidth() * 2;
-                    float spriteHeight = sprite.getHeight() * 2;
-                    int id = sprite.getTexId();
-                    Vector2f[] texCoords = sprite.getTexCoords();
+                    spriteWidth = sprite.getWidth() * 2;
+                    spriteHeight = sprite.getHeight() * 2;
+                    id = sprite.getTexId();
+                    texCoords = sprite.getTexCoords();
 
                     ImGui.pushID(i);
                     if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
@@ -163,7 +205,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Decoration Blocks")){
+            if (ImGui.beginTabItem("Decoration")){
                 ImVec2 windowPos = new ImVec2();
                 ImGui.getWindowPos(windowPos);
                 ImVec2 windowSize = new ImVec2();
@@ -199,6 +241,10 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                         ImGui.sameLine();
                     }
                 }
+                ImGui.endTabItem();
+            }
+
+            if (ImGui.beginTabItem("Raw image")){
                 ImGui.endTabItem();
             }
 

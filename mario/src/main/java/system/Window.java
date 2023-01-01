@@ -49,7 +49,7 @@ public class Window implements Observer {
         this.height = 2160;
 //        this.width = 700;
 //        this.height = 500;
-        this.title = "Jade";
+        this.title = "UIT - 2dGameEngine - is developing";
         EventSystem.addObserver(this);
     }
     //endregion

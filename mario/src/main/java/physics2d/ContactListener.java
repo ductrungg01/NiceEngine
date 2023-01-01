@@ -3,13 +3,12 @@ package physics2d;
 import components.Component;
 import system.GameObject;
 import org.jbox2d.callbacks.ContactImpulse;
-import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;
 import org.jbox2d.collision.WorldManifold;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 
-public class JadeContactListener implements ContactListener {
+public class ContactListener implements org.jbox2d.callbacks.ContactListener {
 
     //region Override methods
     @Override
