@@ -1,6 +1,6 @@
 package editor;
 
-import components.SpriteRenderer;
+import components.*;
 import imgui.ImGui;
 import system.GameObject;
 import org.joml.Vector4f;
@@ -18,6 +18,8 @@ public class PropertiesWindow {
     private List<Vector4f> activeGameObjectOriginalColor;
     private GameObject activeGameObject = null;
     private PickingTexture pickingTexture;
+
+    boolean firstTime = true;
     //endregion
 
     //region Contructors
@@ -36,6 +38,17 @@ public class PropertiesWindow {
             ImGui.begin("Properties");
 
             if (ImGui.beginPopupContextWindow("ComponentAdder")){
+//                Reflections reflections = new Reflections("components");
+//                Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
+//                for (Class<? extends Component> aClass : classes) {
+//                    if (ImGui.menuItem("Add " + aClass.getName().substring(10))){
+//                        if (activeGameObject.getComponent(aClass) == null){
+//                            activeGameObject.addComponent(aClass.cast(Component.class));
+//                        }
+//                    }
+//                }
+
+
                 if (ImGui.menuItem("Add Rigidbody")){
                     if (activeGameObject.getComponent(RigidBody2D.class) == null){
                         activeGameObject.addComponent(new RigidBody2D());
@@ -53,6 +66,24 @@ public class PropertiesWindow {
                     if (activeGameObject.getComponent(CircleCollider.class) == null &&
                             activeGameObject.getComponent(Box2DCollider.class) == null){
                         activeGameObject.addComponent(new CircleCollider());
+                    }
+                }
+
+                if (ImGui.menuItem("Add MoveToLeftScript")){
+                    if (activeGameObject.getComponent(MoveToLeftScripts.class) == null) {
+                        activeGameObject.addComponent(new MoveToLeftScripts());
+                    }
+                }
+
+                if (ImGui.menuItem("Add JumpBySpace Script")){
+                    if (activeGameObject.getComponent(JumpBySpaceScript.class) == null){
+                        activeGameObject.addComponent(new JumpBySpaceScript());
+                    }
+                }
+
+                if (ImGui.menuItem("Add BirdScript")){
+                    if (activeGameObject.getComponent(BirdScript.class) == null){
+                        activeGameObject.addComponent(new BirdScript());
                     }
                 }
 
