@@ -1,23 +1,24 @@
 package components;
 
 import physics2d.components.RigidBody2D;
+import physics2d.enums.BodyType;
 import system.KeyListener;
 import system.MouseListener;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 public class JumpBySpaceScript extends Component{
-
     private transient boolean isJump = false;
-    private transient float jumpTime = 0.15f;
+    private transient float jumpTime = 0.20f;
     private transient float jumpTimeRemain = jumpTime;
-    private transient float force = 2.5f;
+    private transient float force = 1.5f;
     private transient float forceRemain = force;
 
     @Override
     public void update(float dt){
         if (KeyListener.isKeyPressed(GLFW_KEY_SPACE) && !isJump){
             isJump = true;
+            this.gameObject.getComponent(RigidBody2D.class).setBodyType(BodyType.Static);
         }
 
         if (isJump){
@@ -31,7 +32,8 @@ public class JumpBySpaceScript extends Component{
                 forceRemain = force;
             }
         } else {
-            this.gameObject.transform.position.y -= 0.01f;
+            //this.gameObject.transform.position.y -= 0.01f;
+            this.gameObject.getComponent(RigidBody2D.class).setBodyType(BodyType.Dynamic);
         }
     }
 }

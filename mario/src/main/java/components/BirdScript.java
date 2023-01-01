@@ -9,6 +9,6 @@ public class BirdScript extends Component{
 
     @Override
     public void start(){
-        this.gameObject.getComponent(RigidBody2D.class).setGravityScale(0.0f);
+        //this.gameObject.getComponent(RigidBody2D.class).setVelocity(new Vector2f(0, -9.81f));
     }
 }
