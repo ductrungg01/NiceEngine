@@ -35,8 +35,6 @@ public class PlayerController extends Component{
 
     private PlayerState playerState = PlayerState.Small;
     public transient boolean onGround = false;
-    private transient float groundDebounce = 0.0f;
-    private transient float groundDebounceTime = 0.1f;
     private transient RigidBody2D rb;
     private transient StateMachine stateMachine;
     private transient float bigJumpBoostFactor = 1.05f;
@@ -150,7 +148,8 @@ public class PlayerController extends Component{
             } else {
                 this.stateMachine.trigger("startRunning");
             }
-        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)){
+        }
+        else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT) || KeyListener.isKeyPressed(GLFW_KEY_A)){
             this.gameObject.transform.scale.x = -playerWidth;
             this.acceleration.x = -walkSpeed;
 
@@ -160,7 +159,8 @@ public class PlayerController extends Component{
             } else {
                 this.stateMachine.trigger("startRunning");
             }
-        } else {
+        }
+        else {
             this.acceleration.x = 0;
             if (this.velocity.x > 0){
                 this.velocity.x = Math.max(0, this.velocity.x - slowDownForce);
@@ -185,8 +185,8 @@ public class PlayerController extends Component{
 
         checkOnGround();
 
-        if ((KeyListener.isKeyPressed(GLFW_KEY_SPACE)) && (jumpTime > 0 || onGround || groundDebounce > 0)) {
-            if ((onGround || groundDebounce > 0) && jumpTime == 0) {
+        if ((KeyListener.isKeyPressed(GLFW_KEY_SPACE)) && (jumpTime > 0 || onGround )) {
+            if ((onGround) && jumpTime == 0) {
                 AssetPool.getSound("assets/sounds/jump-small.ogg").play();
                 jumpTime = 28;
                 this.velocity.y = jumpImpulse;
@@ -196,21 +196,17 @@ public class PlayerController extends Component{
             } else {
                 this.velocity.y = 0;
             }
-            groundDebounce = 0f;
-        } else if (enemyBounce > 0) {
-            enemyBounce--;
-            this.velocity.y = ((enemyBounce / 2.2f) * jumpBoost);
-        } else if (!onGround) {
+        }
+        else if (!onGround) {
             if (this.jumpTime > 0) {
                 this.velocity.y *= 0.35f;
                 this.jumpTime = 0;
             }
-            groundDebounce -= dt;
             this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
-        } else {
+        }
+        else {
             this.velocity.y = 0;
             this.acceleration.y = 0;
-            groundDebounce = groundDebounceTime;
         }
 
         this.velocity.x += this.acceleration.x * dt;
@@ -218,7 +214,6 @@ public class PlayerController extends Component{
         this.velocity.x = Math.max(Math.min(this.velocity.x, this.terminalVelocity.x), - this.terminalVelocity.x);
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), - this.terminalVelocity.y);
         this.rb.setVelocity(this.velocity);
-        //this.rb.setAngularVelocity(0);
 
         if (!onGround) {
             stateMachine.trigger("jump");
