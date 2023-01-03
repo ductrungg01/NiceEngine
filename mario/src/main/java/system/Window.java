@@ -84,7 +84,6 @@ public class Window implements Observer {
 
             glViewport(0, 0, 1920, 1080);
 
-
             glClearColor(0, 0, 0 ,0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -101,7 +100,6 @@ public class Window implements Observer {
             Vector4f clearColor = currentScene.camera().clearColor;
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
-
 
             if (dt >= 0){
 
