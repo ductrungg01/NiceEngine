@@ -115,7 +115,7 @@ public class PlayerController extends Component{
                 this.velocity.y += this.acceleration.y * dt;
                 this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), - this.terminalVelocity.y);
                 this.rb.setVelocity(this.velocity);
-                this.rb.setAngularVelocity(0);
+                //this.rb.setAngularVelocity(0);
             } else if (!deadGoingUp && gameObject.transform.position.y <= deadMinHeight){
                 Window.changeScene(new LevelSceneInitializer());
             }
@@ -218,7 +218,7 @@ public class PlayerController extends Component{
         this.velocity.x = Math.max(Math.min(this.velocity.x, this.terminalVelocity.x), - this.terminalVelocity.x);
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y), - this.terminalVelocity.y);
         this.rb.setVelocity(this.velocity);
-        this.rb.setAngularVelocity(0);
+        //this.rb.setAngularVelocity(0);
 
         if (!onGround) {
             stateMachine.trigger("jump");
