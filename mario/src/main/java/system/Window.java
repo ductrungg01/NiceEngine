@@ -4,8 +4,10 @@ import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
 import org.joml.Vector4f;
+import org.lwjgl.BufferUtils;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWImage;
 import org.lwjgl.openal.AL;
 import org.lwjgl.openal.ALC;
 import org.lwjgl.openal.ALCCapabilities;
@@ -18,6 +20,13 @@ import scenes.LevelSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -49,7 +58,7 @@ public class Window implements Observer {
         this.height = 2160;
 //        this.width = 700;
 //        this.height = 500;
-        this.title = "UIT - 2dGameEngine - is developing";
+        this.title = "9 Engine";
         EventSystem.addObserver(this);
     }
     //endregion
@@ -128,7 +137,7 @@ public class Window implements Observer {
             beginTime = endTime;
         }
     }
-    public void run(){
+    public void run() throws IOException {
         System.out.println("Hello LWJGL " + Version.getVersion() + "!");
 
         init();
@@ -147,7 +156,7 @@ public class Window implements Observer {
         glfwSetErrorCallback(null).free();
 
     }
-    public void init(){
+    public void init() throws IOException {
         // Setup an error callback
         GLFWErrorCallback.createPrint(System.err).set();
 
@@ -164,6 +173,38 @@ public class Window implements Observer {
 
         // Create the window
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
+
+        //region Set icon
+        // Load the image file
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("assets/images/logo.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Convert the image to GLFWImage format
+        GLFWImage.Buffer icons = GLFWImage.create(1);
+        ByteBuffer pixels = BufferUtils.createByteBuffer(image.getWidth() * image.getHeight() * 4);
+        for(int y = 0; y < image.getHeight(); y++){
+            for(int x = 0; x < image.getWidth(); x++){
+                int pixel = image.getRGB(x, y);
+                pixels.put((byte) ((pixel >> 16) & 0xFF));     // R
+                pixels.put((byte) ((pixel >> 8) & 0xFF));      // G
+                pixels.put((byte) (pixel & 0xFF));             // B
+                pixels.put((byte) ((pixel >> 24) & 0xFF));     // A
+            }
+        }
+        pixels.flip();
+        icons.position(0);
+        icons.width(image.getWidth());
+        icons.height(image.getHeight());
+        icons.pixels(pixels);
+
+        // Set the window icon
+        glfwSetWindowIcon(glfwWindow, icons);
+        //endregion
+
         if (glfwWindow == NULL){
             throw new IllegalStateException("Failed to create GLFW window!");
         }
