@@ -14,7 +14,7 @@ public class SceneHierarchyWindow {
 
     //region Methods
     public void imgui(){
-        ImGui.begin("Scene Hierarchy");
+        ImGui.begin("Hierarchy");
 
         List<GameObject> gameObjects = Window.getScene().getGameObjects();
 

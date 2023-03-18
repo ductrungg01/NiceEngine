@@ -35,7 +35,7 @@ public class PropertiesWindow {
         if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null){
             activeGameObject = activeGameObjects.get(0);
 
-            ImGui.begin("Properties");
+            ImGui.begin("Properties/Inspector");
 
             if (ImGui.beginPopupContextWindow("ComponentAdder")){
 //                Reflections reflections = new Reflections("components");
