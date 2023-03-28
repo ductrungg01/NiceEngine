@@ -155,5 +155,40 @@ public class JImGui {
 
         return text;
     }
+
+    public static String inputArrayText(String label, String[] text){
+        boolean res = false;
+
+        ImGui.pushID(label);
+
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.text(label);
+        ImGui.nextColumn();
+
+        String value = "";
+
+        for (int i = 0; i < text.length - 1; i++) {
+            value += text[i] + ", ";
+        }
+
+        if (text.length > 0)
+            value += text[text.length - 1];
+
+
+        ImString outString = new ImString(value, 256);
+
+        if (ImGui.inputText("##" + label, outString)){
+            ImGui.columns(1);
+            ImGui.popID();
+
+            return outString.get();
+        }
+
+        ImGui.columns(1);
+        ImGui.popID();
+
+        return value;
+    }
     //endregion
 }

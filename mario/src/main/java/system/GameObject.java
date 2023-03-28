@@ -88,8 +88,6 @@ public class GameObject {
     }
 
     public void imgui(){
-        Transform transform = this.getComponent(Transform.class);
-        transform.gameObject.name = JImGui.inputText("Name: ", transform.gameObject.name);
 
         for (Component c: components){
             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
