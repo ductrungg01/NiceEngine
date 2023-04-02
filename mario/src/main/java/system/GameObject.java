@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.Component;
 import components.ComponentDeserializer;
+import components.ObjectInfo;
 import components.SpriteRenderer;
 import editor.JImGui;
 import imgui.ImGui;
@@ -88,8 +89,12 @@ public class GameObject {
     }
 
     public void imgui(){
+        ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
+        objectInfo.name = JImGui.inputText("Name", objectInfo.name);
 
         for (Component c: components){
+            if (c.getClass() == ObjectInfo.class) continue;
+
             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
                 c.imgui();
         }

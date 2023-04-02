@@ -1,6 +1,11 @@
 package scenes;
 
 import components.*;
+import editor.JImGui;
+import imgui.flag.ImGuiViewportFlags;
+import imgui.flag.ImGuiWindowFlags;
+import imgui.type.ImString;
+import org.lwjgl.glfw.GLFW;
 import system.Direction;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -18,17 +23,21 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     //region Fields
     private Spritesheet sprites;
     private GameObject levelEditorStuff;
+    private boolean rename = false;
+    private String selectedFolder = "";
+    private String lastSelectedFolder = "";
+    private int click = 0;
     //endregion
 
     //region Contructors
-    public LevelEditorSceneInitializer(){
+    public LevelEditorSceneInitializer() {
 
     }
     //endregion
 
     //region Override methods
     @Override
-    public void init(Scene scene){
+    public void init(Scene scene) {
         sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
         Spritesheet gizmos = AssetPool.getSpritesheet("assets/images/gizmos.png");
 
@@ -89,15 +98,15 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         AssetPool.addSound("assets/sounds/kick.ogg", false);
         AssetPool.addSound("assets/sounds/invincible.ogg", false);
 
-        for (GameObject g : scene.getGameObjects()){
-            if (g.getComponent(SpriteRenderer.class) != null){
+        for (GameObject g : scene.getGameObjects()) {
+            if (g.getComponent(SpriteRenderer.class) != null) {
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
-                if (spr.getTexture() != null){
+                if (spr.getTexture() != null) {
                     spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
                 }
             }
 
-            if (g.getComponent(StateMachine.class) != null){
+            if (g.getComponent(StateMachine.class) != null) {
                 StateMachine stateMachine = g.getComponent(StateMachine.class);
                 stateMachine.refreshTextures();
             }
@@ -105,10 +114,102 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     }
 
     @Override
-    public void imgui(){
-//        ImGui.begin("Inspector");
-//        levelEditorStuff.imgui();
-//        ImGui.end();
+    public void imgui() {
+        ImGui.begin("Level Editor Stuff");
+        levelEditorStuff.imgui();
+        ImGui.end();
+
+        ImGui.begin("Assets");
+
+        File folder = new File("assets");
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                // System.out.println("File " + listOfFiles[i].getName());
+            } else if (listOfFiles[i].isDirectory()) {
+                ImGui.pushID(i);
+                Sprite spr = new Sprite();
+                spr.setTexture(AssetPool.getTexture("assets/images/folder-icon.png"));
+                ImGui.image(spr.getTexId(), 28, 28, spr.getTexCoords()[2].x, spr.getTexCoords()[0].y,
+                        spr.getTexCoords()[0].x, spr.getTexCoords()[2].y);
+                ImGui.sameLine();
+
+
+                if (ImGui.isMouseDoubleClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                    click = 2;
+                } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                    if (!ImGui.isAnyItemHovered()) {
+                        click = 0;
+                        rename = false;
+                    } else
+                        click = 1;
+                }
+
+
+                if (!rename || !selectedFolder.equals(listOfFiles[i].getName())) {
+                    if (ImGui.button(listOfFiles[i].getName())) {
+                        selectedFolder = listOfFiles[i].getName();
+
+                        if (click == 2) {
+                            rename = true;
+                        } else {
+                            rename = false;
+                        }
+
+                    }
+                }
+                if (rename && selectedFolder.equals(listOfFiles[i].getName())) {
+                    String[] newName = JImGui.inputTextNoLabel(listOfFiles[i].getName());
+                    if (newName[0].equals("true")) {
+                        System.out.println("rename " + listOfFiles[i].getName() + " to " + newName[1]);
+                        File srcFile = new File("assets/" + listOfFiles[i].getName());
+                        File desFile = new File("assets/" + newName[1]);
+                        System.out.println("rename " + srcFile.renameTo(desFile));
+                        rename = false;
+                        click = 0;
+                    }
+
+                }
+
+
+                if (!lastSelectedFolder.equals(selectedFolder)) {
+
+                    if (rename) {
+
+                    }
+                    lastSelectedFolder = selectedFolder;
+                }
+
+                ImGui.popID();
+                ImGui.newLine();
+            }
+        }
+        if (!ImGui.isAnyItemHovered()) {
+            if (ImGui.beginPopupContextWindow("New folder")) {
+                if (ImGui.menuItem("New folder")) {
+                    ImGui.beginChild(listOfFiles.length);
+                    ImGui.pushID(listOfFiles.length + 1);
+                    ImGui.popID();
+                    int tmp = 1;
+                    File theDir = new File("assets/New folder");
+                    while (theDir.exists()) {
+                        theDir = new File("assets/New folder (" + tmp + ")");
+                        tmp++;
+                    }
+                    theDir.mkdirs();
+                    ImGui.endChild();
+                    click = 2;
+                    rename = true;
+                    selectedFolder = theDir.getName();
+                }
+                ImGui.endPopup();
+            }
+        } else {
+            if (ImGui.isItemHovered() && ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
+                System.out.println("item hover item and right click");
+            }
+        }
+        ImGui.end();
 
         ImGui.begin("Objects");
         if (ImGui.beginTabBar("WindowTabBar")) {
@@ -145,7 +246,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 }
 
                 Spritesheet pipes = AssetPool.getSpritesheet("assets/images/pipes.png");
-                for (int i = 0; i < pipes.size(); i++){
+                for (int i = 0; i < pipes.size(); i++) {
                     Sprite sprite = pipes.getSprite(i);
                     spriteWidth = sprite.getWidth();
                     spriteHeight = sprite.getHeight();
@@ -154,7 +255,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
                     ImGui.pushID(i);
 
-                    if (ImGui.imageButton(id, spriteWidth, spriteHeight,texCoords[2].x, texCoords[0].y,
+                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
                             texCoords[0].x, texCoords[2].y)) {
                         GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
                         levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
@@ -186,7 +287,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                         object.addComponent(b2d);
                         object.addComponent(new Ground());
 
-                        if (i == 12){
+                        if (i == 12) {
                             object.addComponent(new BreakableBrick());
                         }
 
@@ -205,7 +306,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Decoration")){
+            if (ImGui.beginTabItem("Decoration")) {
                 ImVec2 windowPos = new ImVec2();
                 ImGui.getWindowPos(windowPos);
                 ImVec2 windowSize = new ImVec2();
@@ -244,11 +345,11 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Raw image")){
+            if (ImGui.beginTabItem("Raw image")) {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Prefabs")){
+            if (ImGui.beginTabItem("Prefabs")) {
                 int uid = 0;
                 Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
                 Sprite sprite = playerSprites.getSprite(0);
@@ -379,19 +480,19 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Sounds")){
+            if (ImGui.beginTabItem("Sounds")) {
                 Collection<Sound> sounds = AssetPool.getAllSounds();
-                for (Sound sound : sounds){
+                for (Sound sound : sounds) {
                     File tmp = new File(sound.getFilepath());
-                    if (ImGui.button(tmp.getName())){
-                        if (!sound.isPlaying()){
+                    if (ImGui.button(tmp.getName())) {
+                        if (!sound.isPlaying()) {
                             sound.play();
                         } else {
                             sound.stop();
                         }
                     }
 
-                    if (ImGui.getContentRegionAvailX() > 100){
+                    if (ImGui.getContentRegionAvailX() > 100) {
                         ImGui.sameLine();
                     }
                 }
@@ -403,5 +504,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         }
         ImGui.end();
     }
+
     //endregion
 }

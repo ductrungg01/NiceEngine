@@ -1,8 +1,8 @@
 package components;
 
 public class ObjectInfo extends Component {
-    private String name;
-    private String[] tag;
+    public String name;
+    public String[] tag;
 
     public ObjectInfo(String name) {
         this.name = name;

@@ -152,9 +152,7 @@ public class ImGuiLayer {
 
         fontConfig.destroy();
 
-        // Method initializes LWJGL3 renderer.
-        // This method SHOULD be called after you're initialized your ImGui configuration (fonts and so on)
-        // ImGui context should be created as well
+
 
         imGuiGlfw.init(glfwWindow, false);
         imGuiGl3.init("#version 330 core");

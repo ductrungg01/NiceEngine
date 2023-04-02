@@ -2,16 +2,12 @@ package scenes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import components.Component;
-import components.ComponentDeserializer;
-import components.ObjectInfo;
-import system.Camera;
-import system.GameObject;
-import system.GameObjectDeserializer;
-import system.Transform;
+import components.*;
+import system.*;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import renderer.Renderer;
+import util.AssetPool;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -75,6 +71,23 @@ public class Scene {
         this.sceneInitializer.loadResources(this);
         this.sceneInitializer.init(this);
 
+//        //test back
+//        GameObject background = Window.getScene().createGameObject("Background");
+//        background.transform.position = new Vector2f(0, 0);
+//        background.transform.scale = new Vector2f(1, 1);
+//        SpriteRenderer srpb = new SpriteRenderer();
+//        srpb.setTexture(AssetPool.getTexture("assets/images/logo.png"));
+//        background.addComponent(srpb);
+//        this.addGameObjectToScene(background);
+        GameObject camera = Window.getScene().createGameObject("Camera");
+        camera.transform.position = new Vector2f(0, 0);
+        camera.transform.scale = new Vector2f(1, 1);
+        camera.addComponent(new Camera_Component());
+        SpriteRenderer srpb = new SpriteRenderer();
+        srpb.setTexture(AssetPool.getTexture("assets/images/logo.png"));
+        camera.addComponent(srpb);
+
+        this.addGameObjectToScene(camera);
     }
 
     /**
