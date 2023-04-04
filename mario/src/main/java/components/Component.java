@@ -88,6 +88,7 @@ public abstract class Component {
                 Class type = field.getType();
                 Object value = field.get(this);
                 String name = field.getName();
+                name = name.substring(0, 1).toUpperCase() + name.substring(1);
 
                 if (type == int.class){
                     int val = (int)value;
@@ -116,13 +117,20 @@ public abstract class Component {
                     String[] enumValues = getEnumValues(type);
                     String enumType = ((Enum)value).name();
                     ImInt index = new ImInt(indexOf(enumType, enumValues));
-                    if (ImGui.combo(field.getName(), index, enumValues, enumValues.length)){
+                    if (ImGui.combo(name, index, enumValues, enumValues.length)){
                         field.set(this, type.getEnumConstants()[index.get()]);
                     }
                 } else if (type == String.class){
                     field.set(this,
-                            JImGui.inputText(field.getName() + ": ",
+                            JImGui.inputText(name + ": ",
                                     (String)value));
+                } else if (type.isArray() && name.equals("Tag")) {
+                    String text = JImGui.inputArrayText(name + ":", (String[])value);
+                    //format & set value
+                    text = text.replaceAll(" ", "");
+                    String[] strArray = null;
+                    strArray = text.split(",");
+                    field.set(this, strArray);
                 }
 
                 if (isPrivate){

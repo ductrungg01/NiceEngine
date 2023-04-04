@@ -2,10 +2,12 @@ package editor;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiInputTextFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import org.lwjgl.glfw.GLFW;
 
 public class JImGui {
 
@@ -14,15 +16,15 @@ public class JImGui {
     //endregion
 
     //region Methods
-    public static void drawVec2Control(String label, Vector2f values){
+    public static void drawVec2Control(String label, Vector2f values) {
         drawVec2Control(label, values, 0.0f, defaultColumnWidth);
     }
 
-    public static void drawVec2Control(String label, Vector2f values, float resetValue){
+    public static void drawVec2Control(String label, Vector2f values, float resetValue) {
         drawVec2Control(label, values, resetValue, defaultColumnWidth);
     }
 
-    public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth){
+    public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -40,7 +42,7 @@ public class JImGui {
         ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.8f, 0.2f, 0.2f, 1.0f);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.8f, 0.1f, 0.15f, 1.0f);
-        if (ImGui.button("X", buttonSize.x, buttonSize.y)){
+        if (ImGui.button("X", buttonSize.x, buttonSize.y)) {
             values.x = resetValue;
         }
         ImGui.popStyleColor(3);
@@ -55,7 +57,7 @@ public class JImGui {
         ImGui.pushStyleColor(ImGuiCol.Button, 0.2f, 0.7f, 0.2f, 1.0f);
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.3f, 0.8f, 0.3f, 1.0f);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.2f, 0.7f, 0.2f, 1.0f);
-        if (ImGui.button("Y", buttonSize.x, buttonSize.y)){
+        if (ImGui.button("Y", buttonSize.x, buttonSize.y)) {
             values.y = resetValue;
         }
         ImGui.popStyleColor(3);
@@ -76,7 +78,7 @@ public class JImGui {
         ImGui.popID();
     }
 
-    public static float dragfloat(String label, float value){
+    public static float dragfloat(String label, float value) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -93,7 +95,7 @@ public class JImGui {
         return valArr[0];
     }
 
-    public static int dragInt(String label, int value){
+    public static int dragInt(String label, int value) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -110,7 +112,7 @@ public class JImGui {
         return valArr[0];
     }
 
-    public static boolean colorPicker4(String label, Vector4f color){
+    public static boolean colorPicker4(String label, Vector4f color) {
         boolean res = false;
 
         ImGui.pushID(label);
@@ -121,7 +123,7 @@ public class JImGui {
         ImGui.nextColumn();
 
         float[] imColor = {color.x, color.y, color.w, color.z};
-        if (ImGui.colorEdit4("##colorPicker", imColor)){
+        if (ImGui.colorEdit4("##colorPicker", imColor)) {
             color.set(imColor[0], imColor[1], imColor[2], imColor[3]);
             res = true;
         }
@@ -132,7 +134,7 @@ public class JImGui {
         return res;
     }
 
-    public static String inputText(String label, String text){
+    public static String inputText(String label, String text) {
         boolean res = false;
 
         ImGui.pushID(label);
@@ -143,7 +145,7 @@ public class JImGui {
         ImGui.nextColumn();
 
         ImString outString = new ImString(text, 256);
-        if (ImGui.inputText("##" + label, outString)){
+        if (ImGui.inputText("##" + label, outString)) {
             ImGui.columns(1);
             ImGui.popID();
 
@@ -154,6 +156,72 @@ public class JImGui {
         ImGui.popID();
 
         return text;
+    }
+
+    public static String[] inputTextNoLabel(String text) {
+        boolean isPressEnter = false;
+
+        ImGui.pushID(text);
+        ImGui.columns(1);
+        ImGui.nextColumn();
+        ImString outString = new ImString(text, 256);
+        if (!ImGui.isAnyItemActive() && !ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT))
+            ImGui.setKeyboardFocusHere(0);
+        if (ImGui.inputText("##" + text, outString)) {
+            ImGui.columns(1);
+
+            if (ImGui.isKeyPressed(GLFW.GLFW_KEY_ENTER)) {
+                System.out.println("press enter");
+                isPressEnter = true;
+            }
+            ImGui.popID();
+            if (isPressEnter) return new String[]{"true", outString.get()};
+            else
+                return new String[]{"false", outString.get()};
+        }
+        if (ImGui.isKeyPressed(GLFW.GLFW_KEY_ENTER)) {
+            System.out.println("press enter");
+            isPressEnter = true;
+        }
+        ImGui.popID();
+        if (isPressEnter) return new String[]{"true", text};
+        else
+            return new String[]{"false", text};
+    }
+
+    public static String inputArrayText(String label, String[] text) {
+        boolean res = false;
+
+        ImGui.pushID(label);
+
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.text(label);
+        ImGui.nextColumn();
+
+        String value = "";
+
+        for (int i = 0; i < text.length - 1; i++) {
+            value += text[i] + ", ";
+        }
+
+        if (text.length > 0)
+            value += text[text.length - 1];
+
+
+        ImString outString = new ImString(value, 256);
+
+        if (ImGui.inputText("##" + label, outString)) {
+            ImGui.columns(1);
+            ImGui.popID();
+
+            return outString.get();
+        }
+
+        ImGui.columns(1);
+        ImGui.popID();
+
+        return value;
     }
     //endregion
 }
