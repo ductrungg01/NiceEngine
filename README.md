@@ -1,4 +1,4 @@
-# 2dGameEngine
+# NiceEngine
 
 ## Project purpose 
 Build a 2D Game Engine inspired by [Hazel Engine](https://hazelengine.com/). 
@@ -42,6 +42,7 @@ Build a 2D Game Engine inspired by [Hazel Engine](https://hazelengine.com/).
 #### 8. Updating....
 
 ## Authors
-- [Nguyễn Viết Lưu](https://www.facebook.com/vietluu.nguyen.31) - Leader, BA and Tester
-- [Vũ Đức Trung](https://www.facebook.com/ductrungg01/) - Full-stack developer
+- [Vũ Đức Trung](https://www.facebook.com/ductrungg01/) - Full-stack developer, project manager
+- [Lương Mạnh Hùng](https://www.facebook.com/h8u1n3g) - Front-end developer
+- [Nguyễn Viết Lưu](https://www.facebook.com/vietluu.nguyen.31) - Tester
 
