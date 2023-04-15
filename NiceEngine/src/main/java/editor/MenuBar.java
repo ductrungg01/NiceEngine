@@ -1,11 +1,16 @@
 package editor;
 
 import imgui.ImGui;
+import imgui.flag.ImGuiWindowFlags;
+import imgui.type.ImBoolean;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
 
 public class MenuBar {
+
+    boolean isShowAnimStateCreator = false;
+    AnimationStateCreator animationStateCreator = new AnimationStateCreator();
 
     //region Methods
     public void imgui() {
@@ -23,7 +28,20 @@ public class MenuBar {
             ImGui.endMenu();
         }
 
+        if (ImGui.beginMenu("Windows")) {
+            if (ImGui.menuItem("Animation State Creator")) {
+                isShowAnimStateCreator = true;
+            }
+            ImGui.endMenu();
+        }
+
         ImGui.endMenuBar();
+
+        if (isShowAnimStateCreator) {
+            animationStateCreator.imgui();
+        }
+
+        ImGui.showDemoWindow();
     }
     //endregion
 }

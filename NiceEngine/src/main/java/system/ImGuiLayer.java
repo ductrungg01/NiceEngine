@@ -148,11 +148,9 @@ public class ImGuiLayer {
 
         // Fonts merge example
         fontConfig.setPixelSnapH(true);
-        fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf", 24, fontConfig);
+        fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf", 22, fontConfig);
 
         fontConfig.destroy();
-
-
 
         imGuiGlfw.init(glfwWindow, false);
         imGuiGl3.init("#version 330 core");
@@ -211,10 +209,11 @@ public class ImGuiLayer {
         ImGui.setNextWindowSize(Window.getWidth(), Window.getHeight());
         ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
         ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
-        windowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse |
+        windowFlags |= ImGuiWindowFlags.NoCollapse |
                 ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
                 ImGuiWindowFlags.NoBringToFrontOnFocus |
-                ImGuiWindowFlags.NoNavFocus;
+                ImGuiWindowFlags.NoNavFocus |
+                ImGuiWindowFlags.MenuBar;
 
         ImGui.begin("Dockspace Demo", new ImBoolean(true), windowFlags);
         ImGui.popStyleVar(2);

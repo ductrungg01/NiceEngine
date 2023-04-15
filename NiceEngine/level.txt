@@ -75,7 +75,7 @@
     "isDead": false
   },
   {
-    "uid": 2,
+    "uid": 1,
     "name": "Camera",
     "components": [
       {
@@ -158,6 +158,276 @@
             ]
           },
           "uid": 38
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 2,
+    "name": "Camera",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Camera",
+          "tag": [
+            "Object"
+          ],
+          "uid": 46
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 47
+        }
+      },
+      {
+        "type": "components.Camera_Component",
+        "properties": {
+          "backgroundTypeOptions": [
+            "Solid color",
+            "Image"
+          ],
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "imageFilePath": "",
+          "uid": 48
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "assets/images/logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 49
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 3,
+    "name": "Camera",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Camera",
+          "tag": [
+            "Object"
+          ],
+          "uid": 57
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 58
+        }
+      },
+      {
+        "type": "components.Camera_Component",
+        "properties": {
+          "backgroundTypeOptions": [
+            "Solid color",
+            "Image"
+          ],
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "imageFilePath": "",
+          "uid": 59
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "assets/images/logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 60
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 5,
+    "name": "Camera",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Camera",
+          "tag": [
+            "Object"
+          ],
+          "uid": 68
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 69
+        }
+      },
+      {
+        "type": "components.Camera_Component",
+        "properties": {
+          "backgroundTypeOptions": [
+            "Solid color",
+            "Image"
+          ],
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "imageFilePath": "",
+          "uid": 70
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "assets/images/logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 71
         }
       }
     ],
