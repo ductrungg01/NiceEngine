@@ -54,7 +54,7 @@ public class Window implements Observer {
     //endregion
 
     //region Contructors
-    private Window(){
+    private Window() {
         this.width = 3840;
         this.height = 2160;
 //        this.width = 700;
@@ -65,8 +65,8 @@ public class Window implements Observer {
     //endregion
 
     //region Methods
-    public static void changeScene(SceneInitializer sceneInitializer){
-        if (currentScene != null){
+    public static void changeScene(SceneInitializer sceneInitializer) {
+        if (currentScene != null) {
             currentScene.destroy();
         }
 
@@ -76,15 +76,16 @@ public class Window implements Observer {
         currentScene.init();
         currentScene.start();
     }
-    public void loop(){
-        float beginTime = (float)glfwGetTime();
+
+    public void loop() {
+        float beginTime = (float) glfwGetTime();
         float endTime;
         float dt = -1.0f;
 
         Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
         Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
 
-        while (!glfwWindowShouldClose(glfwWindow)){
+        while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events
             glfwPollEvents();
 
@@ -95,7 +96,7 @@ public class Window implements Observer {
             glViewport(0, 0, 1920, 1080);
 
 
-            glClearColor(0, 0, 0 ,0);
+            glClearColor(0, 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             Renderer.bindShader(pickingShader);
@@ -113,7 +114,7 @@ public class Window implements Observer {
             glClear(GL_COLOR_BUFFER_BIT);
 
 
-            if (dt >= 0){
+            if (dt >= 0) {
 
                 Renderer.bindShader(defaultShader);
                 if (runtimePlaying) {
@@ -133,11 +134,12 @@ public class Window implements Observer {
             glfwSwapBuffers(glfwWindow);
             MouseListener.endFrame();
 
-            endTime = (float)glfwGetTime();
+            endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
             beginTime = endTime;
         }
     }
+
     public void run() throws IOException {
         System.out.println("Hello LWJGL " + Version.getVersion() + "!");
 
@@ -157,12 +159,13 @@ public class Window implements Observer {
         glfwSetErrorCallback(null).free();
 
     }
+
     public void init() throws IOException {
         // Setup an error callback
         GLFWErrorCallback.createPrint(System.err).set();
 
         // Initialize GLFW
-        if (!glfwInit()){
+        if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
 
@@ -175,38 +178,9 @@ public class Window implements Observer {
         // Create the window
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
 
-        //region Set icon
-        // Load the image file
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(new File("assets/images/logo.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        SetWindowIcon();
 
-        // Convert the image to GLFWImage format
-        GLFWImage.Buffer icons = GLFWImage.create(1);
-        ByteBuffer pixels = BufferUtils.createByteBuffer(image.getWidth() * image.getHeight() * 4);
-        for(int y = 0; y < image.getHeight(); y++){
-            for(int x = 0; x < image.getWidth(); x++){
-                int pixel = image.getRGB(x, y);
-                pixels.put((byte) ((pixel >> 16) & 0xFF));     // R
-                pixels.put((byte) ((pixel >> 8) & 0xFF));      // G
-                pixels.put((byte) (pixel & 0xFF));             // B
-                pixels.put((byte) ((pixel >> 24) & 0xFF));     // A
-            }
-        }
-        pixels.flip();
-        icons.position(0);
-        icons.width(image.getWidth());
-        icons.height(image.getHeight());
-        icons.pixels(pixels);
-
-        // Set the window icon
-        glfwSetWindowIcon(glfwWindow, icons);
-        //endregion
-
-        if (glfwWindow == NULL){
+        if (glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create GLFW window!");
         }
 
@@ -239,8 +213,8 @@ public class Window implements Observer {
         ALCCapabilities alcCapabilities = ALC.createCapabilities(audioDevice);
         ALCapabilities alCapabilities = AL.createCapabilities(alcCapabilities);
 
-        if (!alCapabilities.OpenAL10){
-            assert false: "Audio library not supported";
+        if (!alCapabilities.OpenAL10) {
+            assert false : "Audio library not supported";
         }
 
         // This line is critical for LWJGL's interoperation with GLFW's
@@ -263,20 +237,55 @@ public class Window implements Observer {
 
         Window.changeScene(new LevelEditorSceneInitializer());
     }
+
+    void SetWindowIcon() {
+        //region Set icon
+        // Load the image file
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("assets/images/logo.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Convert the image to GLFWImage format
+        GLFWImage.Buffer icons = GLFWImage.create(1);
+        ByteBuffer pixels = BufferUtils.createByteBuffer(image.getWidth() * image.getHeight() * 4);
+        for (int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                int pixel = image.getRGB(x, y);
+                pixels.put((byte) ((pixel >> 16) & 0xFF));     // R
+                pixels.put((byte) ((pixel >> 8) & 0xFF));      // G
+                pixels.put((byte) (pixel & 0xFF));             // B
+                pixels.put((byte) ((pixel >> 24) & 0xFF));     // A
+            }
+        }
+        pixels.flip();
+        icons.position(0);
+        icons.width(image.getWidth());
+        icons.height(image.getHeight());
+        icons.pixels(pixels);
+
+        // Set the window icon
+        glfwSetWindowIcon(glfwWindow, icons);
+        //endregion
+    }
     //endregion
 
     //region Properties
-    public static Window get(){
-        if (Window.window == null){
+    public static Window get() {
+        if (Window.window == null) {
             Window.window = new Window();
         }
 
         return Window.window;
     }
 
-    public static Physics2D getPhysics() {return currentScene.getPhysics();}
+    public static Physics2D getPhysics() {
+        return currentScene.getPhysics();
+    }
 
-    public static Scene getScene(){
+    public static Scene getScene() {
         return currentScene;
     }
 
@@ -289,26 +298,27 @@ public class Window implements Observer {
     }
 
 
-    public static int getWidth(){
+    public static int getWidth() {
         // TODO: fix bug about select multiple gameobject
         // return 3840;
         return get().width;
     }
 
-    public static int getHeight(){
+    public static int getHeight() {
         // TODO: fix bug about select multiple gameobject
         // return 2160;
         return get().height;
     }
 
-    public static Framebuffer getFramebuffer(){
+    public static Framebuffer getFramebuffer() {
         return get().framebuffer;
     }
 
-    public static float getTargetAspectRatio(){
+    public static float getTargetAspectRatio() {
         return 16.0f / 9.0f;
     }
-    public static ImGuiLayer getImguiLayer(){
+
+    public static ImGuiLayer getImguiLayer() {
         return get().imGuiLayer;
     }
     //endregion
@@ -316,22 +326,22 @@ public class Window implements Observer {
     //region Override methods
     @Override
     public void onNotify(GameObject object, Event event) {
-        switch (event.type){
-            case GameEngineStartPlay :
+        switch (event.type) {
+            case GameEngineStartPlay:
                 this.runtimePlaying = true;
                 currentScene.save();
                 Window.changeScene(new LevelSceneInitializer());
                 break;
-            case GameEngineStopPlay :
+            case GameEngineStopPlay:
                 this.runtimePlaying = false;
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;
-            case SaveLevel :
+            case SaveLevel:
                 currentScene.save();
-            case LoadLevel :
+            case LoadLevel:
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;
-            case UserEvent :
+            case UserEvent:
                 break;
         }
     }
