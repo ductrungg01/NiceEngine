@@ -8,10 +8,6 @@ import observers.events.Event;
 import observers.events.EventType;
 
 public class MenuBar {
-
-    boolean isShowAnimStateCreator = false;
-    AnimationStateCreator animationStateCreator = new AnimationStateCreator();
-
     //region Methods
     public void imgui() {
         ImGui.beginMenuBar();
@@ -30,16 +26,12 @@ public class MenuBar {
 
         if (ImGui.beginMenu("Windows")) {
             if (ImGui.menuItem("Animation State Creator")) {
-                isShowAnimStateCreator = true;
+                AnimationStateCreator.getInstance().isShow = true;
             }
             ImGui.endMenu();
         }
 
         ImGui.endMenuBar();
-
-        if (isShowAnimStateCreator) {
-            animationStateCreator.imgui();
-        }
 
         ImGui.showDemoWindow();
     }
