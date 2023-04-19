@@ -17,13 +17,13 @@ public class Texture {
 
 
     //region Contructors
-    public Texture(){
+    public Texture() {
         texID = -1;
         width = -1;
         height = -1;
     }
 
-    public Texture(int width, int height){
+    public Texture(int width, int height) {
         this.filePath = "Generated";
 
         //  Generate texture on GPU
@@ -39,7 +39,7 @@ public class Texture {
     //endregion
 
     //region Methods
-    public void init(String filePath){
+    public void init(String filePath) {
         this.filePath = filePath;
 
         //  Generate texture on GPU
@@ -58,10 +58,10 @@ public class Texture {
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
-        stbi_set_flip_vertically_on_load(true);
+        //stbi_set_flip_vertically_on_load(true);
         ByteBuffer image = stbi_load(filePath, width, height, channels, 0);
 
-        if (image != null){
+        if (image != null) {
             this.width = width.get(0);
             this.height = height.get(0);
 
@@ -72,42 +72,48 @@ public class Texture {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width.get(0), height.get(0),
                         0, GL_RGBA, GL_UNSIGNED_BYTE, image);
             } else {
-                assert false: "Error: (Texture) unknown number of channels '" + channels.get(0) + "'";
+                assert false : "Error: (Texture) unknown number of channels '" + channels.get(0) + "'";
             }
         } else {
-            assert false: "Error: (Texture) Could not load image '" + filePath + "'";
+            assert false : "Error: (Texture) Could not load image '" + filePath + "'";
         }
 
         stbi_image_free(image);
     }
 
-    public void bind(){
+    public void bind() {
         glBindTexture(GL_TEXTURE_2D, texID);
     }
 
-    public void unbind(){
+    public void unbind() {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
     //endregion
 
     //region Properties
-    public int getWidth(){ return this.width;}
-    public int getHeight() { return this.height;}
-    public String getFilePath(){
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String getFilePath() {
         return this.filePath;
     }
 
-    public int getId(){
+    public int getId() {
         return this.texID;
     }
     //endregion
 
     //region Override methods
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == null) return false;
         if (!(o instanceof Texture)) return false;
-        Texture oTex = (Texture)o;
+        Texture oTex = (Texture) o;
         return oTex.getWidth() == this.width && oTex.getHeight() == this.height
                 && oTex.getId() == this.texID
                 && oTex.getFilePath().equals(this.filePath);
