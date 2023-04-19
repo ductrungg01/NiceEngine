@@ -207,7 +207,7 @@
     "isDead": false
   },
   {
-    "uid": 3,
+    "uid": 2,
     "name": "Camera",
     "components": [
       {
@@ -297,7 +297,7 @@
     "isDead": false
   },
   {
-    "uid": 10,
+    "uid": 3,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -414,7 +414,7 @@
     "isDead": false
   },
   {
-    "uid": 12,
+    "uid": 4,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -531,7 +531,7 @@
     "isDead": false
   },
   {
-    "uid": 14,
+    "uid": 5,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -641,6 +641,169 @@
         "type": "components.scripts.test.mario.Ground",
         "properties": {
           "uid": 80
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 7,
+    "name": "Camera",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Camera",
+          "tag": [
+            "Object"
+          ],
+          "uid": 88
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 89
+        }
+      },
+      {
+        "type": "components.Camera_Component",
+        "properties": {
+          "backgroundTypeOptions": [
+            "Solid color",
+            "Image"
+          ],
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "imageFilePath": "",
+          "uid": 90
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "assets/images/logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 91
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 14,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": [
+            "Object"
+          ],
+          "uid": 110
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.625,
+            "y": 0.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 111
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.04073675,
+            "y": 0.040750764,
+            "z": 0.61716175,
+            "w": 0.61716175
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 0.0
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 112
         }
       }
     ],
