@@ -1,9 +1,6 @@
 package system;
 
-import editor.GameViewWindow;
-import editor.MenuBar;
-import editor.PropertiesWindow;
-import editor.SceneHierarchyWindow;
+import editor.*;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
@@ -31,22 +28,24 @@ public class ImGuiLayer {
     private PropertiesWindow propertiesWindow;
     private MenuBar menuBar;
     private SceneHierarchyWindow sceneHierarchyWindow;
+    private AssetsWindow assetsWindow;
     //endregion
 
     //region Contructors
-    public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture){
+    public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
         this.gameViewWindow = new GameViewWindow();
         this.propertiesWindow = new PropertiesWindow(pickingTexture);
         this.menuBar = new MenuBar();
         this.sceneHierarchyWindow = new SceneHierarchyWindow();
+        this.assetsWindow = new AssetsWindow();
     }
     //endregion
 
 
     //region Methods
     // Initialize Dear ImGui
-    public void initImGui(){
+    public void initImGui() {
         // IMPORTANT!
         // This line is critical for Dear ImGui to work.
         ImGui.createContext();
@@ -64,30 +63,30 @@ public class ImGuiLayer {
         // -------------------------------------------------------------------------------
         // GLFW callbacks to handle user input
 
-        glfwSetKeyCallback(glfwWindow, (w, key, scancode, action, mods) ->{
-           if (action == GLFW_PRESS){
-               io.setKeysDown(key, true);
-           } else if (action == GLFW_RELEASE){
-               io.setKeysDown(key, false);
-           }
+        glfwSetKeyCallback(glfwWindow, (w, key, scancode, action, mods) -> {
+            if (action == GLFW_PRESS) {
+                io.setKeysDown(key, true);
+            } else if (action == GLFW_RELEASE) {
+                io.setKeysDown(key, false);
+            }
 
-           io.setKeyCtrl(io.getKeysDown(GLFW_KEY_LEFT_CONTROL) || io.getKeysDown(GLFW_KEY_RIGHT_CONTROL));
-           io.setKeyShift(io.getKeysDown(GLFW_KEY_LEFT_SHIFT) || io.getKeysDown(GLFW_KEY_RIGHT_SHIFT));
-           io.setKeyAlt(io.getKeysDown(GLFW_KEY_LEFT_ALT) || io.getKeysDown(GLFW_KEY_RIGHT_ALT));
-           io.setKeySuper(io.getKeysDown(GLFW_KEY_LEFT_SUPER) || io.getKeysDown(GLFW_KEY_RIGHT_SUPER));
+            io.setKeyCtrl(io.getKeysDown(GLFW_KEY_LEFT_CONTROL) || io.getKeysDown(GLFW_KEY_RIGHT_CONTROL));
+            io.setKeyShift(io.getKeysDown(GLFW_KEY_LEFT_SHIFT) || io.getKeysDown(GLFW_KEY_RIGHT_SHIFT));
+            io.setKeyAlt(io.getKeysDown(GLFW_KEY_LEFT_ALT) || io.getKeysDown(GLFW_KEY_RIGHT_ALT));
+            io.setKeySuper(io.getKeysDown(GLFW_KEY_LEFT_SUPER) || io.getKeysDown(GLFW_KEY_RIGHT_SUPER));
 
-           if (!io.getWantCaptureKeyboard()) {
-               KeyListener.keyCallback(w, key, scancode, action, mods);
-           }
+            if (!io.getWantCaptureKeyboard()) {
+                KeyListener.keyCallback(w, key, scancode, action, mods);
+            }
         });
 
         glfwSetCharCallback(glfwWindow, (w, c) -> {
-           if (c != GLFW_KEY_DELETE){
-               io.addInputCharacter(c);
-           }
+            if (c != GLFW_KEY_DELETE) {
+                io.addInputCharacter(c);
+            }
         });
 
-        glfwSetMouseButtonCallback(glfwWindow, (w, button, action, mods)->{
+        glfwSetMouseButtonCallback(glfwWindow, (w, button, action, mods) -> {
             final boolean[] mouseDown = new boolean[5];
 
             mouseDown[0] = button == GLFW_MOUSE_BUTTON_1 && action != GLFW_RELEASE;
@@ -98,18 +97,18 @@ public class ImGuiLayer {
 
             io.setMouseDown(mouseDown);
 
-            if (!io.getWantCaptureMouse() && mouseDown[1]){
+            if (!io.getWantCaptureMouse() && mouseDown[1]) {
                 ImGui.setWindowFocus(null);
             }
 
-            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()){
+            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()) {
                 MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
 
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
-            io.setMouseWheelH(io.getMouseWheelH() + (float)xOffset);
-            io.setMouseWheel(io.getMouseWheel() + (float)yOffset);
+            io.setMouseWheelH(io.getMouseWheelH() + (float) xOffset);
+            io.setMouseWheel(io.getMouseWheel() + (float) yOffset);
             if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()) {
                 MouseListener.mouseScrollCallback(w, xOffset, yOffset);
             } else {
@@ -153,18 +152,17 @@ public class ImGuiLayer {
         fontConfig.destroy();
 
 
-
         imGuiGlfw.init(glfwWindow, false);
         imGuiGl3.init("#version 330 core");
     }
 
-    private void startFrame(final float deltaTime){
+    private void startFrame(final float deltaTime) {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
 
     }
 
-    public void update(float dt, Scene currentScene){
+    public void update(float dt, Scene currentScene) {
         startFrame(dt);
 
         // Any Dear ImGui code SHOULD go between ImGui.newFrame()/ImGui.render() methods
@@ -174,11 +172,12 @@ public class ImGuiLayer {
         gameViewWindow.imgui();
         propertiesWindow.imgui();
         sceneHierarchyWindow.imgui();
+        assetsWindow.imgui();
 
         endFrame();
     }
 
-    private void endFrame(){
+    private void endFrame() {
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
         glViewport(0, 0, Window.getWidth(), Window.getHeight());
         glClearColor(0, 0, 0, 1);
@@ -195,12 +194,12 @@ public class ImGuiLayer {
         glfwMakeContextCurrent(backupWindowPtr);
     }
 
-    private void destroyImGui(){
+    private void destroyImGui() {
         imGuiGl3.dispose();
         ImGui.destroyContext();
     }
 
-    private void setupDockspace(){
+    private void setupDockspace() {
         int windowFlags = ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoDocking;
 
         ImGuiViewport mainViewport = ImGui.getMainViewport();
@@ -232,7 +231,8 @@ public class ImGuiLayer {
     public PropertiesWindow getPropertiesWindow() {
         return propertiesWindow;
     }
-    public GameViewWindow getGameViewWindow(){
+
+    public GameViewWindow getGameViewWindow() {
         return this.gameViewWindow;
     }
     //endregion
