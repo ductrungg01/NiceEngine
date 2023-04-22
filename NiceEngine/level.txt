@@ -648,7 +648,7 @@
     "isDead": false
   },
   {
-    "uid": 7,
+    "uid": 6,
     "name": "Camera",
     "components": [
       {
@@ -738,7 +738,7 @@
     "isDead": false
   },
   {
-    "uid": 14,
+    "uid": 7,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -804,6 +804,96 @@
             ]
           },
           "uid": 112
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 9,
+    "name": "Camera",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Camera",
+          "tag": [
+            "Object"
+          ],
+          "uid": 120
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 121
+        }
+      },
+      {
+        "type": "components.Camera_Component",
+        "properties": {
+          "backgroundTypeOptions": [
+            "Solid color",
+            "Image"
+          ],
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "imageFilePath": "",
+          "uid": 122
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "assets/images/logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 123
         }
       }
     ],
