@@ -14,18 +14,22 @@ import physics2d.components.Box2DCollider;
 import physics2d.components.RigidBody2D;
 import physics2d.enums.BodyType;
 import util.AssetPool;
+import util.FileChecker;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
     //region Fields
+    private final String ROOT_FOLDER = "assets";
+
     private Spritesheet sprites;
     private GameObject levelEditorStuff;
-    private boolean rename = false;
-    private String selectedFolder = "";
-    private String lastSelectedFolder = "";
-    private int click = 0;
+
     //endregion
 
     //region Contructors
@@ -116,96 +120,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     public void imgui() {
         ImGui.begin("Level Editor Stuff");
         levelEditorStuff.imgui();
-        ImGui.end();
-
-        ImGui.begin("Assets");
-
-        File folder = new File("assets");
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                // System.out.println("File " + listOfFiles[i].getName());
-            } else if (listOfFiles[i].isDirectory()) {
-                ImGui.pushID(i);
-                Sprite spr = new Sprite();
-                spr.setTexture(AssetPool.getTexture("assets/images/folder-icon.png"));
-                ImGui.image(spr.getTexId(), 28, 28);
-                ImGui.sameLine();
-
-                if (ImGui.isMouseDoubleClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
-                    click = 2;
-                } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
-                    if (!ImGui.isAnyItemHovered()) {
-                        click = 0;
-                        rename = false;
-                    } else
-                        click = 1;
-                }
-
-
-                if (!rename || !selectedFolder.equals(listOfFiles[i].getName())) {
-                    if (ImGui.button(listOfFiles[i].getName())) {
-                        selectedFolder = listOfFiles[i].getName();
-
-                        if (click == 2) {
-                            rename = true;
-                        } else {
-                            rename = false;
-                        }
-
-                    }
-                }
-                if (rename && selectedFolder.equals(listOfFiles[i].getName())) {
-                    String[] newName = JImGui.inputTextNoLabel(listOfFiles[i].getName());
-                    if (newName[0].equals("true")) {
-                        System.out.println("rename " + listOfFiles[i].getName() + " to " + newName[1]);
-                        File srcFile = new File("assets/" + listOfFiles[i].getName());
-                        File desFile = new File("assets/" + newName[1]);
-                        System.out.println("rename " + srcFile.renameTo(desFile));
-                        rename = false;
-                        click = 0;
-                    }
-
-                }
-
-
-                if (!lastSelectedFolder.equals(selectedFolder)) {
-
-                    if (rename) {
-
-                    }
-                    lastSelectedFolder = selectedFolder;
-                }
-
-                ImGui.popID();
-                ImGui.newLine();
-            }
-        }
-        if (!ImGui.isAnyItemHovered()) {
-            if (ImGui.beginPopupContextWindow("New folder")) {
-                if (ImGui.menuItem("New folder")) {
-                    ImGui.beginChild(listOfFiles.length);
-                    ImGui.pushID(listOfFiles.length + 1);
-                    ImGui.popID();
-                    int tmp = 1;
-                    File theDir = new File("assets/New folder");
-                    while (theDir.exists()) {
-                        theDir = new File("assets/New folder (" + tmp + ")");
-                        tmp++;
-                    }
-                    theDir.mkdirs();
-                    ImGui.endChild();
-                    click = 2;
-                    rename = true;
-                    selectedFolder = theDir.getName();
-                }
-                ImGui.endPopup();
-            }
-        } else {
-            if (ImGui.isItemHovered() && ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
-                System.out.println("item hover item and right click");
-            }
-        }
         ImGui.end();
 
         ImGui.begin("Objects");

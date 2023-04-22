@@ -236,6 +236,7 @@ public class Window implements Observer {
         this.imGuiLayer.initImGui();
 
         Window.changeScene(new LevelEditorSceneInitializer());
+
     }
 
     void SetWindowIcon() {

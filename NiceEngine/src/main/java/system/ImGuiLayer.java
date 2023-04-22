@@ -28,6 +28,7 @@ public class ImGuiLayer {
     private PropertiesWindow propertiesWindow;
     private MenuBar menuBar;
     private SceneHierarchyWindow sceneHierarchyWindow;
+    private AssetsWindow assetsWindow;
     //endregion
 
     //region Contructors
@@ -37,6 +38,7 @@ public class ImGuiLayer {
         this.propertiesWindow = new PropertiesWindow(pickingTexture);
         this.menuBar = new MenuBar();
         this.sceneHierarchyWindow = new SceneHierarchyWindow();
+        this.assetsWindow = new AssetsWindow();
     }
     //endregion
 
@@ -169,7 +171,10 @@ public class ImGuiLayer {
         gameViewWindow.imgui();
         propertiesWindow.imgui();
         sceneHierarchyWindow.imgui();
+
         AnimationStateCreator.getInstance().imgui();
+
+        assetsWindow.imgui();
 
         endFrame();
     }
