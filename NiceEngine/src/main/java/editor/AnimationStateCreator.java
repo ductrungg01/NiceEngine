@@ -1,24 +1,18 @@
 package editor;
 
+import editor.uihelper.ButtonColor;
+import editor.uihelper.NiceImGui;
 import components.Sprite;
 import imgui.ImGui;
-import imgui.ImVec2;
 import imgui.flag.ImGuiDir;
-import imgui.flag.ImGuiInputTextFlags;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
-import imgui.type.ImInt;
 import imgui.type.ImString;
 import org.joml.Vector2f;
-import org.joml.Vector2i;
-import org.joml.Vector4f;
-import renderer.Texture;
 import util.AssetPool;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import static editor.uihelper.NiceImGui.NiceButton;
+import static editor.uihelper.NiceShortCall.*;
 
 public class AnimationStateCreator {
 
@@ -35,13 +29,11 @@ public class AnimationStateCreator {
         return instance;
     }
 
-    public static boolean isShow = false;
+    public static boolean isShow = true;
     private boolean showFileDialog = false;
 
     ImString imagePath = new ImString("Assets/images/something.png");
     Vector2f deviceBy = new Vector2f(1, 1);
-    ImString deviceByX = new ImString("1");
-    ImString deviceByY = new ImString("1");
     ImString frameTimeSmall = new ImString("0.02s");
     ImString title = new ImString("This is the name of this Anim State");
     ImBoolean isLoop = new ImBoolean(true);
@@ -72,7 +64,7 @@ public class AnimationStateCreator {
         // Dòng 2
 //        ImGui.text("Device by: ");
         ImGui.beginChild("##image device", 500, 30, false);
-        JImGui.drawVec2Control("Device by:", deviceBy, 1, 100, 300, 0, 1);
+        NiceImGui.drawVec2Control("Device by:", deviceBy, 1, 100, 300, 0, 1);
         ImGui.endChild();
 
         // Dòng 3
@@ -104,9 +96,7 @@ public class AnimationStateCreator {
 //        if (ImGui.button("Add to frame list")) {
 //            // Handle add frame button click event
 //        }
-        JImGui.drawButton("Add to frame list", new Vector4f(0 / 255, 141 / 255, 255 / 255, 0.8f),
-                new Vector4f(0 / 255, 255 / 255, 255 / 255, 0.8f),
-                new Vector4f(0 / 255, 130 / 255, 130 / 255, 1));
+        NiceButton("Add to frame list", new ButtonColor(COLOR_Blue, COLOR_LightBlue, COLOR_DarkBlue));
         //endregion
 
         //region RIGHT COLUMN
@@ -140,13 +130,13 @@ public class AnimationStateCreator {
         ImGui.dummy(250, 250);
 
         // Dòng cuối
-        JImGui.drawButton("Cancel", new Vector4f(1, 0, 0, 1),
-                new Vector4f(1, 0, 0, 1),
-                new Vector4f(1, 0, 0, 1));
+        if (NiceButton("Cancel", new ButtonColor(COLOR_Red, COLOR_LightRed, COLOR_DarkRed))) {
+            // handle
+        }
         ImGui.sameLine();
-        JImGui.drawButton("Save", new Vector4f(0, 1, 0, 1),
-                new Vector4f(0, 1, 0, 1),
-                new Vector4f(0, 1, 0, 1));
+        if (NiceButton("Save", new ButtonColor(COLOR_Green, COLOR_LightGreen, COLOR_DarkGreen))) {
+            // handle
+        }
         //endregion
 
 

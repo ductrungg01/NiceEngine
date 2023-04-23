@@ -1,5 +1,6 @@
 package editor;
 
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 
 import java.io.File;
@@ -47,7 +48,7 @@ public class MessageBox {
 
             switch (typeOfMsb) {
                 case CREATE_FILE:
-                    String newFile[] = JImGui.inputTextNoLabel("");
+                    String newFile[] = NiceImGui.inputTextNoLabel("");
                     ImGui.text("Press enter to confirm");
                     if (ImGui.button("Cancel")) {
                         showMsb = false;

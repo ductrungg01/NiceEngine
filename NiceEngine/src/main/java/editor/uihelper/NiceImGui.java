@@ -1,19 +1,16 @@
-package editor;
+package editor.uihelper;
 
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
-import imgui.flag.ImGuiInputTextFlags;
+import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImString;
 import org.joml.Vector2f;
-import org.joml.Vector2i;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 
-import java.util.Vector;
-
-public class JImGui {
+public class NiceImGui {
 
     //region Fields
     private static float defaultColumnWidth = 220.0f;
@@ -141,9 +138,7 @@ public class JImGui {
         ImGui.popID();
     }
 
-    public static void drawButton(String label, Vector4f buttonColor, Vector4f hoveredColor, Vector4f activeColor) {
-        ImGui.pushID(label);
-
+    public static boolean NiceButton(String label, ButtonColor btnColor) {
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
 
         // Tính độ dài của label
@@ -154,17 +149,42 @@ public class JImGui {
         // Tính toán kích thước của button
         Vector2f buttonSize = new Vector2f(labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f + 10, lineHeight * 1.5f);
 
-        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
+        return NiceButton(label, btnColor, buttonSize);
+    }
+
+    public static boolean NiceButton(String label, ButtonColor btnColor, Vector2f btnSize) {
+        boolean isClick = false;
+
+        ImGui.pushID(label);
+
+        Vector2f mousePos = new Vector2f(ImGui.getIO().getMousePosX(), ImGui.getIO().getMousePosY());
+        Vector2f buttonPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
+
+        System.out.printf("( %.2f  %.2f) \n", buttonPos.x, buttonPos.y);
+
+        if (mousePos.x >= buttonPos.x && mousePos.x <= buttonPos.x + btnSize.x
+                && mousePos.y >= buttonPos.y && mousePos.y <= buttonPos.y + btnSize.y) {
+            ImGui.setMouseCursor(ImGuiMouseCursor.Hand);
+        } else {
+            ImGui.setMouseCursor(ImGuiMouseCursor.Arrow);
+        }
+
+        ImGui.getIO().setMouseDrawCursor(true);
+
+        float widthEach = (ImGui.calcItemWidth() - btnSize.x * 2.0f) / 2.0f;
 
         ImGui.pushItemWidth(widthEach);
-        ImGui.pushStyleColor(ImGuiCol.Button, buttonColor.x, buttonColor.y, buttonColor.z, buttonColor.w);
-        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
-        ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
-        if (ImGui.button(label, buttonSize.x, buttonSize.y)) {
+        ImGui.pushStyleColor(ImGuiCol.Button, btnColor.buttonColor.x, btnColor.buttonColor.y, btnColor.buttonColor.z, btnColor.buttonColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, btnColor.hoveredColor.x, btnColor.hoveredColor.y, btnColor.hoveredColor.z, btnColor.hoveredColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, btnColor.activeColor.x, btnColor.activeColor.y, btnColor.activeColor.z, btnColor.activeColor.w);
+        if (ImGui.button(label, btnSize.x, btnSize.y)) {
             // handle click button
+            isClick = true;
         }
         ImGui.popStyleColor(3);
         ImGui.popID();
+
+        return isClick;
     }
 
 
