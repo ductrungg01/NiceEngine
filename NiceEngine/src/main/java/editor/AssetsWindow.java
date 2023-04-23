@@ -1,8 +1,8 @@
 package editor;
 
-import editor.uihelper.NiceImGui;
 import components.MouseControls;
 import components.Sprite;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.lwjgl.glfw.GLFW;

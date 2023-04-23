@@ -1,5 +1,6 @@
 package editor.uihelper;
 
+import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
@@ -160,8 +161,6 @@ public class NiceImGui {
         if (ImGui.getMouseCursor() != ImGuiMouseCursor.Hand) {
             Vector2f mousePos = new Vector2f(ImGui.getIO().getMousePosX(), ImGui.getIO().getMousePosY());
             Vector2f buttonPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
-
-            System.out.printf("( %.2f  %.2f) \n", buttonPos.x, buttonPos.y);
 
             if (mousePos.x >= buttonPos.x && mousePos.x <= buttonPos.x + btnSize.x
                     && mousePos.y >= buttonPos.y && mousePos.y <= buttonPos.y + btnSize.y) {

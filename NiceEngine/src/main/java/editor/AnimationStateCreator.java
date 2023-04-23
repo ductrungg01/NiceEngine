@@ -1,8 +1,8 @@
 package editor;
 
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
 import components.Sprite;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiDir;
 import imgui.flag.ImGuiWindowFlags;
@@ -16,6 +16,7 @@ import static editor.uihelper.NiceShortCall.*;
 
 public class AnimationStateCreator {
 
+    //region Singleton
     private AnimationStateCreator() {
     }
 
@@ -28,6 +29,7 @@ public class AnimationStateCreator {
 
         return instance;
     }
+    //endregion
 
     public static boolean isShow = true;
     private boolean showFileDialog = false;
@@ -132,10 +134,12 @@ public class AnimationStateCreator {
         // Dòng cuối
         if (NiceButton("Cancel", new ButtonColor(COLOR_Red, COLOR_LightRed, COLOR_DarkRed))) {
             // handle
+            Debug.Log("You are click Cancel button");
         }
         ImGui.sameLine();
         if (NiceButton("Save", new ButtonColor(COLOR_Green, COLOR_LightGreen, COLOR_DarkGreen))) {
             // handle
+            Debug.Log("You are click Save button");
         }
         //endregion
 
@@ -157,7 +161,6 @@ public class AnimationStateCreator {
 
             ImGui.endPopup();
         }
-
 
         ImGui.columns(1);
         ImGui.end();
