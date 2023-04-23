@@ -113,7 +113,7 @@ public class AnimationStateCreator {
 
         // Dòng 3
         ImGui.beginChild("##frame-list", 500, 500, true);
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 111; i++) {
             ImGui.pushID(i);
             if (ImGui.button("Frame: " + i + " | " + "Time: " + 0.04 + " ")) {
 
