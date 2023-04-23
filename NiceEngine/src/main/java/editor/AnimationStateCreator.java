@@ -9,6 +9,9 @@ import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImInt;
 import imgui.type.ImString;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector4f;
 import renderer.Texture;
 import util.AssetPool;
 
@@ -32,165 +35,28 @@ public class AnimationStateCreator {
         return instance;
     }
 
-    public static boolean isShow = true;
+    public static boolean isShow = false;
     private boolean showFileDialog = false;
 
     ImString imagePath = new ImString("Assets/images/something.png");
+    Vector2f deviceBy = new Vector2f(1, 1);
     ImString deviceByX = new ImString("1");
     ImString deviceByY = new ImString("1");
     ImString frameTimeSmall = new ImString("0.02s");
     ImString title = new ImString("This is the name of this Anim State");
     ImBoolean isLoop = new ImBoolean(true);
-    List<ImInt> frameList = new List<ImInt>() {
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public boolean contains(Object o) {
-            return false;
-        }
-
-        @Override
-        public Iterator<ImInt> iterator() {
-            return null;
-        }
-
-        @Override
-        public Object[] toArray() {
-            return new Object[0];
-        }
-
-        @Override
-        public <T> T[] toArray(T[] ts) {
-            return null;
-        }
-
-        @Override
-        public boolean add(ImInt imInt) {
-            return false;
-        }
-
-        @Override
-        public boolean remove(Object o) {
-            return false;
-        }
-
-        @Override
-        public boolean containsAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(Collection<? extends ImInt> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(int i, Collection<? extends ImInt> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean removeAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public boolean retainAll(Collection<?> collection) {
-            return false;
-        }
-
-        @Override
-        public void clear() {
-
-        }
-
-        @Override
-        public ImInt get(int i) {
-            return null;
-        }
-
-        @Override
-        public ImInt set(int i, ImInt imInt) {
-            return null;
-        }
-
-        @Override
-        public void add(int i, ImInt imInt) {
-
-        }
-
-        @Override
-        public ImInt remove(int i) {
-            return null;
-        }
-
-        @Override
-        public int indexOf(Object o) {
-            return 0;
-        }
-
-        @Override
-        public int lastIndexOf(Object o) {
-            return 0;
-        }
-
-        @Override
-        public ListIterator<ImInt> listIterator() {
-            return null;
-        }
-
-        @Override
-        public ListIterator<ImInt> listIterator(int i) {
-            return null;
-        }
-
-        @Override
-        public List<ImInt> subList(int i, int i1) {
-            return null;
-        }
-    };
 
     public void imgui() {
         if (!isShow) return;
 
-//        if (ImGui.begin("Animation State Creator",
-//                new ImBoolean(true),
-//                ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoSavedSettings)) {
-//
-//            ImVec2 size = new ImVec2(300, 200);
-//            ImVec2 center = new ImVec2(ImGui.getMainViewport().getPosX() + ImGui.getMainViewport().getSizeX() / 2 - size.x / 2, ImGui.getMainViewport().getPosY() + ImGui.getMainViewport().getSizeY() / 2 - size.y / 2);
-//            ImGui.setNextWindowPos(center.x, center.y);
-//
-//
-//            ImGui.text("Image:");
-//            ImGui.inputText("##image", new ImString("assets/images/folder-icon.png"), 256);
-//
-//            if (ImGui.button("Load")) {
-//                // Load image
-//            }
-//
-//            Sprite spr = new Sprite();
-//            spr.setTexture(AssetPool.getTexture("assets/images/folder-icon.png"));
-//            ImGui.image(spr.getTexId(), 200, 200);
-//
-//            ImGui.end();
-//        } else {
-//            System.out.println("Animation State Creator windows is closed");
-//            AnimationStateCreator.getInstance().isShow = false;
-//            ImGui.end();
-//        }
-        ImGui.begin("Animation State Creator");
+        ImGui.setNextWindowSize(1000, 1000);
+        ImGui.begin("Animation State Creator", new ImBoolean(true),
+                ImGuiWindowFlags.NoResize);
 
+        //region LEFT COLUMN
         // Bên trái
         ImGui.columns(2);
+        ImGui.setColumnWidth(0, 600);
 
         // Dòng 1
         ImGui.text("Image path:");
@@ -204,39 +70,46 @@ public class AnimationStateCreator {
         }
 
         // Dòng 2
-        ImGui.text("Device by:  ");
-        ImGui.sameLine();
-        ImGui.inputText("", deviceByX, ImGuiInputTextFlags.CharsDecimal);
-        ImGui.sameLine();
-        ImGui.inputText("", deviceByY, ImGuiInputTextFlags.CharsDecimal);
-
-//        ImGui.inputTextWithHint("", "", deviceByX, 5);
-//        ImGui.sameLine();
-//        ImGui.inputTextWithHint("", "", deviceByY, 5);
-
+//        ImGui.text("Device by: ");
+        ImGui.beginChild("##image device", 500, 30, false);
+        JImGui.drawVec2Control("Device by:", deviceBy, 1, 100, 300, 0, 1);
+        ImGui.endChild();
 
         // Dòng 3
         ImGui.text("Image preview:");
-        ImGui.sameLine();
-        ImGui.dummy(500, 500);
+
+        ImGui.beginChild("##image loaded", 500, 500, true);
+
+        Sprite spr = new Sprite();
+        spr.setTexture(AssetPool.getTexture("assets/images/folder-icon.png"));
+        ImGui.image(spr.getTexId(), 450, 450);
+
+        ImGui.endChild();
 
         // Dòng 4
         ImGui.arrowButton("##down", ImGuiDir.Down);
+        ImGui.sameLine();
         ImGui.arrowButton("##left", ImGuiDir.Left);
+        ImGui.sameLine();
         ImGui.arrowButton("##right", ImGuiDir.Right);
 
         // Dòng 5
         ImGui.beginChild("##frame-preview", 250, 250, true);
-        ImGui.dummy(250, 250);
+        ImGui.dummy(200, 200);
         ImGui.endChild();
         ImGui.sameLine();
         ImGui.text("Frame time:");
         ImGui.sameLine();
         ImGui.inputText("", frameTimeSmall, INPUT_TEXT_BUF_SIZE);
-        if (ImGui.button("Add to frame list")) {
-            // Handle add frame button click event
-        }
+//        if (ImGui.button("Add to frame list")) {
+//            // Handle add frame button click event
+//        }
+        JImGui.drawButton("Add to frame list", new Vector4f(0 / 255, 141 / 255, 255 / 255, 0.8f),
+                new Vector4f(0 / 255, 255 / 255, 255 / 255, 0.8f),
+                new Vector4f(0 / 255, 130 / 255, 130 / 255, 1));
+        //endregion
 
+        //region RIGHT COLUMN
         // Bên phải
         ImGui.nextColumn();
 
@@ -266,17 +139,15 @@ public class AnimationStateCreator {
         // Dòng 4
         ImGui.dummy(250, 250);
 
-        // Dòng 5
-        ImGui.separator();
-
         // Dòng cuối
-        if (ImGui.button("Cancel")) {
-            // Handle cancel button click event
-        }
+        JImGui.drawButton("Cancel", new Vector4f(1, 0, 0, 1),
+                new Vector4f(1, 0, 0, 1),
+                new Vector4f(1, 0, 0, 1));
         ImGui.sameLine();
-        if (ImGui.button("Save")) {
-            // Handle save button click event
-        }
+        JImGui.drawButton("Save", new Vector4f(0, 1, 0, 1),
+                new Vector4f(0, 1, 0, 1),
+                new Vector4f(0, 1, 0, 1));
+        //endregion
 
 
         if (showFileDialog) {
@@ -298,6 +169,7 @@ public class AnimationStateCreator {
         }
 
 
+        ImGui.columns(1);
         ImGui.end();
     }
 }

@@ -1,13 +1,17 @@
 package editor;
 
 import imgui.ImGui;
+import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiInputTextFlags;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImString;
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
+
+import java.util.Vector;
 
 public class JImGui {
 
@@ -78,6 +82,92 @@ public class JImGui {
         ImGui.popID();
     }
 
+    public static void drawVec2Control(String label, Vector2f values, float resetValue,
+                                       float columnWidthForLabel,
+                                       float columnWidthForValues,
+                                       float minValue,
+                                       float maxValue) {
+        ImGui.pushID(label);
+
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, columnWidthForLabel);
+        ImGui.setColumnWidth(1, columnWidthForValues);
+        ImGui.text(label);
+        ImGui.nextColumn();
+
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
+
+        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
+        Vector2f buttonSize = new Vector2f(lineHeight + 3.0f, lineHeight);
+        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
+
+        ImGui.pushItemWidth(widthEach);
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.8f, 0.2f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.8f, 0.1f, 0.15f, 1.0f);
+        if (ImGui.button("", buttonSize.x, buttonSize.y)) {
+            values.x = resetValue;
+        }
+        ImGui.popStyleColor(3);
+
+        ImGui.sameLine();
+        float[] vecValuesX = {values.x};
+        ImGui.dragFloat("##x", vecValuesX, 0.01f, minValue, maxValue);
+        ImGui.popItemWidth();
+        ImGui.sameLine();
+
+        ImGui.pushItemWidth(widthEach);
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.2f, 0.7f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.3f, 0.8f, 0.3f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.2f, 0.7f, 0.2f, 1.0f);
+        if (ImGui.button("", buttonSize.x, buttonSize.y)) {
+            values.y = resetValue;
+        }
+        ImGui.popStyleColor(3);
+
+        ImGui.sameLine();
+        float[] vecValuesY = {values.y};
+        ImGui.dragFloat("##y", vecValuesY, 0.01f, minValue, maxValue);
+        ImGui.popItemWidth();
+        ImGui.sameLine();
+
+        ImGui.nextColumn();
+
+        values.x = vecValuesX[0];
+        values.y = vecValuesY[0];
+
+        ImGui.popStyleVar();
+        ImGui.columns(1);
+        ImGui.popID();
+    }
+
+    public static void drawButton(String label, Vector4f buttonColor, Vector4f hoveredColor, Vector4f activeColor) {
+        ImGui.pushID(label);
+
+        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
+
+        // Tính độ dài của label
+        ImVec2 textSize = new ImVec2(0, 0);
+        ImGui.calcTextSize(textSize, label);
+        float labelWidth = textSize.x;
+
+        // Tính toán kích thước của button
+        Vector2f buttonSize = new Vector2f(labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f + 10, lineHeight * 1.5f);
+
+        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
+
+        ImGui.pushItemWidth(widthEach);
+        ImGui.pushStyleColor(ImGuiCol.Button, buttonColor.x, buttonColor.y, buttonColor.z, buttonColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+        if (ImGui.button(label, buttonSize.x, buttonSize.y)) {
+            // handle click button
+        }
+        ImGui.popStyleColor(3);
+        ImGui.popID();
+    }
+
+
     public static float dragfloat(String label, float value) {
         ImGui.pushID(label);
 
@@ -93,6 +183,28 @@ public class JImGui {
         ImGui.popID();
 
         return valArr[0];
+    }
+
+    public static float dragfloat(String label, float value, float minValue, float maxValue) {
+        ImGui.pushID(label);
+
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.text(label);
+        ImGui.nextColumn();
+
+        float[] valArr = {value};
+        ImGui.dragFloat("##dragFloat", valArr, 0.1f);
+
+        ImGui.columns(1);
+        ImGui.popID();
+
+        float v = valArr[0];
+
+        v = Math.min(v, maxValue);
+        v = Math.max(v, minValue);
+
+        return v;
     }
 
     public static int dragInt(String label, int value) {
