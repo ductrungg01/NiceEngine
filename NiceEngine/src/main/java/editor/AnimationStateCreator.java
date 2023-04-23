@@ -222,6 +222,8 @@ public class AnimationStateCreator {
 
         // Dòng 4
         ImGui.arrowButton("##down", ImGuiDir.Down);
+        ImGui.arrowButton("##left", ImGuiDir.Left);
+        ImGui.arrowButton("##right", ImGuiDir.Right);
 
         // Dòng 5
         ImGui.beginChild("##frame-preview", 250, 250, true);
