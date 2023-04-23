@@ -147,8 +147,8 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                     texCoords = bird.getTexCoords();
 
                     ImGui.pushID(id);
-                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
-                            texCoords[0].x, texCoords[2].y)) {
+                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y,
+                            texCoords[1].x, texCoords[1].y)) {
                         GameObject object = Prefabs.generateSpriteObject(bird, 0.25f, 0.25f);
                         levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                     }
@@ -166,8 +166,8 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
                     ImGui.pushID(i);
 
-                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
-                            texCoords[0].x, texCoords[2].y)) {
+                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y,
+                            texCoords[1].x, texCoords[1].y)) {
                         GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
                         levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
                     }
@@ -187,8 +187,8 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                     texCoords = sprite.getTexCoords();
 
                     ImGui.pushID(i);
-                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y,
-                            texCoords[0].x, texCoords[2].y)) {
+                    if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y,
+                            texCoords[1].x, texCoords[1].y)) {
                         GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
                         RigidBody2D rb = new RigidBody2D();
                         rb.setBodyType(BodyType.Static);

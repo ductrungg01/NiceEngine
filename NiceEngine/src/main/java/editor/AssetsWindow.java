@@ -3,6 +3,8 @@ package editor;
 import components.MouseControls;
 import components.Sprite;
 import imgui.ImGui;
+import imgui.ImVec2;
+import imgui.flag.ImGuiStyleVar;
 import org.lwjgl.glfw.GLFW;
 import scenes.LevelEditorSceneInitializer;
 import scenes.Scene;
@@ -149,33 +151,22 @@ public class AssetsWindow {
 
         //region Breadcrum
         spr.setTexture(AssetPool.getTexture(LEFT_ARROW_ICON));
-        if (previousFolder.size() == 0) {
-            ImGui.image(spr.getTexId(), 28, 28);
-        } else {
-            if (ImGui.imageButton(spr.getTexId(), 20, 20, spr.getTexCoords()[2].x, spr.getTexCoords()[0].y,
-                    spr.getTexCoords()[0].x, spr.getTexCoords()[2].y)) {
-                nextFolder.add(currentOpenFolder);
-                currentOpenFolder = previousFolder.get(previousFolder.size() - 1);
-                previousFolder.remove(previousFolder.size() - 1);
+        if (ImGui.imageButton(spr.getTexId(), 20, 20) && previousFolder.size() > 0) {
+            nextFolder.add(currentOpenFolder);
+            currentOpenFolder = previousFolder.get(previousFolder.size() - 1);
+            previousFolder.remove(previousFolder.size() - 1);
 
-            }
         }
         ImGui.sameLine();
         spr.setTexture(AssetPool.getTexture(RIGHT_ARROW_ICON));
-        if (nextFolder.size() == 0) {
-            ImGui.image(spr.getTexId(), 28, 28);
-        } else {
-            if (ImGui.imageButton(spr.getTexId(), 20, 20, spr.getTexCoords()[2].x, spr.getTexCoords()[0].y,
-                    spr.getTexCoords()[0].x, spr.getTexCoords()[2].y)) {
-                previousFolder.add(currentOpenFolder);
-                currentOpenFolder = nextFolder.get(nextFolder.size() - 1);
-                nextFolder.remove(nextFolder.size() - 1);
-            }
+        if (ImGui.imageButton(spr.getTexId(), 20, 20) && nextFolder.size() > 0) {
+            previousFolder.add(currentOpenFolder);
+            currentOpenFolder = nextFolder.get(nextFolder.size() - 1);
+            nextFolder.remove(nextFolder.size() - 1);
         }
         ImGui.sameLine();
 
         String breadcrum[] = currentOpenFolder.split("/");
-
         for (int i = 0; i < breadcrum.length; i++) {
             ImGui.sameLine();
             ImGui.pushID(i);
@@ -230,8 +221,7 @@ public class AssetsWindow {
                     ImGui.sameLine();
                 } else if (FileChecker.checkFileExtension("java", listOfFiles[i])) {
                     spr.setTexture(AssetPool.getTexture(JAVA_ICON));
-                    ImGui.image(spr.getTexId(), 28, 28, spr.getTexCoords()[2].x, spr.getTexCoords()[0].y,
-                            spr.getTexCoords()[0].x, spr.getTexCoords()[2].y);
+                    ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else {
                     ImGui.popID();
@@ -244,8 +234,7 @@ public class AssetsWindow {
             } else if (listOfFiles[i].isDirectory()) {
                 ImGui.pushID(i);
                 spr.setTexture(AssetPool.getTexture(FOLDER_ICON));
-                ImGui.image(spr.getTexId(), 28, 28, spr.getTexCoords()[2].x, spr.getTexCoords()[0].y,
-                        spr.getTexCoords()[0].x, spr.getTexCoords()[2].y);
+                ImGui.image(spr.getTexId(), 28, 28);
                 ImGui.sameLine();
 
                 handleItemSelect(listOfFiles[i], true);
@@ -301,7 +290,7 @@ public class AssetsWindow {
         //endregion
 
         //region Message Box
-        ImGui.setNextWindowSize(500, 200); // Thiết lập kích thước cho message box
+        ImGui.setNextWindowSize(500, 200);
         if (showMsb) {
             ImGui.openPopup("Message Box");
         }
@@ -337,12 +326,6 @@ public class AssetsWindow {
                         }
                     }
                     break;
-//                case CREATE_FILE_SUCCESS:
-//                    if (ImGui.button("Ok")) {
-//                        showMsb = false;
-//                        ImGui.closeCurrentPopup();
-//                    }
-//                    break;
                 default:
                     if (ImGui.button("OK")) {
                         showMsb = false;

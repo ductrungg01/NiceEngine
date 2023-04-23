@@ -26,7 +26,7 @@ public class PropertiesWindow {
     //endregion
 
     //region Contructors
-    public PropertiesWindow(PickingTexture pickingTexture){
+    public PropertiesWindow(PickingTexture pickingTexture) {
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectOriginalColor = new ArrayList<>();
@@ -34,13 +34,19 @@ public class PropertiesWindow {
     //endregion
 
     //region Methods
-    public void imgui(){
-        if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null){
+    public void imgui() {
+        ImGui.begin("Properties/Inspector");
+
+        if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null) {
             activeGameObject = activeGameObjects.get(0);
+        }
 
-            ImGui.begin("Properties/Inspector");
+        if (activeGameObject == null) {
+            ImGui.end();
+            return;
+        }
 
-            if (ImGui.beginPopupContextWindow("ComponentAdder")){
+        if (ImGui.beginPopupContextWindow("ComponentAdder")) {
 //                Reflections reflections = new Reflections("components");
 //                Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
 //                for (Class<? extends Component> aClass : classes) {
@@ -52,44 +58,43 @@ public class PropertiesWindow {
 //                }
 
 
-                if (ImGui.menuItem("Add Rigidbody")){
-                    if (activeGameObject.getComponent(RigidBody2D.class) == null){
-                        activeGameObject.addComponent(new RigidBody2D());
-                    }
+            if (ImGui.menuItem("Add Rigidbody")) {
+                if (activeGameObject.getComponent(RigidBody2D.class) == null) {
+                    activeGameObject.addComponent(new RigidBody2D());
                 }
-
-                if (ImGui.menuItem("Add Box Collider")){
-                    if (activeGameObject.getComponent(Box2DCollider.class) == null &&
-                            activeGameObject.getComponent(CircleCollider.class) == null){
-                        activeGameObject.addComponent(new Box2DCollider());
-                    }
-                }
-
-                if (ImGui.menuItem("Add Circle Collider")){
-                    if (activeGameObject.getComponent(CircleCollider.class) == null &&
-                            activeGameObject.getComponent(Box2DCollider.class) == null){
-                        activeGameObject.addComponent(new CircleCollider());
-                    }
-                }
-
-                ImGui.endPopup();
             }
 
-            activeGameObject.imgui();
-            ImGui.end();
+            if (ImGui.menuItem("Add Box Collider")) {
+                if (activeGameObject.getComponent(Box2DCollider.class) == null &&
+                        activeGameObject.getComponent(CircleCollider.class) == null) {
+                    activeGameObject.addComponent(new Box2DCollider());
+                }
+            }
+
+            if (ImGui.menuItem("Add Circle Collider")) {
+                if (activeGameObject.getComponent(CircleCollider.class) == null &&
+                        activeGameObject.getComponent(Box2DCollider.class) == null) {
+                    activeGameObject.addComponent(new CircleCollider());
+                }
+            }
+
+            ImGui.endPopup();
         }
+
+        activeGameObject.imgui();
+        ImGui.end();
     }
 
-    public GameObject getActiveGameObject(){
+    public GameObject getActiveGameObject() {
         return activeGameObjects.size() == 1 ? this.activeGameObjects.get(0) : null;
     }
 
-    public void clearSelected(){
-        if (activeGameObjectOriginalColor.size() > 0){
+    public void clearSelected() {
+        if (activeGameObjectOriginalColor.size() > 0) {
             int i = 0;
-            for (GameObject go : activeGameObjects){
+            for (GameObject go : activeGameObjects) {
                 SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
-                if (spr != null){
+                if (spr != null) {
                     spr.setColor(activeGameObjectOriginalColor.get(i));
                 }
                 i++;
@@ -100,16 +105,20 @@ public class PropertiesWindow {
         this.activeGameObjectOriginalColor.clear();
     }
 
-    public List<GameObject> getActiveGameObjects(){ return this.activeGameObjects;}
-    public void setActiveGameObject(GameObject go){
-        if (go != null){
+    public List<GameObject> getActiveGameObjects() {
+        return this.activeGameObjects;
+    }
+
+    public void setActiveGameObject(GameObject go) {
+        if (go != null) {
             clearSelected();
             this.activeGameObjects.add(go);
         }
     }
-    public void addActiveGameObject(GameObject go){
+
+    public void addActiveGameObject(GameObject go) {
         SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
-        if (spr != null){
+        if (spr != null) {
             this.activeGameObjectOriginalColor.add(new Vector4f(spr.getColor()));
             spr.setColor(new Vector4f(0.8f, 0.8f, 0.0f, 0.8f));
         } else {
@@ -118,7 +127,7 @@ public class PropertiesWindow {
         this.activeGameObjects.add(go);
     }
 
-    public PickingTexture getPickingTexture(){
+    public PickingTexture getPickingTexture() {
         return this.pickingTexture;
     }
     //endregion
