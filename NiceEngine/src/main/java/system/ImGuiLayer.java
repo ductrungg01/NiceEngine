@@ -160,7 +160,6 @@ public class ImGuiLayer {
     private void startFrame(final float deltaTime) {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
-
     }
 
     public void update(float dt, Scene currentScene) {
@@ -175,6 +174,7 @@ public class ImGuiLayer {
         sceneHierarchyWindow.imgui();
 
         AnimationStateCreator.getInstance().imgui();
+        ConsoleWindow.getInstance().imgui();
 
         assetsWindow.imgui();
         messageBox.imgui();
