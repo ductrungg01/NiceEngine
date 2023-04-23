@@ -29,6 +29,7 @@ public class ImGuiLayer {
     private MenuBar menuBar;
     private SceneHierarchyWindow sceneHierarchyWindow;
     private AssetsWindow assetsWindow;
+    private MessageBox messageBox;
     //endregion
 
     //region Contructors
@@ -39,6 +40,7 @@ public class ImGuiLayer {
         this.menuBar = new MenuBar();
         this.sceneHierarchyWindow = new SceneHierarchyWindow();
         this.assetsWindow = new AssetsWindow();
+        this.messageBox = new MessageBox();
     }
     //endregion
 
@@ -175,6 +177,7 @@ public class ImGuiLayer {
         AnimationStateCreator.getInstance().imgui();
 
         assetsWindow.imgui();
+        messageBox.imgui();
 
         endFrame();
     }

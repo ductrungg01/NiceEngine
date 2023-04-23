@@ -1,12 +1,13 @@
 package system;
 
-import imgui.ImGui;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.PointerBuffer;
 import org.lwjgl.Version;
+import org.lwjgl.glfw.GLFWDropCallback;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWImage;
 import org.lwjgl.openal.AL;
@@ -14,6 +15,7 @@ import org.lwjgl.openal.ALC;
 import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.opengl.GL;
+import org.lwjgl.system.MemoryUtil;
 import physics2d.Physics2D;
 import renderer.*;
 import scenes.LevelEditorSceneInitializer;
@@ -26,12 +28,13 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.glfw.GLFW.glfwGetTime;
 import static org.lwjgl.openal.ALC10.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -40,7 +43,7 @@ public class Window implements Observer {
     //region Fields
     private int width, height;
     private String title;
-    private long glfwWindow;
+    public long glfwWindow;
     private ImGuiLayer imGuiLayer;
     private Framebuffer framebuffer;
     private PickingTexture pickingTexture;
@@ -192,6 +195,7 @@ public class Window implements Observer {
             Window.setWidth(newWidth);
             Window.setHeight(newHeight);
         });
+        glfwSetDropCallback(glfwWindow, MouseListener::mouseDropCallback);
 
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);

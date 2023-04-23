@@ -1,9 +1,19 @@
 package system;
 
+import editor.AssetsWindow;
+import editor.MessageBox;
+import imgui.ImVec2;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import org.lwjgl.PointerBuffer;
+import org.lwjgl.system.MemoryUtil;
+import util.FileUtils;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -21,7 +31,7 @@ public class MouseListener {
     //endregion
 
     //region Contructors
-    private MouseListener(){
+    private MouseListener() {
         this.scrollX = 0.0;
         this.scrollY = 0.0;
         this.xPos = 0.0;
@@ -33,15 +43,15 @@ public class MouseListener {
     //endregion
 
     //region Methods
-    public static boolean mouseButtonDown(int button){
-        if (button < get().mouseButtonPressed.length){
+    public static boolean mouseButtonDown(int button) {
+        if (button < get().mouseButtonPressed.length) {
             return get().mouseButtonPressed[button];
         } else {
             return false;
         }
     }
 
-    public static Vector2f screenToWorld(Vector2f screenCoords){
+    public static Vector2f screenToWorld(Vector2f screenCoords) {
         Vector2f normalizeScreenCoords = new Vector2f(
                 screenCoords.x / Window.getWidth(),
                 screenCoords.y / Window.getHeight()
@@ -58,7 +68,7 @@ public class MouseListener {
         return new Vector2f(tmp.x, tmp.y);
     }
 
-    public static Vector2f worldToScreen(Vector2f worldCoords){
+    public static Vector2f worldToScreen(Vector2f worldCoords) {
         Camera camera = Window.getScene().camera();
 
         Vector4f ndcSpacePos = new Vector4f(worldCoords.x, worldCoords.y, 0, 1);
@@ -72,12 +82,12 @@ public class MouseListener {
         return windowSpace;
     }
 
-    public static void endFrame(){
+    public static void endFrame() {
         get().scrollX = 0.0;
         get().scrollY = 0.0;
     }
 
-    public static void clear(){
+    public static void clear() {
         get().scrollX = 0.0;
         get().scrollY = 0.0;
         get().xPos = 0.0;
@@ -89,20 +99,20 @@ public class MouseListener {
         Arrays.fill(get().mouseButtonPressed, false);
     }
 
-    public static MouseListener get(){
-        if (MouseListener.instance == null){
+    public static MouseListener get() {
+        if (MouseListener.instance == null) {
             MouseListener.instance = new MouseListener();
         }
 
         return MouseListener.instance;
     }
 
-    public static void mousePosCallback(long window, double xPos, double yPos){
-        if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()){
+    public static void mousePosCallback(long window, double xPos, double yPos) {
+        if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()) {
             clear();
         }
 
-        if (get().mouseButtonDown > 0){
+        if (get().mouseButtonDown > 0) {
             get().isDragging = true;
         }
 
@@ -114,61 +124,92 @@ public class MouseListener {
         get().yPos = yPos;
     }
 
-    public static void mouseButtonCallback(long window, int button, int action, int mods){
-        if (action == GLFW_PRESS){
+    public static void mouseButtonCallback(long window, int button, int action, int mods) {
+        if (action == GLFW_PRESS) {
             get().mouseButtonDown++;
 
-            if (button < get().mouseButtonPressed.length){
+            if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = true;
             }
-        } else if (action == GLFW_RELEASE){
+        } else if (action == GLFW_RELEASE) {
             get().mouseButtonDown--;
 
-            if (button < get().mouseButtonPressed.length){
+            if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = false;
                 get().isDragging = false;
             }
         }
     }
 
-    public static void mouseScrollCallback(long window, double xOffset, double yOffset){
+    public static void mouseScrollCallback(long window, double xOffset, double yOffset) {
         get().scrollX = xOffset;
         get().scrollY = yOffset;
     }
     //endregion
 
+    public static boolean isMouseInRange(double pos, double start, double end) {
+        return pos >= start && pos <= end;
+    }
+
+    public static void mouseDropCallback(long window, int count, long names) {
+
+        //get size widget
+        ImVec2 pos = AssetsWindow.getWidgetPos();
+        ImVec2 size = AssetsWindow.getWidgetSize();
+
+        //get mouse pos
+        double[] xPos = new double[1];
+        double[] yPos = new double[1];
+        glfwGetCursorPos(window, xPos, yPos);
+
+        if (isMouseInRange(xPos[0], pos.x, pos.x + size.x) && isMouseInRange(yPos[0], pos.y, pos.y + size.y)) {
+            System.out.println("Chuot trong size widget");
+            PointerBuffer paths = MemoryUtil.memPointerBuffer(names, count);
+            for (int i = 0; i < count; i++) {
+                String filePath = MemoryUtil.memUTF8(paths.get(i));
+
+                //copy file
+                File srcFile = new File(filePath);
+                File desFile = new File(AssetsWindow.getCurrentOpenFolder() + "/" + srcFile.getName());
+
+                FileUtils.copyFile(srcFile, desFile);
+            }
+        } else {
+            System.out.println("Chuot ngoai size widget");
+        }
+    }
+
     //region Properties
-    public static float getX(){
-        return (float)get().xPos;
+    public static float getX() {
+        return (float) get().xPos;
     }
 
-    public static float getY(){
-        return (float)get().yPos;
+    public static float getY() {
+        return (float) get().yPos;
     }
 
-    public static float getScrollX(){
-        return (float)get().scrollX;
+    public static float getScrollX() {
+        return (float) get().scrollX;
     }
 
-    public static float getScrollY(){
-        return (float)get().scrollY;
+    public static float getScrollY() {
+        return (float) get().scrollY;
     }
 
-    public static boolean isDragging(){
+    public static boolean isDragging() {
         return get().isDragging;
     }
 
 
-
-    public static float getScreenX(){
+    public static float getScreenX() {
         return getScreen().x;
     }
 
-    public static float getScreenY(){
+    public static float getScreenY() {
         return getScreen().y;
     }
 
-    public static Vector2f getScreen(){
+    public static Vector2f getScreen() {
         float currentX = getX() - get().gameViewportPos.x;
         currentX = (currentX / get().gameViewportSize.x) * 1920.0f;
         float currentY = getY() - get().gameViewportPos.y;
@@ -176,15 +217,15 @@ public class MouseListener {
         return new Vector2f(currentX, currentY);
     }
 
-    public static float getWorldX(){
+    public static float getWorldX() {
         return getWorld().x;
     }
 
-    public static float getWorldY(){
+    public static float getWorldY() {
         return getWorld().y;
     }
 
-    public static Vector2f getWorld(){
+    public static Vector2f getWorld() {
         float currentX = getX() - get().gameViewportPos.x;
         currentX = (currentX / get().gameViewportSize.x) * 2.0f - 1.0f;
         float currentY = getY() - get().gameViewportPos.y;
@@ -198,6 +239,7 @@ public class MouseListener {
 
         return new Vector2f(tmp.x, tmp.y);
     }
+
     public static void setGameViewportPos(Vector2f gameViewportPos) {
         get().gameViewportPos.set(gameViewportPos);
     }
@@ -205,5 +247,6 @@ public class MouseListener {
     public static void setGameViewportSize(Vector2f gameViewportSize) {
         get().gameViewportSize.set(gameViewportSize);
     }
+
     //endregion
 }
