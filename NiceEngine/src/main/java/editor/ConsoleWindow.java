@@ -42,7 +42,7 @@ public class ConsoleWindow {
             debugLogs.clear();
         }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionAvailY(), ImGui.getContentRegionAvailX() - 100, true);
+        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 150, true);
 
         for (int i = 0; i < debugLogs.size(); i++) {
             ImGui.text(debugLogs.get(i));
