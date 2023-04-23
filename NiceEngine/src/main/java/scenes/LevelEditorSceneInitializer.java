@@ -3,8 +3,6 @@ package scenes;
 import components.*;
 import components.scripts.test.mario.BreakableBrick;
 import components.scripts.test.mario.Ground;
-import editor.JImGui;
-import org.lwjgl.glfw.GLFW;
 import system.Direction;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -14,14 +12,9 @@ import physics2d.components.Box2DCollider;
 import physics2d.components.RigidBody2D;
 import physics2d.enums.BodyType;
 import util.AssetPool;
-import util.FileChecker;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Comparator;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
     //region Fields
