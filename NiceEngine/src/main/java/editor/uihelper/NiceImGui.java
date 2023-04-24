@@ -158,7 +158,7 @@ public class NiceImGui {
 
         ImGui.pushID(label);
 
-        if (ImGui.getMouseCursor() != ImGuiMouseCursor.Hand) {
+        if (ImGui.getMouseCursor() == ImGuiMouseCursor.Arrow) {
             Vector2f mousePos = new Vector2f(ImGui.getIO().getMousePosX(), ImGui.getIO().getMousePosY());
             Vector2f buttonPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
 
