@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class MessageBox {
+    
     public enum TypeOfMsb {
         ERROR,
         CREATE_FILE,

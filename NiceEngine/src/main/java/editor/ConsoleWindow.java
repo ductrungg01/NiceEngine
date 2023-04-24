@@ -32,7 +32,7 @@ public class ConsoleWindow {
         ImGui.begin("Console");
 
         // Tôi cần in ra size của widget này
-        //System.out.println(ImGui.getContentRegionAvailX() + " : " + ImGui.getContentRegionAvailY());
+        //System.out.println(ImGui.getContentRegionMaxX() + " : " + ImGui.getContentRegionMaxY());
         // Tôi cần in ra vị trí góc trái tên của widget này
         //System.out.println(ImGui.getItemRectMinX() + " : " + ImGui.getItemRectMinY());
         // Tôi cần in ra vị trí góc phải dưới của widget này

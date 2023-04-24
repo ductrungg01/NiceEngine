@@ -8,25 +8,40 @@ import system.Window;
 import java.util.List;
 
 public class SceneHierarchyWindow {
+    //region Singleton
+    private SceneHierarchyWindow() {
+    }
+
+    private static SceneHierarchyWindow instance = null;
+
+    public static SceneHierarchyWindow getInstance() {
+        if (instance == null) {
+            instance = new SceneHierarchyWindow();
+        }
+
+        return instance;
+    }
+    //endregion
+
     //region Fields
     private static String payloadDragDropType = "SceneHierarchy";
     //endregion
 
     //region Methods
-    public void imgui(){
+    public void imgui() {
         ImGui.begin("Hierarchy");
 
         List<GameObject> gameObjects = Window.getScene().getGameObjects();
 
         int index = 0;
-        for (GameObject obj: gameObjects){
-            if (!obj.doSerialization()){
+        for (GameObject obj : gameObjects) {
+            if (!obj.doSerialization()) {
                 continue;
             }
 
             boolean treeNodeOpen = doTreeNode(obj, index);
 
-            if (treeNodeOpen){
+            if (treeNodeOpen) {
                 ImGui.treePop();
             }
 
@@ -36,7 +51,7 @@ public class SceneHierarchyWindow {
         ImGui.end();
     }
 
-    private boolean doTreeNode(GameObject obj, int index){
+    private boolean doTreeNode(GameObject obj, int index) {
         ImGui.pushID(index);
         boolean treeNodeOpen = ImGui.treeNodeEx(
                 obj.name,
@@ -48,17 +63,17 @@ public class SceneHierarchyWindow {
         );
         ImGui.popID();
 
-        if (ImGui.beginDragDropSource()){
+        if (ImGui.beginDragDropSource()) {
             ImGui.setDragDropPayloadObject(payloadDragDropType, obj);
             ImGui.text(obj.name);
             ImGui.endDragDropSource();
         }
 
-        if (ImGui.beginDragDropTarget()){
+        if (ImGui.beginDragDropTarget()) {
             Object payloadObj = ImGui.acceptDragDropPayloadObject(payloadDragDropType);
-            if (payloadObj != null){
-                if (payloadObj.getClass().isAssignableFrom(GameObject.class)){
-                    GameObject playerGameObject = (GameObject)payloadObj;
+            if (payloadObj != null) {
+                if (payloadObj.getClass().isAssignableFrom(GameObject.class)) {
+                    GameObject playerGameObject = (GameObject) payloadObj;
                     System.out.println("Payload accepted: '" + playerGameObject.name + "'");
                 }
             }
