@@ -2,6 +2,7 @@ package editor;
 
 import components.MouseControls;
 import components.Sprite;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.lwjgl.glfw.GLFW;
@@ -57,7 +58,7 @@ public class AssetsWindow {
             }
         }
         if (rename && selectedItem.equals(itemName)) {
-            String[] newName = JImGui.inputTextNoLabel(itemName);
+            String[] newName = NiceImGui.inputTextNoLabel(itemName);
             if (newName[0].equals("true")) {
                 File srcFile = new File(currentOpenFolder + "/" + itemName);
                 File desFile = new File(currentOpenFolder + "/" + newName[1]);

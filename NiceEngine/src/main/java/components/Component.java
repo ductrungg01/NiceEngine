@@ -1,6 +1,6 @@
 package components;
 
-import editor.JImGui;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import system.GameObject;
@@ -20,14 +20,14 @@ public abstract class Component {
     //endregion
 
     //region Properties
-    public int getUid(){
+    public int getUid() {
         return this.uid;
     }
 
-    private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType){
+    private <T extends Enum<T>> String[] getEnumValues(Class<T> enumType) {
         String[] enumValues = new String[enumType.getEnumConstants().length];
         int i = 0;
-        for (T enumIntegerValue : enumType.getEnumConstants()){
+        for (T enumIntegerValue : enumType.getEnumConstants()) {
             enumValues[i] = enumIntegerValue.name();
             i++;
         }
@@ -36,52 +36,54 @@ public abstract class Component {
     //endregion
 
     //region Methods
+
     /**
      * Start is called before the first frame update
      */
-    public void start(){
+    public void start() {
 
     }
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
-    public void update(float dt){
+    public void update(float dt) {
 
     }
 
-    public void editorUpdate(float dt){
+    public void editorUpdate(float dt) {
 
     }
 
-    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal){
+    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void endCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal){
+    public void endCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void preSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal){
+    public void preSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void postSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal){
+    public void postSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
 
     }
 
-    public void imgui(){
+    public void imgui() {
         try {
-            Field[] fields =  this.getClass().getDeclaredFields();
-            for (Field field : fields){
+            Field[] fields = this.getClass().getDeclaredFields();
+            for (Field field : fields) {
                 boolean isTransient = Modifier.isTransient(field.getModifiers());
-                if (isTransient){
+                if (isTransient) {
                     continue;
                 }
 
                 boolean isPrivate = Modifier.isPrivate(field.getModifiers());
-                if (isPrivate){
+                if (isPrivate) {
                     field.setAccessible(true);
                 }
 
@@ -90,42 +92,42 @@ public abstract class Component {
                 String name = field.getName();
                 name = name.substring(0, 1).toUpperCase() + name.substring(1);
 
-                if (type == int.class){
-                    int val = (int)value;
-                    field.set(this, JImGui.dragInt(name, val));
-                } else if (type == float.class){
-                    float val = (float)value;
-                    field.set(this, JImGui.dragfloat(name, val));
-                } else if (type == boolean.class){
-                    boolean val = (boolean)value;
-                    if (ImGui.checkbox(name + ": ", val)){
+                if (type == int.class) {
+                    int val = (int) value;
+                    field.set(this, NiceImGui.dragInt(name, val));
+                } else if (type == float.class) {
+                    float val = (float) value;
+                    field.set(this, NiceImGui.dragfloat(name, val));
+                } else if (type == boolean.class) {
+                    boolean val = (boolean) value;
+                    if (ImGui.checkbox(name + ": ", val)) {
                         field.set(this, !val);
                     }
-                } else if (type == Vector2f.class){
-                    Vector2f val = (Vector2f)value;
-                    JImGui.drawVec2Control(name, val);
-                } else if (type == Vector3f.class){
-                    Vector3f val = (Vector3f)value;
+                } else if (type == Vector2f.class) {
+                    Vector2f val = (Vector2f) value;
+                    NiceImGui.drawVec2Control(name, val);
+                } else if (type == Vector3f.class) {
+                    Vector3f val = (Vector3f) value;
                     float[] imVec = {val.x, val.y, val.z};
-                    if (ImGui.dragFloat3(name + ": ", imVec)){
+                    if (ImGui.dragFloat3(name + ": ", imVec)) {
                         val.set(imVec[0], imVec[1], imVec[2]);
                     }
-                } else if (type == Vector4f.class){
-                    Vector4f val = (Vector4f)value;
-                    JImGui.colorPicker4(name, val);
-                } else if (type.isEnum()){
+                } else if (type == Vector4f.class) {
+                    Vector4f val = (Vector4f) value;
+                    NiceImGui.colorPicker4(name, val);
+                } else if (type.isEnum()) {
                     String[] enumValues = getEnumValues(type);
-                    String enumType = ((Enum)value).name();
+                    String enumType = ((Enum) value).name();
                     ImInt index = new ImInt(indexOf(enumType, enumValues));
-                    if (ImGui.combo(name, index, enumValues, enumValues.length)){
+                    if (ImGui.combo(name, index, enumValues, enumValues.length)) {
                         field.set(this, type.getEnumConstants()[index.get()]);
                     }
-                } else if (type == String.class){
+                } else if (type == String.class) {
                     field.set(this,
-                            JImGui.inputText(name + ": ",
-                                    (String)value));
+                            NiceImGui.inputText(name + ": ",
+                                    (String) value));
                 } else if (type.isArray() && name.equals("Tag")) {
-                    String text = JImGui.inputArrayText(name + ":", (String[])value);
+                    String text = NiceImGui.inputArrayText(name + ":", (String[]) value);
                     //format & set value
                     text = text.replaceAll(" ", "");
                     String[] strArray = null;
@@ -133,35 +135,35 @@ public abstract class Component {
                     field.set(this, strArray);
                 }
 
-                if (isPrivate){
+                if (isPrivate) {
                     field.setAccessible(false);
                 }
             }
-        } catch (IllegalAccessException e){
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
     }
 
-    public void generateId(){
-        if (this.uid == -1){
+    public void generateId() {
+        if (this.uid == -1) {
             this.uid = ID_COUNTER++;
         }
     }
 
-    private int indexOf(String str, String[] arr){
-        for (int i = 0; i < arr.length; i++){
-            if (str.equals(arr[i])){
+    private int indexOf(String str, String[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (str.equals(arr[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public void destroy(){
+    public void destroy() {
 
     }
 
-    public static void init(int maxID){
+    public static void init(int maxID) {
         ID_COUNTER = maxID;
     }
     //endregion

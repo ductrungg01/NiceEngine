@@ -1,7 +1,7 @@
 package system;
 
 import components.Component;
-import editor.JImGui;
+import editor.uihelper.NiceImGui;
 import org.joml.Vector2f;
 
 public class Transform extends Component {
@@ -13,31 +13,31 @@ public class Transform extends Component {
     //endregion
 
     //region Contructors
-    public Transform(){
+    public Transform() {
         init(new Vector2f(), new Vector2f());
     }
 
-    public Transform(Vector2f position){
+    public Transform(Vector2f position) {
         init(position, new Vector2f());
     }
 
-    public Transform(Vector2f position, Vector2f scale){
+    public Transform(Vector2f position, Vector2f scale) {
         init(position, scale);
     }
     //endregion
 
     //region Methods
-    public void init(Vector2f position, Vector2f scale){
+    public void init(Vector2f position, Vector2f scale) {
         this.position = position;
         this.scale = scale;
         this.zIndex = 0;
     }
 
-    public Transform copy(){
+    public Transform copy() {
         return new Transform(new Vector2f(this.position), new Vector2f(this.scale));
     }
 
-    public void copy(Transform to){
+    public void copy(Transform to) {
         to.position.set(this.position);
         to.scale.set(this.scale);
     }
@@ -45,20 +45,20 @@ public class Transform extends Component {
 
     //region Override methods
     @Override
-    public void imgui(){
+    public void imgui() {
         //gameObject.name = JImGui.inputText("Name: ", gameObject.name);
-        JImGui.drawVec2Control("Position", this.position);
-        JImGui.drawVec2Control("Scale", this.scale, 32.0f);
-        this.rotation = JImGui.dragfloat("Rotation", this.rotation);
-        this.zIndex = JImGui.dragInt("Z-Index", this.zIndex);
+        NiceImGui.drawVec2Control("Position", this.position);
+        NiceImGui.drawVec2Control("Scale", this.scale, 32.0f);
+        this.rotation = NiceImGui.dragfloat("Rotation", this.rotation);
+        this.zIndex = NiceImGui.dragInt("Z-Index", this.zIndex);
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == null) return false;
         if (!(o instanceof Transform)) return false;
 
-        Transform t = (Transform)o;
+        Transform t = (Transform) o;
         return t.position.equals(this.position) && t.scale.equals(this.scale) &&
                 this.rotation == t.rotation && t.zIndex == this.zIndex;
     }

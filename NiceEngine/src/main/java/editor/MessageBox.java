@@ -1,11 +1,13 @@
 package editor;
 
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 
 import java.io.File;
 import java.io.IOException;
 
 public class MessageBox {
+    
     public enum TypeOfMsb {
         ERROR,
         CREATE_FILE,
@@ -47,7 +49,7 @@ public class MessageBox {
 
             switch (typeOfMsb) {
                 case CREATE_FILE:
-                    String newFile[] = JImGui.inputTextNoLabel("");
+                    String newFile[] = NiceImGui.inputTextNoLabel("");
                     ImGui.text("Press enter to confirm");
                     if (ImGui.button("Cancel")) {
                         showMsb = false;

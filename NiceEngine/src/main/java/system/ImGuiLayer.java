@@ -24,10 +24,8 @@ public class ImGuiLayer {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
 
-    private GameViewWindow gameViewWindow;
     private PropertiesWindow propertiesWindow;
     private MenuBar menuBar;
-    private SceneHierarchyWindow sceneHierarchyWindow;
     private AssetsWindow assetsWindow;
     private MessageBox messageBox;
     //endregion
@@ -35,10 +33,8 @@ public class ImGuiLayer {
     //region Contructors
     public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
-        this.gameViewWindow = new GameViewWindow();
         this.propertiesWindow = new PropertiesWindow(pickingTexture);
         this.menuBar = new MenuBar();
-        this.sceneHierarchyWindow = new SceneHierarchyWindow();
         this.assetsWindow = new AssetsWindow();
         this.messageBox = new MessageBox();
     }
@@ -103,7 +99,7 @@ public class ImGuiLayer {
                 ImGui.setWindowFocus(null);
             }
 
-            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()) {
+            if (!io.getWantCaptureMouse() || GameViewWindow.getInstance().getWantCaptureMouse()) {
                 MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
@@ -111,7 +107,7 @@ public class ImGuiLayer {
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
             io.setMouseWheelH(io.getMouseWheelH() + (float) xOffset);
             io.setMouseWheel(io.getMouseWheel() + (float) yOffset);
-            if (!io.getWantCaptureMouse() || gameViewWindow.getWantCaptureMouse()) {
+            if (!io.getWantCaptureMouse() || GameViewWindow.getInstance().getWantCaptureMouse()) {
                 MouseListener.mouseScrollCallback(w, xOffset, yOffset);
             } else {
                 MouseListener.clear();
@@ -160,7 +156,6 @@ public class ImGuiLayer {
     private void startFrame(final float deltaTime) {
         imGuiGlfw.newFrame();
         ImGui.newFrame();
-
     }
 
     public void update(float dt, Scene currentScene) {
@@ -168,16 +163,17 @@ public class ImGuiLayer {
 
         // Any Dear ImGui code SHOULD go between ImGui.newFrame()/ImGui.render() methods
         setupDockspace();
-        currentScene.imgui();
-        //ImGui.showDemoWindow();
-        gameViewWindow.imgui();
-        propertiesWindow.imgui();
-        sceneHierarchyWindow.imgui();
 
+        currentScene.imgui();
+
+        GameViewWindow.getInstance().imgui();
+        SceneHierarchyWindow.getInstance().imgui();
         AnimationStateCreator.getInstance().imgui();
+        ConsoleWindow.getInstance().imgui();
 
         assetsWindow.imgui();
         messageBox.imgui();
+        propertiesWindow.imgui();
 
         endFrame();
     }
@@ -239,7 +235,7 @@ public class ImGuiLayer {
     }
 
     public GameViewWindow getGameViewWindow() {
-        return this.gameViewWindow;
+        return GameViewWindow.getInstance();
     }
     //endregion
 

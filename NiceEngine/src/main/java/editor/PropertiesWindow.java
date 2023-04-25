@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertiesWindow {
+
     //region Fields
     List<GameObject> activeGameObjects;
     private List<Vector4f> activeGameObjectOriginalColor;

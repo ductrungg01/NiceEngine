@@ -6,7 +6,7 @@ import components.Component;
 import components.ComponentDeserializer;
 import components.ObjectInfo;
 import components.SpriteRenderer;
-import editor.JImGui;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import util.AssetPool;
 
@@ -25,7 +25,7 @@ public class GameObject {
     //endregion
 
     //region Contructors
-    public GameObject(String name){
+    public GameObject(String name) {
         this.name = name;
         this.components = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class GameObject {
     //endregion
 
     //region Methods
-    public GameObject copy(){
+    public GameObject copy() {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
@@ -46,35 +46,36 @@ public class GameObject {
 
         obj.generateUid();
 
-        for (Component c : obj.getAllComponents()){
+        for (Component c : obj.getAllComponents()) {
             c.generateId();
         }
 
         SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
-        if (sprite != null && sprite.getTexture() != null){
+        if (sprite != null && sprite.getTexture() != null) {
             sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
         }
 
         return obj;
     }
 
-    public void destroy(){
+    public void destroy() {
         isDead = true;
-        for (int i = 0; i < components.size(); i++){
+        for (int i = 0; i < components.size(); i++) {
             components.get(i).destroy();
         }
     }
 
-    public static void init(int maxId){
+    public static void init(int maxId) {
         ID_COUNTER = maxId;
     }
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
-    public void update(float dt){
-        for (int i = 0; i < this.components.size(); i++){
+    public void update(float dt) {
+        for (int i = 0; i < this.components.size(); i++) {
             components.get(i).update(dt);
         }
     }
@@ -82,17 +83,17 @@ public class GameObject {
     /**
      * Start is called before the first frame update
      */
-    public void start(){
-        for (int i = 0; i < this.components.size(); i++){
+    public void start() {
+        for (int i = 0; i < this.components.size(); i++) {
             components.get(i).start();
         }
     }
 
-    public void imgui(){
+    public void imgui() {
         ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
-        objectInfo.name = JImGui.inputText("Name", objectInfo.name);
+        objectInfo.name = NiceImGui.inputText("Name", objectInfo.name);
 
-        for (Component c: components){
+        for (Component c : components) {
             if (c.getClass() == ObjectInfo.class) continue;
 
             if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
@@ -100,22 +101,22 @@ public class GameObject {
         }
     }
 
-    public void editorUpdate(float dt){
-        for (int i = 0; i < this.components.size(); i++){
+    public void editorUpdate(float dt) {
+        for (int i = 0; i < this.components.size(); i++) {
             components.get(i).editorUpdate(dt);
         }
     }
     //endregion
 
     //region Properties
-    public <T extends Component> T getComponent(Class<T> componentClass){
-        for (Component c: components){
-            if (componentClass.isAssignableFrom(c.getClass())){
+    public <T extends Component> T getComponent(Class<T> componentClass) {
+        for (Component c : components) {
+            if (componentClass.isAssignableFrom(c.getClass())) {
                 try {
                     return componentClass.cast(c);
-                } catch (ClassCastException e){
+                } catch (ClassCastException e) {
                     e.printStackTrace();
-                    assert false: "Error: Casting component";
+                    assert false : "Error: Casting component";
                 }
             }
         }
@@ -123,40 +124,43 @@ public class GameObject {
         return null;
     }
 
-    public <T extends Component> void removeComponent(Class<T> componentClass){
-        for (int i = 0; i < components.size(); i++){
+    public <T extends Component> void removeComponent(Class<T> componentClass) {
+        for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
-            if (componentClass.isAssignableFrom(c.getClass())){
+            if (componentClass.isAssignableFrom(c.getClass())) {
                 components.remove(i);
                 return;
             }
         }
     }
 
-    public void addComponent(Component c){
+    public void addComponent(Component c) {
         c.generateId();
         this.components.add(c);
         c.gameObject = this;
     }
-    public boolean isDead(){
+
+    public boolean isDead() {
         return isDead;
     }
 
-    public int getUid() {return this.uid;}
+    public int getUid() {
+        return this.uid;
+    }
 
     public List<Component> getAllComponents() {
         return this.components;
     }
 
-    public void setNoSerialize(){
+    public void setNoSerialize() {
         this.doSerialization = false;
     }
 
-    public void generateUid(){
+    public void generateUid() {
         this.uid = ID_COUNTER++;
     }
 
-    public boolean doSerialization(){
+    public boolean doSerialization() {
         return this.doSerialization;
     }
     //endregion
