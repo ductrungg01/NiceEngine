@@ -31,18 +31,11 @@ public class ConsoleWindow {
     public void imgui() {
         ImGui.begin("Console");
 
-        // Tôi cần in ra size của widget này
-        //System.out.println(ImGui.getContentRegionMaxX() + " : " + ImGui.getContentRegionMaxY());
-        // Tôi cần in ra vị trí góc trái tên của widget này
-        //System.out.println(ImGui.getItemRectMinX() + " : " + ImGui.getItemRectMinY());
-        // Tôi cần in ra vị trí góc phải dưới của widget này
-        //System.out.println(ImGui.getItemRectMaxX() + " : " + ImGui.getItemRectMaxY());
-
         if (NiceButton("Clear", new ButtonColor())) {
             debugLogs.clear();
         }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 150, true);
+        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY(), false);
 
         for (int i = 0; i < debugLogs.size(); i++) {
             ImGui.text(debugLogs.get(i));

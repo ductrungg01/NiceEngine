@@ -44,6 +44,7 @@ public class AnimationStateCreator {
         if (!isShow) return;
 
         ImGui.setNextWindowSize(1000, 1000);
+        
         ImGui.begin("Animation State Creator", new ImBoolean(true),
                 ImGuiWindowFlags.NoResize);
 
@@ -143,7 +144,6 @@ public class AnimationStateCreator {
         }
         //endregion
 
-
         if (showFileDialog) {
             ImGui.openPopup("File Dialog");
         }
@@ -163,6 +163,7 @@ public class AnimationStateCreator {
         }
 
         ImGui.columns(1);
+
         ImGui.end();
     }
 }
