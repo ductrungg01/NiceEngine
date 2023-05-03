@@ -6,8 +6,41 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileUtils {
+
+    final static String defaultAssetFolder = "Assets";
+
+    public static List<File> getAllFilesWithExtensions(List<String> extensions) {
+        return getAllFilesWithExtensions(defaultAssetFolder, extensions);
+    }
+
+    public static List<File> getAllFilesWithExtensions(String folder, List<String> extensions) {
+        List<File> files = new ArrayList<>();
+        File directory = new File(folder);
+        if (directory.isDirectory()) {
+            File[] filesList = directory.listFiles();
+            if (filesList != null) {
+                for (File file : filesList) {
+                    if (file.isFile()) {
+                        String fileName = file.getName();
+                        for (String extension : extensions) {
+                            if (fileName.endsWith(extension)) {
+                                files.add(file);
+                                break;
+                            }
+                        }
+                    } else if (file.isDirectory()) {
+                        files.addAll(getAllFilesWithExtensions(file.getAbsolutePath(), extensions));
+                    }
+                }
+            }
+        }
+        return files;
+    }
+    
     public static boolean isImageFile(File file) {
         String fileName = file.getName();
         String extension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
