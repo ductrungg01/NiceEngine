@@ -44,7 +44,7 @@ public class AnimationStateCreator {
         if (!isShow) return;
 
         ImGui.setNextWindowSize(1000, 1000);
-        
+
         ImGui.begin("Animation State Creator", new ImBoolean(true),
                 ImGuiWindowFlags.NoResize);
 
@@ -65,7 +65,6 @@ public class AnimationStateCreator {
         }
 
         // Dòng 2
-//        ImGui.text("Device by: ");
         ImGui.beginChild("##image device", 500, 30, false);
         NiceImGui.drawVec2Control("Device by:", deviceBy, 1, 100, 300, 0, 1);
         ImGui.endChild();

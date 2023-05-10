@@ -1,11 +1,16 @@
 package editor.uihelper;
 
+import com.jogamp.opengl.DebugGL3bc;
+import editor.Debug;
 import editor.uihelper.ButtonColor;
+import imgui.ImColor;
+import imgui.ImDrawList;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
+import imgui.type.ImBoolean;
 import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -139,6 +144,80 @@ public class NiceImGui {
         ImGui.popID();
     }
 
+    public static boolean openFileDialog = false;
+    public static boolean fileDialogIsShowed = false;
+
+    public static void Reference(String label) {
+        ImGui.pushID(label);
+        ImGui.columns(2);
+
+        ImGui.setColumnWidth(0, 200);
+        ImGui.setColumnWidth(1, 700);
+
+        ImGui.text(label);
+
+        ImGui.nextColumn();
+
+        float referenceButtonWidth = 300.0f;
+        float referenceButtonHeight = 30.0f;
+
+        // Create reference button
+        if (ImGui.button("<(Missing) Box2D Collider>", referenceButtonWidth, referenceButtonHeight)) {
+
+        }
+        ImGui.sameLine();
+
+        ShowReferenceButton(referenceButtonHeight);
+        ShowFileDialogForReference();
+
+        ImGui.columns(1);
+
+        ImGui.popID();
+    }
+
+    private static void ShowReferenceButton(float openFileDialogButtonSize) {
+        ImDrawList drawList = ImGui.getWindowDrawList();
+
+        // Create open file dialog button
+        if (ImGui.button("", openFileDialogButtonSize, openFileDialogButtonSize)) {
+            openFileDialog = true;
+            Debug.Log("open file dialog button is clicked!");
+        }
+
+        ImGui.sameLine();
+
+        float iconButtonSize = 7.0f;
+        float iconButtonPosX = ImGui.getCursorScreenPosX() - openFileDialogButtonSize / 2f - 7f;
+        float iconButtonPosY = ImGui.getCursorScreenPosY() + openFileDialogButtonSize / 2f;
+        drawList.addCircleFilled(iconButtonPosX, iconButtonPosY, iconButtonSize, ImColor.intToColor(255, 255, 255, 255));
+        drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
+    }
+
+    private static void ShowFileDialogForReference() {
+        if (openFileDialog && !fileDialogIsShowed) {
+            ImGui.openPopup("File Dialog");
+            fileDialogIsShowed = true;
+        }
+
+        if (ImGui.beginPopupModal("File Dialog")) {
+            ImGui.text("Select the reference");
+            ImGui.separator();
+
+            // File dialog contents go here
+            if (ImGui.button("Cancel")) {
+                openFileDialog = false;
+                fileDialogIsShowed = false;
+                ImGui.closeCurrentPopup();
+            }
+            ImGui.endPopup();
+        }
+    }
+
+    public static void CreateDot(float x, float y, float size) {
+        ImDrawList drawList = ImGui.getWindowDrawList();
+        drawList.addCircleFilled(x, y, size, ImColor.intToColor(255, 0, 0, 255));
+    }
+
     public static boolean NiceButton(String label, ButtonColor btnColor) {
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
 
@@ -185,7 +264,6 @@ public class NiceImGui {
 
         return isClick;
     }
-
 
     public static float dragfloat(String label, float value) {
         ImGui.pushID(label);

@@ -901,7 +901,7 @@
     "isDead": false
   },
   {
-    "uid": 11,
+    "uid": 10,
     "name": "Camera",
     "components": [
       {
@@ -991,14 +991,14 @@
     "isDead": false
   },
   {
-    "uid": 0,
+    "uid": 11,
     "name": "",
     "components": [
       {
         "type": "components.MouseControls",
         "properties": {
           "debounceTime": 0.2,
-          "debounce": -1.7022026,
+          "debounce": -33.84259,
           "boxSelectSet": false,
           "boxSelectStart": {
             "x": 0.0,
@@ -1016,7 +1016,7 @@
     "isDead": false
   },
   {
-    "uid": 18,
+    "uid": 12,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -1089,7 +1089,7 @@
     "isDead": false
   },
   {
-    "uid": 20,
+    "uid": 13,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -1162,7 +1162,7 @@
     "isDead": false
   },
   {
-    "uid": 22,
+    "uid": 14,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -1228,6 +1228,121 @@
             ]
           },
           "uid": 155
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 16,
+    "name": "Camera",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Camera",
+          "tag": [
+            "Object"
+          ],
+          "uid": 163
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 164
+        }
+      },
+      {
+        "type": "components.Camera_Component",
+        "properties": {
+          "backgroundTypeOptions": [
+            "Solid color",
+            "Image"
+          ],
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "imageFilePath": "",
+          "uid": 165
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "assets/images/logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 166
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 0,
+    "name": "",
+    "components": [
+      {
+        "type": "components.MouseControls",
+        "properties": {
+          "debounceTime": 0.2,
+          "debounce": -31.730494,
+          "boxSelectSet": false,
+          "boxSelectStart": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "boxSelectEnd": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 0
         }
       }
     ],

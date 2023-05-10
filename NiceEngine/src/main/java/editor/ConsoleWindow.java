@@ -1,6 +1,9 @@
 package editor;
 
 import editor.uihelper.ButtonColor;
+import editor.uihelper.NiceImGui;
+import imgui.ImColor;
+import imgui.ImDrawList;
 import imgui.ImGui;
 import imgui.ImVec2;
 
@@ -32,13 +35,22 @@ public class ConsoleWindow {
     public List<String> debugLogs = new ArrayList<>();
 
     public void imgui() {
+        ImGui.begin("Test Reference");
+        NiceImGui.Reference("Player Instance");
+        NiceImGui.Reference("Enemy Movement");
+        NiceImGui.Reference("Enemy AI");
+        NiceImGui.Reference("Enemy Collision");
+        NiceImGui.Reference("Game manager");
+        NiceImGui.Reference("UI manager");
+        ImGui.end();
+
         ImGui.begin("Console");
 
         if (NiceButton("Clear", new ButtonColor())) {
             debugLogs.clear();
         }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, false);
+        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
 
         for (int i = 0; i < debugLogs.size(); i++) {
             ImGui.text(debugLogs.get(i));
