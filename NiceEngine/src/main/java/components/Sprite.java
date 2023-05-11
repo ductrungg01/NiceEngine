@@ -23,11 +23,11 @@ public class Sprite {
     }
 
     public Sprite(Texture texture) {
-        this.texture = texture;
+        setTexture(texture);
     }
 
     public Sprite(String TexturePath) {
-        this.texture = AssetPool.getTexture(TexturePath);
+        setTexture(AssetPool.getTexture(TexturePath));
     }
     //endregion
 
