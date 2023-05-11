@@ -2,6 +2,7 @@ package util;
 
 import components.Sprite;
 import editor.MessageBox;
+import editor.uihelper.ReferenceConfig;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -27,6 +28,9 @@ public class FileUtils {
         }
     };
 
+    private static List<String> imageExtensions = List.of("jpg", "jpeg", "png");
+    private static List<String> soundExtensions = List.of("ogg", "mp3", "wav", "flac", "aiff", "m4a");
+
     public static List<File> getAllFiles() {
         return getAllFiles(defaultAssetFolder);
     }
@@ -46,6 +50,27 @@ public class FileUtils {
                 }
             }
         }
+        return files;
+    }
+
+    public static List<File> getFilesWithReferenceConfig(ReferenceConfig refConfig) {
+        List<File> files = new ArrayList<>();
+
+        if (refConfig.showAllFile) {
+            files.addAll(getAllFiles());
+        } else {
+            if (refConfig.showJavaFile) {
+                List<String> tmp = List.of("java");
+                files.addAll(getAllFilesWithExtensions(tmp));
+            }
+            if (refConfig.showImageFile) {
+                files.addAll(getAllFilesWithExtensions(imageExtensions));
+            }
+            if (refConfig.showSoundFile) {
+                files.addAll(getAllFilesWithExtensions(soundExtensions));
+            }
+        }
+
         return files;
     }
 
@@ -81,7 +106,6 @@ public class FileUtils {
         String fileName = file.getName();
         String extension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
         //, "gif", "bmp", "tiff", "webp"
-        String[] imageExtensions = {"jpg", "jpeg", "png"};
         for (String ext : imageExtensions) {
             if (ext.equals(extension)) {
                 return true;
@@ -92,7 +116,6 @@ public class FileUtils {
 
     public static boolean isSoundFile(File file) {
         String extension = getFileExtension(file.getName());
-        String[] soundExtensions = {"ogg", "mp3", "wav", "flac", "aiff", "m4a"};
         for (String ext : soundExtensions) {
             if (ext.equals(extension)) {
                 return true;

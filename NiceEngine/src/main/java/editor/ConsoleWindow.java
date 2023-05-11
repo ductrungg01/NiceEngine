@@ -2,6 +2,7 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
+import editor.uihelper.ReferenceConfig;
 import imgui.ImColor;
 import imgui.ImDrawList;
 import imgui.ImGui;
@@ -39,12 +40,20 @@ public class ConsoleWindow {
     public void imgui() {
         // TODO: testing only, need to remove
         ImGui.begin("Test Reference");
-        NiceImGui.ReferenceButton("Player Instance");
-        NiceImGui.ReferenceButton("Enemy Movement");
-        NiceImGui.ReferenceButton("Enemy AI");
-        NiceImGui.ReferenceButton("Enemy Collision");
-        NiceImGui.ReferenceButton("Game manager");
-        NiceImGui.ReferenceButton("UI manager");
+        NiceImGui.ReferenceButton("Show only game object",
+                new ReferenceConfig(true, false, false, false, false));
+        NiceImGui.ReferenceButton("Show All File and Game object",
+                new ReferenceConfig(true, true, true, true, true));
+        NiceImGui.ReferenceButton("Show all file without game object",
+                new ReferenceConfig(false, true, true, true, true));
+        NiceImGui.ReferenceButton("Show Java file only",
+                new ReferenceConfig(false, false, true, false, false));
+        NiceImGui.ReferenceButton("Show Sound file only",
+                new ReferenceConfig(false, false, false, true, false));
+        NiceImGui.ReferenceButton("Show Image file only",
+                new ReferenceConfig(false, false, false, false, true));
+        NiceImGui.ReferenceButton("Show Image and Java file",
+                new ReferenceConfig(false, false, true, false, true));
         ImGui.end();
 
         ImGui.begin("Console");

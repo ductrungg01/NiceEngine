@@ -153,7 +153,7 @@ public class NiceImGui {
     public static boolean openFileDialog = false;
     public static boolean fileDialogIsShowed = false;
 
-    public static void ReferenceButton(String label) {
+    public static void ReferenceButton(String label, ReferenceConfig referenceConfig) {
         ImGui.pushID(label);
         ImGui.columns(2);
 
@@ -174,7 +174,7 @@ public class NiceImGui {
         ImGui.sameLine();
 
         drawReferenceButton(referenceButtonHeight);
-        showFileDialogForReference();
+        showFileDialogForReference(referenceConfig);
 
         ImGui.columns(1);
 
@@ -199,7 +199,7 @@ public class NiceImGui {
         drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
     }
 
-    private static void showFileDialogForReference() {
+    private static void showFileDialogForReference(ReferenceConfig referenceConfig) {
         if (openFileDialog && !fileDialogIsShowed) {
             ImGui.openPopup("File Dialog");
             fileDialogIsShowed = true;
@@ -210,7 +210,7 @@ public class NiceImGui {
             final float iconWidth = 100f;
             final float iconHeight = 100f;
             final float iconSize = iconHeight;
-            final float spacingX = 15.0f;
+            final float spacingX = 25.0f;
             final float spacingY = 50.0f;
             float availableWidth = ImGui.getContentRegionAvailX();
             int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));
@@ -218,7 +218,7 @@ public class NiceImGui {
             int itemIndex = 0;
 
             // Show all file first
-            List<File> fileList = FileUtils.getAllFiles();
+            List<File> fileList = FileUtils.getFilesWithReferenceConfig(referenceConfig);
             for (File file : fileList) {
                 // Calculate position for this item
                 float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
@@ -235,20 +235,22 @@ public class NiceImGui {
             }
 
             // Next, we show all game object
-            List<GameObject> gameObjects = Window.getScene().getGameObjects();
-            for (GameObject go : gameObjects) {
-                // Calculate position for this item
-                float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
-                float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
+            if (referenceConfig.showGameObject) {
+                List<GameObject> gameObjects = Window.getScene().getGameObjects();
+                for (GameObject go : gameObjects) {
+                    // Calculate position for this item
+                    float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
+                    float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
 
-                // Set item position and size
-                ImGui.setItemAllowOverlap();
-                ImGui.setCursorPos(posX, posY);
+                    // Set item position and size
+                    ImGui.setItemAllowOverlap();
+                    ImGui.setCursorPos(posX, posY);
 
-                // Show icon and filename here
-                drawGameObjectInFileDialog(go, iconSize);
+                    // Show icon and filename here
+                    drawGameObjectInFileDialog(go, iconSize);
 
-                itemIndex++;
+                    itemIndex++;
+                }
             }
 
             ImGui.endChild();
