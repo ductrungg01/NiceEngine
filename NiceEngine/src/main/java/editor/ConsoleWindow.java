@@ -33,15 +33,18 @@ public class ConsoleWindow {
     //endregion
 
     public List<String> debugLogs = new ArrayList<>();
+    private final int MAX_DEBUGLOG_SIZE = 2000;
+    private boolean isRemoved = false;
 
     public void imgui() {
+        // TODO: testing only, need to remove
         ImGui.begin("Test Reference");
-        NiceImGui.Reference("Player Instance");
-        NiceImGui.Reference("Enemy Movement");
-        NiceImGui.Reference("Enemy AI");
-        NiceImGui.Reference("Enemy Collision");
-        NiceImGui.Reference("Game manager");
-        NiceImGui.Reference("UI manager");
+        NiceImGui.ReferenceButton("Player Instance");
+        NiceImGui.ReferenceButton("Enemy Movement");
+        NiceImGui.ReferenceButton("Enemy AI");
+        NiceImGui.ReferenceButton("Enemy Collision");
+        NiceImGui.ReferenceButton("Game manager");
+        NiceImGui.ReferenceButton("UI manager");
         ImGui.end();
 
         ImGui.begin("Console");
@@ -52,11 +55,30 @@ public class ConsoleWindow {
 
         ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
 
+        if (debugLogs.size() > MAX_DEBUGLOG_SIZE) {
+            removeOldValue();
+        }
+
         for (int i = 0; i < debugLogs.size(); i++) {
             ImGui.text(debugLogs.get(i));
         }
 
+        if (isRemoved) {
+            ImGui.text("The old value was be removed by because low performance");
+        }
+
         ImGui.endChild();
         ImGui.end();
+    }
+
+    // TODO: this is temporary method, we need to find better solution
+    private void removeOldValue() {
+        int n = debugLogs.size();
+        for (int i = 0; i < n - 1; i++) {
+            debugLogs.set(i, debugLogs.get(i + 1));
+        }
+
+        debugLogs.remove(n - 1);
+        isRemoved = true;
     }
 }

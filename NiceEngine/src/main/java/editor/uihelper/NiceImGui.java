@@ -1,13 +1,12 @@
 package editor.uihelper;
 
 import com.jogamp.opengl.DebugGL3bc;
+import components.Sprite;
 import editor.Debug;
 import editor.uihelper.ButtonColor;
-import imgui.ImColor;
-import imgui.ImDrawList;
-import imgui.ImGui;
-import imgui.ImVec2;
+import imgui.*;
 import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiMouseButton;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImBoolean;
@@ -15,6 +14,13 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
+import util.AssetPool;
+import util.FileUtils;
+
+import java.io.File;
+import java.util.List;
+
+import static util.FileUtils.getShorterFileName;
 
 public class NiceImGui {
 
@@ -86,10 +92,8 @@ public class NiceImGui {
     }
 
     public static void drawVec2Control(String label, Vector2f values, float resetValue,
-                                       float columnWidthForLabel,
-                                       float columnWidthForValues,
-                                       float minValue,
-                                       float maxValue) {
+                                       float columnWidthForLabel, float columnWidthForValues,
+                                       float minValue, float maxValue) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -147,7 +151,7 @@ public class NiceImGui {
     public static boolean openFileDialog = false;
     public static boolean fileDialogIsShowed = false;
 
-    public static void Reference(String label) {
+    public static void ReferenceButton(String label) {
         ImGui.pushID(label);
         ImGui.columns(2);
 
@@ -167,15 +171,15 @@ public class NiceImGui {
         }
         ImGui.sameLine();
 
-        ShowReferenceButton(referenceButtonHeight);
-        ShowFileDialogForReference();
+        drawReferenceButton(referenceButtonHeight);
+        showFileDialogForReference();
 
         ImGui.columns(1);
 
         ImGui.popID();
     }
 
-    private static void ShowReferenceButton(float openFileDialogButtonSize) {
+    private static void drawReferenceButton(float openFileDialogButtonSize) {
         ImDrawList drawList = ImGui.getWindowDrawList();
 
         // Create open file dialog button
@@ -193,26 +197,78 @@ public class NiceImGui {
         drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
     }
 
-    private static void ShowFileDialogForReference() {
+    private static void showFileDialogForReference() {
         if (openFileDialog && !fileDialogIsShowed) {
             ImGui.openPopup("File Dialog");
             fileDialogIsShowed = true;
         }
 
         if (ImGui.beginPopupModal("File Dialog")) {
-            ImGui.text("Select the reference");
-            ImGui.separator();
+            ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
+            final float iconWidth = 100f;
+            final float iconHeight = 100f;
+            final float iconSize = iconHeight;
 
-            // File dialog contents go here
+            final float spacingX = 15.0f;
+            final float spacingY = 50.0f;
+            float availableWidth = ImGui.getContentRegionAvailX();
+            int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));
+
+            int itemIndex = 0;
+            List<File> fileList = FileUtils.getAllFiles();
+            for (File file : fileList) {
+                // Calculate position for this item
+                float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
+                float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
+
+                // Set item position and size
+                ImGui.setItemAllowOverlap();
+                ImGui.setCursorPos(posX, posY);
+
+                // Show icon and filename here
+                drawFileShower(file, iconSize);
+
+                itemIndex++;
+            }
+            ImGui.endChild();
+
             if (ImGui.button("Cancel")) {
                 openFileDialog = false;
                 fileDialogIsShowed = false;
                 ImGui.closeCurrentPopup();
             }
+
             ImGui.endPopup();
         }
+
     }
 
+    public static void drawFileShower(File file, float iconSize) {
+        ImGui.pushID(file.getAbsolutePath());
+
+        float posX = ImGui.getCursorPosX();
+        float posY = ImGui.getCursorPosY();
+
+        // Display icon and filename
+        // get icon first
+        Sprite icon = FileUtils.getIconByFile(file);
+
+        // draw the icon
+        ImGui.image(icon.getTexId(), iconSize, iconSize);
+
+        // write the file name
+        // set the cursor pos is below of icon
+        final float offsetOfIconAndName = 5f;
+        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
+        ImGui.text(FileUtils.getShorterFileName(file.getName()));
+
+        // End item
+        ImGui.popID();
+    }
+
+    /**
+     * Very good for debugging
+     **/
     public static void CreateDot(float x, float y, float size) {
         ImDrawList drawList = ImGui.getWindowDrawList();
         drawList.addCircleFilled(x, y, size, ImColor.intToColor(255, 0, 0, 255));
