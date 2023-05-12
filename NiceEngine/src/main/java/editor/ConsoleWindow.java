@@ -2,18 +2,12 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
-import editor.uihelper.ReferenceConfig;
-import imgui.ImColor;
-import imgui.ImDrawList;
 import imgui.ImGui;
-import imgui.ImVec2;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static editor.uihelper.NiceImGui.NiceButton;
+import static editor.uihelper.NiceImGui.drawButton;
 import static util.FileUtils.getAllFilesWithExtensions;
 
 public class ConsoleWindow {
@@ -40,7 +34,7 @@ public class ConsoleWindow {
     public void imgui() {
         ImGui.begin("Console");
 
-        if (NiceButton("Clear", new ButtonColor())) {
+        if (NiceImGui.drawButton("Clear", new ButtonColor())) {
             debugLogs.clear();
         }
 
@@ -50,7 +44,7 @@ public class ConsoleWindow {
             removeOldValue();
         }
 
-        for (int i = 0; i < debugLogs.size(); i++) {
+        for (int i = debugLogs.size() - 1; i >= 0; i--) {
             ImGui.text(debugLogs.get(i));
         }
 

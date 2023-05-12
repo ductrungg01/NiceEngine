@@ -18,6 +18,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import static editor.uihelper.NiceShortCall.*;
+
 public class NiceImGui {
 
     //region Fields
@@ -245,18 +247,21 @@ public class NiceImGui {
     public static void drawItemInFileDialog(Object item, float iconSize) {
         String id = item.toString();
         Sprite icon = new Sprite();
-        String itemName = "";
+        String shotItemName = "";
+        String fullItemName = "";
 
         if (item instanceof File) {
             File file = (File) item;
             id = file.getAbsolutePath();
             icon = FileUtils.getIconByFile(file);
-            itemName = FileUtils.getShorterName(file.getName());
+            shotItemName = FileUtils.getShorterName(file.getName());
+            fullItemName = file.getName();
         } else if (item instanceof GameObject) {
             GameObject go = (GameObject) item;
             id = go.name;
             icon = FileUtils.getGameObjectIcon();
-            itemName = FileUtils.getShorterName(go.name);
+            shotItemName = FileUtils.getShorterName(go.name);
+            fullItemName = go.name;
         }
 
         ImGui.pushID(id);
@@ -264,64 +269,47 @@ public class NiceImGui {
         float posX = ImGui.getCursorPosX();
         float posY = ImGui.getCursorPosY();
 
+        Vector4f hoveredColor = ColorHelp.ColorChangeAlpha(COLOR_LightBlue, 0.3f);
+        Vector4f activeColor = COLOR_Blue;
+
         // draw the icon
-        ImGui.image(icon.getTexId(), iconSize, iconSize);
+        ImGui.pushStyleColor(ImGuiCol.Button, 0, 0, 0, 0.0f);  // No color
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+        ImGui.imageButton(icon.getTexId(), iconSize, iconSize);
+        ImGui.popStyleColor(3);
 
         // write the file name
         // set the cursor pos is below of icon
         final float offsetOfIconAndName = 5f;
         ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
-        ImGui.text(itemName);
+        if (ImGui.isItemHovered()) {
+            if (ImGui.isMouseDoubleClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                // DOUBLE CLICK Handle
+                //Debug.Log(fullItemName + " is double clicked");
+                ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+                ImGui.text(shotItemName);
+                ImGui.popStyleColor(1);
+            } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                // CLICK Handle
+                //Debug.Log(fullItemName + " is clicked");
+                ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+                ImGui.text(shotItemName);
+                ImGui.popStyleColor(1);
+            } else {
+                // HOVER Handle
+                ImGui.pushStyleColor(ImGuiCol.Text, hoveredColor.x, hoveredColor.y, hoveredColor.z, activeColor.w);
+                ImGui.text(shotItemName);
+                ImGui.popStyleColor(1);
+            }
+        } else {
+            // No hover
+            ImGui.text(shotItemName);
+        }
 
         // End item
         ImGui.popID();
     }
-
-//    public static void drawFileInFileDialog(File file, float iconSize) {
-//        ImGui.pushID(file.getAbsolutePath());
-//
-//        float posX = ImGui.getCursorPosX();
-//        float posY = ImGui.getCursorPosY();
-//
-//        // Display icon and filename
-//        // get icon first
-//        Sprite icon = FileUtils.getIconByFile(file);
-//
-//        // draw the icon
-//        ImGui.image(icon.getTexId(), iconSize, iconSize);
-//
-//        // write the file name
-//        // set the cursor pos is below of icon
-//        final float offsetOfIconAndName = 5f;
-//        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
-//        ImGui.text(FileUtils.getShorterName(file.getName()));
-//
-//        // End item
-//        ImGui.popID();
-//    }
-//
-//    public static void drawGameObjectInFileDialog(GameObject gameObject, float iconSize) {
-//        ImGui.pushID(gameObject.name);
-//
-//        float posX = ImGui.getCursorPosX();
-//        float posY = ImGui.getCursorPosY();
-//
-//        // Display icon and filename
-//        // get icon first
-//        Sprite icon = FileUtils.getGameObjectIcon();
-//
-//        // draw the icon
-//        ImGui.image(icon.getTexId(), iconSize, iconSize);
-//
-//        // write the file name
-//        // set the cursor pos is below of icon
-//        final float offsetOfIconAndName = 5f;
-//        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
-//        ImGui.text(FileUtils.getShorterName(gameObject.name));
-//
-//        // End item
-//        ImGui.popID();
-//    }
 
     /**
      * Very good for debugging
@@ -331,7 +319,7 @@ public class NiceImGui {
         drawList.addCircleFilled(x, y, size, ImColor.intToColor(255, 0, 0, 255));
     }
 
-    public static boolean NiceButton(String label, ButtonColor btnColor) {
+    public static boolean drawButton(String label, ButtonColor btnColor) {
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
 
         // Tính độ dài của label
@@ -342,10 +330,10 @@ public class NiceImGui {
         // Tính toán kích thước của button
         Vector2f buttonSize = new Vector2f(labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f + 10, lineHeight * 1.5f);
 
-        return NiceButton(label, btnColor, buttonSize);
+        return drawButton(label, btnColor, buttonSize);
     }
 
-    public static boolean NiceButton(String label, ButtonColor btnColor, Vector2f btnSize) {
+    public static boolean drawButton(String label, ButtonColor btnColor, Vector2f btnSize) {
         boolean isClick = false;
 
         ImGui.pushID(label);

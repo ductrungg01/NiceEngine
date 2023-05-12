@@ -6,8 +6,8 @@ import system.GameObject;
 
 public class TestComponent extends Component {
     private GameObject go;
-    private GameObject go2;
-    private GameObject go3;
-    private GameObject go4;
-    private GameObject go5;
+//    private GameObject go2;
+//    private GameObject go3;
+//    private GameObject go4;
+//    private GameObject go5;
 }

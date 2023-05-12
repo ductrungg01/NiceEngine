@@ -11,7 +11,7 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import util.AssetPool;
 
-import static editor.uihelper.NiceImGui.NiceButton;
+import static editor.uihelper.NiceImGui.drawButton;
 import static editor.uihelper.NiceShortCall.*;
 
 public class AnimationStateCreator {
@@ -98,7 +98,7 @@ public class AnimationStateCreator {
 //        if (ImGui.button("Add to frame list")) {
 //            // Handle add frame button click event
 //        }
-        NiceButton("Add to frame list", new ButtonColor(COLOR_Blue, COLOR_LightBlue, COLOR_DarkBlue));
+        NiceImGui.drawButton("Add to frame list", new ButtonColor(COLOR_Blue, COLOR_LightBlue, COLOR_DarkBlue));
         //endregion
 
         //region RIGHT COLUMN
@@ -132,12 +132,12 @@ public class AnimationStateCreator {
         ImGui.dummy(250, 250);
 
         // Dòng cuối
-        if (NiceButton("Cancel", new ButtonColor(COLOR_Red, COLOR_LightRed, COLOR_DarkRed))) {
+        if (NiceImGui.drawButton("Cancel", new ButtonColor(COLOR_Red, COLOR_LightRed, COLOR_DarkRed))) {
             // handle
             Debug.Log("You are click Cancel button");
         }
         ImGui.sameLine();
-        if (NiceButton("Save", new ButtonColor(COLOR_Green, COLOR_LightGreen, COLOR_DarkGreen))) {
+        if (NiceImGui.drawButton("Save", new ButtonColor(COLOR_Green, COLOR_LightGreen, COLOR_DarkGreen))) {
             // handle
             Debug.Log("You are click Save button");
         }

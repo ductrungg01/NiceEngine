@@ -136,7 +136,7 @@ public abstract class Component {
                     field.set(this, strArray);
                 } else if (type == GameObject.class) {
                     NiceImGui.ReferenceButton(type.getName(),
-                            new ReferenceConfig(true, false, false, false, false));
+                            new ReferenceConfig(true, true, false, false, false));
                 }
 
                 if (isPrivate) {
