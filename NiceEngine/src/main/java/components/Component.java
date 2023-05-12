@@ -135,8 +135,11 @@ public abstract class Component {
                     strArray = text.split(",");
                     field.set(this, strArray);
                 } else if (type == GameObject.class) {
-                    NiceImGui.ReferenceButton(type.getName(),
-                            new ReferenceConfig(true, true, false, false, false));
+                    field.set(this,
+                            NiceImGui.ReferenceButton(name,
+                                    new ReferenceConfig(true, false, false, false, false),
+                                    value)
+                    );
                 }
 
                 if (isPrivate) {

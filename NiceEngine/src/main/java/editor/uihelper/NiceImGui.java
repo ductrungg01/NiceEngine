@@ -149,7 +149,7 @@ public class NiceImGui {
     public static boolean openFileDialog = false;
     public static boolean fileDialogIsShowed = false;
 
-    public static void ReferenceButton(String label, ReferenceConfig referenceConfig) {
+    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object referenceObject) {
         ImGui.pushID(label);
         ImGui.columns(2);
 
@@ -164,17 +164,38 @@ public class NiceImGui {
         float referenceButtonHeight = 30.0f;
 
         // Create reference button
-        if (ImGui.button("<(Missing) Box2D Collider>", referenceButtonWidth, referenceButtonHeight)) {
+        String refState = (referenceObject == null ? "(Missing) " : "");
+        String refName = "";
+        if (referenceConfig.showGameObject) {
+            GameObject go = (GameObject) referenceObject;
+            if (go != null) refName = go.name;
+            else refName = "Game object";
+        } else if (referenceConfig.showImageFile) {
+            File imageFile = (File) referenceObject;
+            if (imageFile != null) refName = imageFile.getName();
+            else refName = "Image";
+        } else if (referenceConfig.showSoundFile) {
+            File soundFile = (File) referenceObject;
+            if (soundFile != null) refName = soundFile.getName();
+            else refName = "Sound";
+        } else if (referenceConfig.showJavaFile) {
+            File javaFile = (File) referenceObject;
+            if (javaFile != null) refName = javaFile.getName();
+            else refName = "Sound";
+        }
+        if (ImGui.button(refState + "<" + refName + ">", referenceButtonWidth, referenceButtonHeight)) {
 
         }
         ImGui.sameLine();
 
         drawReferenceButton(referenceButtonHeight);
-        showFileDialogForReference(referenceConfig);
+        referenceObject = showFileDialogForReference(referenceConfig, referenceObject);
 
         ImGui.columns(1);
 
         ImGui.popID();
+
+        return referenceObject;
     }
 
     private static void drawReferenceButton(float openFileDialogButtonSize) {
@@ -195,7 +216,7 @@ public class NiceImGui {
         drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
     }
 
-    private static void showFileDialogForReference(ReferenceConfig referenceConfig) {
+    private static Object showFileDialogForReference(ReferenceConfig referenceConfig, Object returnItem) {
         if (openFileDialog && !fileDialogIsShowed) {
             ImGui.openPopup("File Dialog");
             fileDialogIsShowed = true;
@@ -217,6 +238,8 @@ public class NiceImGui {
             itemList.addAll(FileUtils.getFilesWithReferenceConfig(referenceConfig));
             itemList.addAll(Window.getScene().getGameObjects());
 
+            boolean isChangeValue = false;
+
             for (Object item : itemList) {
                 // Calculate position for this item
                 float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
@@ -226,14 +249,20 @@ public class NiceImGui {
                 ImGui.setItemAllowOverlap();
                 ImGui.setCursorPos(posX, posY);
 
-                drawItemInFileDialog(item, iconSize);
+                Object tmpReturnItem = drawItemInFileDialog(item, iconSize);
+
+                if (tmpReturnItem != null) {
+                    returnItem = tmpReturnItem;
+                    isChangeValue = true;
+                    break;
+                }
 
                 itemIndex++;
             }
 
             ImGui.endChild();
 
-            if (ImGui.button("Cancel")) {
+            if (ImGui.button("Cancel") || isChangeValue) {
                 openFileDialog = false;
                 fileDialogIsShowed = false;
                 ImGui.closeCurrentPopup();
@@ -242,9 +271,10 @@ public class NiceImGui {
             ImGui.endPopup();
         }
 
+        return returnItem;
     }
 
-    public static void drawItemInFileDialog(Object item, float iconSize) {
+    public static Object drawItemInFileDialog(Object item, float iconSize) {
         String id = item.toString();
         Sprite icon = new Sprite();
         String shotItemName = "";
@@ -290,6 +320,10 @@ public class NiceImGui {
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
                 ImGui.text(shotItemName);
                 ImGui.popStyleColor(1);
+
+                // Return value
+                ImGui.popID();
+                return item;
             } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
                 // CLICK Handle
                 //Debug.Log(fullItemName + " is clicked");
@@ -309,6 +343,8 @@ public class NiceImGui {
 
         // End item
         ImGui.popID();
+
+        return null;
     }
 
     /**
