@@ -38,24 +38,6 @@ public class ConsoleWindow {
     private boolean isRemoved = false;
 
     public void imgui() {
-        // TODO: testing only, need to remove
-        ImGui.begin("Test Reference");
-        NiceImGui.ReferenceButton("Show only game object",
-                new ReferenceConfig(true, false, false, false, false));
-        NiceImGui.ReferenceButton("Show All File and Game object",
-                new ReferenceConfig(true, true, true, true, true));
-        NiceImGui.ReferenceButton("Show all file without game object",
-                new ReferenceConfig(false, true, true, true, true));
-        NiceImGui.ReferenceButton("Show Java file only",
-                new ReferenceConfig(false, false, true, false, false));
-        NiceImGui.ReferenceButton("Show Sound file only",
-                new ReferenceConfig(false, false, false, true, false));
-        NiceImGui.ReferenceButton("Show Image file only",
-                new ReferenceConfig(false, false, false, false, true));
-        NiceImGui.ReferenceButton("Show Image and Java file",
-                new ReferenceConfig(false, false, true, false, true));
-        ImGui.end();
-
         ImGui.begin("Console");
 
         if (NiceButton("Clear", new ButtonColor())) {
@@ -80,7 +62,7 @@ public class ConsoleWindow {
         ImGui.end();
     }
 
-    // TODO: this is temporary method, we need to find better solution
+    // TODO: this is temporary method, we need to find better solution, we will implement LinkedList instead of List in the future
     private void removeOldValue() {
         int n = debugLogs.size();
         for (int i = 0; i < n - 1; i++) {

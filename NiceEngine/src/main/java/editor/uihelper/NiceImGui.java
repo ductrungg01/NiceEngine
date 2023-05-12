@@ -1,28 +1,22 @@
 package editor.uihelper;
 
-import com.jogamp.opengl.DebugGL3bc;
 import components.Sprite;
 import editor.Debug;
-import editor.uihelper.ButtonColor;
 import imgui.*;
 import imgui.flag.ImGuiCol;
-import imgui.flag.ImGuiMouseButton;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
-import imgui.type.ImBoolean;
 import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.Window;
-import util.AssetPool;
 import util.FileUtils;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
-
-import static util.FileUtils.getShorterFileName;
 
 public class NiceImGui {
 
@@ -217,9 +211,11 @@ public class NiceImGui {
 
             int itemIndex = 0;
 
-            // Show all file first
-            List<File> fileList = FileUtils.getFilesWithReferenceConfig(referenceConfig);
-            for (File file : fileList) {
+            List<Object> itemList = new ArrayList<>();
+            itemList.addAll(FileUtils.getFilesWithReferenceConfig(referenceConfig));
+            itemList.addAll(Window.getScene().getGameObjects());
+
+            for (Object item : itemList) {
                 // Calculate position for this item
                 float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
                 float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
@@ -228,29 +224,9 @@ public class NiceImGui {
                 ImGui.setItemAllowOverlap();
                 ImGui.setCursorPos(posX, posY);
 
-                // Show icon and filename here
-                drawFileInFileDialog(file, iconSize);
+                drawItemInFileDialog(item, iconSize);
 
                 itemIndex++;
-            }
-
-            // Next, we show all game object
-            if (referenceConfig.showGameObject) {
-                List<GameObject> gameObjects = Window.getScene().getGameObjects();
-                for (GameObject go : gameObjects) {
-                    // Calculate position for this item
-                    float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
-                    float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
-
-                    // Set item position and size
-                    ImGui.setItemAllowOverlap();
-                    ImGui.setCursorPos(posX, posY);
-
-                    // Show icon and filename here
-                    drawGameObjectInFileDialog(go, iconSize);
-
-                    itemIndex++;
-                }
             }
 
             ImGui.endChild();
@@ -266,15 +242,27 @@ public class NiceImGui {
 
     }
 
-    public static void drawFileInFileDialog(File file, float iconSize) {
-        ImGui.pushID(file.getAbsolutePath());
+    public static void drawItemInFileDialog(Object item, float iconSize) {
+        String id = item.toString();
+        Sprite icon = new Sprite();
+        String itemName = "";
+
+        if (item instanceof File) {
+            File file = (File) item;
+            id = file.getAbsolutePath();
+            icon = FileUtils.getIconByFile(file);
+            itemName = FileUtils.getShorterName(file.getName());
+        } else if (item instanceof GameObject) {
+            GameObject go = (GameObject) item;
+            id = go.name;
+            icon = FileUtils.getGameObjectIcon();
+            itemName = FileUtils.getShorterName(go.name);
+        }
+
+        ImGui.pushID(id);
 
         float posX = ImGui.getCursorPosX();
         float posY = ImGui.getCursorPosY();
-
-        // Display icon and filename
-        // get icon first
-        Sprite icon = FileUtils.getIconByFile(file);
 
         // draw the icon
         ImGui.image(icon.getTexId(), iconSize, iconSize);
@@ -283,34 +271,57 @@ public class NiceImGui {
         // set the cursor pos is below of icon
         final float offsetOfIconAndName = 5f;
         ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
-        ImGui.text(FileUtils.getShorterFileName(file.getName()));
+        ImGui.text(itemName);
 
         // End item
         ImGui.popID();
     }
 
-    public static void drawGameObjectInFileDialog(GameObject gameObject, float iconSize) {
-        ImGui.pushID(gameObject.name);
-
-        float posX = ImGui.getCursorPosX();
-        float posY = ImGui.getCursorPosY();
-
-        // Display icon and filename
-        // get icon first
-        Sprite icon = FileUtils.getGameObjectIcon();
-
-        // draw the icon
-        ImGui.image(icon.getTexId(), iconSize, iconSize);
-
-        // write the file name
-        // set the cursor pos is below of icon
-        final float offsetOfIconAndName = 5f;
-        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
-        ImGui.text(FileUtils.getShorterFileName(gameObject.name));
-
-        // End item
-        ImGui.popID();
-    }
+//    public static void drawFileInFileDialog(File file, float iconSize) {
+//        ImGui.pushID(file.getAbsolutePath());
+//
+//        float posX = ImGui.getCursorPosX();
+//        float posY = ImGui.getCursorPosY();
+//
+//        // Display icon and filename
+//        // get icon first
+//        Sprite icon = FileUtils.getIconByFile(file);
+//
+//        // draw the icon
+//        ImGui.image(icon.getTexId(), iconSize, iconSize);
+//
+//        // write the file name
+//        // set the cursor pos is below of icon
+//        final float offsetOfIconAndName = 5f;
+//        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
+//        ImGui.text(FileUtils.getShorterName(file.getName()));
+//
+//        // End item
+//        ImGui.popID();
+//    }
+//
+//    public static void drawGameObjectInFileDialog(GameObject gameObject, float iconSize) {
+//        ImGui.pushID(gameObject.name);
+//
+//        float posX = ImGui.getCursorPosX();
+//        float posY = ImGui.getCursorPosY();
+//
+//        // Display icon and filename
+//        // get icon first
+//        Sprite icon = FileUtils.getGameObjectIcon();
+//
+//        // draw the icon
+//        ImGui.image(icon.getTexId(), iconSize, iconSize);
+//
+//        // write the file name
+//        // set the cursor pos is below of icon
+//        final float offsetOfIconAndName = 5f;
+//        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
+//        ImGui.text(FileUtils.getShorterName(gameObject.name));
+//
+//        // End item
+//        ImGui.popID();
+//    }
 
     /**
      * Very good for debugging

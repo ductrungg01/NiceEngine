@@ -1,6 +1,7 @@
 package components;
 
 import editor.uihelper.NiceImGui;
+import editor.uihelper.ReferenceConfig;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import system.GameObject;
@@ -133,6 +134,9 @@ public abstract class Component {
                     String[] strArray = null;
                     strArray = text.split(",");
                     field.set(this, strArray);
+                } else if (type == GameObject.class) {
+                    NiceImGui.ReferenceButton(type.getName(),
+                            new ReferenceConfig(true, false, false, false, false));
                 }
 
                 if (isPrivate) {

@@ -1,6 +1,7 @@
 package editor;
 
 import components.*;
+import components.scripts.test.TestComponent;
 import components.scripts.test.flappybird.BirdScript;
 import components.scripts.test.flappybird.JumpBySpaceScript;
 import components.scripts.test.flappybird.MoveToLeftScripts;
@@ -76,6 +77,12 @@ public class PropertiesWindow {
                 if (activeGameObject.getComponent(CircleCollider.class) == null &&
                         activeGameObject.getComponent(Box2DCollider.class) == null) {
                     activeGameObject.addComponent(new CircleCollider());
+                }
+            }
+
+            if (ImGui.menuItem("Add 'TestComponent' ")) {
+                if (activeGameObject.getComponent(TestComponent.class) == null) {
+                    activeGameObject.addComponent(new TestComponent());
                 }
             }
 

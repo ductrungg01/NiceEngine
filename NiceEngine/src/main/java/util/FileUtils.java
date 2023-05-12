@@ -148,7 +148,7 @@ public class FileUtils {
 
     }
 
-    public static String getShorterFileName(String fileName) {
+    public static String getShorterName(String fileName) {
         String name = getFileNameWithoutExtension(fileName);
         String ext = getFileExtension(fileName);
 
