@@ -36,7 +36,7 @@ public class SceneHierarchyWindow {
     //region Methods
     public void imgui() {
         ImGui.begin("Hierarchy");
-
+        ImGui.alignTextToFramePadding();
         List<GameObject> gameObjects = Window.getScene().getGameObjects();
 
         int index = 0;
@@ -50,15 +50,19 @@ public class SceneHierarchyWindow {
 //            if (treeNodeOpen) {
 //                ImGui.treePop();
 //            }
-
+            ImGui.pushID(index);
             float w = ImGui.getContentRegionAvailX();
             float h = ImGui.getTextLineHeightWithSpacing();
             if (obj.equals(selectedGameObject)) {
-                NiceImGui.NiceButton(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+                NiceImGui.NiceButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
             } else {
-                NiceImGui.NiceButton(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+                if (NiceImGui.NiceButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
+                    Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(obj);
+                    selectedGameObject = obj;
+                }
+                ;
             }
-
+            ImGui.popID();
             index++;
         }
 

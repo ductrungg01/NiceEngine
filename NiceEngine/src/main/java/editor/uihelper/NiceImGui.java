@@ -3,6 +3,7 @@ package editor.uihelper;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.ImVec2;
+import imgui.flag.ImGuiButtonFlags;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
@@ -151,6 +152,22 @@ public class NiceImGui {
         Vector2f buttonSize = new Vector2f(labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f + 10, lineHeight * 1.5f);
 
         return NiceButton(label, btnColor, buttonSize);
+    }
+
+    public static boolean NiceButtonWithLeftText(String label, ButtonColor btnColor, Vector2f btnSize) {
+        float posX = ImGui.getCursorPosX() + 8f;
+        float posY = ImGui.getCursorPosY();
+
+        boolean ans = NiceButton("", btnColor, btnSize);
+
+        float newPosX = ImGui.getCursorPosX();
+        float newPosY = ImGui.getCursorPosY();
+
+        ImGui.setCursorPos(posX, posY);
+        ImGui.text(label);
+        ImGui.setCursorPos(newPosX, newPosY);
+
+        return ans;
     }
 
     public static boolean NiceButton(String label, ButtonColor btnColor, Vector2f btnSize) {
