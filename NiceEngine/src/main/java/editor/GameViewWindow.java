@@ -75,7 +75,6 @@ public class GameViewWindow {
     }
 
     public boolean getWantCaptureMouse() {
-        Debug.Log(MouseListener.getX() + "|" + MouseListener.getY());
         return MouseListener.getX() >= leftX && MouseListener.getX() <= rightX &&
                 MouseListener.getY() >= bottomY && MouseListener.getY() <= topY;
     }

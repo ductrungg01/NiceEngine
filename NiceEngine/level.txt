@@ -1,1 +1,192 @@
-[]
+[
+  {
+    "uid": 43,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": [
+            "Object"
+          ],
+          "uid": 25
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.875,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 26
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 27
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 44,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": [
+            "Object"
+          ],
+          "uid": 53
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.875,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 54
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.14285715,
+                "y": 0.0
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.0,
+                "y": 0.083333336
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 55
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 56
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 57
+        }
+      },
+      {
+        "type": "components.scripts.test.mario.Ground",
+        "properties": {
+          "uid": 58
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

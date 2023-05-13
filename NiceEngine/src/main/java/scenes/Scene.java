@@ -4,6 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.*;
 import editor.Debug;
+import editor.MessageBox;
+import observers.EventSystem;
+import observers.Observer;
+import observers.events.Event;
+import observers.events.EventType;
+import org.lwjgl.glfw.GLFW;
 import system.*;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
@@ -72,24 +78,6 @@ public class Scene {
         this.camera = new Camera(new Vector2f(0, 0));
         this.sceneInitializer.loadResources(this);
         this.sceneInitializer.init(this);
-
-//        //test back
-//        GameObject background = Window.getScene().createGameObject("Background");
-//        background.transform.position = new Vector2f(0, 0);
-//        background.transform.scale = new Vector2f(1, 1);
-//        SpriteRenderer srpb = new SpriteRenderer();
-//        srpb.setTexture(AssetPool.getTexture("assets/images/logo.png"));
-//        background.addComponent(srpb);
-//        this.addGameObjectToScene(background);
-//        GameObject camera = Window.getScene().createGameObject("Camera");
-//        camera.transform.position = new Vector2f(0, 0);
-//        camera.transform.scale = new Vector2f(1, 1);
-//        camera.addComponent(new Camera_Component());
-//        SpriteRenderer srpb = new SpriteRenderer();
-//        srpb.setTexture(AssetPool.getTexture("assets/images/logo.png"));
-//        camera.addComponent(srpb);
-//
-//        this.addGameObjectToScene(camera);
     }
 
     /**
@@ -132,6 +120,14 @@ public class Scene {
 
 
     public void editorUpdate(float dt) {
+        if ((KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.isKeyRelease(GLFW.GLFW_KEY_S)) {
+            EventSystem.notify(null, new Event(EventType.SaveLevel));
+        }
+
+        if (KeyListener.isKeyRelease(GLFW.GLFW_KEY_L) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
+            EventSystem.notify(null, new Event(EventType.LoadLevel));
+        }
+
         this.camera.adjustProjection();
 
         for (int i = 0; i < gameObjects.size(); i++) {
@@ -161,6 +157,8 @@ public class Scene {
      * @param dt : The interval in seconds from the last frame to the current one
      */
     public void update(float dt) {
+
+
         this.camera.adjustProjection();
         this.physics2D.update(dt);
 
@@ -226,8 +224,10 @@ public class Scene {
 
             writer.write(gson.toJson(objsToSerilize));
             writer.close();
+            MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
         } catch (IOException e) {
             e.printStackTrace();
+            MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
         }
     }
 
