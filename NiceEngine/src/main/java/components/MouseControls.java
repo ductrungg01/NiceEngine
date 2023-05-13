@@ -1,6 +1,7 @@
 package components;
 
 import editor.InspectorWindow;
+import editor.SceneHierarchyWindow;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;
@@ -66,6 +67,7 @@ public class MouseControls extends Component {
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
                 Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(pickedObj);
+                SceneHierarchyWindow.setSelectedGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
                 Window.getImguiLayer().getPropertiesWindow().clearSelected();
             }

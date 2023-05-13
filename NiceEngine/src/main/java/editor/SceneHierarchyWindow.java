@@ -1,11 +1,16 @@
 package editor;
 
+import editor.uihelper.ButtonColor;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
+import org.joml.Vector2f;
 import system.GameObject;
 import system.Window;
 
 import java.util.List;
+
+import static editor.uihelper.NiceShortCall.*;
 
 public class SceneHierarchyWindow {
     //region Singleton
@@ -25,6 +30,7 @@ public class SceneHierarchyWindow {
 
     //region Fields
     private static String payloadDragDropType = "SceneHierarchy";
+    private static GameObject selectedGameObject = null;
     //endregion
 
     //region Methods
@@ -39,10 +45,18 @@ public class SceneHierarchyWindow {
                 continue;
             }
 
-            boolean treeNodeOpen = doTreeNode(obj, index);
+//            boolean treeNodeOpen = doTreeNode(obj, index);
+//
+//            if (treeNodeOpen) {
+//                ImGui.treePop();
+//            }
 
-            if (treeNodeOpen) {
-                ImGui.treePop();
+            float w = ImGui.getContentRegionAvailX();
+            float h = ImGui.getTextLineHeightWithSpacing();
+            if (obj.equals(selectedGameObject)) {
+                NiceImGui.NiceButton(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+            } else {
+                NiceImGui.NiceButton(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
             }
 
             index++;
@@ -82,6 +96,10 @@ public class SceneHierarchyWindow {
         }
 
         return treeNodeOpen;
+    }
+
+    public static void setSelectedGameObject(GameObject go) {
+        selectedGameObject = go;
     }
     //endregion
 }
