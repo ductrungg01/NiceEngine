@@ -34,7 +34,7 @@ public class AssetsWindow {
     private ArrayList<String> nextFolder = new ArrayList<>();
 
 
-    private GameObject gameObject = new GameObject("");
+    private GameObject gameObject = new GameObject("DragImage");
     private Scene scene;
 
     private static ImVec2 widgetPos = new ImVec2();
@@ -42,6 +42,7 @@ public class AssetsWindow {
 
 
     public AssetsWindow() {
+        gameObject.setNoSerialize();
         gameObject.addComponent(new MouseControls());
     }
 

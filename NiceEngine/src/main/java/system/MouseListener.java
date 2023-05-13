@@ -1,6 +1,7 @@
 package system;
 
 import editor.AssetsWindow;
+import editor.Debug;
 import editor.MessageBox;
 import imgui.ImVec2;
 import org.joml.Matrix4f;
@@ -163,7 +164,7 @@ public class MouseListener {
         glfwGetCursorPos(window, xPos, yPos);
 
         if (isMouseInRange(xPos[0], pos.x, pos.x + size.x) && isMouseInRange(yPos[0], pos.y, pos.y + size.y)) {
-            System.out.println("Chuot trong size widget");
+            Debug.Log("Chuot trong size widget");
             PointerBuffer paths = MemoryUtil.memPointerBuffer(names, count);
             for (int i = 0; i < count; i++) {
                 String filePath = MemoryUtil.memUTF8(paths.get(i));
@@ -175,7 +176,7 @@ public class MouseListener {
                 FileUtils.copyFile(srcFile, desFile);
             }
         } else {
-            System.out.println("Chuot ngoai size widget");
+            Debug.Log("Chuot ngoai size widget");
         }
     }
 

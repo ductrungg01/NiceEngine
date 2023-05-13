@@ -1,9 +1,6 @@
 package editor;
 
 import components.*;
-import components.scripts.test.flappybird.BirdScript;
-import components.scripts.test.flappybird.JumpBySpaceScript;
-import components.scripts.test.flappybird.MoveToLeftScripts;
 import imgui.ImGui;
 import system.GameObject;
 import org.joml.Vector4f;
@@ -15,7 +12,7 @@ import renderer.PickingTexture;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropertiesWindow {
+public class InspectorWindow {
 
     //region Fields
     List<GameObject> activeGameObjects;
@@ -27,7 +24,7 @@ public class PropertiesWindow {
     //endregion
 
     //region Contructors
-    public PropertiesWindow(PickingTexture pickingTexture) {
+    public InspectorWindow(PickingTexture pickingTexture) {
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectOriginalColor = new ArrayList<>();
@@ -36,7 +33,7 @@ public class PropertiesWindow {
 
     //region Methods
     public void imgui() {
-        ImGui.begin("Properties/Inspector");
+        ImGui.begin("Inspector");
 
         if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null) {
             activeGameObject = activeGameObjects.get(0);
@@ -48,6 +45,7 @@ public class PropertiesWindow {
         }
 
         if (ImGui.beginPopupContextWindow("ComponentAdder")) {
+            // TODO: Get all subclass of components
 //                Reflections reflections = new Reflections("components");
 //                Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
 //                for (Class<? extends Component> aClass : classes) {

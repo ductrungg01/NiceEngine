@@ -7,11 +7,12 @@ import java.io.File;
 import java.io.IOException;
 
 public class MessageBox {
-    
+
     public enum TypeOfMsb {
         ERROR,
         CREATE_FILE,
         CREATE_FILE_SUCCESS,
+        NORMAL_MESSAGE
     }
 
     private static boolean showMsb = false;

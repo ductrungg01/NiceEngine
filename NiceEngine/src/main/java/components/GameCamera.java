@@ -6,7 +6,9 @@ import system.GameObject;
 import system.Window;
 import org.joml.Vector4f;
 
-public class GameCamera extends Component{
+import static editor.uihelper.NiceShortCall.COLOR_Blue;
+
+public class GameCamera extends Component {
     //region Fields
     private transient GameObject player;
     private transient Camera gameCamera;
@@ -16,7 +18,7 @@ public class GameCamera extends Component{
     private transient float cameraBuffer = 1.5f;
     private transient float playerBuffer = 0.25f;
 
-    private Vector4f skyColor = new Vector4f(92.0f / 255.0f, 148.0f / 255.0f, 252.0f / 255.0f, 1.0f);
+    private Vector4f skyColor = COLOR_Blue;
     private Vector4f undergroundColor = new Vector4f(0.0f, 0.0f, 0.0f, 1.0f);
     //endregion
 
@@ -27,6 +29,7 @@ public class GameCamera extends Component{
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
@@ -37,8 +40,10 @@ public class GameCamera extends Component{
         this.undergroundYLevel = this.gameCamera.position.y -
                 this.gameCamera.getProjectionSize().y - this.cameraBuffer;
     }
+
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
     @Override
