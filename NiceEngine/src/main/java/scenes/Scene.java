@@ -204,7 +204,7 @@ public class Scene {
         return go;
     }
 
-    public void save() {
+    public void save(boolean isShowMessage) {
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
@@ -224,10 +224,10 @@ public class Scene {
 
             writer.write(gson.toJson(objsToSerilize));
             writer.close();
-            MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+            if (isShowMessage) MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
         } catch (IOException e) {
             e.printStackTrace();
-            MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
+            if (isShowMessage) MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
         }
     }
 

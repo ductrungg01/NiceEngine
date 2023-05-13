@@ -1,6 +1,6 @@
 [
   {
-    "uid": 43,
+    "uid": 11,
     "name": "Sprite_Object_Generated",
     "components": [
       {
@@ -73,7 +73,7 @@
     "isDead": false
   },
   {
-    "uid": 44,
+    "uid": 12,
     "name": "Sprite_Object_Generated",
     "components": [
       {
