@@ -12,6 +12,9 @@ import org.joml.Vector2f;
 
 public class GameViewWindow {
     //region Singleton
+    private final float diffScreenX = 10.0f;
+    private final float diffScreenY = -20.0f;
+
     private GameViewWindow() {
     }
 
@@ -49,26 +52,30 @@ public class GameViewWindow {
         }
         ImGui.endMenuBar();
 
-        ImGui.setCursorPos(ImGui.getCursorPosX(), ImGui.getCursorPosY());
         ImVec2 windowSize = getLargestSizeForViewport();
         ImVec2 windowPos = getCenterPositionForViewport(windowSize);
         ImGui.setCursorPos(windowPos.x, windowPos.y);
 
-        leftX = windowPos.x + 10;
-        rightX = windowPos.x + windowSize.x + 10;
-        bottomY = windowPos.y;
-        topY = windowPos.y + windowSize.y;
+        ImVec2 widgetPos = new ImVec2();
+        ImGui.getWindowPos(widgetPos);
+
+
+        leftX = windowPos.x + widgetPos.x + diffScreenX;
+        rightX = windowPos.x + windowSize.x + widgetPos.x + diffScreenX;
+        bottomY = windowPos.y + widgetPos.y + diffScreenY;
+        topY = windowPos.y + windowSize.y + widgetPos.y + diffScreenY;
 
         int textureId = Window.getFramebuffer().getTextureId();
         ImGui.image(textureId, windowSize.x, windowSize.y, 0, 1, 1, 0);
 
-        MouseListener.setGameViewportPos(new Vector2f(windowPos.x + 10, windowPos.y));
+        MouseListener.setGameViewportPos(new Vector2f(windowPos.x + 10 + widgetPos.x, windowPos.y + widgetPos.y + diffScreenY));
         MouseListener.setGameViewportSize(new Vector2f(windowSize.x, windowSize.y));
 
         ImGui.end();
     }
 
     public boolean getWantCaptureMouse() {
+        Debug.Log(MouseListener.getX() + "|" + MouseListener.getY());
         return MouseListener.getX() >= leftX && MouseListener.getX() <= rightX &&
                 MouseListener.getY() >= bottomY && MouseListener.getY() <= topY;
     }
@@ -91,8 +98,9 @@ public class GameViewWindow {
 
     private ImVec2 getCenterPositionForViewport(ImVec2 aspectSize) {
         ImVec2 windowSize = new ImVec2();
+        ImVec2 windowPos = new ImVec2();
         ImGui.getContentRegionAvail(windowSize);
-
+        ImGui.getWindowPos(windowPos);
         float viewportX = (windowSize.x / 2.0f) - (aspectSize.x / 2.0f);
         float viewportY = (windowSize.y / 2.0f) - (aspectSize.y / 2.0f);
 

@@ -1,5 +1,6 @@
 package util;
 
+import editor.Debug;
 import editor.MessageBox;
 
 import java.io.File;
@@ -31,7 +32,7 @@ public class FileUtils {
         try {
             Path desPath = Paths.get(desFile.getAbsolutePath());
             Files.copy(srcFile.toPath(), desPath);
-            System.out.println("Copy file " + srcFile.getAbsolutePath() + " to " + desPath);
+            Debug.Log("Copy file " + srcFile.getName() + " to " + desPath);
             if (srcFile.isDirectory()) {
                 File[] listOfFiles = srcFile.listFiles();
                 for (int i = 0; i < listOfFiles.length; i++) {
@@ -40,7 +41,7 @@ public class FileUtils {
             }
         } catch (Exception e) {
             MessageBox.setContext(true, MessageBox.TypeOfMsb.ERROR, "File already exist");
-            System.err.println("Failed to copy file: " + e.getMessage());
+            Debug.Log("Failed to copy file: " + e.getMessage());
         }
 
     }
