@@ -1,6 +1,7 @@
 package editor;
 
 import components.*;
+import components.scripts.test.TargetDebugging;
 import components.scripts.test.TestComponent;
 import components.scripts.test.flappybird.BirdScript;
 import components.scripts.test.flappybird.JumpBySpaceScript;
@@ -83,6 +84,12 @@ public class PropertiesWindow {
             if (ImGui.menuItem("Add 'TestComponent' ")) {
                 if (activeGameObject.getComponent(TestComponent.class) == null) {
                     activeGameObject.addComponent(new TestComponent());
+                }
+            }
+
+            if (ImGui.menuItem("Add 'TargetDebugging' ")) {
+                if (activeGameObject.getComponent(TargetDebugging.class) == null) {
+                    activeGameObject.addComponent(new TargetDebugging());
                 }
             }
 

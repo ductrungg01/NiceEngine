@@ -149,7 +149,7 @@ public class NiceImGui {
     public static boolean openFileDialog = false;
     public static boolean fileDialogIsShowed = false;
 
-    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object referenceObject) {
+    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue) {
         ImGui.pushID(label);
         ImGui.columns(2);
 
@@ -164,22 +164,22 @@ public class NiceImGui {
         float referenceButtonHeight = 30.0f;
 
         // Create reference button
-        String refState = (referenceObject == null ? "(Missing) " : "");
+        String refState = (oldValue == null ? "(Missing) " : "");
         String refName = "";
         if (referenceConfig.showGameObject) {
-            GameObject go = (GameObject) referenceObject;
+            GameObject go = (GameObject) oldValue;
             if (go != null) refName = go.name;
             else refName = "Game object";
         } else if (referenceConfig.showImageFile) {
-            File imageFile = (File) referenceObject;
+            File imageFile = (File) oldValue;
             if (imageFile != null) refName = imageFile.getName();
             else refName = "Image";
         } else if (referenceConfig.showSoundFile) {
-            File soundFile = (File) referenceObject;
+            File soundFile = (File) oldValue;
             if (soundFile != null) refName = soundFile.getName();
             else refName = "Sound";
         } else if (referenceConfig.showJavaFile) {
-            File javaFile = (File) referenceObject;
+            File javaFile = (File) oldValue;
             if (javaFile != null) refName = javaFile.getName();
             else refName = "Sound";
         }
@@ -188,21 +188,25 @@ public class NiceImGui {
         }
         ImGui.sameLine();
 
-        drawReferenceButton(referenceButtonHeight);
-        referenceObject = showFileDialogForReference(referenceConfig, referenceObject);
+        drawOpenFileDialogButton(referenceButtonHeight);
+        ImGui.sameLine();
+        oldValue = drawDeleteReferenceButton(referenceButtonHeight, oldValue);
+        oldValue = showFileDialogForReference(referenceConfig, oldValue);
 
         ImGui.columns(1);
 
         ImGui.popID();
 
-        return referenceObject;
+        return oldValue;
     }
 
-    private static void drawReferenceButton(float openFileDialogButtonSize) {
+    private static void drawOpenFileDialogButton(float openFileDialogButtonSize) {
         ImDrawList drawList = ImGui.getWindowDrawList();
 
         // Create open file dialog button
-        if (ImGui.button("", openFileDialogButtonSize, openFileDialogButtonSize)) {
+        if (drawButton("",
+                new ButtonColor(COLOR_Blue, COLOR_DarkBlue, COLOR_DarkBlue),
+                new Vector2f(openFileDialogButtonSize, openFileDialogButtonSize))) {
             openFileDialog = true;
             Debug.Log("open file dialog button is clicked!");
         }
@@ -216,11 +220,23 @@ public class NiceImGui {
         drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
     }
 
-    private static Object showFileDialogForReference(ReferenceConfig referenceConfig, Object returnItem) {
+    private static Object drawDeleteReferenceButton(float btnSize, Object oldValue) {
+        if (drawButton("-", new ButtonColor(COLOR_Red, COLOR_DarkRed, COLOR_DarkRed)
+                , new Vector2f(btnSize, btnSize))) {
+            Debug.Log("oldValue is deleted");
+            return null;
+        }
+
+        return oldValue;
+    }
+
+    private static Object showFileDialogForReference(ReferenceConfig referenceConfig, Object oldValue) {
         if (openFileDialog && !fileDialogIsShowed) {
             ImGui.openPopup("File Dialog");
             fileDialogIsShowed = true;
         }
+
+        Object newValue = null;
 
         if (ImGui.beginPopupModal("File Dialog")) {
             ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
@@ -238,8 +254,6 @@ public class NiceImGui {
             itemList.addAll(FileUtils.getFilesWithReferenceConfig(referenceConfig));
             itemList.addAll(Window.getScene().getGameObjects());
 
-            boolean isChangeValue = false;
-
             for (Object item : itemList) {
                 // Calculate position for this item
                 float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
@@ -249,11 +263,9 @@ public class NiceImGui {
                 ImGui.setItemAllowOverlap();
                 ImGui.setCursorPos(posX, posY);
 
-                Object tmpReturnItem = drawItemInFileDialog(item, iconSize);
+                newValue = drawItemInFileDialog(item, iconSize, oldValue);
 
-                if (tmpReturnItem != null) {
-                    returnItem = tmpReturnItem;
-                    isChangeValue = true;
+                if (newValue != null) {
                     break;
                 }
 
@@ -262,7 +274,7 @@ public class NiceImGui {
 
             ImGui.endChild();
 
-            if (ImGui.button("Cancel") || isChangeValue) {
+            if (ImGui.button("Cancel") || newValue != null) {
                 openFileDialog = false;
                 fileDialogIsShowed = false;
                 ImGui.closeCurrentPopup();
@@ -271,10 +283,11 @@ public class NiceImGui {
             ImGui.endPopup();
         }
 
-        return returnItem;
+        if (newValue != null) return newValue;
+        return oldValue;
     }
 
-    public static Object drawItemInFileDialog(Object item, float iconSize) {
+    public static Object drawItemInFileDialog(Object item, float iconSize, Object oldValue) {
         String id = item.toString();
         Sprite icon = new Sprite();
         String shotItemName = "";
@@ -302,12 +315,13 @@ public class NiceImGui {
         Vector4f hoveredColor = ColorHelp.ColorChangeAlpha(COLOR_LightBlue, 0.3f);
         Vector4f activeColor = COLOR_Blue;
 
-        // draw the icon
+        //region draw the icon
         ImGui.pushStyleColor(ImGuiCol.Button, 0, 0, 0, 0.0f);  // No color
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
         ImGui.imageButton(icon.getTexId(), iconSize, iconSize);
         ImGui.popStyleColor(3);
+        //endregion
 
         // write the file name
         // set the cursor pos is below of icon
@@ -316,14 +330,17 @@ public class NiceImGui {
         if (ImGui.isItemHovered()) {
             if (ImGui.isMouseDoubleClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
                 // DOUBLE CLICK Handle
-                //Debug.Log(fullItemName + " is double clicked");
+                Debug.Log(fullItemName + " is double clicked");
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
                 ImGui.text(shotItemName);
                 ImGui.popStyleColor(1);
 
                 // Return value
                 ImGui.popID();
-                return item;
+
+                if (item instanceof GameObject) {
+                    return Window.getScene().getGameObject(((GameObject) item).getUid());
+                } else return item;
             } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
                 // CLICK Handle
                 //Debug.Log(fullItemName + " is clicked");
@@ -344,7 +361,7 @@ public class NiceImGui {
         // End item
         ImGui.popID();
 
-        return null;
+        return oldValue;
     }
 
     /**
