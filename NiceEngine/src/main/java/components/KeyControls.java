@@ -22,7 +22,7 @@ public class KeyControls extends Component {
     public void editorUpdate(float dt) {
         debounce -= dt;
 
-        InspectorWindow inspectorWindow = Window.getImguiLayer().getPropertiesWindow();
+        InspectorWindow inspectorWindow = Window.getImguiLayer().getInspectorWindow();
         GameObject activeGameObject = inspectorWindow.getActiveGameObject();
         List<GameObject> activeGameObjects = inspectorWindow.getActiveGameObjects();
 

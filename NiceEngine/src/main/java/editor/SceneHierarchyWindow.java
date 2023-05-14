@@ -36,7 +36,7 @@ public class SceneHierarchyWindow {
     //region Methods
     public void imgui() {
         ImGui.begin("Hierarchy");
-        ImGui.alignTextToFramePadding();
+
         List<GameObject> gameObjects = Window.getScene().getGameObjects();
 
         int index = 0;
@@ -57,10 +57,9 @@ public class SceneHierarchyWindow {
                 NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
             } else {
                 if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
-                    Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(obj);
+                    Window.getImguiLayer().getInspectorWindow().setActiveGameObject(obj);
                     selectedGameObject = obj;
                 }
-                ;
             }
             ImGui.popID();
             index++;
@@ -104,6 +103,10 @@ public class SceneHierarchyWindow {
 
     public static void setSelectedGameObject(GameObject go) {
         selectedGameObject = go;
+    }
+
+    public static void clearSelectedGameObject() {
+        selectedGameObject = null;
     }
     //endregion
 }

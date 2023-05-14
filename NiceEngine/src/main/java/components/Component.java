@@ -131,8 +131,10 @@ public abstract class Component {
                     }
                 } else if (type == String.class) {
                     field.set(this,
-                            NiceImGui.inputText(name + ": ",
-                                    (String) value));
+                            NiceImGui.inputText(
+                                    name + ": ",
+                                    (String) value,
+                                    name + ":" + gameObject.hashCode()));
                 } else if (type.isArray() && name.equals("Tag")) {
                     String text = NiceImGui.inputArrayText(name + ":", (String[]) value);
                     //format & set value

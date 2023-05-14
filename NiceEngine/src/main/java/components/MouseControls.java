@@ -17,6 +17,7 @@ import util.Settings;
 import java.util.HashSet;
 import java.util.Set;
 
+import static editor.SceneHierarchyWindow.clearSelectedGameObject;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
@@ -35,7 +36,7 @@ public class MouseControls extends Component {
     @Override
     public void editorUpdate(float dt) {
         debounce -= dt;
-        PickingTexture pickingTexture = Window.getImguiLayer().getPropertiesWindow().getPickingTexture();
+        PickingTexture pickingTexture = Window.getImguiLayer().getInspectorWindow().getPickingTexture();
         Scene currentScene = Window.getScene();
 
         if (holdingObject != null) {
@@ -67,15 +68,16 @@ public class MouseControls extends Component {
             int gameObjectId = pickingTexture.readPixel(x, y);
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(pickedObj);
+                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
                 SceneHierarchyWindow.setSelectedGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
-                Window.getImguiLayer().getPropertiesWindow().clearSelected();
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
+                SceneHierarchyWindow.clearSelectedGameObject();
             }
             this.debounce = 0.2f;
         } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
             if (!boxSelectSet) {
-                Window.getImguiLayer().getPropertiesWindow().clearSelected();
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
                 boxSelectStart = MouseListener.getScreen();
                 boxSelectSet = true;
             }
@@ -124,7 +126,7 @@ public class MouseControls extends Component {
             for (Integer gameObjectId : uniqueGameObjectIds) {
                 GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
                 if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                    Window.getImguiLayer().getPropertiesWindow().addActiveGameObject(pickedObj);
+                    Window.getImguiLayer().getInspectorWindow().addActiveGameObject(pickedObj);
                 }
             }
         }
@@ -153,7 +155,7 @@ public class MouseControls extends Component {
     }
 
     private boolean blockInSquare(float x, float y) {
-        InspectorWindow inspectorWindow = Window.getImguiLayer().getPropertiesWindow();
+        InspectorWindow inspectorWindow = Window.getImguiLayer().getInspectorWindow();
         Vector2f start = new Vector2f(x, y);
         Vector2f end = new Vector2f(start).add(new Vector2f(Settings.GRID_WIDTH, Settings.GRID_HEIGHT));
         Vector2f startScreenf = MouseListener.worldToScreen(start);

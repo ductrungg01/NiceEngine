@@ -2,11 +2,11 @@ package components;
 
 public class ObjectInfo extends Component {
     public String name;
-    public String[] tag;
+    public String tag;
 
     public ObjectInfo(String name) {
         this.name = name;
-        this.tag = new String[] { "Object"};
+        this.tag = "Object";
     }
 
     @Override

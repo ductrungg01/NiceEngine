@@ -230,7 +230,7 @@ public class ImGuiLayer {
     //endregion
 
     //region Properties
-    public InspectorWindow getPropertiesWindow() {
+    public InspectorWindow getInspectorWindow() {
         return inspectorWindow;
     }
 

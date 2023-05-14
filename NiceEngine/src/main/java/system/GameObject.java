@@ -91,7 +91,8 @@ public class GameObject {
 
     public void imgui() {
         ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
-        objectInfo.name = NiceImGui.inputText("Name", objectInfo.name);
+        objectInfo.name = NiceImGui.inputText("Name", objectInfo.name, "Name of " + this.hashCode());
+        //objectInfo.tag = NiceImGui.inputText("Tag", objectInfo.tag);
 
         for (Component c : components) {
             if (c.getClass() == ObjectInfo.class) continue;

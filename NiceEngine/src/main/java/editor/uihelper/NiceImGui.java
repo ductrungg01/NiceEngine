@@ -516,10 +516,10 @@ public class NiceImGui {
         return res;
     }
 
-    public static String inputText(String label, String text) {
+    public static String inputText(String label, String text, String idPush) {
         boolean res = false;
 
-        ImGui.pushID(label);
+        ImGui.pushID(idPush);
 
         ImGui.columns(2);
         ImGui.setColumnWidth(0, defaultColumnWidth);
