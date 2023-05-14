@@ -38,7 +38,7 @@ public class ConsoleWindow {
             debugLogs.clear();
         }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
+        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 4f, ImGui.getContentRegionMaxY() - 85f, true);
 
         if (debugLogs.size() > MAX_DEBUGLOG_SIZE) {
             removeOldValue();
