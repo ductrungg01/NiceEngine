@@ -40,6 +40,7 @@ public class MouseControls extends Component {
         Scene currentScene = Window.getScene();
 
         if (holdingObject != null) {
+            holdingObject.setNoSerialize();
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
             holdingObject.transform.position.x = ((int) Math.floor(x / Settings.GRID_WIDTH) * Settings.GRID_WIDTH) + Settings.GRID_WIDTH / 2.0f;
@@ -146,6 +147,7 @@ public class MouseControls extends Component {
 
     public void place() {
         GameObject newObj = this.holdingObject.copy();
+        newObj.doSerialization();
         if (newObj.getComponent(StateMachine.class) != null) {
             newObj.getComponent(StateMachine.class).refreshTextures();
         }
