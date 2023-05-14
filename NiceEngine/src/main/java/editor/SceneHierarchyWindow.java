@@ -54,9 +54,9 @@ public class SceneHierarchyWindow {
             float w = ImGui.getContentRegionAvailX();
             float h = ImGui.getTextLineHeightWithSpacing();
             if (obj.equals(selectedGameObject)) {
-                NiceImGui.NiceButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+                NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
             } else {
-                if (NiceImGui.NiceButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
+                if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
                     Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(obj);
                     selectedGameObject = obj;
                 }

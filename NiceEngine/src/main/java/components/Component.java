@@ -1,6 +1,8 @@
 package components;
 
+import editor.Debug;
 import editor.uihelper.NiceImGui;
+import editor.uihelper.ReferenceConfig;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import system.GameObject;
@@ -83,9 +85,14 @@ public abstract class Component {
                 }
 
                 boolean isPrivate = Modifier.isPrivate(field.getModifiers());
+
                 if (isPrivate) {
-                    field.setAccessible(true);
+                    continue;
                 }
+
+//                if (isPrivate) {
+//                    field.setAccessible(true);
+//                }
 
                 Class type = field.getType();
                 Object value = field.get(this);
@@ -133,11 +140,18 @@ public abstract class Component {
                     String[] strArray = null;
                     strArray = text.split(",");
                     field.set(this, strArray);
+                } else if (type == GameObject.class) {
+                    GameObject tmpGo = (GameObject) value;
+                    field.set(this,
+                            NiceImGui.ReferenceButton(name,
+                                    new ReferenceConfig(true, false, false, false, false),
+                                    tmpGo)
+                    );
                 }
 
-                if (isPrivate) {
-                    field.setAccessible(false);
-                }
+//                if (isPrivate) {
+//                    field.setAccessible(false);
+//                }
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();

@@ -1,9 +1,10 @@
 package editor.uihelper;
 
-import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.ImVec2;
-import imgui.flag.ImGuiButtonFlags;
+import components.Sprite;
+import editor.Debug;
+import imgui.*;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
@@ -11,6 +12,15 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
+import system.GameObject;
+import system.Window;
+import util.FileUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import static editor.uihelper.NiceShortCall.*;
 
 public class NiceImGui {
 
@@ -82,10 +92,8 @@ public class NiceImGui {
     }
 
     public static void drawVec2Control(String label, Vector2f values, float resetValue,
-                                       float columnWidthForLabel,
-                                       float columnWidthForValues,
-                                       float minValue,
-                                       float maxValue) {
+                                       float columnWidthForLabel, float columnWidthForValues,
+                                       float minValue, float maxValue) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -140,7 +148,233 @@ public class NiceImGui {
         ImGui.popID();
     }
 
-    public static boolean NiceButton(String label, ButtonColor btnColor) {
+    public static boolean openFileDialog = false;
+    public static boolean fileDialogIsShowed = false;
+
+    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue) {
+        ImGui.pushID(label);
+        ImGui.columns(2);
+
+        ImGui.setColumnWidth(0, 200);
+        ImGui.setColumnWidth(1, 700);
+
+        ImGui.text(label);
+
+        ImGui.nextColumn();
+
+        float referenceButtonWidth = 300.0f;
+        float referenceButtonHeight = 30.0f;
+
+        // Create reference button
+        String refState = (oldValue == null ? "(Missing) " : "");
+        String refName = "";
+        if (referenceConfig.showGameObject) {
+            GameObject go = (GameObject) oldValue;
+            if (go != null) refName = go.name;
+            else refName = "Game object";
+        } else if (referenceConfig.showImageFile) {
+            File imageFile = (File) oldValue;
+            if (imageFile != null) refName = imageFile.getName();
+            else refName = "Image";
+        } else if (referenceConfig.showSoundFile) {
+            File soundFile = (File) oldValue;
+            if (soundFile != null) refName = soundFile.getName();
+            else refName = "Sound";
+        } else if (referenceConfig.showJavaFile) {
+            File javaFile = (File) oldValue;
+            if (javaFile != null) refName = javaFile.getName();
+            else refName = "Sound";
+        }
+        if (ImGui.button(refState + "<" + refName + ">", referenceButtonWidth, referenceButtonHeight)) {
+
+        }
+        ImGui.sameLine();
+
+        drawOpenFileDialogButton(referenceButtonHeight);
+        ImGui.sameLine();
+        oldValue = drawDeleteReferenceButton(referenceButtonHeight, oldValue);
+        oldValue = showFileDialogForReference(referenceConfig, oldValue);
+
+        ImGui.columns(1);
+
+        ImGui.popID();
+
+        return oldValue;
+    }
+
+    private static void drawOpenFileDialogButton(float openFileDialogButtonSize) {
+        ImDrawList drawList = ImGui.getWindowDrawList();
+
+        // Create open file dialog button
+        if (drawButton("",
+                new ButtonColor(COLOR_Blue, COLOR_DarkBlue, COLOR_DarkBlue),
+                new Vector2f(openFileDialogButtonSize, openFileDialogButtonSize))) {
+            openFileDialog = true;
+            Debug.Log("open file dialog button is clicked!");
+        }
+
+        ImGui.sameLine();
+
+        float iconButtonSize = 7.0f;
+        float iconButtonPosX = ImGui.getCursorScreenPosX() - openFileDialogButtonSize / 2f - 7f;
+        float iconButtonPosY = ImGui.getCursorScreenPosY() + openFileDialogButtonSize / 2f;
+        drawList.addCircleFilled(iconButtonPosX, iconButtonPosY, iconButtonSize, ImColor.intToColor(255, 255, 255, 255));
+        drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
+    }
+
+    private static Object drawDeleteReferenceButton(float btnSize, Object oldValue) {
+        if (drawButton("-", new ButtonColor(COLOR_Red, COLOR_DarkRed, COLOR_DarkRed)
+                , new Vector2f(btnSize, btnSize))) {
+            Debug.Log("oldValue is deleted");
+            return null;
+        }
+
+        return oldValue;
+    }
+
+    private static Object showFileDialogForReference(ReferenceConfig referenceConfig, Object oldValue) {
+        if (openFileDialog && !fileDialogIsShowed) {
+            ImGui.openPopup("File Dialog");
+            fileDialogIsShowed = true;
+        }
+
+        Object newValue = null;
+
+        if (ImGui.beginPopupModal("File Dialog")) {
+            ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
+            final float iconWidth = 100f;
+            final float iconHeight = 100f;
+            final float iconSize = iconHeight;
+            final float spacingX = 25.0f;
+            final float spacingY = 50.0f;
+            float availableWidth = ImGui.getContentRegionAvailX();
+            int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));
+
+            int itemIndex = 0;
+
+            List<Object> itemList = new ArrayList<>();
+            itemList.addAll(FileUtils.getFilesWithReferenceConfig(referenceConfig));
+            itemList.addAll(Window.getScene().getGameObjects());
+
+            for (Object item : itemList) {
+                // Calculate position for this item
+                float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
+                float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
+
+                // Set item position and size
+                ImGui.setItemAllowOverlap();
+                ImGui.setCursorPos(posX, posY);
+
+                newValue = drawItemInFileDialog(item, iconSize, oldValue);
+
+                if (newValue != null) {
+                    break;
+                }
+
+                itemIndex++;
+            }
+
+            ImGui.endChild();
+
+            if (ImGui.button("Cancel") || newValue != null) {
+                openFileDialog = false;
+                fileDialogIsShowed = false;
+                ImGui.closeCurrentPopup();
+            }
+
+            ImGui.endPopup();
+        }
+
+        if (newValue != null) return newValue;
+        return oldValue;
+    }
+
+    public static Object drawItemInFileDialog(Object item, float iconSize, Object oldValue) {
+        String id = item.toString();
+        Sprite icon = new Sprite();
+        String shotItemName = "";
+        String fullItemName = "";
+
+        if (item instanceof File) {
+            File file = (File) item;
+            id = file.getAbsolutePath();
+            icon = FileUtils.getIconByFile(file);
+            shotItemName = FileUtils.getShorterName(file.getName());
+            fullItemName = file.getName();
+        } else if (item instanceof GameObject) {
+            GameObject go = (GameObject) item;
+            id = go.name;
+            icon = FileUtils.getGameObjectIcon();
+            shotItemName = FileUtils.getShorterName(go.name);
+            fullItemName = go.name;
+        }
+
+        ImGui.pushID(id);
+
+        float posX = ImGui.getCursorPosX();
+        float posY = ImGui.getCursorPosY();
+
+        Vector4f hoveredColor = ColorHelp.ColorChangeAlpha(COLOR_LightBlue, 0.3f);
+        Vector4f activeColor = COLOR_Blue;
+
+        //region draw the icon
+        ImGui.pushStyleColor(ImGuiCol.Button, 0, 0, 0, 0.0f);  // No color
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+        ImGui.imageButton(icon.getTexId(), iconSize, iconSize);
+        ImGui.popStyleColor(3);
+        //endregion
+
+        // write the file name
+        // set the cursor pos is below of icon
+        final float offsetOfIconAndName = 5f;
+        ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
+        if (ImGui.isItemHovered()) {
+            if (ImGui.isMouseDoubleClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                // DOUBLE CLICK Handle
+                Debug.Log(fullItemName + " is double clicked");
+                ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+                ImGui.text(shotItemName);
+                ImGui.popStyleColor(1);
+
+                // Return value
+                ImGui.popID();
+
+                if (item instanceof GameObject) {
+                    return Window.getScene().getGameObject(((GameObject) item).getUid());
+                } else return item;
+            } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+                // CLICK Handle
+                //Debug.Log(fullItemName + " is clicked");
+                ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
+                ImGui.text(shotItemName);
+                ImGui.popStyleColor(1);
+            } else {
+                // HOVER Handle
+                ImGui.pushStyleColor(ImGuiCol.Text, hoveredColor.x, hoveredColor.y, hoveredColor.z, activeColor.w);
+                ImGui.text(shotItemName);
+                ImGui.popStyleColor(1);
+            }
+        } else {
+            // No hover
+            ImGui.text(shotItemName);
+        }
+
+        // End item
+        ImGui.popID();
+
+        return oldValue;
+    }
+
+    /**
+     * Very good for debugging
+     **/
+    public static void CreateDot(float x, float y, float size) {
+        ImDrawList drawList = ImGui.getWindowDrawList();
+        drawList.addCircleFilled(x, y, size, ImColor.intToColor(255, 0, 0, 255));
+    }
+
+    public static boolean drawButton(String label, ButtonColor btnColor) {
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
 
         // Tính độ dài của label
@@ -151,14 +385,14 @@ public class NiceImGui {
         // Tính toán kích thước của button
         Vector2f buttonSize = new Vector2f(labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f + 10, lineHeight * 1.5f);
 
-        return NiceButton(label, btnColor, buttonSize);
+        return drawButton(label, btnColor, buttonSize);
     }
 
-    public static boolean NiceButtonWithLeftText(String label, ButtonColor btnColor, Vector2f btnSize) {
+    public static boolean drawButtonWithLeftText(String label, ButtonColor btnColor, Vector2f btnSize) {
         float posX = ImGui.getCursorPosX() + 8f;
         float posY = ImGui.getCursorPosY();
 
-        boolean ans = NiceButton("", btnColor, btnSize);
+        boolean ans = drawButton("", btnColor, btnSize);
 
         float newPosX = ImGui.getCursorPosX();
         float newPosY = ImGui.getCursorPosY();
@@ -170,20 +404,19 @@ public class NiceImGui {
         return ans;
     }
 
-    public static boolean NiceButton(String label, ButtonColor btnColor, Vector2f btnSize) {
+
+    public static boolean drawButton(String label, ButtonColor btnColor, Vector2f btnSize) {
         boolean isClick = false;
 
         ImGui.pushID(label);
 
-        if (ImGui.getMouseCursor() == ImGuiMouseCursor.Arrow) {
-            Vector2f mousePos = new Vector2f(ImGui.getIO().getMousePosX(), ImGui.getIO().getMousePosY());
-            Vector2f buttonPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
+        Vector2f mousePos = new Vector2f(ImGui.getIO().getMousePosX(), ImGui.getIO().getMousePosY());
+        Vector2f buttonPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
 
-            if (mousePos.x >= buttonPos.x && mousePos.x <= buttonPos.x + btnSize.x
-                    && mousePos.y >= buttonPos.y && mousePos.y <= buttonPos.y + btnSize.y) {
+        if (mousePos.x >= buttonPos.x && mousePos.x <= buttonPos.x + btnSize.x
+                && mousePos.y >= buttonPos.y && mousePos.y <= buttonPos.y + btnSize.y) {
+            if (ImGui.getMouseCursor() != ImGuiMouseCursor.Hand) {
                 ImGui.setMouseCursor(ImGuiMouseCursor.Hand);
-            } else {
-                ImGui.setMouseCursor(ImGuiMouseCursor.Arrow);
             }
         }
 
@@ -204,7 +437,6 @@ public class NiceImGui {
 
         return isClick;
     }
-
 
     public static float dragfloat(String label, float value) {
         ImGui.pushID(label);

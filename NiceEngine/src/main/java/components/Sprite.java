@@ -1,7 +1,9 @@
 package components;
 
 import org.joml.Vector2f;
+import org.w3c.dom.Text;
 import renderer.Texture;
+import util.AssetPool;
 
 public class Sprite {
     //region Fields
@@ -14,6 +16,19 @@ public class Sprite {
             new Vector2f(0, 0),
             new Vector2f(0, 1)
     };
+    //endregion
+
+    //region Constructors
+    public Sprite() {
+    }
+
+    public Sprite(Texture texture) {
+        setTexture(texture);
+    }
+
+    public Sprite(String TexturePath) {
+        setTexture(AssetPool.getTexture(TexturePath));
+    }
     //endregion
 
     //region Properties

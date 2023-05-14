@@ -1,13 +1,14 @@
 package editor;
 
 import editor.uihelper.ButtonColor;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
-import imgui.ImVec2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static editor.uihelper.NiceImGui.NiceButton;
+import static editor.uihelper.NiceImGui.drawButton;
+import static util.FileUtils.getAllFilesWithExtensions;
 
 public class ConsoleWindow {
     //region Singleton
@@ -27,21 +28,42 @@ public class ConsoleWindow {
     //endregion
 
     public List<String> debugLogs = new ArrayList<>();
+    private final int MAX_DEBUGLOG_SIZE = 2000;
+    private boolean isRemoved = false;
 
     public void imgui() {
         ImGui.begin("Console");
 
-        if (NiceButton("Clear", new ButtonColor())) {
+        if (NiceImGui.drawButton("Clear", new ButtonColor())) {
             debugLogs.clear();
         }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY(), false);
+        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
 
-        for (int i = 0; i < debugLogs.size(); i++) {
+        if (debugLogs.size() > MAX_DEBUGLOG_SIZE) {
+            removeOldValue();
+        }
+
+        for (int i = debugLogs.size() - 1; i >= 0; i--) {
             ImGui.text(debugLogs.get(i));
+        }
+
+        if (isRemoved) {
+            ImGui.text("The old value was be removed by because low performance");
         }
 
         ImGui.endChild();
         ImGui.end();
+    }
+
+    // TODO: this is temporary method, we need to find better solution, we will implement LinkedList instead of List in the future
+    private void removeOldValue() {
+        int n = debugLogs.size();
+        for (int i = 0; i < n - 1; i++) {
+            debugLogs.set(i, debugLogs.get(i + 1));
+        }
+
+        debugLogs.remove(n - 1);
+        isRemoved = true;
     }
 }

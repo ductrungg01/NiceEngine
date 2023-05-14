@@ -98,6 +98,8 @@ public class AssetsWindow {
                 tmp.setTexture(AssetPool.getTexture(item.getPath()));
                 GameObject object = Prefabs.generateSpriteObject(tmp, 0.25f, 0.25f);
                 gameObject.getComponent(MouseControls.class).pickupObject(object);
+            } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT) && !isFolder) {
+                //Debug.Log(selectedItem);
             }
         }
 

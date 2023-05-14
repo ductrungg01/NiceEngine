@@ -1,6 +1,8 @@
 package editor;
 
 import components.*;
+import components.scripts.test.TargetDebugging;
+import components.scripts.test.TestComponent;
 import imgui.ImGui;
 import system.GameObject;
 import org.joml.Vector4f;
@@ -74,6 +76,18 @@ public class InspectorWindow {
                 if (activeGameObject.getComponent(CircleCollider.class) == null &&
                         activeGameObject.getComponent(Box2DCollider.class) == null) {
                     activeGameObject.addComponent(new CircleCollider());
+                }
+            }
+
+            if (ImGui.menuItem("Add 'TestComponent' ")) {
+                if (activeGameObject.getComponent(TestComponent.class) == null) {
+                    activeGameObject.addComponent(new TestComponent());
+                }
+            }
+
+            if (ImGui.menuItem("Add 'TargetDebugging' ")) {
+                if (activeGameObject.getComponent(TargetDebugging.class) == null) {
+                    activeGameObject.addComponent(new TargetDebugging());
                 }
             }
 
