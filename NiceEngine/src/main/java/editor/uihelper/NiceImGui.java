@@ -1,5 +1,6 @@
 package editor.uihelper;
 
+import editor.ReferenceConfig;
 import imgui.ImGui;
 import imgui.ImVec2;
 import components.Sprite;

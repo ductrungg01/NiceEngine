@@ -1,8 +1,8 @@
 package components;
 
-import editor.Debug;
+import editor.ReferenceType;
 import editor.uihelper.NiceImGui;
-import editor.uihelper.ReferenceConfig;
+import editor.ReferenceConfig;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import system.GameObject;
@@ -142,14 +142,15 @@ public abstract class Component {
                     String[] strArray = null;
                     strArray = text.split(",");
                     field.set(this, strArray);
-                } else if (type == GameObject.class) {
-                    GameObject tmpGo = (GameObject) value;
-                    field.set(this,
-                            NiceImGui.ReferenceButton(name,
-                                    new ReferenceConfig(true, false, false, false, false),
-                                    tmpGo)
-                    );
                 }
+//                else if (type == GameObject.class) {
+//                    GameObject tmpGo = (GameObject) value;
+//                    field.set(this,
+//                            NiceImGui.ReferenceButton(name,
+//                                    new ReferenceConfig(ReferenceType.GAMEOBJECT),
+//                                    tmpGo)
+//                    );
+//                }
 
 //                if (isPrivate) {
 //                    field.setAccessible(false);
