@@ -3,7 +3,7 @@ package util;
 import editor.Debug;
 import components.Sprite;
 import editor.MessageBox;
-import editor.uihelper.ReferenceConfig;
+import editor.ReferenceConfig;
 
 import java.io.File;
 import java.nio.file.Files;
