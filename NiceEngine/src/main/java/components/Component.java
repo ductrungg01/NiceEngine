@@ -88,13 +88,13 @@ public abstract class Component {
 
                 boolean isPrivate = Modifier.isPrivate(field.getModifiers());
 
-                if (isPrivate) {
-                    continue;
-                }
-
 //                if (isPrivate) {
-//                    field.setAccessible(true);
+//                    continue;
 //                }
+
+                if (isPrivate) {
+                    field.setAccessible(true);
+                }
 
                 Class type = field.getType();
                 Object value = field.get(this);
@@ -106,7 +106,7 @@ public abstract class Component {
                     field.set(this, NiceImGui.dragInt(name, val));
                 } else if (type == float.class) {
                     float val = (float) value;
-                    field.set(this, NiceImGui.dragfloat(name, val));
+                    field.set(this, NiceImGui.dragfloat(name, val, name));
                 } else if (type == boolean.class) {
                     boolean val = (boolean) value;
                     if (ImGui.checkbox(name + ": ", val)) {
@@ -145,18 +145,9 @@ public abstract class Component {
                     strArray = text.split(",");
                     field.set(this, strArray);
                 } else if (type == Sprite.class) {
-                    Object returnFile = NiceImGui.ReferenceButton(name,
+                    field.set(this, NiceImGui.ReferenceButton(name,
                             new ReferenceConfig(ReferenceType.SPRITE),
-                            value);
-
-                    if (returnFile != null) {
-                        if (returnFile instanceof File) {
-                            File imgFile = (File) returnFile;
-                            Sprite spr = FileUtils.convertImageToSprite(imgFile);
-
-                            field.set(this, spr);
-                        }
-                    }
+                            value));
                 }
 //                else if (type == GameObject.class) {
 //                    GameObject tmpGo = (GameObject) value;
@@ -167,9 +158,9 @@ public abstract class Component {
 //                    );
 //                }
 
-//                if (isPrivate) {
-//                    field.setAccessible(false);
-//                }
+                if (isPrivate) {
+                    field.setAccessible(false);
+                }
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();

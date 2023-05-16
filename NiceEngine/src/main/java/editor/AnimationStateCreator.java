@@ -50,7 +50,7 @@ public class AnimationStateCreator {
 
         //region LEFT COLUMN
         // Bên trái
-        ImGui.columns(2);
+        ImGui.columns(2, "", false);
         ImGui.setColumnWidth(0, 600);
 
         // Dòng 1
@@ -161,7 +161,7 @@ public class AnimationStateCreator {
             ImGui.endPopup();
         }
 
-        ImGui.columns(1);
+        ImGui.columns(1, "", false);
 
         ImGui.end();
     }

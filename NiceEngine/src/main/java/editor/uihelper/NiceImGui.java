@@ -1,5 +1,6 @@
 package editor.uihelper;
 
+import components.AnimationState;
 import editor.ReferenceConfig;
 import editor.ReferenceType;
 import imgui.ImGui;
@@ -8,8 +9,10 @@ import components.Sprite;
 import editor.Debug;
 import imgui.*;
 import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiComboFlags;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
+import imgui.type.ImBoolean;
 import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -27,7 +30,7 @@ import static editor.uihelper.NiceShortCall.*;
 public class NiceImGui {
 
     //region Fields
-    private static float defaultColumnWidth = 220.0f;
+    private static float defaultColumnWidth = 150.0f;
     //endregion
 
     //region Methods
@@ -154,17 +157,21 @@ public class NiceImGui {
     public static boolean fileDialogIsShowed = false;
 
     public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue) {
+        return ReferenceButton(label, referenceConfig, oldValue, defaultColumnWidth);
+    }
+
+    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue, float labelWidth) {
         ImGui.pushID(label);
         ImGui.columns(2);
 
-        ImGui.setColumnWidth(0, 200);
-        ImGui.setColumnWidth(1, 700);
+        ImGui.setColumnWidth(0, labelWidth);
+        ImGui.setColumnWidth(1, 1000);
 
         ImGui.text(label);
 
         ImGui.nextColumn();
 
-        float referenceButtonWidth = 300.0f;
+        float referenceButtonWidth = 250.0f;
         float referenceButtonHeight = 30.0f;
 
         // Create reference button
@@ -247,6 +254,10 @@ public class NiceImGui {
         if (drawButton("-", new ButtonColor(COLOR_Red, COLOR_DarkRed, COLOR_DarkRed)
                 , new Vector2f(btnSize, btnSize))) {
             Debug.Log("oldValue is deleted");
+
+            if (oldValue instanceof Sprite)
+                return FileUtils.getDefaultSprite();
+
             return null;
         }
 
@@ -286,7 +297,7 @@ public class NiceImGui {
                 ImGui.setItemAllowOverlap();
                 ImGui.setCursorPos(posX, posY);
 
-                newValue = drawItemInFileDialog(item, iconSize, oldValue);
+                newValue = drawItemInFileDialog(item, iconSize, oldValue, referenceConfig);
 
                 if (newValue != null) {
                     break;
@@ -310,7 +321,7 @@ public class NiceImGui {
         return oldValue;
     }
 
-    public static Object drawItemInFileDialog(Object item, float iconSize, Object oldValue) {
+    public static Object drawItemInFileDialog(Object item, float iconSize, Object oldValue, ReferenceConfig referenceConfig) {
         String id = item.toString();
         Sprite icon = new Sprite();
         String shortItemName = "";
@@ -366,11 +377,17 @@ public class NiceImGui {
                 // Return value
                 ImGui.popID();
 
-                if (item instanceof GameObject) {
-                    return Window.getScene().getGameObject(((GameObject) item).getUid());
-                } else if (item instanceof File) {
-                    return (File) item;
-                } else return item;
+                switch (referenceConfig.type) {
+                    case GAMEOBJECT -> {
+                        return Window.getScene().getGameObject(((GameObject) item).getUid());
+                    }
+                    case SPRITE -> {
+                        return FileUtils.convertImageToSprite((File) item);
+                    }
+                    case JAVA, SOUND -> {
+                        return item;
+                    }
+                }
             } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
                 // CLICK Handle
                 //Debug.Log(fullItemName + " is clicked");
@@ -402,16 +419,20 @@ public class NiceImGui {
         drawList.addCircleFilled(x, y, size, ImColor.intToColor(255, 0, 0, 255));
     }
 
+    public static float getLengthOfText(String text) {
+        // Tính độ dài của label
+        ImVec2 textSize = new ImVec2(0, 0);
+        ImGui.calcTextSize(textSize, text);
+        float labelWidth = textSize.x + ImGui.getStyle().getFramePaddingX() * 2.0f;
+
+        return labelWidth;
+    }
+
     public static boolean drawButton(String label, ButtonColor btnColor) {
         float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
 
-        // Tính độ dài của label
-        ImVec2 textSize = new ImVec2(0, 0);
-        ImGui.calcTextSize(textSize, label);
-        float labelWidth = textSize.x;
-
         // Tính toán kích thước của button
-        Vector2f buttonSize = new Vector2f(labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f + 10, lineHeight * 1.5f);
+        Vector2f buttonSize = new Vector2f(getLengthOfText(label) + ImGui.getStyle().getFramePaddingX() * 2.0f, lineHeight);
 
         return drawButton(label, btnColor, buttonSize);
     }
@@ -465,8 +486,13 @@ public class NiceImGui {
         return isClick;
     }
 
-    public static float dragfloat(String label, float value) {
-        ImGui.pushID(label);
+    public static float dragfloat(String label, float value, String imguiId) {
+        final float DEFAULT_SPEED = 0.1f;
+        return dragfloat(label, value, DEFAULT_SPEED, imguiId);
+    }
+
+    public static float dragfloat(String label, float value, float vSpeed, String imguiID) {
+        ImGui.pushID(imguiID);
 
         ImGui.columns(2);
         ImGui.setColumnWidth(0, defaultColumnWidth);
@@ -474,7 +500,7 @@ public class NiceImGui {
         ImGui.nextColumn();
 
         float[] valArr = {value};
-        ImGui.dragFloat("##dragFloat", valArr, 0.1f);
+        ImGui.dragFloat("##dragFloat", valArr, vSpeed);
 
         ImGui.columns(1);
         ImGui.popID();
@@ -482,8 +508,14 @@ public class NiceImGui {
         return valArr[0];
     }
 
-    public static float dragfloat(String label, float value, float minValue, float maxValue) {
-        ImGui.pushID(label);
+    public static float dragfloat(String label, float value, float minValue, float maxValue, String imguiID) {
+        final float DEFAULT_SPEED = 0.1f;
+
+        return dragfloat(label, value, minValue, maxValue, DEFAULT_SPEED, imguiID);
+    }
+
+    public static float dragfloat(String label, float value, float minValue, float maxValue, float vSpeed, String imguiID) {
+        ImGui.pushID(imguiID);
 
         ImGui.columns(2);
         ImGui.setColumnWidth(0, defaultColumnWidth);
@@ -491,7 +523,7 @@ public class NiceImGui {
         ImGui.nextColumn();
 
         float[] valArr = {value};
-        ImGui.dragFloat("##dragFloat", valArr, 0.1f);
+        ImGui.dragFloat("##dragFloat", valArr, vSpeed);
 
         ImGui.columns(1);
         ImGui.popID();
@@ -632,5 +664,52 @@ public class NiceImGui {
 
         return value;
     }
+
+    public static boolean checkbox(String label, boolean isChecked) {
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.text(label);
+        ImGui.nextColumn();
+
+        ImBoolean imguiIsChecked = new ImBoolean(isChecked);
+        ImGui.checkbox("", imguiIsChecked);
+        boolean returnValue = imguiIsChecked.get();
+
+        ImGui.columns(1);
+
+        return returnValue;
+    }
+
+    public static String comboBox(String label, String selectingValue, int imguiComboFlag, List<String> items, String imguiID) {
+        ImGui.pushID(imguiID);
+
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.text(label);
+        ImGui.nextColumn();
+
+        String returnvalue = selectingValue;
+
+        if (ImGui.beginCombo("", selectingValue, imguiComboFlag)) {
+            for (int i = 0; i < items.size(); i++) {
+                String item = items.get(i);
+
+                boolean isSelected = (item.equals(selectingValue));
+                if (ImGui.selectable(item, isSelected)) {
+                    returnvalue = item;
+                }
+                if (isSelected) {
+                    ImGui.setItemDefaultFocus();
+                }
+            }
+            ImGui.endCombo();
+        }
+
+        ImGui.columns(1);
+        ImGui.popID();
+
+        return returnvalue;
+    }
+
     //endregion
 }
