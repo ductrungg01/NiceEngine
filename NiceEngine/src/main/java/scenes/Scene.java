@@ -118,7 +118,6 @@ public class Scene {
         return null;
     }
 
-
     public void editorUpdate(float dt) {
         if ((KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.isKeyRelease(GLFW.GLFW_KEY_S)) {
             EventSystem.notify(null, new Event(EventType.SaveLevel));
@@ -152,7 +151,7 @@ public class Scene {
     }
 
     /**
-     * // Update is called once per frame
+     * Update is called once per frame
      *
      * @param dt : The interval in seconds from the last frame to the current one
      */

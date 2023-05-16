@@ -10,7 +10,9 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
+import util.FileUtils;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -142,6 +144,19 @@ public abstract class Component {
                     String[] strArray = null;
                     strArray = text.split(",");
                     field.set(this, strArray);
+                } else if (type == Sprite.class) {
+                    Object returnFile = NiceImGui.ReferenceButton(name,
+                            new ReferenceConfig(ReferenceType.SPRITE),
+                            value);
+
+                    if (returnFile != null) {
+                        if (returnFile instanceof File) {
+                            File imgFile = (File) returnFile;
+                            Sprite spr = FileUtils.convertImageToSprite(imgFile);
+
+                            field.set(this, spr);
+                        }
+                    }
                 }
 //                else if (type == GameObject.class) {
 //                    GameObject tmpGo = (GameObject) value;

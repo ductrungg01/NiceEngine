@@ -3,5 +3,6 @@ package editor;
 public enum ReferenceType {
     GAMEOBJECT,
     SPRITE,
-    SOUND
+    SOUND,
+    JAVA
 }

@@ -1,6 +1,7 @@
 package editor.uihelper;
 
 import editor.ReferenceConfig;
+import editor.ReferenceType;
 import imgui.ImGui;
 import imgui.ImVec2;
 import components.Sprite;
@@ -169,28 +170,47 @@ public class NiceImGui {
         // Create reference button
         String refState = (oldValue == null ? "(Missing) " : "");
         String refName = "";
-        if (referenceConfig.showGameObject) {
-            GameObject go = (GameObject) oldValue;
-            if (go != null) refName = go.name;
-            else refName = "Game object";
-        } else if (referenceConfig.showImageFile) {
-            File imageFile = (File) oldValue;
-            if (imageFile != null) refName = imageFile.getName();
-            else refName = "Image";
-        } else if (referenceConfig.showSoundFile) {
-            File soundFile = (File) oldValue;
-            if (soundFile != null) refName = soundFile.getName();
-            else refName = "Sound";
-        } else if (referenceConfig.showJavaFile) {
-            File javaFile = (File) oldValue;
-            if (javaFile != null) refName = javaFile.getName();
-            else refName = "Sound";
+        switch (referenceConfig.type) {
+            case GAMEOBJECT -> {
+                GameObject go = (GameObject) oldValue;
+                if (go != null)
+                    refName = go.name;
+                else
+                    refName = "Game object";
+                break;
+            }
+            case SPRITE -> {
+                Sprite spr = (Sprite) oldValue;
+                if (spr != null) {
+                    String texturePath = spr.getTexture().getFilePath();
+                    File imageFile = new File(texturePath);
+
+                    refName = FileUtils.getShorterName(imageFile.getName());
+                } else
+                    refName = "Sprite";
+                break;
+            }
+            case SOUND -> {
+                File soundFile = (File) oldValue;
+                if (soundFile != null)
+                    refName = FileUtils.getShorterName(soundFile.getName());
+                else
+                    refName = "Sound";
+                break;
+            }
+            case JAVA -> {
+                File javaFile = (File) oldValue;
+                if (javaFile != null)
+                    refName = javaFile.getName();
+                else
+                    refName = "Java Script";
+                break;
+            }
         }
         if (ImGui.button(refState + "<" + refName + ">", referenceButtonWidth, referenceButtonHeight)) {
 
         }
         ImGui.sameLine();
-
         drawOpenFileDialogButton(referenceButtonHeight);
         ImGui.sameLine();
         oldValue = drawDeleteReferenceButton(referenceButtonHeight, oldValue);
@@ -293,21 +313,26 @@ public class NiceImGui {
     public static Object drawItemInFileDialog(Object item, float iconSize, Object oldValue) {
         String id = item.toString();
         Sprite icon = new Sprite();
-        String shotItemName = "";
+        String shortItemName = "";
         String fullItemName = "";
 
         if (item instanceof File) {
             File file = (File) item;
             id = file.getAbsolutePath();
             icon = FileUtils.getIconByFile(file);
-            shotItemName = FileUtils.getShorterName(file.getName());
+            shortItemName = FileUtils.getShorterName(file.getName());
             fullItemName = file.getName();
         } else if (item instanceof GameObject) {
             GameObject go = (GameObject) item;
             id = go.name;
             icon = FileUtils.getGameObjectIcon();
-            shotItemName = FileUtils.getShorterName(go.name);
+            shortItemName = FileUtils.getShorterName(go.name);
             fullItemName = go.name;
+        } else if (item instanceof Sprite) {
+            Sprite spr = (Sprite) item;
+            id = spr.getTexture().getFilePath();
+            shortItemName = FileUtils.getShorterName(spr.getTexture().getFilePath());
+            fullItemName = spr.getTexture().getFilePath();
         }
 
         ImGui.pushID(id);
@@ -335,7 +360,7 @@ public class NiceImGui {
                 // DOUBLE CLICK Handle
                 Debug.Log(fullItemName + " is double clicked");
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
-                ImGui.text(shotItemName);
+                ImGui.text(shortItemName);
                 ImGui.popStyleColor(1);
 
                 // Return value
@@ -343,22 +368,24 @@ public class NiceImGui {
 
                 if (item instanceof GameObject) {
                     return Window.getScene().getGameObject(((GameObject) item).getUid());
+                } else if (item instanceof File) {
+                    return (File) item;
                 } else return item;
             } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
                 // CLICK Handle
                 //Debug.Log(fullItemName + " is clicked");
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
-                ImGui.text(shotItemName);
+                ImGui.text(shortItemName);
                 ImGui.popStyleColor(1);
             } else {
                 // HOVER Handle
                 ImGui.pushStyleColor(ImGuiCol.Text, hoveredColor.x, hoveredColor.y, hoveredColor.z, activeColor.w);
-                ImGui.text(shotItemName);
+                ImGui.text(shortItemName);
                 ImGui.popStyleColor(1);
             }
         } else {
             // No hover
-            ImGui.text(shotItemName);
+            ImGui.text(shortItemName);
         }
 
         // End item
@@ -404,7 +431,6 @@ public class NiceImGui {
 
         return ans;
     }
-
 
     public static boolean drawButton(String label, ButtonColor btnColor, Vector2f btnSize) {
         boolean isClick = false;

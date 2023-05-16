@@ -1,1 +1,248 @@
-[]
+[
+  {
+    "uid": 18,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 26
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.925,
+            "y": 0.675
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 27
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.5,
+                "y": 0.0
+              },
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 28
+        }
+      },
+      {
+        "type": "components.scripts.test.TestComponent",
+        "properties": {
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "spr_go": {
+            "uid": 20,
+            "name": "Sprite_Object_Generated",
+            "components": [
+              {
+                "type": "components.ObjectInfo",
+                "properties": {
+                  "name": "Sprite_Object_Generated",
+                  "tag": "Object",
+                  "uid": 38
+                }
+              },
+              {
+                "type": "system.Transform",
+                "properties": {
+                  "position": {
+                    "x": 2.925,
+                    "y": 1.675
+                  },
+                  "scale": {
+                    "x": 0.25,
+                    "y": 0.25
+                  },
+                  "rotation": 0.0,
+                  "zIndex": 0,
+                  "uid": 39
+                }
+              },
+              {
+                "type": "components.SpriteRenderer",
+                "properties": {
+                  "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0,
+                    "w": 1.0
+                  },
+                  "sprite": {
+                    "width": 0.0,
+                    "height": 0.0,
+                    "texture": {
+                      "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+                      "width": 1064,
+                      "height": 534
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      }
+                    ]
+                  },
+                  "uid": 40
+                }
+              }
+            ],
+            "doSerialization": true,
+            "isDead": false
+          },
+          "uid": 30
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 20,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 38
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.925,
+            "y": 1.675
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 39
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 40
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

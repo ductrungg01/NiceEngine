@@ -54,21 +54,23 @@ public class FileUtils {
         return files;
     }
 
+    // Get file only,
     public static List<File> getFilesWithReferenceConfig(ReferenceConfig refConfig) {
         List<File> files = new ArrayList<>();
 
-        if (refConfig.showAllFile) {
-            files.addAll(getAllFiles());
-        } else {
-            if (refConfig.showJavaFile) {
+        switch (refConfig.type) {
+            case SPRITE -> {
+                files.addAll(getAllFilesWithExtensions(imageExtensions));
+                break;
+            }
+            case JAVA -> {
                 List<String> tmp = List.of("java");
                 files.addAll(getAllFilesWithExtensions(tmp));
+                break;
             }
-            if (refConfig.showImageFile) {
-                files.addAll(getAllFilesWithExtensions(imageExtensions));
-            }
-            if (refConfig.showSoundFile) {
+            case SOUND -> {
                 files.addAll(getAllFilesWithExtensions(soundExtensions));
+                break;
             }
         }
 
@@ -200,6 +202,12 @@ public class FileUtils {
     public static Sprite getGameObjectIcon() {
         Sprite spr = new Sprite();
         spr.setTexture(AssetPool.getTexture(icons.get("GAME_OBJECT")));
+        return spr;
+    }
+
+    public static Sprite convertImageToSprite(File imgFile) {
+        Sprite spr = new Sprite(imgFile.getPath());
+
         return spr;
     }
 }
