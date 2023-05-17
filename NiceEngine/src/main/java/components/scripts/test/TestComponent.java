@@ -1,7 +1,6 @@
 package components.scripts.test;
 
 import components.Component;
-import components.Rigidbody;
 import components.Sprite;
 import components.SpriteRenderer;
 import editor.Debug;

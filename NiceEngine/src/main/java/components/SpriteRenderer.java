@@ -26,7 +26,7 @@ public class SpriteRenderer extends Component {
     }
 
     /**
-     * // Update is called once per frame
+     * Update is called once per frame
      *
      * @param dt : The interval in seconds from the last frame to the current one
      */

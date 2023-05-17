@@ -17,6 +17,7 @@ import java.util.Map;
 public class FileUtils {
 
     final static String defaultAssetFolder = "Assets";
+    final static String defaultSprite = "assets/images/Default Sprite.png";
     final static Map<String, String> icons = new HashMap<>() {
         {
             put("FOLDER", "assets/images/folder-icon.png");
@@ -155,7 +156,7 @@ public class FileUtils {
         String name = getFileNameWithoutExtension(fileName);
         String ext = getFileExtension(fileName);
 
-        final int MAX_LENGTH_ALLOW = 7;
+        final int MAX_LENGTH_ALLOW = 15;
         if (name.length() > MAX_LENGTH_ALLOW) {
             name = name.substring(0, MAX_LENGTH_ALLOW) + "..";
         }
@@ -209,5 +210,9 @@ public class FileUtils {
         Sprite spr = new Sprite(imgFile.getPath());
 
         return spr;
+    }
+
+    public static Sprite getDefaultSprite() {
+        return new Sprite(defaultSprite);
     }
 }

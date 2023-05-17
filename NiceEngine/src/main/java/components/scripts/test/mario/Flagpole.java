@@ -11,8 +11,11 @@ public class Flagpole extends Component {
     //endregion
 
     //region Constructors
-    public Flagpole(boolean isTop){
+    public Flagpole(boolean isTop) {
         this.isTop = isTop;
+    }
+
+    public Flagpole() {
     }
     //endregion
 
