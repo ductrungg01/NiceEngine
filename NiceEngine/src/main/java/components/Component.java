@@ -24,6 +24,7 @@ public abstract class Component {
     //endregion
 
     //region Properties
+
     public int getUid() {
         return this.uid;
     }

@@ -298,6 +298,5 @@ public class AssetsWindow {
         //endregion
 
         ImGui.end();
-
     }
 }

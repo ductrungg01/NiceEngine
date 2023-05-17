@@ -3,7 +3,11 @@ package editor;
 import components.*;
 import components.scripts.test.TargetDebugging;
 import components.scripts.test.TestComponent;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
+import imgui.type.ImString;
 import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
@@ -36,12 +40,15 @@ public class InspectorWindow {
         this.pickingTexture = pickingTexture;
         this.activeGameObjectOriginalColor = new ArrayList<>();
 
-        Reflections reflections = new Reflections("components");
+        Reflections reflections = new Reflections("physics2d.components");
         classes = reflections.getSubTypesOf(Component.class);
-        reflections = new Reflections("physics2d.components");
+        reflections = new Reflections("components");
         classes.addAll(reflections.getSubTypesOf(Component.class));
     }
     //endregion
+
+    String searchText = "";
+    boolean showAddComponentMenu = false;
 
     //region Methods
     public void imgui() {
@@ -56,28 +63,43 @@ public class InspectorWindow {
             return;
         }
 
-        if (ImGui.beginPopupContextWindow("ComponentAdder")) {
-            for (Class<? extends Component> aClass : classes) {
-                if (ImGui.menuItem("Add " + aClass.getSimpleName())) {
-                    try {
-                        Component component = aClass.getDeclaredConstructor().newInstance(); // Tạo mới một đối tượng Component từ lớp aClass
-                        if (activeGameObject.getComponent(aClass) == null) {
-                            activeGameObject.addComponent(component);
-                        }
-                    } catch (InstantiationException | IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        throw new RuntimeException(e);
-                    } catch (NoSuchMethodException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
+        activeGameObject.imgui();
 
-            ImGui.endPopup();
+        if (ImGui.button("Add component")) {
+            showAddComponentMenu = true;
+            searchText = "";
+            ImGui.openPopup("AddComponentMenu");
         }
 
-        activeGameObject.imgui();
+        if (showAddComponentMenu) {
+            if (ImGui.beginPopup("AddComponentMenu")) {
+                searchText = NiceImGui.inputText("Search:", searchText, "AddingComponent" + activeGameObject.hashCode());
+
+                ImGui.beginChild("ComponentList", 500, 350, true, ImGuiWindowFlags.HorizontalScrollbar);
+                for (Class<? extends Component> aClass : classes) {
+                    String className = aClass.getSimpleName();
+                    if (searchText.isEmpty() || className.toLowerCase().contains(searchText.toLowerCase())) {
+                        if (ImGui.menuItem(className)) {
+                            showAddComponentMenu = false;
+                            try {
+                                Component component = aClass.getDeclaredConstructor().newInstance(); // Tạo mới một đối tượng Component từ lớp aClass
+                                if (activeGameObject.getComponent(aClass) == null) {
+                                    activeGameObject.addComponent(component);
+                                }
+                            } catch (InstantiationException | IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException | NoSuchMethodException e) {
+                                throw new RuntimeException(e);
+                            }
+                            ImGui.closeCurrentPopup();
+                        }
+                    }
+                }
+                ImGui.endChild();
+                ImGui.endPopup();
+            }
+        }
+
         ImGui.end();
     }
 
