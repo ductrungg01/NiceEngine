@@ -6,12 +6,20 @@ import components.Component;
 import components.ComponentDeserializer;
 import components.ObjectInfo;
 import components.SpriteRenderer;
+import editor.Debug;
+import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
 import imgui.ImGui;
+import imgui.flag.ImGuiTreeNodeFlags;
+import imgui.type.ImBoolean;
+import org.joml.Vector2f;
 import util.AssetPool;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static editor.uihelper.NiceShortCall.COLOR_LightRed;
+import static editor.uihelper.NiceShortCall.COLOR_Red;
 
 public class GameObject {
     //region Fields
@@ -70,7 +78,7 @@ public class GameObject {
     }
 
     /**
-     * // Update is called once per frame
+     * Update is called once per frame
      *
      * @param dt : The interval in seconds from the last frame to the current one
      */
@@ -92,13 +100,22 @@ public class GameObject {
     public void imgui() {
         ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
         objectInfo.name = NiceImGui.inputText("Name", objectInfo.name, "Name of " + this.hashCode());
-        //objectInfo.tag = NiceImGui.inputText("Tag", objectInfo.tag);
 
         for (Component c : components) {
             if (c.getClass() == ObjectInfo.class) continue;
 
-            if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
+            ImBoolean removeComponentButton = new ImBoolean(true);
+
+            if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
                 c.imgui();
+            }
+
+            if (removeComponentButton.get() == false) {
+                // TODO: implement 
+                Debug.Log("Remove component button is closed (" +
+                        c.getClass().getSimpleName() + ")");
+            }
+
         }
     }
 
