@@ -576,8 +576,10 @@ public class NiceImGui {
     }
 
     public static String inputText(String label, String text, String idPush) {
-        boolean res = false;
+        return inputTextWithHint(label, "", text, idPush);
+    }
 
+    public static String inputTextWithHint(String label, String hint, String text, String idPush) {
         ImGui.pushID(idPush);
 
         ImGui.columns(2);
@@ -586,7 +588,7 @@ public class NiceImGui {
         ImGui.nextColumn();
 
         ImString outString = new ImString(text, 256);
-        if (ImGui.inputText("##" + label, outString)) {
+        if (ImGui.inputTextWithHint("##" + label, hint, outString)) {
             ImGui.columns(1);
             ImGui.popID();
 
@@ -596,6 +598,24 @@ public class NiceImGui {
         ImGui.columns(1);
         ImGui.popID();
 
+        return text;
+    }
+
+    public static String inputTextWithNoLabel(String text, String idPush) {
+        return inputTextWithHintAndNoLabel("", text, idPush);
+    }
+
+    public static String inputTextWithHintAndNoLabel(String hint, String text, String idPush) {
+        ImGui.pushID(idPush);
+
+        ImString outString = new ImString(text, 256);
+        if (ImGui.inputTextWithHint("##", hint, outString)) {
+            ImGui.popID();
+
+            return outString.get();
+        }
+
+        ImGui.popID();
         return text;
     }
 
