@@ -26,6 +26,8 @@ public class InspectorWindow {
     private PickingTexture pickingTexture;
 
     boolean firstTime = true;
+
+    Set<Class<? extends Component>> classes;
     //endregion
 
     //region Contructors
@@ -33,6 +35,11 @@ public class InspectorWindow {
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectOriginalColor = new ArrayList<>();
+
+        Reflections reflections = new Reflections("components");
+        classes = reflections.getSubTypesOf(Component.class);
+        reflections = new Reflections("physics2d.components");
+        classes.addAll(reflections.getSubTypesOf(Component.class));
     }
     //endregion
 
@@ -50,12 +57,6 @@ public class InspectorWindow {
         }
 
         if (ImGui.beginPopupContextWindow("ComponentAdder")) {
-            // TODO: Get all subclass of components
-            Reflections reflections = new Reflections("components");
-            Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
-            reflections = new Reflections("physics2d.components");
-            classes.addAll(reflections.getSubTypesOf(Component.class));
-
             for (Class<? extends Component> aClass : classes) {
                 if (ImGui.menuItem("Add " + aClass.getSimpleName())) {
                     try {

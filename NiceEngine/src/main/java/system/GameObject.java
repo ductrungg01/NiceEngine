@@ -15,6 +15,7 @@ import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import util.AssetPool;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,8 +114,14 @@ public class GameObject {
             }
 
             if (removeComponentButton.get() == false) {
-                components.remove(i);
-                i--;
+                int response = JOptionPane.showConfirmDialog(null,
+                        "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
+                        "Remove component",
+                        JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    components.remove(i);
+                    i--;
+                }
             }
 
         }
