@@ -4,6 +4,7 @@ import components.*;
 import components.scripts.test.TargetDebugging;
 import components.scripts.test.TestComponent;
 import imgui.ImGui;
+import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
 import physics2d.components.Box2DCollider;
@@ -11,8 +12,10 @@ import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
 import renderer.PickingTexture;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class InspectorWindow {
 
@@ -48,46 +51,25 @@ public class InspectorWindow {
 
         if (ImGui.beginPopupContextWindow("ComponentAdder")) {
             // TODO: Get all subclass of components
-//                Reflections reflections = new Reflections("components");
-//                Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
-//                for (Class<? extends Component> aClass : classes) {
-//                    if (ImGui.menuItem("Add " + aClass.getName().substring(10))){
-//                        if (activeGameObject.getComponent(aClass) == null){
-//                            activeGameObject.addComponent(aClass.cast(Component.class));
-//                        }
-//                    }
-//                }
+            Reflections reflections = new Reflections("components");
+            Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
+            reflections = new Reflections("physics2d.components");
+            classes.addAll(reflections.getSubTypesOf(Component.class));
 
-
-            if (ImGui.menuItem("Add Rigidbody")) {
-                if (activeGameObject.getComponent(RigidBody2D.class) == null) {
-                    activeGameObject.addComponent(new RigidBody2D());
-                }
-            }
-
-            if (ImGui.menuItem("Add Box Collider")) {
-                if (activeGameObject.getComponent(Box2DCollider.class) == null &&
-                        activeGameObject.getComponent(CircleCollider.class) == null) {
-                    activeGameObject.addComponent(new Box2DCollider());
-                }
-            }
-
-            if (ImGui.menuItem("Add Circle Collider")) {
-                if (activeGameObject.getComponent(CircleCollider.class) == null &&
-                        activeGameObject.getComponent(Box2DCollider.class) == null) {
-                    activeGameObject.addComponent(new CircleCollider());
-                }
-            }
-
-            if (ImGui.menuItem("Add 'TestComponent' ")) {
-                if (activeGameObject.getComponent(TestComponent.class) == null) {
-                    activeGameObject.addComponent(new TestComponent());
-                }
-            }
-
-            if (ImGui.menuItem("Add 'TargetDebugging' ")) {
-                if (activeGameObject.getComponent(TargetDebugging.class) == null) {
-                    activeGameObject.addComponent(new TargetDebugging());
+            for (Class<? extends Component> aClass : classes) {
+                if (ImGui.menuItem("Add " + aClass.getSimpleName())) {
+                    try {
+                        Component component = aClass.getDeclaredConstructor().newInstance(); // Tạo mới một đối tượng Component từ lớp aClass
+                        if (activeGameObject.getComponent(aClass) == null) {
+                            activeGameObject.addComponent(component);
+                        }
+                    } catch (InstantiationException | IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        throw new RuntimeException(e);
+                    } catch (NoSuchMethodException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
 
