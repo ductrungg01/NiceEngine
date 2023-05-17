@@ -101,7 +101,9 @@ public class GameObject {
         ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
         objectInfo.name = NiceImGui.inputText("Name", objectInfo.name, "Name of " + this.hashCode());
 
-        for (Component c : components) {
+        for (int i = 0; i < components.size(); i++) {
+            Component c = components.get(i);
+
             if (c.getClass() == ObjectInfo.class) continue;
 
             ImBoolean removeComponentButton = new ImBoolean(true);
@@ -111,9 +113,8 @@ public class GameObject {
             }
 
             if (removeComponentButton.get() == false) {
-                // TODO: implement 
-                Debug.Log("Remove component button is closed (" +
-                        c.getClass().getSimpleName() + ")");
+                components.remove(i);
+                i--;
             }
 
         }
