@@ -302,7 +302,8 @@ public class NiceImGui {
 
             List<Object> itemList = new ArrayList<>();
             itemList.addAll(FileUtils.getFilesWithReferenceConfig(referenceConfig));
-            itemList.addAll(Window.getScene().getGameObjects());
+            if (referenceConfig.type == ReferenceType.GAMEOBJECT)
+                itemList.addAll(Window.getScene().getGameObjects());
 
             for (Object item : itemList) {
                 // Calculate position for this item
