@@ -1,6 +1,6 @@
 package editor.uihelper;
 
-import components.AnimationState;
+import components.Spritesheet;
 import editor.ReferenceConfig;
 import editor.ReferenceType;
 import imgui.ImGui;
@@ -9,7 +9,6 @@ import components.Sprite;
 import editor.Debug;
 import imgui.*;
 import imgui.flag.ImGuiCol;
-import imgui.flag.ImGuiComboFlags;
 import imgui.flag.ImGuiMouseCursor;
 import imgui.flag.ImGuiStyleVar;
 import imgui.type.ImBoolean;
@@ -17,14 +16,17 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
+import org.w3c.dom.Text;
+import renderer.DebugDraw;
+import renderer.Texture;
 import system.GameObject;
 import system.Window;
+import util.AssetPool;
 import util.FileUtils;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static editor.uihelper.NiceShortCall.*;
 
@@ -289,11 +291,24 @@ public class NiceImGui {
         Object newValue = oldValue;
 
         if (ImGui.beginPopupModal("File Dialog")) {
-            ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
+            ImGui.text("SELECT FILE");
+
+            float fileDialogWidth = ImGui.getContentRegionMaxX() - 50;
+
+            ImGui.beginChild("parentFileDialog", ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() - 100, false);
+
+            if (referenceConfig.type == ReferenceType.SPRITE) {
+                fileDialogWidth = ImGui.getContentRegionMaxX() * 0.6f;
+
+                ImGui.columns(2);
+                ImGui.setColumnWidth(0, fileDialogWidth);
+            }
+
+            ImGui.beginChild("fileDialog", fileDialogWidth, ImGui.getContentRegionMaxY() * 0.98f, false);
             final float iconWidth = 100f;
             final float iconHeight = 100f;
             final float iconSize = iconHeight;
-            final float spacingX = 25.0f;
+            final float spacingX = 50.0f;
             final float spacingY = 50.0f;
             float availableWidth = ImGui.getContentRegionAvailX();
             int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));
@@ -325,9 +340,22 @@ public class NiceImGui {
 
             ImGui.endChild();
 
-            if (ImGui.button("Cancel") || newValue != oldValue) {
+            if (referenceConfig.type == ReferenceType.SPRITE || newValue != oldValue) {
+                ImGui.nextColumn();
+
+                Sprite returnSpr = showSpriteSheet(spr_texture_src_need_to_preview);
+                if (returnSpr != null) {
+                    newValue = returnSpr;
+                }
+            }
+
+            ImGui.endChild();
+
+            if (NiceImGui.drawButton("Cancel", new ButtonColor(COLOR_DarkRed, COLOR_Red, COLOR_Red))
+                    || newValue != oldValue) {
                 openFileDialog = false;
                 ImGui.closeCurrentPopup();
+                isSpriteSheet = false;
             }
 
             ImGui.endPopup();
@@ -336,6 +364,8 @@ public class NiceImGui {
         if (newValue != null) return newValue;
         return oldValue;
     }
+
+    static String spr_texture_src_need_to_preview = "";
 
     public static Object drawItemInFileDialog(Object item, float iconSize, Object oldValue, ReferenceConfig referenceConfig) {
         String id = item.toString();
@@ -410,6 +440,11 @@ public class NiceImGui {
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
                 ImGui.text(shortItemName);
                 ImGui.popStyleColor(1);
+
+                if (referenceConfig.type == ReferenceType.SPRITE) {
+                    isSpriteSheet = false;
+                    spr_texture_src_need_to_preview = ((File) item).getPath();
+                }
             } else {
                 // HOVER Handle
                 ImGui.pushStyleColor(ImGuiCol.Text, hoveredColor.x, hoveredColor.y, hoveredColor.z, activeColor.w);
@@ -427,10 +462,161 @@ public class NiceImGui {
         return oldValue;
     }
 
+    static boolean isSpriteSheet = false;
+    static int sprWidth = 1;
+    static int sprHeight = 1;
+    static int numSprites = 1;
+    static int sprSpacing = 0;
+    static int sprIdChosen = -1;
+
+    public static Sprite showSpriteSheet(String textureSrc) {
+        File tmpF = new File(textureSrc);
+        if (!tmpF.isFile()) {
+            return null;
+        }
+
+        ImGui.pushID("SpriteSheet of " + textureSrc);
+
+        ImGui.text("SPRITE PREVIEW");
+
+        Sprite spr = new Sprite(textureSrc);
+
+        float sizeOfViewX = ImGui.getContentRegionMaxX() * 0.39f;
+        float sizeOfViewY = ImGui.getContentRegionMaxY() * 0.98f;
+        float imageSizeX = spr.getTexture().getWidth();
+        float imageSizeY = spr.getTexture().getHeight();
+        float offset = Math.min(sizeOfViewX / imageSizeX, sizeOfViewY / imageSizeY);
+        float sizeToShowImageX = spr.getTexture().getWidth() * offset;
+        float sizeToShowImageY = spr.getTexture().getHeight() * offset;
+
+        boolean tmpIsSpriteSheet = isSpriteSheet;
+        ImBoolean tmpB = new ImBoolean(isSpriteSheet);
+        ImGui.checkbox("This is a sprite sheet?", tmpB);
+        isSpriteSheet = tmpB.get();
+
+        // Set to default
+        if (isSpriteSheet && !tmpIsSpriteSheet) {
+            sprWidth = spr.getTexture().getWidth();
+            sprHeight = spr.getTexture().getHeight();
+            numSprites = 1;
+            sprSpacing = 0;
+            sprIdChosen = 0;
+        }
+
+        Sprite returnSpr = null;
+
+        float spritesheetConfigShowWidth = 180f;
+
+        if (isSpriteSheet) {
+            ImGui.beginChild("##SprSheetConfig", sizeOfViewX, spritesheetConfigShowWidth, false);
+            sprWidth = NiceImGui.dragInt("Sprite width: ", sprWidth);
+            sprHeight = NiceImGui.dragInt("Sprite Height", sprHeight);
+            numSprites = NiceImGui.dragInt("Number of sprites: ", numSprites);
+            sprSpacing = NiceImGui.dragInt("Spacing: ", sprSpacing);
+            sprIdChosen = NiceImGui.dragInt("Sprite chosen ID: ", sprIdChosen);
+            ImGui.endChild();
+
+            Texture texture = AssetPool.getTexture(textureSrc);
+
+            Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numSprites, sprSpacing);
+
+            if (sprIdChosen >= 0 && sprIdChosen < numSprites) {
+                spr = spritesheet.getSprite(sprIdChosen);
+
+                if (NiceImGui.drawButton("USE THIS SPRITE",
+                        new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue),
+                        new Vector2f(sizeOfViewX, 50f))) {
+                    Debug.Log("Use this sprite");
+                    returnSpr = spr;
+                }
+            }
+
+            sizeOfViewY -= spritesheetConfigShowWidth + 150f;
+            offset = Math.min(sizeOfViewX / imageSizeX, sizeOfViewY / imageSizeY) * 0.97f;
+
+            sizeToShowImageX = imageSizeX * offset;
+            sizeToShowImageY = imageSizeY * offset;
+        }
+
+        ImGui.beginChild("##SpritesheetShowing", sizeToShowImageX * 1.01f, sizeToShowImageY * 1.05f, false);
+
+        // TODO: Fixing this rotation bug
+
+
+        if (isSpriteSheet) {
+            ImDrawList drawList = ImGui.getWindowDrawList();
+            float cursorPosX = ImGui.getCursorScreenPosX();
+            float cursorPosY = ImGui.getCursorScreenPosY();
+
+            ImGui.image(spr.getTexId(), sizeToShowImageX, sizeToShowImageY);
+
+            Vector2f imgTLPos = new Vector2f(cursorPosX, cursorPosY);
+            Vector2f imgBRPos = new Vector2f(cursorPosX + sizeToShowImageX, cursorPosY + sizeToShowImageY);
+
+            float offsetX = (imgBRPos.x - imgTLPos.x);
+            float offsetY = (imgBRPos.y - imgTLPos.y);
+
+            float currentX = 0;
+            float currentY = 0;
+
+            int color;
+            float lineSize;
+
+            Vector2f topLeftPosChosen = new Vector2f();
+            Vector2f bottomRightPosChosen = new Vector2f();
+
+            for (int i = 0; i < numSprites; i++) {
+                float topY = (currentY) / imageSizeY;
+                float rightX = (currentX + sprWidth) / imageSizeX;
+                float leftX = currentX / imageSizeX;
+                float bottomY = (currentY + sprHeight) / imageSizeY;
+
+                Vector2f topLeftPos = new Vector2f(leftX * offsetX + +imgTLPos.x, topY * offsetY + imgTLPos.y);
+                Vector2f bottomRightPos = new Vector2f(rightX * offsetX + imgTLPos.x, bottomY * offsetY + imgTLPos.y);
+
+                color = ImColor.intToColor(255, 255, 255, 100); // LIGHT WHITE
+                lineSize = 0.3f;
+
+                if (i == sprIdChosen) {
+                    topLeftPosChosen = topLeftPos;
+                    bottomRightPosChosen = bottomRightPos;
+                }
+
+                drawList.addLine(topLeftPos.x, topLeftPos.y, bottomRightPos.x, topLeftPos.y, color, lineSize);
+                drawList.addLine(bottomRightPos.x, topLeftPos.y, bottomRightPos.x, bottomRightPos.y, color, lineSize);
+                drawList.addLine(bottomRightPos.x, bottomRightPos.y, topLeftPos.x, bottomRightPos.y, color, lineSize);
+                drawList.addLine(topLeftPos.x, bottomRightPos.y, topLeftPos.x, topLeftPos.y, color, lineSize);
+
+                currentX += sprWidth + sprSpacing;
+                if (currentX >= imageSizeX) {
+                    currentX = 0;
+                    currentY += sprHeight + sprSpacing;
+                }
+            }
+
+            if (sprIdChosen >= 0 && sprIdChosen < numSprites) {
+                color = ImColor.intToColor(255, 0, 0, 255); // RED
+                lineSize = 10;
+
+                drawList.addLine(topLeftPosChosen.x, topLeftPosChosen.y, bottomRightPosChosen.x, topLeftPosChosen.y, color, lineSize);
+                drawList.addLine(bottomRightPosChosen.x, topLeftPosChosen.y, bottomRightPosChosen.x, bottomRightPosChosen.y, color, lineSize);
+                drawList.addLine(bottomRightPosChosen.x, bottomRightPosChosen.y, topLeftPosChosen.x, bottomRightPosChosen.y, color, lineSize);
+                drawList.addLine(topLeftPosChosen.x, bottomRightPosChosen.y, topLeftPosChosen.x, topLeftPosChosen.y, color, lineSize);
+            }
+        } else {
+            ImGui.image(spr.getTexId(), sizeToShowImageX, sizeToShowImageY);
+        }
+
+        ImGui.endChild();
+        ImGui.popID();
+
+        return returnSpr;
+    }
+
     /**
      * Very good for debugging
      **/
-    public static void CreateDot(float x, float y, float size) {
+    public static void createDot(float x, float y, float size) {
         ImDrawList drawList = ImGui.getWindowDrawList();
         drawList.addCircleFilled(x, y, size, ImColor.intToColor(255, 0, 0, 255));
     }
@@ -702,6 +888,8 @@ public class NiceImGui {
     }
 
     public static boolean checkbox(String label, boolean isChecked) {
+        ImGui.pushID(label + "Checkbox");
+
         ImGui.columns(2);
         ImGui.setColumnWidth(0, defaultColumnWidth);
         ImGui.text(label);
@@ -712,6 +900,8 @@ public class NiceImGui {
         boolean returnValue = imguiIsChecked.get();
 
         ImGui.columns(1);
+
+        ImGui.popID();
 
         return returnValue;
     }

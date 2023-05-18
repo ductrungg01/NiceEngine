@@ -156,7 +156,7 @@ public class FileUtils {
         String name = getFileNameWithoutExtension(fileName);
         String ext = getFileExtension(fileName);
 
-        final int MAX_LENGTH_ALLOW = 15;
+        final int MAX_LENGTH_ALLOW = 10;
         if (name.length() > MAX_LENGTH_ALLOW) {
             name = name.substring(0, MAX_LENGTH_ALLOW) + "..";
         }

@@ -5,6 +5,8 @@ import components.scripts.test.TargetDebugging;
 import components.scripts.test.TestComponent;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
+import imgui.ImColor;
+import imgui.ImDrawList;
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
