@@ -3,11 +3,13 @@ package editor;
 import components.*;
 import components.scripts.test.TargetDebugging;
 import components.scripts.test.TestComponent;
+import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImString;
+import org.joml.Vector2f;
 import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
@@ -20,6 +22,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import static editor.uihelper.NiceShortCall.COLOR_Blue;
+import static editor.uihelper.NiceShortCall.COLOR_DarkBlue;
 
 public class InspectorWindow {
 
@@ -65,7 +70,11 @@ public class InspectorWindow {
 
         activeGameObject.imgui();
 
-        if (ImGui.button("Add component")) {
+        ImGui.separator();
+
+        if (NiceImGui.drawButton("Add component",
+                new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue),
+                new Vector2f(ImGui.getContentRegionAvailX(), 50f))) {
             showAddComponentMenu = true;
             searchText = "";
             ImGui.openPopup("AddComponentMenu");
