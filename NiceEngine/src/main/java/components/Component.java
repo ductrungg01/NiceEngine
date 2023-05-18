@@ -148,7 +148,8 @@ public abstract class Component {
                 } else if (type == Sprite.class) {
                     field.set(this, NiceImGui.ReferenceButton(name,
                             new ReferenceConfig(ReferenceType.SPRITE),
-                            value));
+                            value,
+                            "Sprite" + name + gameObject.hashCode()));
                 }
 //                else if (type == GameObject.class) {
 //                    GameObject tmpGo = (GameObject) value;

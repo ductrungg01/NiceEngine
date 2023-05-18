@@ -73,8 +73,6 @@ public class InspectorWindow {
 
         if (showAddComponentMenu) {
             if (ImGui.beginPopup("AddComponentMenu")) {
-                //searchText = NiceImGui.inputText("Search:", searchText, "AddingComponent" + activeGameObject.hashCode());
-
                 searchText = NiceImGui.inputTextWithHintAndNoLabel("Search", searchText, "AddingComponent" + activeGameObject.hashCode());
 
                 ImGui.beginChild("ComponentList", 500, 350, true, ImGuiWindowFlags.HorizontalScrollbar);

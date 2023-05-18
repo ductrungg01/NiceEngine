@@ -46,19 +46,19 @@
             },
             "texCoords": [
               {
-                "x": 0.21428572,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.5
+              },
+              {
                 "x": 0.21428572,
                 "y": 0.5
               },
               {
-                "x": 0.14285715,
-                "y": 0.5
-              },
-              {
-                "x": 0.14285715,
+                "x": 0.21428572,
                 "y": 0.0
               }
             ]
@@ -2507,6 +2507,954 @@
             ]
           },
           "uid": 90
+        }
+      },
+      {
+        "type": "components.scripts.test.TestComponent",
+        "properties": {
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite2": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\256387288_1506156246430803_6124886601930030866_n.jpg",
+              "width": 953,
+              "height": 960
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite3": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\bigSpritesheet.png",
+              "width": 336,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite4": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite5": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\blendImage1.png",
+              "width": 256,
+              "height": 256
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite6": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\blendImage2.png",
+              "width": 256,
+              "height": 256
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite7": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\file-icon.png",
+              "width": 512,
+              "height": 512
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite8": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite9": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\gizmos.png",
+              "width": 72,
+              "height": 48
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "sprite10": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\testImage2.png",
+              "width": 32,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "spr_go": {
+            "uid": 20,
+            "name": "Sprite_Object_Generated",
+            "components": [
+              {
+                "type": "components.ObjectInfo",
+                "properties": {
+                  "name": "Sprite_Object_Generated",
+                  "tag": "Object",
+                  "uid": 155
+                }
+              },
+              {
+                "type": "system.Transform",
+                "properties": {
+                  "position": {
+                    "x": 5.375,
+                    "y": 2.875
+                  },
+                  "scale": {
+                    "x": 0.25,
+                    "y": 0.25
+                  },
+                  "rotation": 0.0,
+                  "zIndex": 0,
+                  "uid": 156
+                }
+              },
+              {
+                "type": "components.SpriteRenderer",
+                "properties": {
+                  "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0,
+                    "w": 1.0
+                  },
+                  "sprite": {
+                    "width": 0.0,
+                    "height": 0.0,
+                    "texture": {
+                      "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+                      "width": 1064,
+                      "height": 534
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      }
+                    ]
+                  },
+                  "uid": 157
+                }
+              }
+            ],
+            "doSerialization": true,
+            "isDead": false
+          },
+          "uid": 116
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 13,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 117
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.125,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 118
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 32.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/pipes.png",
+              "width": 128,
+              "height": 64
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 119
+        }
+      },
+      {
+        "type": "components.scripts.test.TestComponent",
+        "properties": {
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "spr_go": {
+            "uid": 21,
+            "name": "Sprite_Object_Generated",
+            "components": [
+              {
+                "type": "components.ObjectInfo",
+                "properties": {
+                  "name": "Sprite_Object_Generated",
+                  "tag": "Object",
+                  "uid": 158
+                }
+              },
+              {
+                "type": "system.Transform",
+                "properties": {
+                  "position": {
+                    "x": 5.125,
+                    "y": 1.875
+                  },
+                  "scale": {
+                    "x": 0.25,
+                    "y": 0.25
+                  },
+                  "rotation": 0.0,
+                  "zIndex": 0,
+                  "uid": 159
+                }
+              },
+              {
+                "type": "components.SpriteRenderer",
+                "properties": {
+                  "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0,
+                    "w": 1.0
+                  },
+                  "sprite": {
+                    "width": 0.0,
+                    "height": 0.0,
+                    "texture": {
+                      "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\logo.png",
+                      "width": 513,
+                      "height": 511
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      }
+                    ]
+                  },
+                  "uid": 160
+                }
+              }
+            ],
+            "doSerialization": true,
+            "isDead": false
+          },
+          "uid": 121
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 15,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 129
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.375,
+            "y": 2.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 130
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 131
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 16,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 132
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 133
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 134
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 17,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 142
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.375,
+            "y": 2.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 143
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 144
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 18,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 145
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 146
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 147
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 20,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 155
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.375,
+            "y": 2.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 156
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\birds.png",
+              "width": 1064,
+              "height": 534
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 157
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 21,
+    "name": "Sprite_Object_Generated",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Sprite_Object_Generated",
+          "tag": "Object",
+          "uid": 158
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 159
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 0.0,
+            "height": 0.0,
+            "texture": {
+              "filePath": "C:\\Users\\Acer\\Documents\\GitHub\\NiceEngine\\NiceEngine\\Assets\\images\\logo.png",
+              "width": 513,
+              "height": 511
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              }
+            ]
+          },
+          "uid": 160
         }
       }
     ],

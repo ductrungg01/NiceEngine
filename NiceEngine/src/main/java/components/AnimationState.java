@@ -77,7 +77,8 @@ public class AnimationState {
 
             frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ",
                     new ReferenceConfig(ReferenceType.SPRITE),
-                    frame.sprite);
+                    frame.sprite,
+                    "AnimationState" + this.title + "Frame" + index);
 
             frame.frameTime = NiceImGui.dragfloat("    Time: ",
                     frame.frameTime, 0f, 100f, 0.001f, "Frame time of" + this.title + index);

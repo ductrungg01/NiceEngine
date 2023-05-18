@@ -12,6 +12,15 @@ import static org.lwjgl.glfw.GLFW.*;
 public class TestComponent extends Component {
     public GameObject TargetGo = null;
     public Sprite sprite = null;
+    public Sprite sprite2 = null;
+    public Sprite sprite3 = null;
+    public Sprite sprite4 = null;
+    public Sprite sprite5 = null;
+    public Sprite sprite6 = null;
+    public Sprite sprite7 = null;
+    public Sprite sprite8 = null;
+    public Sprite sprite9 = null;
+    public Sprite sprite10 = null;
     private GameObject spr_go = null;
     private transient float moveSpeed = 3f;
 

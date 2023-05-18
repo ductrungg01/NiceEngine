@@ -24,6 +24,7 @@ import util.FileUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static editor.uihelper.NiceShortCall.*;
 
@@ -154,14 +155,14 @@ public class NiceImGui {
     }
 
     public static boolean openFileDialog = false;
-    public static boolean fileDialogIsShowed = false;
+    public static String idWaitingForReturn = "";
 
-    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue) {
-        return ReferenceButton(label, referenceConfig, oldValue, defaultColumnWidth);
+    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue, String idPush) {
+        return ReferenceButton(label, referenceConfig, oldValue, defaultColumnWidth, idPush);
     }
 
-    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue, float labelWidth) {
-        ImGui.pushID(label);
+    public static Object ReferenceButton(String label, ReferenceConfig referenceConfig, Object oldValue, float labelWidth, String idPush) {
+        ImGui.pushID(idPush);
         ImGui.columns(2);
 
         ImGui.setColumnWidth(0, labelWidth);
@@ -218,11 +219,27 @@ public class NiceImGui {
 
         }
         ImGui.sameLine();
+
+        boolean tmp = openFileDialog;
+
         drawOpenFileDialogButton(referenceButtonHeight);
+
+        if (tmp == false && openFileDialog == true) {
+            idWaitingForReturn = idPush;
+        }
+
         ImGui.sameLine();
         oldValue = drawDeleteReferenceButton(referenceButtonHeight, oldValue);
-        oldValue = showFileDialogForReference(referenceConfig, oldValue);
 
+        if (openFileDialog == true && idWaitingForReturn.equals(idPush)) {
+            Object tmpReturnValue = showFileDialogForReference(referenceConfig, oldValue);
+
+            if (tmpReturnValue != oldValue) {
+                oldValue = tmpReturnValue;
+                openFileDialog = false;
+                idWaitingForReturn = "";
+            }
+        }
         ImGui.columns(1);
 
         ImGui.popID();
@@ -265,12 +282,11 @@ public class NiceImGui {
     }
 
     private static Object showFileDialogForReference(ReferenceConfig referenceConfig, Object oldValue) {
-        if (openFileDialog && !fileDialogIsShowed) {
+        if (openFileDialog) {
             ImGui.openPopup("File Dialog");
-            fileDialogIsShowed = true;
         }
 
-        Object newValue = null;
+        Object newValue = oldValue;
 
         if (ImGui.beginPopupModal("File Dialog")) {
             ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX() - 50, ImGui.getContentRegionMaxY() - 100, true);
@@ -299,7 +315,7 @@ public class NiceImGui {
 
                 newValue = drawItemInFileDialog(item, iconSize, oldValue, referenceConfig);
 
-                if (newValue != null) {
+                if (newValue != oldValue) {
                     break;
                 }
 
@@ -308,9 +324,8 @@ public class NiceImGui {
 
             ImGui.endChild();
 
-            if (ImGui.button("Cancel") || newValue != null) {
+            if (ImGui.button("Cancel") || newValue != oldValue) {
                 openFileDialog = false;
-                fileDialogIsShowed = false;
                 ImGui.closeCurrentPopup();
             }
 
