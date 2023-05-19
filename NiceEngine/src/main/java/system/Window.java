@@ -136,7 +136,6 @@ public class Window implements Observer {
             KeyListener.endframe();
             MouseListener.endFrame();
             glfwSwapBuffers(glfwWindow);
-            MouseListener.endFrame();
 
             endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
