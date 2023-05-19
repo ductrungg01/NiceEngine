@@ -92,7 +92,8 @@ public class InspectorWindow {
                     try {
                         // Tạo mới một đối tượng Component từ lớp aClass
                         component = aClass.getDeclaredConstructor().newInstance();
-                        if (component instanceof INonAddableComponent == true) continue;
+                        if (component instanceof INonAddableComponent) continue;
+                        if (activeGameObject.getComponent(aClass) != null) continue;
                     } catch (InstantiationException | IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InvocationTargetException | NoSuchMethodException e) {
