@@ -65,6 +65,8 @@ public class InspectorWindow {
             activeGameObject = activeGameObjects.get(0);
         }
 
+        if (activeGameObjects.size() > 1) activeGameObject = null;
+
         if (activeGameObject == null) {
             ImGui.end();
             return;
@@ -135,6 +137,7 @@ public class InspectorWindow {
         }
 
         this.activeGameObjects.clear();
+        this.activeGameObject = null;
         this.activeGameObjectOriginalColor.clear();
     }
 

@@ -1,5 +1,6 @@
 package system;
 
+import editor.SceneHierarchyWindow;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
@@ -335,6 +336,8 @@ public class Window implements Observer {
             case GameEngineStartPlay:
                 this.runtimePlaying = true;
                 currentScene.save(false);
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
+                SceneHierarchyWindow.clearSelectedGameObject();
                 Window.changeScene(new LevelSceneInitializer());
                 break;
             case GameEngineStopPlay:
