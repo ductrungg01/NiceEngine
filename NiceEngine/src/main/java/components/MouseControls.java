@@ -1,5 +1,7 @@
 package components;
 
+import editor.Debug;
+import editor.GameViewWindow;
 import editor.InspectorWindow;
 import editor.SceneHierarchyWindow;
 import system.GameObject;
@@ -23,13 +25,13 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component implements INonAddableComponent {
     //region Fields
-    GameObject holdingObject = null;
-    private float debounceTime = 0.2f;
-    private float debounce = debounceTime;
+    static GameObject holdingObject = null;
+    private static float debounceTime = 0.2f;
+    private static float debounce = debounceTime;
 
-    private boolean boxSelectSet = false;
-    private Vector2f boxSelectStart = new Vector2f();
-    private Vector2f boxSelectEnd = new Vector2f();
+    private static boolean boxSelectSet = false;
+    private static Vector2f boxSelectStart = new Vector2f();
+    private static Vector2f boxSelectEnd = new Vector2f();
     //endregion
 
     //region Override methods
@@ -40,6 +42,7 @@ public class MouseControls extends Component implements INonAddableComponent {
         Scene currentScene = Window.getScene();
 
         if (holdingObject != null) {
+            boxSelectSet = false;
             holdingObject.setNoSerialize();
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
@@ -75,7 +78,7 @@ public class MouseControls extends Component implements INonAddableComponent {
 //                Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
             }
-            this.debounce = 0.2f;
+            this.debounce = debounceTime;
         } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
             if (!boxSelectSet) {
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
@@ -115,20 +118,23 @@ public class MouseControls extends Component implements INonAddableComponent {
                 screenEndY = tmp;
             }
 
-            float[] gameObjectIds = pickingTexture.readPixels(
-                    new Vector2i(screenStartX, screenStartY),
-                    new Vector2i(screenEndX, screenEndY)
-            );
-            Set<Integer> uniqueGameObjectIds = new HashSet<>();
-            for (float objId : gameObjectIds) {
-                uniqueGameObjectIds.add((int) objId);
-            }
-
-            for (Integer gameObjectId : uniqueGameObjectIds) {
-                GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
-                if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                    Window.getImguiLayer().getInspectorWindow().addActiveGameObject(pickedObj);
+            if (MouseListener.isMouseRelease(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
+                float[] gameObjectIds = pickingTexture.readPixels(
+                        new Vector2i(screenStartX, screenStartY),
+                        new Vector2i(screenEndX, screenEndY)
+                );
+                Set<Integer> uniqueGameObjectIds = new HashSet<>();
+                for (float objId : gameObjectIds) {
+                    uniqueGameObjectIds.add((int) objId);
                 }
+
+                for (Integer gameObjectId : uniqueGameObjectIds) {
+                    GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
+                    if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
+                        Window.getImguiLayer().getInspectorWindow().addActiveGameObject(pickedObj);
+                    }
+                }
+                this.debounce = debounceTime;
             }
         }
     }
@@ -146,6 +152,7 @@ public class MouseControls extends Component implements INonAddableComponent {
     }
 
     public void place() {
+        if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()) return;
         GameObject newObj = this.holdingObject.copy();
         newObj.doSerialization();
         if (newObj.getComponent(StateMachine.class) != null) {
