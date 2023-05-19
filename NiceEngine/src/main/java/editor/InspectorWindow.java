@@ -65,7 +65,7 @@ public class InspectorWindow {
             activeGameObject = activeGameObjects.get(0);
         }
 
-        if (activeGameObjects.size() > 1) activeGameObject = null;
+//        if (activeGameObjects.size() > 1) activeGameObject = null;
 
         if (activeGameObject == null) {
             ImGui.end();

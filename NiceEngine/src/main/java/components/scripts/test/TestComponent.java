@@ -10,35 +10,23 @@ import system.*;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class TestComponent extends Component {
-    public GameObject TargetGo = null;
     Sprite sprite = null;
-    public Sprite sprite2 = null;
-    public Sprite sprite3 = null;
-    public Sprite sprite4 = null;
-    public Sprite sprite5 = null;
-    public Sprite sprite6 = null;
-    public Sprite sprite7 = null;
-    public Sprite sprite8 = null;
-    public Sprite sprite9 = null;
-    public Sprite sprite10 = null;
+    public GameObject TargetGo = null;
+    protected Sprite sprite1 = null;
+    final Sprite sprite2 = null;
     private GameObject spr_go = null;
     private transient float moveSpeed = 3f;
 
+    public TestComponent() {
+    }
+
     @Override
     public void start() {
-        if (sprite != null) {
-            spr_go = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
 
-            spr_go.transform.position = new Vector2f(1, 1).add(this.gameObject.transform.position);
-
-            Window.getScene().addGameObjectToScene(spr_go);
-        }
     }
 
     @Override
     public void update(float dt) {
-
-
         if (TargetGo != null) {
             if (KeyListener.isKeyPressed(GLFW_KEY_UP)) {
                 TargetGo.getComponent(TargetDebugging.class).GoUp(moveSpeed * dt);

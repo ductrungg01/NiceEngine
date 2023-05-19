@@ -1,5 +1,6 @@
 package components;
 
+import editor.Debug;
 import editor.ReferenceType;
 import editor.uihelper.NiceImGui;
 import editor.ReferenceConfig;
@@ -87,20 +88,31 @@ public abstract class Component {
                     continue;
                 }
 
-                boolean isPrivate = Modifier.isPrivate(field.getModifiers());
-
+//                boolean isPrivate = Modifier.isPrivate(field.getModifiers());
+//
+//                if (isPrivate == false && field.getModifiers() == 0) {
+//                    isPrivate = true;
+//                }
+//
+//                Debug.Log("field name: " + field.getName() + ": " + field.getModifiers() + "isPrivate: " + isPrivate);
+////                if (isPrivate) {
+////                    continue;
+////                }
+//
 //                if (isPrivate) {
-//                    continue;
+//                    field.setAccessible(true);
 //                }
 
-                if (isPrivate) {
-                    field.setAccessible(true);
-                }
+                boolean isPublic = Modifier.isPublic(field.getModifiers());
+
+                field.setAccessible(true);
+
 
                 Class type = field.getType();
                 Object value = field.get(this);
                 String name = field.getName();
                 name = name.substring(0, 1).toUpperCase() + name.substring(1);
+
 
                 if (type == int.class) {
                     int val = (int) value;
@@ -160,7 +172,10 @@ public abstract class Component {
 //                    );
 //                }
 
-                if (isPrivate) {
+//                if (isPrivate) {
+//                    field.setAccessible(false);
+//                }
+                if (!isPublic) {
                     field.setAccessible(false);
                 }
             }

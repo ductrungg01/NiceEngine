@@ -305,10 +305,10 @@ public class NiceImGui {
             }
 
             ImGui.beginChild("fileDialog", fileDialogWidth, ImGui.getContentRegionMaxY() * 0.98f, false);
-            final float iconWidth = 100f;
-            final float iconHeight = 100f;
+            final float iconWidth = 150f;
+            final float iconHeight = 150f;
             final float iconSize = iconHeight;
-            final float spacingX = 50.0f;
+            final float spacingX = 20.0f;
             final float spacingY = 50.0f;
             float availableWidth = ImGui.getContentRegionAvailX();
             int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));

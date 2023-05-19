@@ -72,9 +72,8 @@ public class MouseControls extends Component implements INonAddableComponent {
                 Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
                 SceneHierarchyWindow.setSelectedGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
-                Window.getImguiLayer().getInspectorWindow().clearSelected();
+//                Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
-                Window.getImguiLayer().getInspectorWindow().clearSelected();
             }
             this.debounce = 0.2f;
         } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
