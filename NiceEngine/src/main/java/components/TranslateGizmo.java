@@ -3,8 +3,12 @@ package components;
 import editor.InspectorWindow;
 import system.MouseListener;
 
-public class TranslateGizmo extends Gizmo {
+public class TranslateGizmo extends Gizmo implements INonAddableComponent {
     //region Constructors
+
+    public TranslateGizmo() {
+    }
+
     public TranslateGizmo(Sprite arrowSprite, InspectorWindow inspectorWindow) {
         super(arrowSprite, inspectorWindow);
     }

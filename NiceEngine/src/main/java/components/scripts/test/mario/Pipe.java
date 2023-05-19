@@ -26,6 +26,9 @@ public class Pipe extends Component {
     public Pipe(Direction direction) {
         this.direction = direction;
     }
+
+    public Pipe() {
+    }
     //endregion
 
     //region Override methods

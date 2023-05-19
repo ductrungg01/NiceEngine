@@ -3,8 +3,12 @@ package components;
 import editor.InspectorWindow;
 import system.MouseListener;
 
-public class ScaleGizmo extends Gizmo {
+public class ScaleGizmo extends Gizmo implements INonAddableComponent {
     //region Constructors
+
+    public ScaleGizmo() {
+    }
+
     public ScaleGizmo(Sprite scaleSprite, InspectorWindow inspectorWindow) {
         super(scaleSprite, inspectorWindow);
     }

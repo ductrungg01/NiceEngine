@@ -2,7 +2,7 @@ package components;
 
 import util.FileUtils;
 
-public class Frame {
+public class Frame implements INonAddableComponent {
     //region Fields
     public Sprite sprite = FileUtils.getDefaultSprite();
     public float frameTime = 0.0f;

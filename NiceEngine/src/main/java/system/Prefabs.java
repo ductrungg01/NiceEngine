@@ -5,7 +5,7 @@ import components.scripts.test.mario.*;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
-import physics2d.components.PillboxCollider;
+import components.scripts.test.mario.PillboxCollider;
 import physics2d.components.RigidBody2D;
 import physics2d.enums.BodyType;
 import util.AssetPool;

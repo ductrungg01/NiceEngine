@@ -21,7 +21,7 @@ import static editor.SceneHierarchyWindow.clearSelectedGameObject;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
-public class MouseControls extends Component {
+public class MouseControls extends Component implements INonAddableComponent {
     //region Fields
     GameObject holdingObject = null;
     private float debounceTime = 0.2f;

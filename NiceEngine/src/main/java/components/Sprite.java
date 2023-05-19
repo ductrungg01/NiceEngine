@@ -5,7 +5,7 @@ import org.w3c.dom.Text;
 import renderer.Texture;
 import util.AssetPool;
 
-public class Sprite {
+public class Sprite implements INonAddableComponent {
     //region Fields
     private float width, height;
 

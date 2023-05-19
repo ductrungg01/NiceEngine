@@ -14,7 +14,7 @@ import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
 
-public class AnimationState {
+public class AnimationState implements INonAddableComponent {
     //region Fields
     public String title;
     public List<Frame> animationFrames = new ArrayList<>();

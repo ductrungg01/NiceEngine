@@ -5,7 +5,7 @@ import system.Window;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class GizmoSystem extends Component {
+public class GizmoSystem extends Component implements INonAddableComponent {
     //region Fields
     private Spritesheet gizmos;
     private int usingGizmo = 0;
@@ -14,6 +14,9 @@ public class GizmoSystem extends Component {
     //region Constructors
     public GizmoSystem(Spritesheet gizmoSprites) {
         this.gizmos = gizmoSprites;
+    }
+
+    public GizmoSystem() {
     }
     //endregion
 

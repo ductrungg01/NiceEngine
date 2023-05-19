@@ -11,7 +11,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class TestComponent extends Component {
     public GameObject TargetGo = null;
-    public Sprite sprite = null;
+    Sprite sprite = null;
     public Sprite sprite2 = null;
     public Sprite sprite3 = null;
     public Sprite sprite4 = null;

@@ -11,7 +11,7 @@ import org.jbox2d.dynamics.*;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
-import physics2d.components.PillboxCollider;
+import components.scripts.test.mario.PillboxCollider;
 import physics2d.components.RigidBody2D;
 
 public class Physics2D {

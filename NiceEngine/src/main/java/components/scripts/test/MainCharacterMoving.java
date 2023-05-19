@@ -1,18 +1,11 @@
 package components.scripts.test;
 
 import components.Component;
-import editor.Debug;
-import system.GameObject;
 import system.KeyListener;
 import system.Window;
-import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Math;
 import org.joml.Vector2f;
-import physics2d.Physics2D;
-import physics2d.components.PillboxCollider;
 import physics2d.components.RigidBody2D;
-import physics2d.enums.BodyType;
-import util.AssetPool;
 
 import static org.lwjgl.glfw.GLFW.*;
 

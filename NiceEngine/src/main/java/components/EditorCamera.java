@@ -7,7 +7,7 @@ import org.joml.Vector2f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class EditorCamera extends Component {
+public class EditorCamera extends Component implements INonAddableComponent {
 
     //region Fields
     private float dragDebounce = 0.032f;
@@ -25,7 +25,10 @@ public class EditorCamera extends Component {
         this.levelEditorCamera = levelEditorCamera;
         this.clickOrigin = new Vector2f();
     }
-    //endregion
+
+    public EditorCamera() {
+    }
+//endregion
 
     //region Override methods
     @Override

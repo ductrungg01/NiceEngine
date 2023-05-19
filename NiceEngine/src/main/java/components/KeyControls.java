@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class KeyControls extends Component {
+public class KeyControls extends Component implements INonAddableComponent {
     //region Fields
     private float debounceTime = 0.2f;
     private float debounce = 0;

@@ -7,7 +7,7 @@ import org.joml.Vector4f;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class Gizmo extends Component {
+public class Gizmo extends Component implements INonAddableComponent {
     //region Fields
     private Vector4f xAxisColor = new Vector4f(1, 0.3f, 0.3f, 1);
     private Vector4f xAxisColorHover = new Vector4f(1, 0, 0, 1);
@@ -46,6 +46,9 @@ public class Gizmo extends Component {
 
         Window.getScene().addGameObjectToScene(this.xAxisObject);
         Window.getScene().addGameObjectToScene(this.yAxisObject);
+    }
+
+    public Gizmo() {
     }
     //endregion
 

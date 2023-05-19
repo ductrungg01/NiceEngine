@@ -8,7 +8,7 @@ import org.joml.Vector4f;
 
 import static editor.uihelper.NiceShortCall.COLOR_Blue;
 
-public class GameCamera extends Component {
+public class GameCamera extends Component implements INonAddableComponent {
     //region Fields
     private transient GameObject player;
     private transient Camera gameCamera;
@@ -25,6 +25,9 @@ public class GameCamera extends Component {
     //region Constructors
     public GameCamera(Camera gameCamera) {
         this.gameCamera = gameCamera;
+    }
+
+    public GameCamera() {
     }
     //endregion
 
