@@ -12,7 +12,7 @@ import util.AssetPool;
 
 public class Prefabs {
     //region user custom prefabs
-    public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY){
+    public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
         GameObject sprite_go = Window.getScene().createGameObject("Sprite_Object_Generated");
         sprite_go.transform.scale.x = sizeX;
         sprite_go.transform.scale.y = sizeY;
@@ -22,7 +22,8 @@ public class Prefabs {
 
         return sprite_go;
     }
-    public static GameObject generateMario(){
+
+    public static GameObject generateMario() {
         Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
         Spritesheet bigPlayerSprites = AssetPool.getSpritesheet("assets/images/bigSpritesheet.png");
         GameObject mario = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
@@ -207,7 +208,8 @@ public class Prefabs {
 
         return mario;
     }
-    public static GameObject generateQuestionBlock(){
+
+    public static GameObject generateQuestionBlock() {
         Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject questionBlock = generateSpriteObject(playerSprites.getSprite(0), 0.25f, 0.25f);
         questionBlock.name = "Question_block";
@@ -243,6 +245,7 @@ public class Prefabs {
 
         return questionBlock;
     }
+
     public static GameObject generateBlockCoin() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject coinObject = generateSpriteObject(items.getSprite(7), 0.25f, 0.25f);
@@ -265,6 +268,7 @@ public class Prefabs {
 
         return coinObject;
     }
+
     public static GameObject generateGoomba() {
         Spritesheet goombaSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");
         GameObject goomba = generateSpriteObject(goombaSprites.getSprite(14), 0.25f, 0.25f);
@@ -302,6 +306,7 @@ public class Prefabs {
 
         return goomba;
     }
+
     public static GameObject generateTurtle() {
         Spritesheet turtleSprites = AssetPool.getSpritesheet("assets/images/turtle.png");
         GameObject turtle = generateSpriteObject(turtleSprites.getSprite(0), 0.25f, 0.35f);
@@ -340,6 +345,7 @@ public class Prefabs {
 
         return turtle;
     }
+
     public static GameObject generateFlagtop() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flagtop = generateSpriteObject(items.getSprite(6), 0.25f, 0.25f);
@@ -348,7 +354,7 @@ public class Prefabs {
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
         rb.setFixedRotation(true);
-        rb.setContinousCollision(false);
+        rb.setContinuousCollision(false);
         flagtop.addComponent(rb);
 
         Box2DCollider b2d = new Box2DCollider();
@@ -359,6 +365,7 @@ public class Prefabs {
 
         return flagtop;
     }
+
     public static GameObject generateFireball(Vector2f position) {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject fireball = generateSpriteObject(items.getSprite(32), 0.18f, 0.18f);
@@ -369,7 +376,7 @@ public class Prefabs {
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
         rb.setFixedRotation(true);
-        rb.setContinousCollision(false);
+        rb.setContinuousCollision(false);
         fireball.addComponent(rb);
 
         CircleCollider circleCollider = new CircleCollider();
@@ -379,6 +386,7 @@ public class Prefabs {
 
         return fireball;
     }
+
     public static GameObject generateFlagPole() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flagpole = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);
@@ -387,7 +395,7 @@ public class Prefabs {
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
         rb.setFixedRotation(true);
-        rb.setContinousCollision(false);
+        rb.setContinuousCollision(false);
         flagpole.addComponent(rb);
 
         Box2DCollider b2d = new Box2DCollider();
@@ -398,6 +406,7 @@ public class Prefabs {
 
         return flagpole;
     }
+
     public static GameObject generateMushroom() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject mushroom = generateSpriteObject(items.getSprite(10), 0.25f, 0.25f);
@@ -406,7 +415,7 @@ public class Prefabs {
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Dynamic);
         rb.setFixedRotation(true);
-        rb.setContinousCollision(false);
+        rb.setContinuousCollision(false);
         mushroom.addComponent(rb);
 
         CircleCollider circleCollider = new CircleCollider();
@@ -416,7 +425,8 @@ public class Prefabs {
 
         return mushroom;
     }
-    public static GameObject generateFlower(){
+
+    public static GameObject generateFlower() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flower = generateSpriteObject(items.getSprite(20), 0.25f, 0.25f);
         flower.name = "Flower";
@@ -424,7 +434,7 @@ public class Prefabs {
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Static);
         rb.setFixedRotation(true);
-        rb.setContinousCollision(false);
+        rb.setContinuousCollision(false);
         flower.addComponent(rb);
 
         CircleCollider circleCollider = new CircleCollider();
@@ -434,12 +444,13 @@ public class Prefabs {
 
         return flower;
     }
+
     public static GameObject generatePipe(Direction direction) {
         Spritesheet pipes = AssetPool.getSpritesheet("assets/images/pipes.png");
         int index = direction == Direction.Down ? 0 :
-                    direction == Direction.Up ? 1 :
-                    direction == Direction.Right ? 2 :
-                    direction == Direction.Left ? 3 : -1;
+                direction == Direction.Up ? 1 :
+                        direction == Direction.Right ? 2 :
+                                direction == Direction.Left ? 3 : -1;
         assert index != -1 : "Invalid pipes direction";
         GameObject pipe = generateSpriteObject(pipes.getSprite(index), 0.5f, 0.5f);
         pipe.name = "Pipe";
@@ -447,7 +458,7 @@ public class Prefabs {
         RigidBody2D rb = new RigidBody2D();
         rb.setBodyType(BodyType.Static);
         rb.setFixedRotation(true);
-        rb.setContinousCollision(false);
+        rb.setContinuousCollision(false);
         pipe.addComponent(rb);
 
         Box2DCollider b2d = new Box2DCollider();

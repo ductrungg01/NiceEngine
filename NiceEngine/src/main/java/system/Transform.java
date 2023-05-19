@@ -12,7 +12,7 @@ public class Transform extends Component {
     public int zIndex;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Transform() {
         init(new Vector2f(), new Vector2f());
     }

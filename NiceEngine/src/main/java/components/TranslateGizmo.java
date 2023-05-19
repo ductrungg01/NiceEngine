@@ -4,7 +4,7 @@ import editor.InspectorWindow;
 import system.MouseListener;
 
 public class TranslateGizmo extends Gizmo {
-    //region Contructors
+    //region Constructors
     public TranslateGizmo(Sprite arrowSprite, InspectorWindow inspectorWindow) {
         super(arrowSprite, inspectorWindow);
     }

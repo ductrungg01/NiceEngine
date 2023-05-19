@@ -56,7 +56,7 @@ public class Window implements Observer {
     private static Scene currentScene;
     //endregion
 
-    //region Contructors
+    //region Constructors
     private Window() {
         this.width = 3840;
         this.height = 2160;

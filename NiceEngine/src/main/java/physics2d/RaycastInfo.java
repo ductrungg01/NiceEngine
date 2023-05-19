@@ -17,8 +17,8 @@ public class RaycastInfo implements RayCastCallback {
     public GameObject requestingObject;
     //endregion
 
-    //region Contructors
-    public RaycastInfo(GameObject obj){
+    //region Constructors
+    public RaycastInfo(GameObject obj) {
         fixture = null;
         point = new Vector2f();
         normal = new Vector2f();
@@ -32,7 +32,7 @@ public class RaycastInfo implements RayCastCallback {
     //region Override methods
     @Override
     public float reportFixture(Fixture fixture, Vec2 point, Vec2 normal, float fraction) {
-        if (fixture.m_userData == requestingObject){
+        if (fixture.m_userData == requestingObject) {
             return 1;
         }
 
@@ -41,7 +41,7 @@ public class RaycastInfo implements RayCastCallback {
         this.normal = new Vector2f(normal.x, normal.y);
         this.fraction = fraction;
         this.hit = fraction != 0;
-        this.hitObject = (GameObject)fixture.m_userData;
+        this.hitObject = (GameObject) fixture.m_userData;
 
         return fraction;
     }

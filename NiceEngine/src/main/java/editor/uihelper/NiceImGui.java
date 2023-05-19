@@ -541,8 +541,6 @@ public class NiceImGui {
         ImGui.beginChild("##SpritesheetShowing", sizeToShowImageX * 1.01f, sizeToShowImageY * 1.05f, false);
 
         // TODO: Fixing this rotation bug
-
-
         if (isSpriteSheet) {
             ImDrawList drawList = ImGui.getWindowDrawList();
             float cursorPosX = ImGui.getCursorScreenPosX();

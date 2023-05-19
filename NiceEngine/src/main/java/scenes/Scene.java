@@ -36,7 +36,7 @@ public class Scene {
     private SceneInitializer sceneInitializer;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Scene(SceneInitializer sceneInitializer) {
         this.sceneInitializer = sceneInitializer;
         this.physics2D = new Physics2D();

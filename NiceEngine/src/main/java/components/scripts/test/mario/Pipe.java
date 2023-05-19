@@ -22,34 +22,36 @@ public class Pipe extends Component {
     private transient PlayerController collidingPlayer = null;
     //endregion
 
-    //region Contructors
-    public Pipe(Direction direction){
+    //region Constructors
+    public Pipe(Direction direction) {
         this.direction = direction;
     }
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
     @Override
-    public void start(){
+    public void start() {
         connectingPipe = Window.getScene().getGameObject(connectingPipeName);
     }
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
     @Override
-    public void update(float dt){
-        if (connectingPipe == null){
+    public void update(float dt) {
+        if (connectingPipe == null) {
             return;
         }
 
-        if (collidingPlayer != null){
+        if (collidingPlayer != null) {
             boolean playerEntering = false;
-            switch (direction){
+            switch (direction) {
                 case Up -> {
                     if (((KeyListener.isKeyPressed(GLFW_KEY_DOWN))
                             || (KeyListener.isKeyPressed(GLFW_KEY_S)))
@@ -84,10 +86,10 @@ public class Pipe extends Component {
                 }
             }
 
-            if (playerEntering){
+            if (playerEntering) {
                 collidingPlayer.setPosition(
                         getPlayerPosition(connectingPipe)
-                        );
+                );
                 AssetPool.getSound("assets/sounds/pipe.ogg").play();
             }
         }
@@ -111,8 +113,8 @@ public class Pipe extends Component {
     //endregion
 
     //region Methods
-    public boolean playerAtEntrance(){
-        if (collidingPlayer == null){
+    public boolean playerAtEntrance() {
+        if (collidingPlayer == null) {
             return false;
         }
 
@@ -129,7 +131,7 @@ public class Pipe extends Component {
                 .add(new Vector2f(collidingPlayer.gameObject.transform.scale)
                         .mul(0.5f));
 
-        switch (direction){
+        switch (direction) {
             case Up:
                 return playerMin.y >= max.y
                         && playerMax.x > min.x
@@ -153,9 +155,9 @@ public class Pipe extends Component {
     //endregion
 
     //region Properties
-    private Vector2f getPlayerPosition(GameObject pipe){
+    private Vector2f getPlayerPosition(GameObject pipe) {
         Pipe pipeComponent = pipe.getComponent(Pipe.class);
-        switch (pipeComponent.direction){
+        switch (pipeComponent.direction) {
             case Up:
                 return new Vector2f(pipe.transform.position).add(0.0f, 0.5f);
             case Left:

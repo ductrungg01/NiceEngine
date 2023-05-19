@@ -31,7 +31,7 @@ public class MouseListener {
     private Vector2f gameViewportSize = new Vector2f();
     //endregion
 
-    //region Contructors
+    //region Constructors
     private MouseListener() {
         this.scrollX = 0.0;
         this.scrollY = 0.0;

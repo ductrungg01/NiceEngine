@@ -5,12 +5,12 @@ public class Event {
     public EventType type;
     //endregion
 
-    //region Contructors
-    public Event(EventType type){
+    //region Constructors
+    public Event(EventType type) {
         this.type = type;
     }
 
-    public Event(){
+    public Event() {
         this.type = EventType.UserEvent;
     }
     //endregion

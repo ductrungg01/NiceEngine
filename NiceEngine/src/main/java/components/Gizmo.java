@@ -33,7 +33,7 @@ public class Gizmo extends Component {
     private InspectorWindow inspectorWindow;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Gizmo(Sprite arrowSprite, InspectorWindow inspectorWindow) {
         this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
         this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);

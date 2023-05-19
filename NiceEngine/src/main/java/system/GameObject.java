@@ -33,7 +33,7 @@ public class GameObject {
     private boolean isDead = false;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public GameObject(String name) {
         this.name = name;
         this.components = new ArrayList<>();

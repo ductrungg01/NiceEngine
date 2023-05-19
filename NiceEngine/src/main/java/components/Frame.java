@@ -8,7 +8,7 @@ public class Frame {
     public float frameTime = 0.0f;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Frame() {
     }
 

@@ -41,7 +41,7 @@ public class InspectorWindow {
     Set<Class<? extends Component>> classes;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public InspectorWindow(PickingTexture pickingTexture) {
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;

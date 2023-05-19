@@ -8,8 +8,8 @@ public class Framebuffer {
     private Texture texture = null;
     //endregion
 
-    //region Contructors
-    public Framebuffer(int width, int height){
+    //region Constructors
+    public Framebuffer(int width, int height) {
         // Generate framebuffer
         fboID = glGenFramebuffers();
         glBindFramebuffer(GL_FRAMEBUFFER, fboID);
@@ -24,8 +24,8 @@ public class Framebuffer {
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT32, width, height);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rboID);
 
-        if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE){
-            assert false: "Error: Framebuffer is not complete";
+        if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
+            assert false : "Error: Framebuffer is not complete";
         }
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -33,11 +33,11 @@ public class Framebuffer {
     //endregion
 
     //region Methods
-    public void bind(){
+    public void bind() {
         glBindFramebuffer(GL_FRAMEBUFFER, fboID);
     }
 
-    public void unbind(){
+    public void unbind() {
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
     //endregion

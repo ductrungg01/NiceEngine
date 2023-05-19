@@ -63,7 +63,7 @@ public class AnimationState {
 
         ImGui.beginChild("## AnimationState" + this.title, w, h, true);
 
-        this.title = NiceImGui.inputText("Title: ", this.title, "AnimationState" + this.title);
+        this.title = NiceImGui.inputText("Title: ", this.title, "AnimationState" + this.title + this.hashCode());
 
         this.doesLoop = NiceImGui.checkbox("Loop?", this.doesLoop);
         this.setLoop(doesLoop);
