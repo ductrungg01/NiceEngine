@@ -25,7 +25,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
     //endregion
 
-    //region Contructors
+    //region Constructors
     public LevelEditorSceneInitializer() {
 
     }

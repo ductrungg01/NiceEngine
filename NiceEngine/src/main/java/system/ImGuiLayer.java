@@ -30,7 +30,7 @@ public class ImGuiLayer {
     private MessageBox messageBox;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
         this.inspectorWindow = new InspectorWindow(pickingTexture);

@@ -11,7 +11,7 @@ public class GizmoSystem extends Component {
     private int usingGizmo = 0;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public GizmoSystem(Spritesheet gizmoSprites) {
         this.gizmos = gizmoSprites;
     }

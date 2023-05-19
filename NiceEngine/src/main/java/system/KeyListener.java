@@ -13,7 +13,7 @@ public class KeyListener {
     private boolean keyRelease[] = new boolean[350];
     //endregion
 
-    //region Contructors
+    //region Constructors
     private KeyListener() {
 
     }

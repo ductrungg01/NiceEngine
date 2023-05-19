@@ -17,8 +17,8 @@ public class Sound {
     private boolean isPlaying = false;
     //endregion
 
-    //region Contructors
-    public Sound(String filepath, boolean loops){
+    //region Constructors
+    public Sound(String filepath, boolean loops) {
         this.filepath = filepath;
 
         // Allocate space to store the return information from stb
@@ -28,7 +28,7 @@ public class Sound {
         IntBuffer sampleRateBuffer = stackMallocInt(1);
 
         ShortBuffer rawAudioBuffer = stb_vorbis_decode_filename(filepath, channelsBuffer, sampleRateBuffer);
-        if (rawAudioBuffer == null){
+        if (rawAudioBuffer == null) {
             System.out.println("Could not load sound '" + filepath + "'");
             stackPop();
             stackPop();
@@ -44,9 +44,9 @@ public class Sound {
 
         // Find the correct OpenAL format
         int format = -1;
-        if (channels == 1){
+        if (channels == 1) {
             format = AL_FORMAT_MONO16;
-        } else if (channels == 2){
+        } else if (channels == 2) {
             format = AL_FORMAT_STEREO16;
         }
 
@@ -67,26 +67,26 @@ public class Sound {
     //endregion
 
     //region Methods
-    public void delete(){
+    public void delete() {
         alDeleteSources(sourceId);
         alDeleteBuffers(bufferId);
     }
 
-    public void play(){
+    public void play() {
         int state = alGetSourcei(sourceId, AL_SOURCE_STATE);
-        if (state == AL_STOPPED){
+        if (state == AL_STOPPED) {
             isPlaying = false;
             alSourcei(sourceId, AL_POSITION, 0);
         }
 
-        if (!isPlaying){
+        if (!isPlaying) {
             alSourcePlay(sourceId);
             isPlaying = true;
         }
     }
 
-    public void stop(){
-        if (isPlaying){
+    public void stop() {
+        if (isPlaying) {
             alSourceStop(sourceId);
             isPlaying = false;
         }
@@ -94,13 +94,13 @@ public class Sound {
     //endregion
 
     //region Properties
-    public String getFilepath(){
+    public String getFilepath() {
         return this.filepath;
     }
 
-    public boolean isPlaying(){
+    public boolean isPlaying() {
         int state = alGetSourcei(sourceId, AL_SOURCE_STATE);
-        if (state == AL_STOPPED){
+        if (state == AL_STOPPED) {
             isPlaying = false;
         }
 

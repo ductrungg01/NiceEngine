@@ -4,7 +4,7 @@ import editor.InspectorWindow;
 import system.MouseListener;
 
 public class ScaleGizmo extends Gizmo {
-    //region Contructors
+    //region Constructors
     public ScaleGizmo(Sprite scaleSprite, InspectorWindow inspectorWindow) {
         super(scaleSprite, inspectorWindow);
     }

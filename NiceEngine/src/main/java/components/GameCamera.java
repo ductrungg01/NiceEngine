@@ -22,7 +22,7 @@ public class GameCamera extends Component {
     private Vector4f undergroundColor = new Vector4f(0.0f, 0.0f, 0.0f, 1.0f);
     //endregion
 
-    //region Contructors
+    //region Constructors
     public GameCamera(Camera gameCamera) {
         this.gameCamera = gameCamera;
     }

@@ -12,7 +12,7 @@ public class Transform extends Component {
     public int zIndex;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Transform() {
         init(new Vector2f(), new Vector2f());
     }
@@ -46,10 +46,9 @@ public class Transform extends Component {
     //region Override methods
     @Override
     public void imgui() {
-        //gameObject.name = JImGui.inputText("Name: ", gameObject.name);
         NiceImGui.drawVec2Control("Position", this.position);
         NiceImGui.drawVec2Control("Scale", this.scale, 32.0f);
-        this.rotation = NiceImGui.dragfloat("Rotation", this.rotation);
+        this.rotation = NiceImGui.dragfloat("Rotation", this.rotation, "Rotation");
         this.zIndex = NiceImGui.dragInt("Z-Index", this.zIndex);
     }
 

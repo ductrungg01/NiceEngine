@@ -16,7 +16,7 @@ public class Texture {
     //endregion
 
 
-    //region Contructors
+    //region Constructors
     public Texture() {
         texID = -1;
         width = -1;

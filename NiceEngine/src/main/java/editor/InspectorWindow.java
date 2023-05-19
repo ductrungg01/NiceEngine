@@ -3,7 +3,16 @@ package editor;
 import components.*;
 import components.scripts.test.TargetDebugging;
 import components.scripts.test.TestComponent;
+import editor.uihelper.ButtonColor;
+import editor.uihelper.NiceImGui;
+import imgui.ImColor;
+import imgui.ImDrawList;
 import imgui.ImGui;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
+import imgui.type.ImString;
+import org.joml.Vector2f;
+import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
 import physics2d.components.Box2DCollider;
@@ -11,8 +20,13 @@ import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
 import renderer.PickingTexture;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import static editor.uihelper.NiceShortCall.COLOR_Blue;
+import static editor.uihelper.NiceShortCall.COLOR_DarkBlue;
 
 public class InspectorWindow {
 
@@ -23,15 +37,25 @@ public class InspectorWindow {
     private PickingTexture pickingTexture;
 
     boolean firstTime = true;
+
+    Set<Class<? extends Component>> classes;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public InspectorWindow(PickingTexture pickingTexture) {
         this.activeGameObjects = new ArrayList<>();
         this.pickingTexture = pickingTexture;
         this.activeGameObjectOriginalColor = new ArrayList<>();
+
+        Reflections reflections = new Reflections("physics2d.components");
+        classes = reflections.getSubTypesOf(Component.class);
+        reflections = new Reflections("components");
+        classes.addAll(reflections.getSubTypesOf(Component.class));
     }
     //endregion
+
+    String searchText = "";
+    boolean showAddComponentMenu = false;
 
     //region Methods
     public void imgui() {
@@ -46,55 +70,47 @@ public class InspectorWindow {
             return;
         }
 
-        if (ImGui.beginPopupContextWindow("ComponentAdder")) {
-            // TODO: Get all subclass of components
-//                Reflections reflections = new Reflections("components");
-//                Set<Class<? extends Component>> classes = reflections.getSubTypesOf(Component.class);
-//                for (Class<? extends Component> aClass : classes) {
-//                    if (ImGui.menuItem("Add " + aClass.getName().substring(10))){
-//                        if (activeGameObject.getComponent(aClass) == null){
-//                            activeGameObject.addComponent(aClass.cast(Component.class));
-//                        }
-//                    }
-//                }
+        activeGameObject.imgui();
 
+        ImGui.separator();
 
-            if (ImGui.menuItem("Add Rigidbody")) {
-                if (activeGameObject.getComponent(RigidBody2D.class) == null) {
-                    activeGameObject.addComponent(new RigidBody2D());
-                }
-            }
-
-            if (ImGui.menuItem("Add Box Collider")) {
-                if (activeGameObject.getComponent(Box2DCollider.class) == null &&
-                        activeGameObject.getComponent(CircleCollider.class) == null) {
-                    activeGameObject.addComponent(new Box2DCollider());
-                }
-            }
-
-            if (ImGui.menuItem("Add Circle Collider")) {
-                if (activeGameObject.getComponent(CircleCollider.class) == null &&
-                        activeGameObject.getComponent(Box2DCollider.class) == null) {
-                    activeGameObject.addComponent(new CircleCollider());
-                }
-            }
-
-            if (ImGui.menuItem("Add 'TestComponent' ")) {
-                if (activeGameObject.getComponent(TestComponent.class) == null) {
-                    activeGameObject.addComponent(new TestComponent());
-                }
-            }
-
-            if (ImGui.menuItem("Add 'TargetDebugging' ")) {
-                if (activeGameObject.getComponent(TargetDebugging.class) == null) {
-                    activeGameObject.addComponent(new TargetDebugging());
-                }
-            }
-
-            ImGui.endPopup();
+        if (NiceImGui.drawButton("Add component",
+                new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue),
+                new Vector2f(ImGui.getContentRegionAvailX(), 50f))) {
+            showAddComponentMenu = true;
+            searchText = "";
+            ImGui.openPopup("AddComponentMenu");
         }
 
-        activeGameObject.imgui();
+        if (showAddComponentMenu) {
+            if (ImGui.beginPopup("AddComponentMenu")) {
+                searchText = NiceImGui.inputTextWithHintAndNoLabel("Search", searchText, "AddingComponent" + activeGameObject.hashCode());
+
+                ImGui.beginChild("ComponentList", 500, 350, true, ImGuiWindowFlags.HorizontalScrollbar);
+                for (Class<? extends Component> aClass : classes) {
+                    String className = aClass.getSimpleName();
+                    if (searchText.isEmpty() || className.toLowerCase().contains(searchText.toLowerCase())) {
+                        if (ImGui.menuItem(className)) {
+                            showAddComponentMenu = false;
+                            try {
+                                Component component = aClass.getDeclaredConstructor().newInstance(); // Tạo mới một đối tượng Component từ lớp aClass
+                                if (activeGameObject.getComponent(aClass) == null) {
+                                    activeGameObject.addComponent(component);
+                                }
+                            } catch (InstantiationException | IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException | NoSuchMethodException e) {
+                                throw new RuntimeException(e);
+                            }
+                            ImGui.closeCurrentPopup();
+                        }
+                    }
+                }
+                ImGui.endChild();
+                ImGui.endPopup();
+            }
+        }
+
         ImGui.end();
     }
 

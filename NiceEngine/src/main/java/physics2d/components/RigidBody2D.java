@@ -20,14 +20,14 @@ public class RigidBody2D extends Component {
     private boolean isSensor = false;
 
     private boolean fixedRotation = false;
-    private boolean continousCollision = true;
+    private boolean continuousCollision = true;
 
     private transient Body rawBody = null;
     //endregion
 
     //region Override methods
     @Override
-    public void update(float dt){
+    public void update(float dt) {
         if (rawBody != null) {
             if (this.bodyType == BodyType.Dynamic || this.bodyType == BodyType.Kinematic) {
                 this.gameObject.transform.position.set(
@@ -45,14 +45,19 @@ public class RigidBody2D extends Component {
     }
     //endregion
 
-    //region Properties
-    public void addVelocity(Vector2f forceToAdd){
+    public void addVelocity(Vector2f forceToAdd) {
         if (rawBody != null) {
             rawBody.applyForceToCenter(new Vec2(forceToAdd.x, forceToAdd.y));
         }
     }
 
-    public void addImpulse(Vector2f impulse){
+    public void addForce(Vector2f force) {
+        if (rawBody != null) {
+            rawBody.applyForceToCenter(new Vec2(force.x, force.y));
+        }
+    }
+
+    public void addImpulse(Vector2f impulse) {
         if (rawBody != null) {
             rawBody.applyLinearImpulse(new Vec2(velocity.x, velocity.y),
                     rawBody.getWorldCenter());
@@ -62,51 +67,51 @@ public class RigidBody2D extends Component {
 
     public void setVelocity(Vector2f velocity) {
         this.velocity.set(velocity);
-        if (rawBody != null){
+        if (rawBody != null) {
             this.rawBody.setLinearVelocity(new Vec2(velocity.x, velocity.y));
         }
     }
 
-    public void setPosition(Vector2f newPos){
-        if (rawBody != null){
+    public void setPosition(Vector2f newPos) {
+        if (rawBody != null) {
             rawBody.setTransform(new Vec2(newPos.x, newPos.y),
                     gameObject.transform.rotation);
         }
     }
 
-    public void setAngularVelocity(float angularVelocity){
+    public void setAngularVelocity(float angularVelocity) {
         this.angularVelocity = angularVelocity;
-        if (rawBody != null){
+        if (rawBody != null) {
             this.rawBody.setAngularVelocity(angularVelocity);
         }
     }
 
-    public void setGravityScale(float gravityScale){
+    public void setGravityScale(float gravityScale) {
         this.gravityScale = gravityScale;
-        if (rawBody != null){
+        if (rawBody != null) {
             this.rawBody.setGravityScale(gravityScale);
         }
     }
 
-    public void setIsSensor(){
+    public void setIsSensor() {
         isSensor = true;
-        if (rawBody != null){
+        if (rawBody != null) {
             Window.getPhysics().setIsSensor(this);
         }
     }
 
-    public void setNotSensor(){
+    public void setNotSensor() {
         isSensor = false;
-        if (rawBody != null){
+        if (rawBody != null) {
             Window.getPhysics().setNotSensor(this);
         }
     }
 
-    public float getFriction(){
+    public float getFriction() {
         return this.friction;
     }
 
-    public boolean isSensor(){
+    public boolean isSensor() {
         return this.isSensor;
     }
 
@@ -125,6 +130,7 @@ public class RigidBody2D extends Component {
     public void setLinearDamping(float linearDamping) {
         this.linearDamping = linearDamping;
     }
+
     public Vector2f getVelocity() {
         return velocity;
     }
@@ -154,12 +160,12 @@ public class RigidBody2D extends Component {
         this.fixedRotation = fixedRotation;
     }
 
-    public boolean isContinousCollision() {
-        return continousCollision;
+    public boolean isContinuousCollision() {
+        return continuousCollision;
     }
 
-    public void setContinousCollision(boolean continousCollision) {
-        this.continousCollision = continousCollision;
+    public void setContinuousCollision(boolean continousCollision) {
+        this.continuousCollision = continousCollision;
     }
 
     public Body getRawBody() {
@@ -169,5 +175,4 @@ public class RigidBody2D extends Component {
     public void setRawBody(Body rawBody) {
         this.rawBody = rawBody;
     }
-    //endregion
 }
