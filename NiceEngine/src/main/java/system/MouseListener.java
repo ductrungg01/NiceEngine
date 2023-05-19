@@ -25,6 +25,8 @@ public class MouseListener {
     private double scrollX, scrollY;
     private double xPos, yPos, worldX, worldY, lastX, lastY, lastWorldX, lastWorldY;
     private boolean mouseButtonPressed[] = new boolean[3];
+    private boolean mouseBeginPress[] = new boolean[3];
+    private boolean mouseRelease[] = new boolean[3];
     private boolean isDragging;
     private int mouseButtonDown = 0;
     private Vector2f gameViewportPos = new Vector2f();
@@ -47,6 +49,22 @@ public class MouseListener {
     public static boolean mouseButtonDown(int button) {
         if (button < get().mouseButtonPressed.length) {
             return get().mouseButtonPressed[button];
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean mouseBeginPress(int button) {
+        if (button < get().mouseBeginPress.length) {
+            return get().mouseBeginPress[button];
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean isMouseRelease(int button) {
+        if (button < get().mouseRelease.length) {
+            return get().mouseRelease[button];
         } else {
             return false;
         }
@@ -86,6 +104,8 @@ public class MouseListener {
     public static void endFrame() {
         get().scrollX = 0.0;
         get().scrollY = 0.0;
+        Arrays.fill(get().mouseBeginPress, false);
+        Arrays.fill(get().mouseRelease, false);
     }
 
     public static void clear() {
@@ -131,12 +151,15 @@ public class MouseListener {
 
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = true;
+                get().mouseBeginPress[button] = true;
             }
         } else if (action == GLFW_RELEASE) {
             get().mouseButtonDown--;
 
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = false;
+                get().mouseBeginPress[button] = false;
+                get().mouseRelease[button] = true;
                 get().isDragging = false;
             }
         }
