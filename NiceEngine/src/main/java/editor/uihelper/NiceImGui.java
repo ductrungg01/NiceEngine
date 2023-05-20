@@ -375,7 +375,7 @@ public class NiceImGui {
 
         if (item instanceof File) {
             File file = (File) item;
-            id = file.getAbsolutePath();
+            id = file.getPath();
             icon = FileUtils.getIconByFile(file);
             shortItemName = FileUtils.getShorterName(file.getName());
             fullItemName = file.getName();
@@ -443,7 +443,10 @@ public class NiceImGui {
 
                 if (referenceConfig.type == ReferenceType.SPRITE) {
                     isSpriteSheet = false;
-                    spr_texture_src_need_to_preview = ((File) item).getPath();
+                    if (!((File) item).getPath().equals(spr_texture_src_need_to_preview)) {
+                        spr_texture_src_need_to_preview = ((File) item).getPath();
+                        needToReconfig = true;
+                    }
                 }
             } else {
                 // HOVER Handle
@@ -468,6 +471,7 @@ public class NiceImGui {
     static int numSprites = 1;
     static int sprSpacing = 0;
     static int sprIdChosen = -1;
+    static boolean needToReconfig = false;
 
     public static Sprite showSpriteSheet(String textureSrc) {
         File tmpF = new File(textureSrc);
@@ -494,13 +498,15 @@ public class NiceImGui {
         ImGui.checkbox("This is a sprite sheet?", tmpB);
         isSpriteSheet = tmpB.get();
 
-        // Set to default
-        if (isSpriteSheet && !tmpIsSpriteSheet) {
+        // Re-config
+        if (isSpriteSheet && !tmpIsSpriteSheet && needToReconfig) {
             sprWidth = spr.getTexture().getWidth();
             sprHeight = spr.getTexture().getHeight();
             numSprites = 1;
             sprSpacing = 0;
             sprIdChosen = 0;
+
+            needToReconfig = false;
         }
 
         Sprite returnSpr = null;
@@ -528,6 +534,7 @@ public class NiceImGui {
                         new Vector2f(sizeOfViewX, 50f))) {
                     Debug.Log("Use this sprite");
                     returnSpr = spr;
+                    Debug.Log(returnSpr.getTexture().getFilePath());
                 }
             }
 
