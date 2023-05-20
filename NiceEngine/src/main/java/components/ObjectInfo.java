@@ -10,6 +10,9 @@ public class ObjectInfo extends Component implements INonAddableComponent {
     }
 
     public ObjectInfo() {
+        if (this.gameObject != null){
+            this.name = this.gameObject.name;
+        }
     }
 
     @Override

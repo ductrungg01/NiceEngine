@@ -1,12 +1,16 @@
 package editor;
 
+import components.ObjectInfo;
+import components.SpriteRenderer;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
 import org.joml.Vector2f;
 import system.GameObject;
+import system.Transform;
 import system.Window;
+import util.FileUtils;
 
 import java.util.List;
 
@@ -63,6 +67,25 @@ public class SceneHierarchyWindow {
             }
             ImGui.popID();
             index++;
+        }
+
+        if (ImGui.beginPopupContextWindow("Hierarchy")){
+
+            if (ImGui.menuItem("New GameObject")){
+                GameObject go = new GameObject("New GameObject");
+                go.addComponent(new ObjectInfo("New GameObject"));
+                go.addComponent(new Transform());
+
+                SpriteRenderer spriteRenderer = new SpriteRenderer();
+                spriteRenderer.setSprite(FileUtils.getDefaultSprite());
+
+                go.addComponent(spriteRenderer);
+                go.transform = go.getComponent(Transform.class);
+
+                Window.getScene().addGameObjectToScene(go);
+            }
+
+            ImGui.endPopup();
         }
 
         ImGui.end();

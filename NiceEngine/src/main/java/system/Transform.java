@@ -15,11 +15,11 @@ public class Transform extends Component implements INonAddableComponent {
 
     //region Constructors
     public Transform() {
-        init(new Vector2f(), new Vector2f());
+        init(new Vector2f(), new Vector2f(1, 1));
     }
 
     public Transform(Vector2f position) {
-        init(position, new Vector2f());
+        init(position, new Vector2f(1, 1));
     }
 
     public Transform(Vector2f position, Vector2f scale) {

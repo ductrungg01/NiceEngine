@@ -156,8 +156,6 @@ public class Scene {
      * @param dt : The interval in seconds from the last frame to the current one
      */
     public void update(float dt) {
-
-
         this.camera.adjustProjection();
         this.physics2D.update(dt);
 
