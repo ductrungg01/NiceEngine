@@ -6,7 +6,7 @@ import system.GameObject;
 import system.Window;
 import org.joml.Vector4f;
 
-import static editor.uihelper.NiceShortCall.COLOR_Blue;
+import static editor.uihelper.NiceShortCall.*;
 
 public class GameCamera extends Component implements INonAddableComponent {
     //region Fields
@@ -18,8 +18,8 @@ public class GameCamera extends Component implements INonAddableComponent {
     private transient float cameraBuffer = 1.5f;
     private transient float playerBuffer = 0.25f;
 
-    private Vector4f skyColor = COLOR_Blue;
-    private Vector4f undergroundColor = new Vector4f(0.0f, 0.0f, 0.0f, 1.0f);
+    private Vector4f skyColor = COLOR_NiceBlue;
+    private Vector4f undergroundColor = COLOR_Black;
     //endregion
 
     //region Constructors
