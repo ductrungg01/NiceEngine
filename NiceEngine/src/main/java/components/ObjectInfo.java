@@ -6,7 +6,7 @@ public class ObjectInfo extends Component implements INonAddableComponent {
 
     public ObjectInfo(String name) {
         this.name = name;
-        this.tag = "Object";
+        this.tag = "";
     }
 
     public ObjectInfo() {

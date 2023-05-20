@@ -101,6 +101,7 @@ public class GameObject {
     public void imgui() {
         ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
         objectInfo.name = NiceImGui.inputText("Name", objectInfo.name, "Name of " + this.hashCode());
+        objectInfo.tag = NiceImGui.inputText("Tag", objectInfo.tag, "Tag of " + this.hashCode());
 
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
@@ -188,6 +189,11 @@ public class GameObject {
 
     public boolean doSerialization() {
         return this.doSerialization;
+    }
+
+    public boolean compareTag(String tag) {
+        ObjectInfo oi = getComponent(ObjectInfo.class);
+        return oi.tag.equals(tag);
     }
     //endregion
 }
