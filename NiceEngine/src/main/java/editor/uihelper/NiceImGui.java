@@ -191,7 +191,7 @@ public class NiceImGui {
             }
             case SPRITE -> {
                 Sprite spr = (Sprite) oldValue;
-                if (spr != null) {
+                if (spr != null && oldValue != null && spr.getTexture() != null) {
                     String texturePath = spr.getTexture().getFilePath();
                     File imageFile = new File(texturePath);
 
