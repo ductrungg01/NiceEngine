@@ -47,7 +47,7 @@ public class FileUtils {
                     if (file.isFile()) {
                         files.add(file);
                     } else if (file.isDirectory()) {
-                        files.addAll(getAllFiles(file.getAbsolutePath()));
+                        files.addAll(getAllFiles(file.getPath()));
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class FileUtils {
                             }
                         }
                     } else if (file.isDirectory()) {
-                        files.addAll(getAllFilesWithExtensions(file.getAbsolutePath(), extensions));
+                        files.addAll(getAllFilesWithExtensions(file.getPath(), extensions));
                     }
                 }
             }
@@ -136,7 +136,7 @@ public class FileUtils {
 
     public static void copyFile(File srcFile, File desFile) {
         try {
-            Path desPath = Paths.get(desFile.getAbsolutePath());
+            Path desPath = Paths.get(desFile.getPath());
             Files.copy(srcFile.toPath(), desPath);
             Debug.Log("Copy file " + srcFile.getName() + " to " + desPath);
             if (srcFile.isDirectory()) {
@@ -188,7 +188,7 @@ public class FileUtils {
         String extension = getFileExtension(file.getName()).toLowerCase();
 
         if (isImageFile(file)) {
-            spr.setTexture(AssetPool.getTexture(file.getAbsolutePath()));
+            spr.setTexture(AssetPool.getTexture(file.getPath()));
         } else if (extension.equals("java")) {
             spr.setTexture(AssetPool.getTexture(icons.get("JAVA")));
         } else if (isSoundFile(file)) {

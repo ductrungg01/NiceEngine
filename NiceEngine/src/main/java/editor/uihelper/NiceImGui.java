@@ -534,6 +534,7 @@ public class NiceImGui {
                         new Vector2f(sizeOfViewX, 50f))) {
                     Debug.Log("Use this sprite");
                     returnSpr = spr;
+                    Debug.Log(returnSpr.getTexture().getFilePath());
                 }
             }
 
