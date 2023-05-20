@@ -4,6 +4,7 @@ import editor.Debug;
 import editor.GameViewWindow;
 import editor.InspectorWindow;
 import editor.SceneHierarchyWindow;
+import editor.uihelper.NiceImGui;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;
@@ -37,6 +38,7 @@ public class MouseControls extends Component implements INonAddableComponent {
     //region Override methods
     @Override
     public void editorUpdate(float dt) {
+        if (NiceImGui.openFileDialog || !GameViewWindow.getInstance().getWantCaptureMouse()) return;
         debounce -= dt;
         PickingTexture pickingTexture = Window.getImguiLayer().getInspectorWindow().getPickingTexture();
         Scene currentScene = Window.getScene();
@@ -75,7 +77,7 @@ public class MouseControls extends Component implements INonAddableComponent {
                 Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
                 SceneHierarchyWindow.setSelectedGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
-//                Window.getImguiLayer().getInspectorWindow().clearSelected();
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
             }
             this.debounce = debounceTime;
