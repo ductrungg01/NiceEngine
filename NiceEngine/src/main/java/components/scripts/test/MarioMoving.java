@@ -73,8 +73,6 @@ public class MarioMoving extends Component {
 
     @Override
     public void update(float dt) {
-        Debug.Log(isOnGround);
-
         if (playWinAnimation) {
             checkOnGround();
             if (!isOnGround) {
@@ -310,7 +308,7 @@ public class MarioMoving extends Component {
 
     public void checkOnGround() {
         float innerPlayerWidth = marioWidth * 0.6f;
-        float yVal = marioCurrentState == MarioState.NORMAL ? -0.14f : -0.24f;
+        float yVal = marioCurrentState == MarioState.NORMAL ? -0.15f : -0.24f;
 
         isOnGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }

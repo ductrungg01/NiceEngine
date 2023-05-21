@@ -41,12 +41,7 @@ public class MarioCameraFollow extends Component {
      */
     @Override
     public void start() {
-        if (this.camera == null) this.camera = Window.getScene().camera();
 
-        this.player = Window.getScene().findGameObjectWith(MarioMoving.class);
-        this.camera.clearColor.set(skyColor);
-        this.undergroundYLevel = this.camera.position.y -
-                this.camera.getProjectionSize().y - this.cameraBuffer;
     }
 
     /**
@@ -56,9 +51,18 @@ public class MarioCameraFollow extends Component {
      */
     @Override
     public void update(float dt) {
+        if (this.camera == null) {
+            this.camera = Window.getScene().camera();
+
+            this.player = Window.getScene().findGameObjectWith(MarioMoving.class);
+            this.camera.clearColor.set(skyColor);
+            this.undergroundYLevel = this.camera.position.y -
+                    this.camera.getProjectionSize().y - this.cameraBuffer;
+        }
         if (player != null && player.getComponent(MarioMoving.class) != null && !player.getComponent(MarioMoving.class).hasWon()) {
-            camera.position.x = Math.max(player.transform.position.x - 2.5f, highestX);
-            highestX = Math.max(highestX, camera.position.x);
+            //camera.position.x = Math.max(player.transform.position.x - 2.5f, highestX);
+            camera.position.x = player.transform.position.x - 2.5f;
+            //highestX = Math.max(highestX, camera.position.x);
 
             if (player.transform.position.y < -playerBuffer) {
                 this.camera.position.y = undergroundYLevel;

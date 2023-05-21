@@ -3,6 +3,7 @@ package components.scripts.test.mario;
 import components.Component;
 import components.StateMachine;
 import editor.Debug;
+import physics2d.components.CircleCollider;
 import system.Camera;
 import system.GameObject;
 import system.Window;
@@ -95,6 +96,7 @@ public class GoombaAI extends Component {
                 Debug.Log("Collision with " + obj.name + "| Vector(" + contactNormal.x + ", " + contactNormal.y + ")");
             if (contactNormal.y > 0.5f) {
                 isDead = true;
+                this.gameObject.getComponent(CircleCollider.class).setRadius(0);
                 Debug.Log("Dead");
             }
         }

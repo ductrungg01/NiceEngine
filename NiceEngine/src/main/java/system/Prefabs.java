@@ -392,6 +392,30 @@ public class Prefabs {
         return fireball;
     }
 
+    public static GameObject generateEnemyFireball(Vector2f position) {
+
+        Spritesheet items = AssetPool.getSpritesheet("assets/images/spritesheets/Enemies - Turtle.png");
+        GameObject fireball = generateSpriteObject(items.getSprite(54), 0.12f, 0.12f);
+        fireball.name = "Fireball";
+
+        fireball.transform.position = position;
+        fireball.transform.zIndex = 5;
+
+        RigidBody2D rb = new RigidBody2D();
+        rb.setBodyType(BodyType.Dynamic);
+        rb.setFixedRotation(true);
+        rb.setContinuousCollision(false);
+        rb.setGravityScale(0.0f);
+        fireball.addComponent(rb);
+
+        CircleCollider circleCollider = new CircleCollider();
+        circleCollider.setRadius(0.08f);
+        fireball.addComponent(circleCollider);
+        fireball.addComponent(new EnemyFireBall());
+
+        return fireball;
+    }
+
     public static GameObject generateFlagPole() {
         Spritesheet items = AssetPool.getSpritesheet("assets/images/items.png");
         GameObject flagpole = generateSpriteObject(items.getSprite(33), 0.25f, 0.25f);

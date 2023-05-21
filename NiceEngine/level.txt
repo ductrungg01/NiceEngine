@@ -15,8 +15,8 @@
         "type": "system.Transform",
         "properties": {
           "position": {
-            "x": 2.625,
-            "y": 2.125
+            "x": 3.625,
+            "y": 0.375
           },
           "scale": {
             "x": 0.25,
@@ -84,24 +84,6 @@
           "fixedRotation": true,
           "continuousCollision": true,
           "uid": 204
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "halfSize": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "uid": 205
         }
       },
       {
@@ -1008,6 +990,24 @@
         "type": "components.scripts.test.MarioCollision",
         "properties": {
           "uid": 497
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.2,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 601
         }
       }
     ],
@@ -8227,7 +8227,7 @@
         "type": "components.ObjectInfo",
         "properties": {
           "name": "TreeRight",
-          "tag": "Tree",
+          "tag": "Ground",
           "uid": 34
         }
       },
@@ -10083,7 +10083,7 @@
         "type": "components.ObjectInfo",
         "properties": {
           "name": "TreeRight",
-          "tag": "Tree",
+          "tag": "Wall",
           "uid": 34
         }
       },
@@ -10192,7 +10192,7 @@
         "type": "components.ObjectInfo",
         "properties": {
           "name": "TreeRight",
-          "tag": "Tree",
+          "tag": "Wall",
           "uid": 34
         }
       },
@@ -10301,7 +10301,7 @@
         "type": "components.ObjectInfo",
         "properties": {
           "name": "TreeRight",
-          "tag": "Tree",
+          "tag": "Wall",
           "uid": 34
         }
       },
@@ -10455,19 +10455,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -25682,19 +25682,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -32339,19 +32339,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -32596,19 +32596,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -32853,19 +32853,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -33110,19 +33110,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -33367,19 +33367,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -42776,19 +42776,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -47979,19 +47979,19 @@
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.2857143,
                 "y": 0.0
               },
               {
+                "x": 0.2857143,
+                "y": 0.2
+              },
+              {
                 "x": 0.14285715,
                 "y": 0.2
               },
               {
-                "x": 0.0,
-                "y": 0.2
-              },
-              {
-                "x": 0.0,
+                "x": 0.14285715,
                 "y": 0.0
               }
             ]
@@ -143563,6 +143563,752 @@
             "y": 0.0
           },
           "uid": 461
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1445,
+    "name": "EGoomba",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "EGoomba",
+          "tag": "Enemy",
+          "uid": 34
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.125,
+            "y": 0.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 5,
+          "uid": 35
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "Assets\\images\\spritesheets\\Enemies - Mushroom.png",
+              "width": 152,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 0.10526316,
+                "y": 0.0
+              },
+              {
+                "x": 0.10526316,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 36
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 70
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "N",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Mushroom.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.10526316,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.4
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Mushroom.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21052632,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.21052632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "D",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Mushroom.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.31578946,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.31578946,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.21052632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.21052632,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "N",
+          "uid": 105
+        }
+      },
+      {
+        "type": "components.scripts.test.mario.Ground",
+        "properties": {
+          "uid": 220
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "radius": 0.125,
+          "uid": 531
+        }
+      },
+      {
+        "type": "components.scripts.test.mario.GoombaAI",
+        "properties": {
+          "uid": 533
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1446,
+    "name": "Flower",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Flower",
+          "tag": "Enemy",
+          "uid": 34
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.9999995,
+            "y": 1.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 35
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.16666667,
+                "y": 0.0
+              },
+              {
+                "x": 0.16666667,
+                "y": 1.0
+              },
+              {
+                "x": 0.083333336,
+                "y": 1.0
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 36
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 70
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "N",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.083333336,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.083333336,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.16666667,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.16666667,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.083333336,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.083333336,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "D",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Mushroom.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.31578946,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.31578946,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.21052632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.21052632,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "N",
+          "uid": 105
+        }
+      },
+      {
+        "type": "components.scripts.test.mario.FlowerAI",
+        "properties": {
+          "uid": 703
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1447,
+    "name": "Flower",
+    "components": [
+      {
+        "type": "components.ObjectInfo",
+        "properties": {
+          "name": "Flower",
+          "tag": "Enemy",
+          "uid": 34
+        }
+      },
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.4999995,
+            "y": 1.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 35
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.75,
+                "y": 0.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.6666667,
+                "y": 1.0
+              },
+              {
+                "x": 0.6666667,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 36
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 70
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Down",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6666667,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6666667,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8333333,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8333333,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Up",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9166667,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9166667,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8333333,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8333333,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9166667,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9166667,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FireUp",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9166667,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9166667,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8333333,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8333333,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "FireDown",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 32.0,
+                    "texture": {
+                      "filePath": "Assets\\images\\spritesheets\\Enemies - Flower.png",
+                      "width": 192,
+                      "height": 32
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6666667,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6666667,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "N",
+          "uid": 105
+        }
+      },
+      {
+        "type": "components.scripts.test.mario.FlowerFireAI",
+        "properties": {
+          "uid": 737
         }
       }
     ],

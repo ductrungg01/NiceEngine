@@ -26,6 +26,10 @@ public class PillboxCollider extends Component {
      */
     @Override
     public void start() {
+
+    }
+
+    void getData(){
         this.topCircle.gameObject = this.gameObject;
         this.bottomCircle.gameObject = this.gameObject;
         this.box.gameObject = this.gameObject;
@@ -34,6 +38,8 @@ public class PillboxCollider extends Component {
 
     @Override
     public void editorUpdate(float dt) {
+        if (topCircle.gameObject == null) getData();
+
         topCircle.editorUpdate(dt);
         bottomCircle.editorUpdate(dt);
         box.editorUpdate(dt);

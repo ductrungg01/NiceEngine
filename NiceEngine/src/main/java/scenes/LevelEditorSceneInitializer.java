@@ -51,6 +51,9 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     public void loadResources(Scene scene) {
         AssetPool.getShader("assets/shaders/default.glsl");
 
+        AssetPool.addSpritesheet("assets/images/spritesheets/Enemies - Turtle.png",
+                new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/Enemies - Turtle.png"),
+                        8, 8, 55, 0));
         AssetPool.addSpritesheet("assets/images/birds.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/birds.png"),
                         532, 532, 2, 0));
