@@ -5,24 +5,25 @@ import components.SpriteRenderer;
 import components.StateMachine;
 import components.scripts.test.mario.Ground;
 import components.scripts.test.mario.PillboxCollider;
-import components.scripts.test.mario.PlayerController;
+import editor.Debug;
 import org.jbox2d.dynamics.contacts.Contact;
+import org.joml.Math;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
+import physics2d.Physics2D;
 import physics2d.components.Box2DCollider;
+import physics2d.components.RigidBody2D;
 import physics2d.enums.BodyType;
 import scenes.LevelEditorSceneInitializer;
 import scenes.LevelSceneInitializer;
 import system.GameObject;
 import system.KeyListener;
 import system.Window;
-import org.joml.Math;
-import org.joml.Vector2f;
-import physics2d.components.RigidBody2D;
 import util.AssetPool;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class MainCharacterMoving extends Component {
+public class MarioMoving extends Component {
     enum MarioState {
         NORMAL,
         BIG,
@@ -72,7 +73,10 @@ public class MainCharacterMoving extends Component {
 
     @Override
     public void update(float dt) {
+        Debug.Log(isOnGround);
+
         if (playWinAnimation) {
+            checkOnGround();
             if (!isOnGround) {
                 gameObject.transform.scale.x = -0.25f;
                 gameObject.transform.position.y -= dt;
@@ -134,6 +138,8 @@ public class MainCharacterMoving extends Component {
             }
         }
 
+        checkOnGround();
+
         if ((KeyListener.isKeyPressed(GLFW_KEY_SPACE)) && (jumpTime > 0 || isOnGround || groundDebounce > 0)) {
             if ((isOnGround || groundDebounce > 0) && jumpTime == 0) {
                 jumpTime = 28;
@@ -145,7 +151,6 @@ public class MainCharacterMoving extends Component {
                 this.velocity.y = 0;
             }
             groundDebounce = 0f;
-            isOnGround = false;
         } else if (enemyBounce > 0) {
             enemyBounce--;
             this.velocity.y = ((enemyBounce / 2.2f) * jumpBoost);
@@ -303,27 +308,40 @@ public class MainCharacterMoving extends Component {
         }
     }
 
-    public boolean isInvincible() {
-        return this.hurtInvincibilityTimeLeft > 0
-                || this.playWinAnimation;
+    public void checkOnGround() {
+        float innerPlayerWidth = marioWidth * 0.6f;
+        float yVal = marioCurrentState == MarioState.NORMAL ? -0.14f : -0.24f;
+
+        isOnGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }
 
-//    public void powerup() {
-//        if (marioCurrentState == MarioState.NORMAL) {
-//            marioCurrentState = MarioState.BIG;
-//            AssetPool.getSound("assets/sounds/powerup.ogg").play();
-//            gameObject.transform.scale.y = 0.42f;
-//            Box2DCollider box2DCollider = this.gameObject.getComponent(Box2DCollider.class);
-//            if (box2DCollider != null) {
-//                jumpBoost *= bigJumpBoostFactor;
-//                walkSpeed *= bigJumpBoostFactor;
-//                box2DCollider.setHeight(0.63f);
-//            }
-//        } else if (marioCurrentState == MarioState.BIG) {
-//            marioCurrentState = MarioState.FIRE;
-//            AssetPool.getSound("assets/sounds/powerup.ogg").play();
-//        }
-//
-//        stateMachine.trigger("powerup");
-//    }
+    public boolean isInvincible() {
+        return this.hurtInvincibilityTimeLeft > 0 || this.playWinAnimation;
+    }
+
+    public void powerup() {
+        String currentState = this.stateMachine.getCurrentStateTitle();
+
+        if (marioCurrentState == MarioState.NORMAL) {
+            marioCurrentState = MarioState.BIG;
+            AssetPool.getSound("assets/sounds/powerup.ogg").play();
+            gameObject.transform.scale.y = 0.42f;
+            Box2DCollider box2DCollider = this.gameObject.getComponent(Box2DCollider.class);
+            if (box2DCollider != null) {
+                jumpBoost *= bigJumpBoostFactor;
+                walkSpeed *= bigJumpBoostFactor;
+                box2DCollider.setOffset(new Vector2f(box2DCollider.getOffset()).add(new Vector2f(0, 0.125f)));
+                box2DCollider.setHalfSize(new Vector2f(box2DCollider.getOffset()).add(new Vector2f(0, 0.25f)));
+            }
+            changeState(marioCurrentState, currentState);
+        } else if (marioCurrentState == MarioState.BIG) {
+            marioCurrentState = MarioState.FIRE;
+            changeState(marioCurrentState, currentState);
+            AssetPool.getSound("assets/sounds/powerup.ogg").play();
+        }
+    }
+
+    public boolean hasWon() {
+        return false;
+    }
 }

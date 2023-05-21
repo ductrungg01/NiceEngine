@@ -85,8 +85,6 @@ public class StateMachine extends Component {
     }
 
     public void setCurrentState(String animationTitle) {
-        Debug.Log("set cur state: " + animationTitle);
-
         for (AnimationState state : states) {
             if (state.title.equals(animationTitle)) {
                 currentState = state;

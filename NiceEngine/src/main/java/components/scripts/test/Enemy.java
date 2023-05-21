@@ -9,9 +9,9 @@ public class Enemy extends Component {
 
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
-        MainCharacterMoving mainCharacterMoving = collidingObject.getComponent(MainCharacterMoving.class);
+        MarioMoving marioMoving = collidingObject.getComponent(MarioMoving.class);
 
-        if (mainCharacterMoving != null) {
+        if (marioMoving != null) {
             this.gameObject.destroy();
         }
     }
