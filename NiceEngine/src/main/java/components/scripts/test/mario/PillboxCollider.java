@@ -19,6 +19,9 @@ public class PillboxCollider extends Component {
     public Vector2f offset = new Vector2f();
     //endregion
 
+    public PillboxCollider() {
+    }
+
     //region Override methods
 
     /**
@@ -26,14 +29,18 @@ public class PillboxCollider extends Component {
      */
     @Override
     public void start() {
-        this.topCircle.gameObject = this.gameObject;
-        this.bottomCircle.gameObject = this.gameObject;
-        this.box.gameObject = this.gameObject;
-        recalculateColliders();
+
     }
 
     @Override
     public void editorUpdate(float dt) {
+        if (this.topCircle.gameObject == null || this.bottomCircle.gameObject == null || this.box.gameObject == null) {
+            this.topCircle.gameObject = this.gameObject;
+            this.bottomCircle.gameObject = this.gameObject;
+            this.box.gameObject = this.gameObject;
+            recalculateColliders();
+        }
+
         topCircle.editorUpdate(dt);
         bottomCircle.editorUpdate(dt);
         box.editorUpdate(dt);

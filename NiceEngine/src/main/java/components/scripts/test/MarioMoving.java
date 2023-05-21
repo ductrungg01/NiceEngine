@@ -30,7 +30,7 @@ public class MarioMoving extends Component {
         FIRE
     }
 
-    public float walkSpeed = 1.9f;
+    public float walkSpeed = 2.5f;
     public float slowDownForce = 0.05f;
     public Vector2f terminalVelocity = new Vector2f(2.1f, 3.1f);
     private transient Vector2f acceleration = new Vector2f();
@@ -68,13 +68,10 @@ public class MarioMoving extends Component {
         this.rb.setGravityScale(0.0f);
         stateMachine = this.gameObject.getComponent(StateMachine.class);
         changeState(marioCurrentState, "Idle");
-        this.rb.setGravityScale(0.0f);
     }
 
     @Override
     public void update(float dt) {
-        Debug.Log(isOnGround);
-
         if (playWinAnimation) {
             checkOnGround();
             if (!isOnGround) {
@@ -235,10 +232,10 @@ public class MarioMoving extends Component {
 
             }
             case BIG -> {
-                targetState = "Big " + targetState;
+                targetState = "Big" + targetState;
             }
             case FIRE -> {
-                targetState = "Fire " + targetState;
+                targetState = "Fire" + targetState;
             }
         }
 
@@ -310,7 +307,7 @@ public class MarioMoving extends Component {
 
     public void checkOnGround() {
         float innerPlayerWidth = marioWidth * 0.6f;
-        float yVal = marioCurrentState == MarioState.NORMAL ? -0.14f : -0.24f;
+        float yVal = marioCurrentState == MarioState.NORMAL ? -0.15f : -0.24f;
 
         isOnGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }
@@ -343,5 +340,9 @@ public class MarioMoving extends Component {
 
     public boolean hasWon() {
         return false;
+    }
+
+    public boolean isHurtInvincible() {
+        return this.hurtInvincibilityTimeLeft > 0;
     }
 }
