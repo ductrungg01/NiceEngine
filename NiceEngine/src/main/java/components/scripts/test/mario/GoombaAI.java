@@ -2,6 +2,7 @@ package components.scripts.test.mario;
 
 import components.Component;
 import components.StateMachine;
+import editor.Debug;
 import system.Camera;
 import system.GameObject;
 import system.Window;
@@ -22,8 +23,9 @@ public class GoombaAI extends Component {
     private transient Vector2f terminalVelocity = new Vector2f();
     private transient boolean onGround = false;
     private transient boolean isDead = false;
-    private transient float timeToKill = 0.5f;
+    private transient float timeToKill = 1f;
     private transient StateMachine stateMachine;
+
     //endregion
 
     //region Override methods
@@ -43,16 +45,17 @@ public class GoombaAI extends Component {
      */
     @Override
     public void update(float dt){
-        Camera camera = Window.getScene().camera();
-        if (this.gameObject.transform.position.x >
-                camera.position.x + camera.getProjectionSize().x * camera.getZoom()){
-            return;
-        }
-
+//        Camera camera = Window.getScene().camera();
+//        if (this.gameObject.transform.position.x >
+//                camera.position.x + camera.getProjectionSize().x * camera.getZoom()){
+//            return;
+//        }
         if (isDead){
             timeToKill -= dt;
             if (timeToKill <= 0){
                 this.gameObject.destroy();
+            } else {
+                this.gameObject.getComponent(StateMachine.class).setCurrentState("D");
             }
             this.rb.setVelocity(new Vector2f());
             return;
@@ -76,6 +79,7 @@ public class GoombaAI extends Component {
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y),
                                 -terminalVelocity.y);
         this.rb.setVelocity(velocity);
+
     }
 
     @Override
@@ -83,24 +87,35 @@ public class GoombaAI extends Component {
         if (isDead){
             return;
         }
+        if (obj.compareTag("Wall")) {
+            goingRight = !goingRight;
+        }
 
-        PlayerController playerController = obj.getComponent(PlayerController.class);
-        if (playerController != null){
-            if (!playerController.isDead() && !playerController.isHurtInvincible()
-                    && contactNormal.y > 0.58f){
-                playerController.enemyBounce();
-                stomp();
-            } else if (!playerController.isDead() && !playerController.isInvincible()){
-                playerController.die();
+        if (obj.compareTag("Mario")) {
+                Debug.Log("Collision with " + obj.name + "| Vector(" + contactNormal.x + ", " + contactNormal.y + ")");
+            if (contactNormal.y > 0.5f) {
+                isDead = true;
+                Debug.Log("Dead");
             }
-        } else if (Math.abs(contactNormal.y) < 0.1f){
-            goingRight = contactNormal.x < 0;
         }
 
-        if (obj.getComponent(Fireball.class) != null){
-            stomp();
-            obj.getComponent(Fireball.class).disappear();
-        }
+//        PlayerController playerController = obj.getComponent(PlayerController.class);
+//        if (playerController != null){
+//            if (!playerController.isDead() && !playerController.isHurtInvincible()
+//                    && contactNormal.y > 0.58f){
+//                playerController.enemyBounce();
+//                stomp();
+//            } else if (!playerController.isDead() && !playerController.isInvincible()){
+//                playerController.die();
+//            }
+//        } else if (Math.abs(contactNormal.y) < 0.1f){
+//            goingRight = contactNormal.x < 0;
+//        }
+//
+//        if (obj.getComponent(Fireball.class) != null){
+//            stomp();
+//            obj.getComponent(Fireball.class).disappear();
+//        }
     }
     //endregion
 
