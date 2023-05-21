@@ -1,6 +1,8 @@
-package components;
+package components.scripts.test.mario;
 
-import components.scripts.test.mario.PlayerController;
+import components.Component;
+import components.INonAddableComponent;
+import components.scripts.test.MarioCollision;
 import system.Camera;
 import system.GameObject;
 import system.Window;
@@ -11,7 +13,7 @@ import static editor.uihelper.NiceShortCall.*;
 public class GameCamera extends Component implements INonAddableComponent {
     //region Fields
     private transient GameObject player;
-    private transient Camera gameCamera;
+    private transient Camera camera;
     private transient float highestX = Float.MIN_VALUE;
     private transient float undergroundYLevel = 0.0f;
     private transient float skyYLevel = 0.0f;
@@ -23,11 +25,12 @@ public class GameCamera extends Component implements INonAddableComponent {
     //endregion
 
     //region Constructors
-    public GameCamera(Camera gameCamera) {
-        this.gameCamera = gameCamera;
+    public GameCamera(Camera camera) {
+        this.camera = camera;
     }
 
     public GameCamera() {
+        this.camera = Window.getScene().camera();
     }
     //endregion
 
@@ -39,9 +42,9 @@ public class GameCamera extends Component implements INonAddableComponent {
     @Override
     public void start() {
         this.player = Window.getScene().findGameObjectWith(PlayerController.class);
-        this.gameCamera.clearColor.set(skyColor);
-        this.undergroundYLevel = this.gameCamera.position.y -
-                this.gameCamera.getProjectionSize().y - this.cameraBuffer;
+        this.camera.clearColor.set(skyColor);
+        this.undergroundYLevel = this.camera.position.y -
+                this.camera.getProjectionSize().y - this.cameraBuffer;
     }
 
     /**
@@ -52,18 +55,18 @@ public class GameCamera extends Component implements INonAddableComponent {
     @Override
     public void update(float dt) {
         if (player != null && player.getComponent(PlayerController.class) != null && !player.getComponent(PlayerController.class).hasWon()) {
-            gameCamera.position.x = Math.max(player.transform.position.x - 2.5f, highestX);
-            highestX = Math.max(highestX, gameCamera.position.x);
+            camera.position.x = Math.max(player.transform.position.x - 2.5f, highestX);
+            highestX = Math.max(highestX, camera.position.x);
 
             if (player.transform.position.y < -playerBuffer) {
-                this.gameCamera.position.y = undergroundYLevel;
-                this.gameCamera.clearColor.set(undergroundColor);
+                this.camera.position.y = undergroundYLevel;
+                this.camera.clearColor.set(undergroundColor);
             } else if (player.transform.position.y >= 0.0f && this.player.transform.position.y < skyYLevel + playerBuffer) {
-                this.gameCamera.position.y = 0.0f;
-                this.gameCamera.clearColor.set(skyColor);
+                this.camera.position.y = 0.0f;
+                this.camera.clearColor.set(skyColor);
             } else if (player.transform.position.y > skyYLevel + playerBuffer) {
-                this.gameCamera.position.y = skyYLevel;
-                this.gameCamera.clearColor.set(skyColor);
+                this.camera.position.y = skyYLevel;
+                this.camera.clearColor.set(skyColor);
             }
         }
     }

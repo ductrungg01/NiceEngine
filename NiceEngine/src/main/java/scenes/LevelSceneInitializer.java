@@ -1,6 +1,8 @@
 package scenes;
 
 import components.*;
+import components.scripts.test.MarioCameraFollow;
+import components.scripts.test.mario.GameCamera;
 import system.*;
 import util.AssetPool;
 
@@ -16,12 +18,12 @@ public class LevelSceneInitializer extends SceneInitializer {
     public void init(Scene scene) {
         Spritesheet sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
 
-        GameObject cameraObject = scene.createGameObject("Game Camera");
-        cameraObject.addComponent(new GameCamera(scene.camera()));
-
-        cameraObject.start();
-
-        scene.addGameObjectToScene(cameraObject);
+//        GameObject cameraObject = scene.createGameObject("Camera Follow Mario");
+//        cameraObject.addComponent(new MarioCameraFollow(scene.camera()));
+//
+//        cameraObject.start();
+//
+//        scene.addGameObjectToScene(cameraObject);
     }
 
     @Override
