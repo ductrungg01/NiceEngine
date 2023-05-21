@@ -80,10 +80,13 @@ public class StateMachine extends Component {
             }
         }
 
-        System.out.println("Unable to find state '" + animationTitle + "' in the default state");
+        if (!defaultStateTitle.equals(animationTitle))
+            Debug.Log("Unable to find state '" + animationTitle + "' in the default state");
     }
 
     public void setCurrentState(String animationTitle) {
+        Debug.Log("set cur state: " + animationTitle);
+
         for (AnimationState state : states) {
             if (state.title.equals(animationTitle)) {
                 currentState = state;
@@ -91,7 +94,12 @@ public class StateMachine extends Component {
             }
         }
 
-        System.out.println("Unable to find state '" + animationTitle + "' in the current state");
+        Debug.Log("Unable to find state '" + animationTitle + "' in the current state");
+    }
+
+    public String getCurrentStateTitle() {
+        if (currentState == null) return defaultStateTitle;
+        return currentState.title;
     }
 
     public void trigger(String trigger) {

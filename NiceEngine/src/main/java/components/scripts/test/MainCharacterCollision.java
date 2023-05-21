@@ -11,21 +11,12 @@ public class MainCharacterCollision extends Component {
 
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
-        IsBlock isBlock = collidingObject.getComponent(IsBlock.class);
-
-        if (isBlock != null) {
-            this.gameObject.getComponent(StateMachine.class).setCurrentState("S1");
-        }
-
-        IsGround IsGround = collidingObject.getComponent(IsGround.class);
-        if (IsGround != null) {
+        if (collidingObject.compareTag("Ground")) {
             this.gameObject.getComponent(MainCharacterMoving.class).isOnGround = true;
         }
 
-        IsTrap isTrap = collidingObject.getComponent(IsTrap.class);
-        if (isTrap != null) {
-            this.gameObject.getComponent(StateMachine.class).setCurrentState("S2");
-            Debug.Log("Collide with trap, change the animation");
+        if (collidingObject.compareTag("Coin")) {
+            collidingObject.destroy();
         }
     }
 }
