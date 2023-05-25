@@ -216,10 +216,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 ImGui.endTabItem();
             }
 
-            if (ImGui.beginTabItem("Raw image")) {
-                ImGui.endTabItem();
-            }
-
             if (ImGui.beginTabItem("Prefabs")) {
                 int uid = 0;
                 Spritesheet playerSprites = AssetPool.getSpritesheet("assets/images/spritesheet.png");

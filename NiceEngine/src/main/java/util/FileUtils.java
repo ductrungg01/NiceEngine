@@ -182,6 +182,15 @@ public class FileUtils {
         }
     }
 
+    public static String getFileName(String filePath) {
+        int slashIndex = filePath.lastIndexOf('/');
+        if (slashIndex == -1) {
+            return filePath;
+        } else {
+            return filePath.substring(slashIndex + 1);
+        }
+    }
+
     public static Sprite getIconByFile(File file) {
         Sprite spr = new Sprite();
 

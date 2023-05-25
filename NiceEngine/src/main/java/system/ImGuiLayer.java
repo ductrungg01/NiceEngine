@@ -170,6 +170,7 @@ public class ImGuiLayer {
         SceneHierarchyWindow.getInstance().imgui();
         AnimationStateCreator.getInstance().imgui();
         ConsoleWindow.getInstance().imgui();
+        SpritesheetLoaderWindow.getInstance().imgui();
 
         assetsWindow.imgui();
         messageBox.imgui();

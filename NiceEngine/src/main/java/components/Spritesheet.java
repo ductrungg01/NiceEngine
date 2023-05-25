@@ -57,5 +57,9 @@ public class Spritesheet {
     public int size() {
         return this.sprites.size();
     }
+
+    public Texture getTexture() {
+        return this.texture;
+    }
     //endregion
 }
