@@ -18,7 +18,7 @@ public class FileUtils {
 
     final static String defaultAssetFolder = "Assets";
     final static String defaultSprite = "assets/images/Default Sprite.png";
-    final static Map<String, String> icons = new HashMap<>() {
+    public final static Map<String, String> icons = new HashMap<>() {
         {
             put("FOLDER", "assets/images/folder-icon.png");
             put("LEFT_ARROW", "assets/images/left-arrow-icon.png");
@@ -185,7 +185,7 @@ public class FileUtils {
     public static String getFileName(String filePath) {
         int slashIndex = filePath.lastIndexOf('/');
         if (slashIndex == -1) slashIndex = filePath.lastIndexOf('\\');
-        
+
         if (slashIndex == -1) {
             return filePath;
         } else {
