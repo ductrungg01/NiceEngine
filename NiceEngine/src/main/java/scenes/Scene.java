@@ -122,7 +122,7 @@ public class Scene {
     }
 
     public void editorUpdate(float dt) {
-        if ((KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.isKeyRelease(GLFW.GLFW_KEY_S)) {
+        if ((KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.keyBeginPress(GLFW.GLFW_KEY_S)) {
             EventSystem.notify(null, new Event(EventType.SaveLevel));
         }
 
