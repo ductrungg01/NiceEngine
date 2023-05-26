@@ -30,8 +30,9 @@ public class SpritesheetLoaderWindow {
 
     //endregion
 
-    static float BUTTON_SIZE_BOOST = 2;
-    static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 2;
+    static float BUTTON_SIZE_BOOST = 1;
+    static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
+    static float DEFAULT_SPRITESHEET_BUTTON_SIZE = 32;
 
     private static Sprite SPRITE_WAITING = null;
     public static String spritesheet_has_just_add = "";
@@ -43,7 +44,6 @@ public class SpritesheetLoaderWindow {
         for (int i = 0; i < spritesheets.size(); i++) {
             String sprsheetName = FileUtils.getFileName(spritesheets.get(i).getTexture().getFilePath());
             if (ImGui.beginTabBar("SpritesheetLoaderTabBar")) {
-
                 ImBoolean pOpen = new ImBoolean(false);
                 if (!spritesheet_has_just_add.equals("")) {
                     if (sprsheetName.equals(spritesheet_has_just_add)) {
@@ -78,7 +78,7 @@ public class SpritesheetLoaderWindow {
                     }
                     //endregion
 
-                    BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, "SpritesheetLoaderTabBar" + i + "btnsizeboost");
+                    BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "SpritesheetLoaderTabBar" + i + "btnsizeboost");
                     ImGui.sameLine();
                     if (ImGui.button("Reset")) {
                         BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;
@@ -86,8 +86,9 @@ public class SpritesheetLoaderWindow {
 
                     for (int j = 0; j < sprsheetLength; j++) {
                         Sprite sprite = spritesheets.get(i).getSprite(j);
-                        float spriteWidth = sprite.getWidth() * BUTTON_SIZE_BOOST;
-                        float spriteHeight = sprite.getHeight() * BUTTON_SIZE_BOOST;
+                        float offset = Math.min(DEFAULT_SPRITESHEET_BUTTON_SIZE / sprite.getWidth(), DEFAULT_SPRITESHEET_BUTTON_SIZE / sprite.getHeight());
+                        float spriteWidth = sprite.getWidth() * offset * BUTTON_SIZE_BOOST;
+                        float spriteHeight = sprite.getHeight() * offset * BUTTON_SIZE_BOOST;
                         Vector2f[] texCoords = sprite.getTexCoords();
 
                         ImGui.pushID(sprite.getTexId());

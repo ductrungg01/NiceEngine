@@ -1,6 +1,7 @@
 package editor;
 
 import components.Sprite;
+import components.Spritesheet;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.ColorHelp;
 import editor.uihelper.NiceImGui;
@@ -11,6 +12,7 @@ import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.Window;
+import util.AssetPool;
 import util.FileUtils;
 
 import java.io.File;
@@ -41,6 +43,7 @@ public class FileDialog {
     private String idWaiting = "";
     private ReferenceType referenceType = null;
     private List<Object> itemList = new ArrayList<>();
+    private List<Spritesheet> spritesheetList = new ArrayList<>();
 
     public void open(String idWaiting, ReferenceType typeRequest) {
         selectedObject = null;
@@ -63,44 +66,79 @@ public class FileDialog {
             ImGui.openPopup("FileDialog");
 
         if (ImGui.beginPopupModal("FileDialog")) {
-            ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.9f, false);
-            final float iconWidth = 150f;
-            final float iconHeight = 150f;
-            final float iconSize = iconHeight;
-            final float spacingX = 20.0f;
-            final float spacingY = 50.0f;
-            float availableWidth = ImGui.getContentRegionAvailX();
-            int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));
+            if (ImGui.beginTabBar("FileDialogTabBar")) {
+                showSpriteSheet();
 
-            int itemIndex = 0;
+                if (ImGui.beginTabItem("SPRITE")) {
+                    ImGui.text("Select an image below!");
 
-            for (Object item : itemList) {
-                // Calculate position for this item
-                float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
-                float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
+                    //region Content Tab1
+                    ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.8f, true);
+                    final float iconWidth = 150f;
+                    final float iconHeight = 150f;
+                    final float iconSize = iconHeight;
+                    final float spacingX = 20.0f;
+                    final float spacingY = 50.0f;
+                    float availableWidth = ImGui.getContentRegionAvailX();
+                    int itemsPerRow = (int) (availableWidth / (iconWidth + spacingX));
 
-                // Set item position and size
-                ImGui.setItemAllowOverlap();
-                ImGui.setCursorPos(posX, posY);
+                    int itemIndex = 0;
+                    for (Object item : itemList) {
+                        // Calculate position for this item
+                        float posX = (itemIndex % itemsPerRow) * (iconWidth + spacingX);
+                        float posY = (itemIndex / itemsPerRow) * (iconHeight + spacingY);
 
-                int itemState = drawAnItem(item, iconSize);
+                        // Set item position and size
+                        ImGui.setItemAllowOverlap();
+                        ImGui.setCursorPos(posX, posY);
 
-                if (itemState == 3) {
-                    setSelectedObject(item);
-                    close();
-                    ImGui.closeCurrentPopup();
-                    break;
+                        int itemState = drawAnItem(item, iconSize);
+
+                        if (itemState == 3) {
+                            setSelectedObject(item);
+                            close();
+                            ImGui.closeCurrentPopup();
+                            break;
+                        }
+
+                        itemIndex++;
+                    }
+
+                    ImGui.endChild();
+                    //endregion
+
+                    ImGui.endTabItem();
                 }
 
-                itemIndex++;
+                ImGui.endTabBar();
             }
 
-            ImGui.endChild();
             if (NiceImGui.drawButton("Cancel", new ButtonColor(COLOR_DarkRed, COLOR_Red, COLOR_Red))) {
                 close();
                 ImGui.closeCurrentPopup();
             }
             ImGui.endPopup();
+        }
+    }
+
+    private void showSpriteSheet() {
+        if (this.spritesheetList.isEmpty()) {
+            this.spritesheetList = AssetPool.getAllSpritesheets();
+        }
+
+        if (ImGui.beginTabItem("SPRITESHEET")) {
+            ImGui.text("Select an spritesheet tab and choose an sprite below!");
+            if (ImGui.beginTabBar("FileDialogSpritesheetTabBar")) {
+                for (Spritesheet spritesheet : spritesheetList) {
+                    String spritesheetName = FileUtils.getFileName(spritesheet.getTexture().getFilePath());
+                    if (ImGui.beginTabItem(spritesheetName)) {
+                        ImGui.endTabItem();
+                    }
+                }
+
+                ImGui.endTabBar();
+            }
+            ImGui.endTabItem();
         }
     }
 
@@ -208,6 +246,7 @@ public class FileDialog {
         this.isOpen = false;
         this.referenceType = null;
         this.itemList.clear();
+        this.spritesheetList.clear();
     }
 
     public Object getSelectedObject(String idWaiting, Object oldValue) {
