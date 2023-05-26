@@ -1,9 +1,7 @@
 package components;
 
-import editor.Debug;
 import editor.ReferenceType;
-import editor.uihelper.NiceImGui;
-import editor.ReferenceConfig;
+import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import system.GameObject;
@@ -11,9 +9,7 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import util.FileUtils;
 
-import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -159,7 +155,7 @@ public abstract class Component {
                     field.set(this, strArray);
                 } else if (type == Sprite.class) {
                     field.set(this, NiceImGui.ReferenceButton(name,
-                            new ReferenceConfig(ReferenceType.SPRITE),
+                            ReferenceType.SPRITE,
                             value,
                             "Sprite" + name + gameObject.hashCode()));
                 }
@@ -167,7 +163,7 @@ public abstract class Component {
 //                    GameObject tmpGo = (GameObject) value;
 //                    field.set(this,
 //                            NiceImGui.ReferenceButton(name,
-//                                    new ReferenceConfig(ReferenceType.GAMEOBJECT),
+//                                    ReferenceType.GAMEOBJECT,
 //                                    tmpGo)
 //                    );
 //                }

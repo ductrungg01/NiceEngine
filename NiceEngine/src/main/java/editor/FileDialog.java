@@ -4,14 +4,11 @@ import components.Sprite;
 import components.Spritesheet;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.ColorHelp;
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
-import imgui.type.ImBoolean;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
-import system.Window;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -57,7 +54,7 @@ public class FileDialog {
         if (this.referenceType == null) {
             itemList.addAll(FileUtils.getAllFiles());
         } else {
-            itemList.addAll(FileUtils.getFilesWithReferenceConfig(new ReferenceConfig(referenceType)));
+            itemList.addAll(FileUtils.getFilesWithReferenceType(referenceType));
         }
     }
 
@@ -247,6 +244,10 @@ public class FileDialog {
         this.referenceType = null;
         this.itemList.clear();
         this.spritesheetList.clear();
+    }
+
+    public boolean isOpen() {
+        return this.isOpen;
     }
 
     public Object getSelectedObject(String idWaiting, Object oldValue) {

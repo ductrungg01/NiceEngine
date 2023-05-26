@@ -1,8 +1,7 @@
 package components;
 
-import editor.ReferenceConfig;
 import editor.ReferenceType;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import system.Transform;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -55,11 +54,11 @@ public class SpriteRenderer extends Component implements INonAddableComponent {
         }
 
         Sprite tmp = (Sprite) NiceImGui.ReferenceButton("Sprite",
-                new ReferenceConfig(ReferenceType.SPRITE),
+                ReferenceType.SPRITE,
                 sprite,
-                "Sprite of SpriteRenderer " +this.gameObject.hashCode());
+                "Sprite of SpriteRenderer " + this.gameObject.hashCode());
 
-        if (tmp != sprite){
+        if (tmp != sprite) {
             setSprite(tmp);
         }
     }

@@ -1,13 +1,12 @@
 package editor;
 
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static editor.uihelper.NiceImGui.drawButton;
+import static editor.NiceImGui.drawButton;
 import static util.FileUtils.getAllFilesWithExtensions;
 
 public class ConsoleWindow {

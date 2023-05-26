@@ -2,7 +2,6 @@ package editor;
 
 import components.Sprite;
 import components.Spritesheet;
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.type.ImBoolean;

@@ -2,15 +2,10 @@ package components;
 
 import editor.Debug;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiComboFlags;
 import imgui.flag.ImGuiTreeNodeFlags;
-import imgui.type.ImBoolean;
-import imgui.type.ImString;
-import javassist.compiler.ast.Pair;
-import org.joml.Vector2f;
-import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
 import java.util.HashMap;

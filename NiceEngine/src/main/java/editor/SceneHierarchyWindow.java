@@ -3,7 +3,6 @@ package editor;
 import components.ObjectInfo;
 import components.SpriteRenderer;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
 import org.joml.Vector2f;
@@ -69,9 +68,9 @@ public class SceneHierarchyWindow {
             index++;
         }
 
-        if (ImGui.beginPopupContextWindow("Hierarchy")){
+        if (ImGui.beginPopupContextWindow("Hierarchy")) {
 
-            if (ImGui.menuItem("New GameObject")){
+            if (ImGui.menuItem("New GameObject")) {
                 GameObject go = new GameObject("New GameObject");
                 go.addComponent(new ObjectInfo("New GameObject"));
                 go.addComponent(new Transform());

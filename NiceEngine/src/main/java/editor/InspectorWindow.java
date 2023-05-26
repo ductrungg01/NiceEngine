@@ -1,23 +1,13 @@
 package editor;
 
 import components.*;
-import components.scripts.test.TargetDebugging;
-import components.scripts.test.TestComponent;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
-import imgui.ImColor;
-import imgui.ImDrawList;
 import imgui.ImGui;
-import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
-import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
-import physics2d.components.Box2DCollider;
-import physics2d.components.CircleCollider;
-import physics2d.components.RigidBody2D;
 import renderer.PickingTexture;
 
 import java.lang.reflect.InvocationTargetException;

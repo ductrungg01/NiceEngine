@@ -3,7 +3,7 @@ package util;
 import editor.Debug;
 import components.Sprite;
 import editor.MessageBox;
-import editor.ReferenceConfig;
+import editor.ReferenceType;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -56,22 +56,19 @@ public class FileUtils {
     }
 
     // Get file only,
-    public static List<File> getFilesWithReferenceConfig(ReferenceConfig refConfig) {
+    public static List<File> getFilesWithReferenceType(ReferenceType referenceType) {
         List<File> files = new ArrayList<>();
 
-        switch (refConfig.type) {
+        switch (referenceType) {
             case SPRITE -> {
                 files.addAll(getAllFilesWithExtensions(imageExtensions));
-                break;
             }
             case JAVA -> {
                 List<String> tmp = List.of("java");
                 files.addAll(getAllFilesWithExtensions(tmp));
-                break;
             }
             case SOUND -> {
                 files.addAll(getAllFilesWithExtensions(soundExtensions));
-                break;
             }
         }
 

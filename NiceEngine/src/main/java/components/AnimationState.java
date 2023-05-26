@@ -1,12 +1,9 @@
 package components;
 
-import editor.ReferenceConfig;
 import editor.ReferenceType;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import imgui.ImGui;
-import imgui.type.ImBoolean;
-import org.joml.Vector2f;
 import util.AssetPool;
 
 import java.util.ArrayList;
@@ -76,7 +73,7 @@ public class AnimationState implements INonAddableComponent {
             ImGui.text("Frame (" + index + ")");
 
             frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ",
-                    new ReferenceConfig(ReferenceType.SPRITE),
+                    ReferenceType.SPRITE,
                     frame.sprite,
                     "AnimationState" + this.title + "Frame" + index);
 

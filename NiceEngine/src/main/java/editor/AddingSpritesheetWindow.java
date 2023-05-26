@@ -3,7 +3,6 @@ package editor;
 import components.Sprite;
 import components.Spritesheet;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
 import imgui.ImColor;
 import imgui.ImDrawList;
 import imgui.ImGui;

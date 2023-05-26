@@ -2,7 +2,7 @@ package system;
 
 import components.Component;
 import components.INonAddableComponent;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import org.joml.Vector2f;
 
 public class Transform extends Component implements INonAddableComponent {
