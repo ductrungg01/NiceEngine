@@ -6,6 +6,7 @@ import editor.uihelper.ColorHelp;
 import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
+import imgui.type.ImBoolean;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;

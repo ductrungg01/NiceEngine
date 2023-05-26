@@ -184,6 +184,8 @@ public class FileUtils {
 
     public static String getFileName(String filePath) {
         int slashIndex = filePath.lastIndexOf('/');
+        if (slashIndex == -1) slashIndex = filePath.lastIndexOf('\\');
+        
         if (slashIndex == -1) {
             return filePath;
         } else {

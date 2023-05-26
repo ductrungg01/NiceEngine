@@ -31,6 +31,8 @@ public class SpritesheetLoaderWindow {
     static float BUTTON_SIZE_BOOST = 2;
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 2;
 
+    private static Sprite SPRITE_WAITING = null;
+
     //region Methods
     public void imgui() {
         ImGui.begin("Spritesheet loader");
@@ -48,6 +50,19 @@ public class SpritesheetLoaderWindow {
                     float windowX2 = windowPos.x + windowSize.x;
                     int sprsheetLength = spritesheets.get(i).size();
 
+                    //region ADD NEW SPRITESHEET
+                    final String ID_WAITING_FILE_DIALOG = "Add new spritesheet imgui id";
+                    if (ImGui.button("Add new spritesheet")) {
+                        FileDialog.getInstance().open(ID_WAITING_FILE_DIALOG, ReferenceType.SPRITE);
+                    }
+
+                    SPRITE_WAITING = (Sprite) FileDialog.getInstance().getSelectedObject(ID_WAITING_FILE_DIALOG, SPRITE_WAITING);
+
+                    if (SPRITE_WAITING != null && !AddingSpritesheetWindow.getInstance().isOpened()) {
+                        AddingSpritesheetWindow.getInstance().open(SPRITE_WAITING);
+                        SPRITE_WAITING = null;
+                    }
+                    //endregion
 
                     BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, "SpritesheetLoaderTabBar" + i + "btnsizeboost");
                     ImGui.sameLine();
@@ -70,7 +85,7 @@ public class SpritesheetLoaderWindow {
                         ImGui.getItemRectMax(lastButtonPos);
                         float lastButtonX2 = lastButtonPos.x;
                         float nextButtonX2 = lastButtonX2 + itemSpacing.x + spriteWidth;
-                        if (i + 1 < sprsheetLength && nextButtonX2 < windowX2) {
+                        if (j + 1 < sprsheetLength && nextButtonX2 <= windowX2) {
                             ImGui.sameLine();
                         }
                     }
