@@ -174,6 +174,10 @@ public class StateMachine extends Component {
         List<String> stateTitles = new ArrayList<>();
         for (AnimationState s : states) stateTitles.add(s.title);
 
+        if (defaultStateTitle.equals("") && states.size() > 0) {
+            defaultStateTitle = states.get(0).title;
+        }
+
         setDefaultState(NiceImGui.comboBox("Default state", defaultStateTitle, ImGuiComboFlags.None,
                 stateTitles, "Default Anim state of " + this.gameObject + this.hashCode()));
 
