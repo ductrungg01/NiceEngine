@@ -6,7 +6,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
-    flatDir{
+    flatDir {
         dirs 'libs'
     }
     jcenter()
@@ -59,7 +59,6 @@ dependencies {
     runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
     implementation "org.joml:joml:${jomlVersion}"
 }
-
 
 
 /*

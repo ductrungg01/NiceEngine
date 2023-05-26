@@ -257,7 +257,6 @@ public class NiceImGui {
                 new ButtonColor(COLOR_Blue, COLOR_DarkBlue, COLOR_DarkBlue),
                 new Vector2f(openFileDialogButtonSize, openFileDialogButtonSize))) {
             openFileDialog = true;
-            Debug.Log("open file dialog button is clicked!");
         }
 
         ImGui.sameLine();
@@ -281,6 +280,36 @@ public class NiceImGui {
         }
 
         return oldValue;
+    }
+
+    public static boolean deleteReferenceButton(float btnSize) {
+        if (drawButton("-", new ButtonColor(COLOR_Red, COLOR_DarkRed, COLOR_DarkRed)
+                , new Vector2f(btnSize, btnSize))) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean openFileDialogButton(float openFileDialogButtonSize) {
+        boolean isClick = false;
+
+        if (NiceImGui.drawButton("",
+                new ButtonColor(COLOR_Blue, COLOR_DarkBlue, COLOR_DarkBlue),
+                new Vector2f(openFileDialogButtonSize, openFileDialogButtonSize))) {
+            isClick = true;
+            Debug.Log("open file dialog button is clicked!");
+        }
+
+        ImGui.sameLine();
+
+        ImDrawList drawList = ImGui.getWindowDrawList();
+        float iconButtonSize = 7.0f;
+        float iconButtonPosX = ImGui.getCursorScreenPosX() - openFileDialogButtonSize / 2f - 7f;
+        float iconButtonPosY = ImGui.getCursorScreenPosY() + openFileDialogButtonSize / 2f;
+        drawList.addCircleFilled(iconButtonPosX, iconButtonPosY, iconButtonSize, ImColor.intToColor(255, 255, 255, 255));
+        drawList.addCircle(iconButtonPosX, iconButtonPosY, iconButtonSize * 1.5f, ImColor.intToColor(255, 255, 255, 255));
+
+        return isClick;
     }
 
     private static Object showFileDialogForReference(ReferenceConfig referenceConfig, Object oldValue) {
@@ -684,7 +713,6 @@ public class NiceImGui {
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, btnColor.hoveredColor.x, btnColor.hoveredColor.y, btnColor.hoveredColor.z, btnColor.hoveredColor.w);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, btnColor.activeColor.x, btnColor.activeColor.y, btnColor.activeColor.z, btnColor.activeColor.w);
         if (ImGui.button(label, btnSize.x, btnSize.y)) {
-            // handle click button
             isClick = true;
         }
         ImGui.popStyleColor(3);

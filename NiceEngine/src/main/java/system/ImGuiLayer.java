@@ -171,6 +171,8 @@ public class ImGuiLayer {
         AnimationStateCreator.getInstance().imgui();
         ConsoleWindow.getInstance().imgui();
         SpritesheetLoaderWindow.getInstance().imgui();
+        FileDialog.getInstance().render();
+        TestFileDialog.getInstance().imgui();
 
         assetsWindow.imgui();
         messageBox.imgui();

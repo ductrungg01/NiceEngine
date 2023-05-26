@@ -48,7 +48,7 @@ public class SpritesheetLoaderWindow {
                     float windowX2 = windowPos.x + windowSize.x;
                     int sprsheetLength = spritesheets.get(i).size();
 
-                    
+
                     BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, "SpritesheetLoaderTabBar" + i + "btnsizeboost");
                     ImGui.sameLine();
                     if (ImGui.button("Reset")) {
