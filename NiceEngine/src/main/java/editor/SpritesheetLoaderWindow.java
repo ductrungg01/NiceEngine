@@ -5,6 +5,7 @@ import components.Spritesheet;
 import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
+import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import util.AssetPool;
 import util.FileUtils;
@@ -32,6 +33,7 @@ public class SpritesheetLoaderWindow {
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 2;
 
     private static Sprite SPRITE_WAITING = null;
+    public static String spritesheet_has_just_add = "";
 
     //region Methods
     public void imgui() {
@@ -40,7 +42,18 @@ public class SpritesheetLoaderWindow {
         for (int i = 0; i < spritesheets.size(); i++) {
             String sprsheetName = FileUtils.getFileName(spritesheets.get(i).getTexture().getFilePath());
             if (ImGui.beginTabBar("SpritesheetLoaderTabBar")) {
-                if (ImGui.beginTabItem(sprsheetName)) {
+
+                ImBoolean pOpen = new ImBoolean(false);
+                if (!spritesheet_has_just_add.equals("")) {
+                    if (sprsheetName.equals(spritesheet_has_just_add)) {
+                        spritesheet_has_just_add = "";
+                        pOpen = new ImBoolean(true);
+                    }
+                } else {
+                    pOpen = new ImBoolean(true);
+                }
+
+                if (ImGui.beginTabItem(sprsheetName, pOpen)) {
                     ImVec2 windowPos = new ImVec2();
                     ImGui.getWindowPos(windowPos);
                     ImVec2 windowSize = new ImVec2();

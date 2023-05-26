@@ -106,8 +106,12 @@ public class AddingSpritesheetWindow {
     }
 
     private void addSpritesheetToAssetPool() {
-        AssetPool.addSpritesheet(FileUtils.getFileName(this.sprite.getTexture().getFilePath()),
+        String spritesheetName = FileUtils.getFileName(this.sprite.getTexture().getFilePath());
+
+        AssetPool.addSpritesheet(spritesheetName,
                 new Spritesheet(this.sprite.getTexture(), this.sprWidth, this.sprHeight, this.numSprites, this.sprSpacing));
+
+        SpritesheetLoaderWindow.spritesheet_has_just_add = spritesheetName;
     }
 
     private void close() {
