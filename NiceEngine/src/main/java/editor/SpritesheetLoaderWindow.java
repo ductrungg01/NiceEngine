@@ -7,6 +7,7 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
+import org.lwjgl.glfw.GLFW;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -102,6 +103,18 @@ public class SpritesheetLoaderWindow {
                             ImGui.sameLine();
                         }
                     }
+
+                    if (ImGui.isWindowHovered() && ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
+                        ImGui.openPopup("Right Menu Context of " + sprsheetName);
+                    }
+                    if (ImGui.beginPopup("Right Menu Context of " + sprsheetName)) {
+                        if (ImGui.menuItem("Remove this spritesheet")) {
+                            String resourceName = spritesheets.get(i).getTexture().getFilePath();
+                            AssetPool.removeSpritesheet(resourceName);
+                        }
+                        ImGui.endPopup();
+                    }
+
                     ImGui.endTabItem();
                 }
                 ImGui.endTabBar();

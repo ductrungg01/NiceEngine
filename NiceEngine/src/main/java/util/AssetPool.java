@@ -94,6 +94,13 @@ public class AssetPool {
             AssetPool.spritesheets.put(file.getPath(), spritesheet);
         }
     }
+
+    public static void removeSpritesheet(String resourceName) {
+        File file = new File(resourceName);
+        if (AssetPool.spritesheets.containsKey(file.getPath())) {
+            AssetPool.spritesheets.remove(file.getPath());
+        }
+    }
     //endregion
 
 }
