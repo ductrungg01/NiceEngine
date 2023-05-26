@@ -66,6 +66,7 @@ public class SpritesheetLoaderWindow {
                     //region ADD NEW SPRITESHEET
                     final String ID_WAITING_FILE_DIALOG = "Add new spritesheet imgui id";
                     if (ImGui.button("Add new spritesheet")) {
+                        FileDialog.getInstance().showSpritesheetAlso = false;
                         FileDialog.getInstance().open(ID_WAITING_FILE_DIALOG, ReferenceType.SPRITE);
                     }
 

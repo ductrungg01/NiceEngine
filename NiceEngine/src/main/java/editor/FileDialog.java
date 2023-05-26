@@ -49,6 +49,7 @@ public class FileDialog {
     static float BUTTON_SIZE_BOOST = 1;
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
     public static String spritesheet_has_just_used = "";
+    public boolean showSpritesheetAlso = true;
 
     public void open(String idWaiting, ReferenceType typeRequest) {
         selectedObject = null;
@@ -72,7 +73,9 @@ public class FileDialog {
 
         if (ImGui.beginPopupModal("FileDialog")) {
             if (ImGui.beginTabBar("FileDialogTabBar")) {
-                showSpriteSheet();
+
+                if (this.showSpritesheetAlso)
+                    showSpriteSheet();
 
                 if (ImGui.beginTabItem("SPRITE")) {
                     ImGui.text("Select an image below!");
@@ -324,6 +327,7 @@ public class FileDialog {
         this.referenceType = null;
         this.itemList.clear();
         this.spritesheetList.clear();
+        this.showSpritesheetAlso = true;
     }
 
     public boolean isOpen() {
