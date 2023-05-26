@@ -58,8 +58,8 @@ public class AnimationState implements INonAddableComponent {
     public boolean imgui(StateMachine stateMachine) {
         ImGui.pushID("AnimationState" + this.title + this.hashCode());
 
-        float w = ImGui.getContentRegionAvailX() * 0.95f;
-        float h = (ImGui.getTextLineHeightWithSpacing() + ImGui.getStyle().getFramePaddingX() * 2.0f + 5f) * 7.5f;
+        float w = ImGui.getContentRegionAvailX() * 0.97f;
+        float h = (ImGui.getTextLineHeightWithSpacing() + ImGui.getStyle().getFramePaddingX()) * (4 * animationFrames.size() + 6);
 
         ImGui.beginChild("## AnimationState" + this.title, w, h, true);
 
