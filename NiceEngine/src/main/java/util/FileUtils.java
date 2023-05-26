@@ -3,7 +3,7 @@ package util;
 import editor.Debug;
 import components.Sprite;
 import editor.MessageBox;
-import editor.ReferenceConfig;
+import editor.ReferenceType;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ public class FileUtils {
 
     final static String defaultAssetFolder = "Assets";
     final static String defaultSprite = "assets/images/Default Sprite.png";
-    final static Map<String, String> icons = new HashMap<>() {
+    public final static Map<String, String> icons = new HashMap<>() {
         {
             put("FOLDER", "assets/images/folder-icon.png");
             put("LEFT_ARROW", "assets/images/left-arrow-icon.png");
@@ -56,22 +56,19 @@ public class FileUtils {
     }
 
     // Get file only,
-    public static List<File> getFilesWithReferenceConfig(ReferenceConfig refConfig) {
+    public static List<File> getFilesWithReferenceType(ReferenceType referenceType) {
         List<File> files = new ArrayList<>();
 
-        switch (refConfig.type) {
+        switch (referenceType) {
             case SPRITE -> {
                 files.addAll(getAllFilesWithExtensions(imageExtensions));
-                break;
             }
             case JAVA -> {
                 List<String> tmp = List.of("java");
                 files.addAll(getAllFilesWithExtensions(tmp));
-                break;
             }
             case SOUND -> {
                 files.addAll(getAllFilesWithExtensions(soundExtensions));
-                break;
             }
         }
 
@@ -179,6 +176,17 @@ public class FileUtils {
             return filename.substring(0, dotIndex);
         } else {
             return filename;
+        }
+    }
+
+    public static String getFileName(String filePath) {
+        int slashIndex = filePath.lastIndexOf('/');
+        if (slashIndex == -1) slashIndex = filePath.lastIndexOf('\\');
+
+        if (slashIndex == -1) {
+            return filePath;
+        } else {
+            return filePath.substring(slashIndex + 1);
         }
     }
 

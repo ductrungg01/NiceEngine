@@ -2,13 +2,11 @@ package components;
 
 import editor.Debug;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiComboFlags;
+import imgui.flag.ImGuiTreeNodeFlags;
 import imgui.type.ImBoolean;
-import imgui.type.ImString;
-import javassist.compiler.ast.Pair;
-import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -174,24 +172,30 @@ public class StateMachine extends Component {
         List<String> stateTitles = new ArrayList<>();
         for (AnimationState s : states) stateTitles.add(s.title);
 
+        if (defaultStateTitle.equals("") && states.size() > 0) {
+            defaultStateTitle = states.get(0).title;
+        }
+
         setDefaultState(NiceImGui.comboBox("Default state", defaultStateTitle, ImGuiComboFlags.None,
                 stateTitles, "Default Anim state of " + this.gameObject + this.hashCode()));
-
-        for (int i = 0; i < states.size(); i++) {
-            AnimationState state = states.get(i);
-
-            boolean needToRemove = state.imgui(this);
-
-            if (needToRemove) {
-                states.remove(i);
-                i--;
-            }
-        }
 
         if (NiceImGui.drawButton("New Animation State", new ButtonColor())) {
             AnimationState newState = new AnimationState();
             newState.title = "New state (" + states.size() + ")";
             states.add(newState);
+        }
+
+        for (int i = 0; i < states.size(); i++) {
+            AnimationState state = states.get(i);
+
+            if (ImGui.collapsingHeader("State '" + state.title + "'###" + state.hashCode(), ImGuiTreeNodeFlags.Bullet)) {
+                boolean needToRemove = state.imgui(this);
+
+                if (needToRemove) {
+                    states.remove(i);
+                    i--;
+                }
+            }
         }
     }
     //endregion

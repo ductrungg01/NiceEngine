@@ -51,33 +51,33 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
     public void loadResources(Scene scene) {
         AssetPool.getShader("assets/shaders/default.glsl");
 
-        AssetPool.addSpritesheet("assets/images/spritesheets/Enemies - Turtle.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/Enemies - Turtle.png"),
-                        8, 8, 55, 0));
-        AssetPool.addSpritesheet("assets/images/birds.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/birds.png"),
-                        532, 532, 2, 0));
-        AssetPool.addSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/decorationsAndBlocks.png"),
-                        16, 16, 81, 0));
-        AssetPool.addSpritesheet("assets/images/spritesheet.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/spritesheet.png"),
-                        16, 16, 26, 0));
-        AssetPool.addSpritesheet("assets/images/turtle.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/turtle.png"),
-                        16, 24, 4, 0));
-        AssetPool.addSpritesheet("assets/images/bigSpritesheet.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/bigSpritesheet.png"),
-                        16, 32, 42, 0));
-        AssetPool.addSpritesheet("assets/images/pipes.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/pipes.png"),
-                        32, 32, 6, 0));
-        AssetPool.addSpritesheet("assets/images/items.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/items.png"),
-                        16, 16, 43, 0));
-        AssetPool.addSpritesheet("assets/images/gizmos.png",
-                new Spritesheet(AssetPool.getTexture("assets/images/gizmos.png"),
-                        24, 48, 3, 0));
+//        AssetPool.addSpritesheet("assets/images/spritesheets/Enemies - Turtle.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/Enemies - Turtle.png"),
+//                        8, 8, 55, 0));
+//        AssetPool.addSpritesheet("assets/images/birds.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/birds.png"),
+//                        532, 532, 2, 0));
+//        AssetPool.addSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/decorationsAndBlocks.png"),
+//                        16, 16, 81, 0));
+//        AssetPool.addSpritesheet("assets/images/spritesheet.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/spritesheet.png"),
+//                        16, 16, 26, 0));
+//        AssetPool.addSpritesheet("assets/images/turtle.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/turtle.png"),
+//                        16, 24, 4, 0));
+//        AssetPool.addSpritesheet("assets/images/bigSpritesheet.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/bigSpritesheet.png"),
+//                        16, 32, 42, 0));
+//        AssetPool.addSpritesheet("assets/images/pipes.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/pipes.png"),
+//                        32, 32, 6, 0));
+//        AssetPool.addSpritesheet("assets/images/items.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/items.png"),
+//                        16, 16, 43, 0));
+//        AssetPool.addSpritesheet("assets/images/gizmos.png",
+//                new Spritesheet(AssetPool.getTexture("assets/images/gizmos.png"),
+//                        24, 48, 3, 0));
         AssetPool.getTexture("assets/images/blendImage2.png");
 
 
@@ -213,10 +213,6 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                         ImGui.sameLine();
                     }
                 }
-                ImGui.endTabItem();
-            }
-
-            if (ImGui.beginTabItem("Raw image")) {
                 ImGui.endTabItem();
             }
 

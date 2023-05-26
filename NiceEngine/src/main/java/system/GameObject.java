@@ -6,21 +6,14 @@ import components.Component;
 import components.ComponentDeserializer;
 import components.ObjectInfo;
 import components.SpriteRenderer;
-import editor.Debug;
-import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import imgui.ImGui;
-import imgui.flag.ImGuiTreeNodeFlags;
 import imgui.type.ImBoolean;
-import org.joml.Vector2f;
 import util.AssetPool;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static editor.uihelper.NiceShortCall.COLOR_LightRed;
-import static editor.uihelper.NiceShortCall.COLOR_Red;
 
 public class GameObject {
     //region Fields
@@ -114,7 +107,7 @@ public class GameObject {
                 c.imgui();
             }
 
-            if (removeComponentButton.get() == false) {
+            if (!removeComponentButton.get()) {
                 int response = JOptionPane.showConfirmDialog(null,
                         "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
                         "Remove component",

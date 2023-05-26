@@ -10,6 +10,10 @@ public class Spritesheet {
     //region Fields
     private Texture texture;
     private List<Sprite> sprites;
+
+    public int spriteWidth;
+    public int spriteHeight;
+    public int spacing;
     //endregion
 
     //region Constructors
@@ -17,6 +21,9 @@ public class Spritesheet {
         this.sprites = new ArrayList<>();
 
         this.texture = texture;
+        this.spriteWidth = spriteWidth;
+        this.spriteHeight = spriteHeight;
+        this.spacing = spacing;
         int currentX = 0;
         int currentY = 0;
 
@@ -56,6 +63,10 @@ public class Spritesheet {
 
     public int size() {
         return this.sprites.size();
+    }
+
+    public Texture getTexture() {
+        return this.texture;
     }
     //endregion
 }

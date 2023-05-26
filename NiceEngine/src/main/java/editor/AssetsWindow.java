@@ -2,7 +2,6 @@ package editor;
 
 import components.MouseControls;
 import components.Sprite;
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.lwjgl.glfw.GLFW;
@@ -23,8 +22,6 @@ public class AssetsWindow {
     private final String FOLDER_ICON = "assets/images/folder-icon.png";
     private final String LEFT_ARROW_ICON = "assets/images/left-arrow-icon.png";
     private final String RIGHT_ARROW_ICON = "assets/images/right-arrow-icon.png";
-    private final String JAVA_ICON = "assets/images/java-icon.png";
-    private final String FILE_ICON = "assets/images/file-icon.png";
     private static final String ROOT_FOLDER = "assets";
 
     private boolean rename = false;
@@ -232,11 +229,15 @@ public class AssetsWindow {
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else if (FileUtils.checkFileExtension("java", listOfFiles[i])) {
-                    spr.setTexture(AssetPool.getTexture(JAVA_ICON));
+                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get("JAVA")));
+                    ImGui.image(spr.getTexId(), 28, 28);
+                    ImGui.sameLine();
+                } else if (FileUtils.isSoundFile(listOfFiles[i])) {
+                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get("SOUND")));
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else {
-                    spr.setTexture(AssetPool.getTexture(FILE_ICON));
+                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get("FILE")));
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 }

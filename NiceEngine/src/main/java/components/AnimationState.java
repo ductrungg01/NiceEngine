@@ -1,12 +1,10 @@
 package components;
 
-import editor.ReferenceConfig;
 import editor.ReferenceType;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
+import editor.NiceImGui;
 import imgui.ImGui;
-import imgui.type.ImBoolean;
-import org.joml.Vector2f;
+import imgui.type.ImString;
 import util.AssetPool;
 
 import java.util.ArrayList;
@@ -56,14 +54,14 @@ public class AnimationState implements INonAddableComponent {
     }
 
     public boolean imgui(StateMachine stateMachine) {
-        ImGui.pushID("AnimationState" + this.title + this.hashCode());
+        ImGui.pushID("AnimationState" + this.hashCode());
 
-        float w = ImGui.getContentRegionAvailX() * 0.95f;
-        float h = (ImGui.getTextLineHeightWithSpacing() + ImGui.getStyle().getFramePaddingX() * 2.0f + 5f) * 7.5f;
+        float w = ImGui.getContentRegionAvailX() * 0.97f;
+        float h = (ImGui.getTextLineHeightWithSpacing() + ImGui.getStyle().getFramePaddingX()) * (4 * animationFrames.size() + 6);
 
-        ImGui.beginChild("## AnimationState" + this.title, w, h, true);
+        ImGui.beginChild("## AnimationStateConfig", w, h, true);
 
-        this.title = NiceImGui.inputText("Title: ", this.title, "AnimationState" + this.title + this.hashCode());
+        this.title = NiceImGui.inputText("Title: ", this.title, "AnimationState change title" + this.hashCode());
 
         this.doesLoop = NiceImGui.checkbox("Loop?", this.doesLoop);
         this.setLoop(doesLoop);
@@ -76,7 +74,7 @@ public class AnimationState implements INonAddableComponent {
             ImGui.text("Frame (" + index + ")");
 
             frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ",
-                    new ReferenceConfig(ReferenceType.SPRITE),
+                    ReferenceType.SPRITE,
                     frame.sprite,
                     "AnimationState" + this.title + "Frame" + index);
 

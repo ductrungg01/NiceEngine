@@ -168,8 +168,10 @@ public class ImGuiLayer {
 
         GameViewWindow.getInstance().imgui();
         SceneHierarchyWindow.getInstance().imgui();
-        AnimationStateCreator.getInstance().imgui();
         ConsoleWindow.getInstance().imgui();
+        SpritesheetLoaderWindow.getInstance().imgui();
+        FileDialog.getInstance().render();
+        AddingSpritesheetWindow.getInstance().spritesheetPreview();
 
         assetsWindow.imgui();
         messageBox.imgui();

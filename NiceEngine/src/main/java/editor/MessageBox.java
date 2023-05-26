@@ -1,6 +1,5 @@
 package editor;
 
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 
 import java.io.File;

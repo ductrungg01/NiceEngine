@@ -1,23 +1,13 @@
 package editor;
 
 import components.*;
-import components.scripts.test.TargetDebugging;
-import components.scripts.test.TestComponent;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.NiceImGui;
-import imgui.ImColor;
-import imgui.ImDrawList;
 import imgui.ImGui;
-import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
-import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
-import physics2d.components.Box2DCollider;
-import physics2d.components.CircleCollider;
-import physics2d.components.RigidBody2D;
 import renderer.PickingTexture;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,6 +41,28 @@ public class InspectorWindow {
         classes = reflections.getSubTypesOf(Component.class);
         reflections = new Reflections("components");
         classes.addAll(reflections.getSubTypesOf(Component.class));
+
+        List<Class<? extends Component>> classesToRemove = new ArrayList<>();
+
+        for (Class<? extends Component> aClass : classes) {
+            try {
+                Component component = aClass.getDeclaredConstructor().newInstance();
+                if (component instanceof INonAddableComponent) {
+                    classesToRemove.add(aClass);
+                }
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException | NoSuchMethodException e) {
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    cause.printStackTrace();
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        classes.removeAll(classesToRemove);
     }
     //endregion
 
@@ -90,20 +102,19 @@ public class InspectorWindow {
 
                 ImGui.beginChild("ComponentList", 500, 350, true, ImGuiWindowFlags.HorizontalScrollbar);
                 for (Class<? extends Component> aClass : classes) {
-                    Component component = null;
-                    try {
-                        // Tạo mới một đối tượng Component từ lớp aClass
-                        component = aClass.getDeclaredConstructor().newInstance();
-                        if (component instanceof INonAddableComponent) continue;
-                        if (activeGameObject.getComponent(aClass) != null) continue;
-                    } catch (InstantiationException | IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException | NoSuchMethodException e) {
-                        throw new RuntimeException(e);
-                    }
                     String className = aClass.getSimpleName();
                     if (searchText.isEmpty() || className.toLowerCase().contains(searchText.toLowerCase())) {
                         if (ImGui.menuItem(className)) {
+                            Component component = null;
+                            try {
+                                component = aClass.getDeclaredConstructor().newInstance();
+                                if (activeGameObject.getComponent(aClass) != null) continue;
+                            } catch (InstantiationException | IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException | NoSuchMethodException e) {
+                                throw new RuntimeException(e);
+                            }
+
                             showAddComponentMenu = false;
                             if (activeGameObject.getComponent(aClass) == null) {
                                 activeGameObject.addComponent(component);

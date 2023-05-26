@@ -6,9 +6,7 @@ import renderer.Shader;
 import renderer.Texture;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AssetPool {
     //region Fields
@@ -43,7 +41,6 @@ public class AssetPool {
         }
     }
 
-
     public static Spritesheet getSpritesheet(String resourceName) {
         File file = new File(resourceName);
         if (!AssetPool.spritesheets.containsKey(file.getPath())) {
@@ -51,6 +48,15 @@ public class AssetPool {
         }
 
         return AssetPool.spritesheets.getOrDefault(file.getPath(), null);
+    }
+
+    public static List<Spritesheet> getAllSpritesheets() {
+        List<Spritesheet> sprs = new ArrayList<>();
+        for (Spritesheet spr : spritesheets.values()) {
+            sprs.add(spr);
+        }
+
+        return sprs;
     }
 
     public static Collection<Sound> getAllSounds() {
@@ -86,6 +92,13 @@ public class AssetPool {
         File file = new File(resourceName);
         if (!AssetPool.spritesheets.containsKey(file.getPath())) {
             AssetPool.spritesheets.put(file.getPath(), spritesheet);
+        }
+    }
+
+    public static void removeSpritesheet(String resourceName) {
+        File file = new File(resourceName);
+        if (AssetPool.spritesheets.containsKey(file.getPath())) {
+            AssetPool.spritesheets.remove(file.getPath());
         }
     }
     //endregion

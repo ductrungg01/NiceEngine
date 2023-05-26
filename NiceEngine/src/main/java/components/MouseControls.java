@@ -1,10 +1,6 @@
 package components;
 
-import editor.Debug;
-import editor.GameViewWindow;
-import editor.InspectorWindow;
-import editor.SceneHierarchyWindow;
-import editor.uihelper.NiceImGui;
+import editor.*;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;
@@ -20,7 +16,6 @@ import util.Settings;
 import java.util.HashSet;
 import java.util.Set;
 
-import static editor.SceneHierarchyWindow.clearSelectedGameObject;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
@@ -38,7 +33,7 @@ public class MouseControls extends Component implements INonAddableComponent {
     //region Override methods
     @Override
     public void editorUpdate(float dt) {
-        if (NiceImGui.openFileDialog || !GameViewWindow.getInstance().getWantCaptureMouse()) return;
+        if (FileDialog.getInstance().isOpen() || !GameViewWindow.getInstance().getWantCaptureMouse()) return;
         debounce -= dt;
         PickingTexture pickingTexture = Window.getImguiLayer().getInspectorWindow().getPickingTexture();
         Scene currentScene = Window.getScene();

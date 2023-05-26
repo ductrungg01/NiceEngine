@@ -2,7 +2,6 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import components.Sprite;
-import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiDir;
 import imgui.flag.ImGuiWindowFlags;
@@ -11,7 +10,7 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import util.AssetPool;
 
-import static editor.uihelper.NiceImGui.drawButton;
+import static editor.NiceImGui.drawButton;
 import static editor.uihelper.NiceShortCall.*;
 
 public class AnimationStateCreator {
@@ -31,7 +30,7 @@ public class AnimationStateCreator {
     }
     //endregion
 
-    public static boolean isShow = true;
+    public static boolean isShow = false;
     private boolean showFileDialog = false;
 
     ImString imagePath = new ImString("Assets/images/something.png");
