@@ -10,12 +10,15 @@ import observers.Observer;
 import observers.events.Event;
 import observers.events.EventType;
 import org.lwjgl.glfw.GLFW;
+import renderer.Texture;
 import system.*;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import renderer.Renderer;
 import util.AssetPool;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -202,6 +205,7 @@ public class Scene {
     }
 
     public void save(boolean isShowMessage) {
+        //region Save Game Object
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
@@ -212,23 +216,47 @@ public class Scene {
         try {
             FileWriter writer = new FileWriter("level.txt");
 
-            List<GameObject> objsToSerilize = new ArrayList<>();
+            List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
                 if (obj.doSerialization()) {
-                    objsToSerilize.add(obj);
+                    objsToSerialize.add(obj);
                 }
             }
 
-            writer.write(gson.toJson(objsToSerilize));
+            writer.write(gson.toJson(objsToSerialize));
             writer.close();
-            if (isShowMessage) MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+            if (isShowMessage)
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
         } catch (IOException e) {
             e.printStackTrace();
-            if (isShowMessage) MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
+            if (isShowMessage)
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
         }
+        //endregion
+
+        //region Save Spritesheet
+        List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
+        try {
+            FileWriter writer = new FileWriter("spritesheet.txt");
+
+            for (Spritesheet s : spritesheets) {
+                writer.write(s.getTexture().getFilePath() + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
+                        s.size() + "|" + s.spacing + "\n");
+            }
+
+            writer.close();
+            if (isShowMessage)
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+        } catch (IOException e) {
+            e.printStackTrace();
+            if (isShowMessage)
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
+        }
+        //endregion
     }
 
     public void load() {
+        //region Load Game object
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
@@ -269,6 +297,33 @@ public class Scene {
             GameObject.init(maxGoId);
             Component.init(maxCompId);
         }
+        //endregion
+
+        //region Load spritesheet
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("spritesheet.txt"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split("\\|");
+
+                String textureSrc = values[0];
+                Texture texture = new Texture();
+                texture.init(textureSrc);
+                int sprWidth = Integer.parseInt(values[1]);
+                int sprHeight = Integer.parseInt(values[2]);
+                int numsSprite = Integer.parseInt(values[3]);
+                int spacing = Integer.parseInt(values[4]);
+
+                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacing);
+                AssetPool.addSpritesheet(textureSrc, spritesheet);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //endregion
     }
     //endregion
 }
