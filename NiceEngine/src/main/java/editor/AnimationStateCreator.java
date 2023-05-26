@@ -31,7 +31,7 @@ public class AnimationStateCreator {
     }
     //endregion
 
-    public static boolean isShow = true;
+    public static boolean isShow = false;
     private boolean showFileDialog = false;
 
     ImString imagePath = new ImString("Assets/images/something.png");

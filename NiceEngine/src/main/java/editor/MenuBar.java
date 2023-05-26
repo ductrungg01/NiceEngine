@@ -32,8 +32,6 @@ public class MenuBar {
         }
 
         ImGui.endMenuBar();
-
-        ImGui.showDemoWindow();
     }
     //endregion
 }
