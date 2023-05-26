@@ -7,6 +7,7 @@ import editor.uihelper.ColorHelp;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
+import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
@@ -47,6 +48,7 @@ public class FileDialog {
     private List<Spritesheet> spritesheetList = new ArrayList<>();
     static float BUTTON_SIZE_BOOST = 1;
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
+    public static String spritesheet_has_just_used = "";
 
     public void open(String idWaiting, ReferenceType typeRequest) {
         selectedObject = null;
@@ -138,7 +140,19 @@ public class FileDialog {
             if (ImGui.beginTabBar("FileDialogSpritesheetTabBar")) {
                 for (Spritesheet spritesheet : spritesheetList) {
                     String spritesheetName = FileUtils.getFileName(spritesheet.getTexture().getFilePath());
-                    if (ImGui.beginTabItem(spritesheetName)) {
+
+                    ImBoolean pOpen = new ImBoolean(true);
+                    if (!spritesheet_has_just_used.equals("")) {
+                        if (!spritesheetName.equals(spritesheet_has_just_used)) {
+                            pOpen = new ImBoolean(false);
+                        }
+                    }
+
+                    if (ImGui.beginTabItem(spritesheetName, pOpen)) {
+                        if (!spritesheetName.equals(spritesheet_has_just_used)) {
+                            spritesheet_has_just_used = "";
+                        }
+
                         ImGui.beginChild("##Select sprite from spritesheet on FileDialog with spritesheet " + spritesheetName, ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.75f, true);
 
                         ImVec2 windowPos = new ImVec2();
@@ -180,6 +194,9 @@ public class FileDialog {
                             if (i + 1 < spritesheet.size() && nextButtonX2 <= windowX2) {
                                 ImGui.sameLine();
                             }
+
+                            if (spriteChosen != null) break;
+
                         }
                         ImGui.endChild();
                         ImGui.endTabItem();
