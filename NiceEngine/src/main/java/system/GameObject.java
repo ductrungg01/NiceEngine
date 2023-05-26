@@ -107,7 +107,7 @@ public class GameObject {
                 c.imgui();
             }
 
-            if (removeComponentButton.get() == false) {
+            if (!removeComponentButton.get()) {
                 int response = JOptionPane.showConfirmDialog(null,
                         "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
                         "Remove component",

@@ -6,6 +6,7 @@ import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiComboFlags;
 import imgui.flag.ImGuiTreeNodeFlags;
+import imgui.type.ImBoolean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -187,7 +188,7 @@ public class StateMachine extends Component {
         for (int i = 0; i < states.size(); i++) {
             AnimationState state = states.get(i);
 
-            if (ImGui.collapsingHeader("State '" + state.title + "'", ImGuiTreeNodeFlags.Bullet)) {
+            if (ImGui.collapsingHeader("State '" + state.title + "'###" + state.hashCode(), ImGuiTreeNodeFlags.Bullet)) {
                 boolean needToRemove = state.imgui(this);
 
                 if (needToRemove) {
