@@ -230,7 +230,7 @@ public class NiceImGui {
                 oldValue = FileUtils.getDefaultSprite();
             }
         }
-        
+
         ImGui.columns(1);
 
         ImGui.popID();

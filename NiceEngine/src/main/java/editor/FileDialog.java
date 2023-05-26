@@ -5,7 +5,9 @@ import components.Spritesheet;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.ColorHelp;
 import imgui.ImGui;
+import imgui.ImVec2;
 import imgui.flag.ImGuiCol;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
@@ -18,6 +20,8 @@ import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
 import static editor.uihelper.NiceShortCall.COLOR_Blue;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_LEFT;
+import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class FileDialog {
     //region Singleton
@@ -41,6 +45,8 @@ public class FileDialog {
     private ReferenceType referenceType = null;
     private List<Object> itemList = new ArrayList<>();
     private List<Spritesheet> spritesheetList = new ArrayList<>();
+    static float BUTTON_SIZE_BOOST = 1;
+    static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
 
     public void open(String idWaiting, ReferenceType typeRequest) {
         selectedObject = null;
@@ -123,12 +129,59 @@ public class FileDialog {
             this.spritesheetList = AssetPool.getAllSpritesheets();
         }
 
+        Sprite spriteChosen = null;
+
+        final float DEFAULT_SPRITE_BUTTON_SIZE = 32;
+
         if (ImGui.beginTabItem("SPRITESHEET")) {
             ImGui.text("Select an spritesheet tab and choose an sprite below!");
             if (ImGui.beginTabBar("FileDialogSpritesheetTabBar")) {
                 for (Spritesheet spritesheet : spritesheetList) {
                     String spritesheetName = FileUtils.getFileName(spritesheet.getTexture().getFilePath());
                     if (ImGui.beginTabItem(spritesheetName)) {
+                        ImGui.beginChild("##Select sprite from spritesheet on FileDialog with spritesheet " + spritesheetName, ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.75f, true);
+
+                        ImVec2 windowPos = new ImVec2();
+                        ImGui.getWindowPos(windowPos);
+                        ImVec2 windowSize = new ImVec2();
+                        ImGui.getWindowSize(windowSize);
+                        ImVec2 itemSpacing = new ImVec2();
+                        ImGui.getStyle().getItemSpacing(itemSpacing);
+                        float windowX2 = windowPos.x + windowSize.x;
+
+                        BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "FileDialogSettingBoostButtonSizeForSpriteInSpritesheet" + spritesheetName);
+                        ImGui.sameLine();
+                        if (ImGui.button("Reset")) {
+                            BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;
+                        }
+
+                        for (int i = 0; i < spritesheet.size(); i++) {
+                            Sprite spr = spritesheet.getSprite(i);
+                            Vector2f[] texCoords = spr.getTexCoords();
+                            float offset = Math.min(DEFAULT_SPRITE_BUTTON_SIZE / spr.getWidth(), DEFAULT_SPRITE_BUTTON_SIZE / spr.getHeight());
+                            float spriteWidth = spr.getWidth() * offset * BUTTON_SIZE_BOOST;
+                            float spriteHeight = spr.getHeight() * offset * BUTTON_SIZE_BOOST;
+                            ImGui.pushID(spr.getTexId());
+                            // If select this sprite
+                            if (ImGui.imageButton(spr.getTexId(), spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y)) {
+                            }
+
+                            if (ImGui.isItemHovered()) {
+                                if (ImGui.isMouseDoubleClicked(GLFW_MOUSE_BUTTON_LEFT)) {
+                                    spriteChosen = spr;
+                                }
+                            }
+                            ImGui.popID();
+
+                            ImVec2 lastButtonPos = new ImVec2();
+                            ImGui.getItemRectMax(lastButtonPos);
+                            float lastButtonX2 = lastButtonPos.x;
+                            float nextButtonX2 = lastButtonX2 + itemSpacing.x + spriteWidth;
+                            if (i + 1 < spritesheet.size() && nextButtonX2 <= windowX2) {
+                                ImGui.sameLine();
+                            }
+                        }
+                        ImGui.endChild();
                         ImGui.endTabItem();
                     }
                 }
@@ -136,6 +189,12 @@ public class FileDialog {
                 ImGui.endTabBar();
             }
             ImGui.endTabItem();
+        }
+
+        if (spriteChosen != null) {
+            setSelectedObject(spriteChosen);
+            close();
+            ImGui.closeCurrentPopup();
         }
     }
 
@@ -191,13 +250,13 @@ public class FileDialog {
         final float offsetOfIconAndName = 5f;
         ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
         if (ImGui.isItemHovered()) {
-            if (ImGui.isMouseDoubleClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+            if (ImGui.isMouseDoubleClicked(GLFW_MOUSE_BUTTON_LEFT)) {
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
                 ImGui.text(shortItemName);
                 ImGui.popStyleColor(1);
 
                 returnValue = 3;
-            } else if (ImGui.isItemClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
+            } else if (ImGui.isItemClicked(GLFW_MOUSE_BUTTON_LEFT)) {
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
                 ImGui.text(shortItemName);
                 ImGui.popStyleColor(1);
@@ -224,9 +283,13 @@ public class FileDialog {
         } else {
             switch (this.referenceType) {
                 case SPRITE -> {
-                    File itemFile = (File) item;
-                    Sprite spr = new Sprite(itemFile.getPath());
-                    this.selectedObject = spr;
+                    if (item instanceof File) {
+                        File itemFile = (File) item;
+                        Sprite spr = new Sprite(itemFile.getPath());
+                        this.selectedObject = spr;
+                    } else if (item instanceof Sprite) {
+                        this.selectedObject = item;
+                    }
                 }
                 case SOUND, JAVA -> {
                     File itemFile = (File) item;
