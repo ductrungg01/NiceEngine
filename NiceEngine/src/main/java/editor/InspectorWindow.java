@@ -41,6 +41,28 @@ public class InspectorWindow {
         classes = reflections.getSubTypesOf(Component.class);
         reflections = new Reflections("components");
         classes.addAll(reflections.getSubTypesOf(Component.class));
+
+        List<Class<? extends Component>> classesToRemove = new ArrayList<>();
+
+        for (Class<? extends Component> aClass : classes) {
+            try {
+                Component component = aClass.getDeclaredConstructor().newInstance();
+                if (component instanceof INonAddableComponent) {
+                    classesToRemove.add(aClass);
+                }
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException | NoSuchMethodException e) {
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    cause.printStackTrace();
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        classes.removeAll(classesToRemove);
     }
     //endregion
 
@@ -80,20 +102,19 @@ public class InspectorWindow {
 
                 ImGui.beginChild("ComponentList", 500, 350, true, ImGuiWindowFlags.HorizontalScrollbar);
                 for (Class<? extends Component> aClass : classes) {
-                    Component component = null;
-                    try {
-                        // Tạo mới một đối tượng Component từ lớp aClass
-                        component = aClass.getDeclaredConstructor().newInstance();
-                        if (component instanceof INonAddableComponent) continue;
-                        if (activeGameObject.getComponent(aClass) != null) continue;
-                    } catch (InstantiationException | IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException | NoSuchMethodException e) {
-                        throw new RuntimeException(e);
-                    }
                     String className = aClass.getSimpleName();
                     if (searchText.isEmpty() || className.toLowerCase().contains(searchText.toLowerCase())) {
                         if (ImGui.menuItem(className)) {
+                            Component component = null;
+                            try {
+                                component = aClass.getDeclaredConstructor().newInstance();
+                                if (activeGameObject.getComponent(aClass) != null) continue;
+                            } catch (InstantiationException | IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InvocationTargetException | NoSuchMethodException e) {
+                                throw new RuntimeException(e);
+                            }
+
                             showAddComponentMenu = false;
                             if (activeGameObject.getComponent(aClass) == null) {
                                 activeGameObject.addComponent(component);
