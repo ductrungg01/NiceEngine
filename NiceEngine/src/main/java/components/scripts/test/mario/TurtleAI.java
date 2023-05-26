@@ -2,9 +2,13 @@ package components.scripts.test.mario;
 
 import components.Component;
 import components.StateMachine;
+import components.scripts.test.MarioMoving;
 import components.scripts.test.mario.Fireball;
 import components.scripts.test.mario.GoombaAI;
 import components.scripts.test.mario.PlayerController;
+import editor.Debug;
+import physics2d.components.CircleCollider;
+import renderer.DebugDraw;
 import system.Camera;
 import system.GameObject;
 import system.Window;
@@ -30,6 +34,7 @@ public class TurtleAI extends Component {
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
@@ -37,11 +42,12 @@ public class TurtleAI extends Component {
     public void start() {
         this.stateMachine = gameObject.getComponent(StateMachine.class);
         this.rb = gameObject.getComponent(RigidBody2D.class);
-        this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
+        this.acceleration.y = Window.getPhysics().getGravity().y * 0.2f;
     }
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
     @Override
@@ -77,26 +83,35 @@ public class TurtleAI extends Component {
 
         if (this.gameObject.transform.position.x
                 < Window.getScene().camera().position.x - 0.5f
-                //|| this.gameObject.transform.position.y < 0.0f
+            //|| this.gameObject.transform.position.y < 0.0f
         ) {
             this.gameObject.destroy();
         }
+
+        if (isDead) {
+            if (isMoving) {
+                this.stateMachine.setCurrentState("TurtleShellSpinMoving");
+            } else {
+                this.stateMachine.setCurrentState("TurtleShellSpin");
+            }
+        }
+        Debug.Log("isDead:" + isDead + "  |  " + "isMoving: " + isMoving + "  | State: " + this.stateMachine.getCurrentStateTitle());
     }
 
     @Override
     public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
-        PlayerController playerController = obj.getComponent(PlayerController.class);
-        if (playerController != null) {
-            if (!isDead && !playerController.isDead() && !playerController.isHurtInvincible() && contactNormal.y > 0.58f) {
-                playerController.enemyBounce();
+        MarioMoving marioMoving = obj.getComponent(MarioMoving.class);
+        if (marioMoving != null) {
+            if (!isDead && !marioMoving.isDead() && !marioMoving.isHurtInvincible() && contactNormal.y > 0.58f) {
+                marioMoving.enemyBounce();
                 stomp();
-                walkSpeed *= 3.0f;
-            } else if (movingDebounce < 0 && !playerController.isDead() && !playerController.isInvincible() &&
+                walkSpeed *= 4.0f;
+            } else if (movingDebounce < 0 && !marioMoving.isDead() && !marioMoving.isInvincible() &&
                     (isMoving || !isDead) && contactNormal.y < 0.58f) {
-                playerController.die();
-            } else if (!playerController.isDead() && !playerController.isHurtInvincible()) {
+                marioMoving.die();
+            } else if (!marioMoving.isDead() && !marioMoving.isHurtInvincible()) {
                 if (isDead && contactNormal.y > 0.58f) {
-                    playerController.enemyBounce();
+                    marioMoving.enemyBounce();
                     isMoving = !isMoving;
                     goingRight = contactNormal.x < 0;
                 } else if (isDead && !isMoving) {
@@ -110,7 +125,8 @@ public class TurtleAI extends Component {
             AssetPool.getSound("assets/sounds/bump.ogg").play();
         }
 
-        if (obj.getComponent(Fireball.class) != null){
+
+        if (obj.getComponent(Fireball.class) != null) {
             stomp();
             obj.getComponent(Fireball.class).disappear();
         }
@@ -129,7 +145,7 @@ public class TurtleAI extends Component {
 
     //region Methods
     public void checkOnGround() {
-        float innerPlayerWidth = 0.25f* 0.7f;
+        float innerPlayerWidth = 0.25f * 0.7f;
         float yVal = -0.2f;
         onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
     }
@@ -141,7 +157,9 @@ public class TurtleAI extends Component {
         this.rb.setVelocity(new Vector2f());
         this.rb.setAngularVelocity(0.0f);
         this.rb.setGravityScale(0.0f);
-        this.stateMachine.trigger("SquashMe");
+        this.stateMachine.setCurrentState("TurtleShellSpin");
+        this.gameObject.transform.scale.y = 0.25f;
+        this.gameObject.getComponent(CircleCollider.class).setRadius(0.125f);
         AssetPool.getSound("assets/sounds/bump.ogg").play();
     }
     //endregion

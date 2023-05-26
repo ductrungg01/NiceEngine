@@ -1,6 +1,10 @@
 package components;
 
-import editor.PropertiesWindow;
+import editor.Debug;
+import editor.GameViewWindow;
+import editor.InspectorWindow;
+import editor.SceneHierarchyWindow;
+import editor.uihelper.NiceImGui;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;
@@ -16,28 +20,32 @@ import util.Settings;
 import java.util.HashSet;
 import java.util.Set;
 
+import static editor.SceneHierarchyWindow.clearSelectedGameObject;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
-public class MouseControls extends Component {
+public class MouseControls extends Component implements INonAddableComponent {
     //region Fields
-    GameObject holdingObject = null;
-    private float debounceTime = 0.2f;
-    private float debounce = debounceTime;
+    static GameObject holdingObject = null;
+    private static float debounceTime = 0.2f;
+    private static float debounce = debounceTime;
 
-    private boolean boxSelectSet = false;
-    private Vector2f boxSelectStart = new Vector2f();
-    private Vector2f boxSelectEnd = new Vector2f();
+    private static boolean boxSelectSet = false;
+    private static Vector2f boxSelectStart = new Vector2f();
+    private static Vector2f boxSelectEnd = new Vector2f();
     //endregion
 
     //region Override methods
     @Override
     public void editorUpdate(float dt) {
+        if (NiceImGui.openFileDialog || !GameViewWindow.getInstance().getWantCaptureMouse()) return;
         debounce -= dt;
-        PickingTexture pickingTexture = Window.getImguiLayer().getPropertiesWindow().getPickingTexture();
+        PickingTexture pickingTexture = Window.getImguiLayer().getInspectorWindow().getPickingTexture();
         Scene currentScene = Window.getScene();
 
         if (holdingObject != null) {
+            boxSelectSet = false;
+            holdingObject.setNoSerialize();
             float x = MouseListener.getWorldX();
             float y = MouseListener.getWorldY();
             holdingObject.transform.position.x = ((int) Math.floor(x / Settings.GRID_WIDTH) * Settings.GRID_WIDTH) + Settings.GRID_WIDTH / 2.0f;
@@ -66,14 +74,16 @@ public class MouseControls extends Component {
             int gameObjectId = pickingTexture.readPixel(x, y);
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                Window.getImguiLayer().getPropertiesWindow().setActiveGameObject(pickedObj);
+                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
+                SceneHierarchyWindow.setSelectedGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
-                Window.getImguiLayer().getPropertiesWindow().clearSelected();
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
+                SceneHierarchyWindow.clearSelectedGameObject();
             }
-            this.debounce = 0.2f;
+            this.debounce = debounceTime;
         } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
             if (!boxSelectSet) {
-                Window.getImguiLayer().getPropertiesWindow().clearSelected();
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
                 boxSelectStart = MouseListener.getScreen();
                 boxSelectSet = true;
             }
@@ -110,20 +120,23 @@ public class MouseControls extends Component {
                 screenEndY = tmp;
             }
 
-            float[] gameObjectIds = pickingTexture.readPixels(
-                    new Vector2i(screenStartX, screenStartY),
-                    new Vector2i(screenEndX, screenEndY)
-            );
-            Set<Integer> uniqueGameObjectIds = new HashSet<>();
-            for (float objId : gameObjectIds) {
-                uniqueGameObjectIds.add((int) objId);
-            }
-
-            for (Integer gameObjectId : uniqueGameObjectIds) {
-                GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
-                if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                    Window.getImguiLayer().getPropertiesWindow().addActiveGameObject(pickedObj);
+            if (MouseListener.isMouseRelease(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
+                float[] gameObjectIds = pickingTexture.readPixels(
+                        new Vector2i(screenStartX, screenStartY),
+                        new Vector2i(screenEndX, screenEndY)
+                );
+                Set<Integer> uniqueGameObjectIds = new HashSet<>();
+                for (float objId : gameObjectIds) {
+                    uniqueGameObjectIds.add((int) objId);
                 }
+
+                for (Integer gameObjectId : uniqueGameObjectIds) {
+                    GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
+                    if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
+                        Window.getImguiLayer().getInspectorWindow().addActiveGameObject(pickedObj);
+                    }
+                }
+                this.debounce = debounceTime;
             }
         }
     }
@@ -141,7 +154,9 @@ public class MouseControls extends Component {
     }
 
     public void place() {
+        if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()) return;
         GameObject newObj = this.holdingObject.copy();
+        newObj.doSerialization();
         if (newObj.getComponent(StateMachine.class) != null) {
             newObj.getComponent(StateMachine.class).refreshTextures();
         }
@@ -151,14 +166,14 @@ public class MouseControls extends Component {
     }
 
     private boolean blockInSquare(float x, float y) {
-        PropertiesWindow propertiesWindow = Window.getImguiLayer().getPropertiesWindow();
+        InspectorWindow inspectorWindow = Window.getImguiLayer().getInspectorWindow();
         Vector2f start = new Vector2f(x, y);
         Vector2f end = new Vector2f(start).add(new Vector2f(Settings.GRID_WIDTH, Settings.GRID_HEIGHT));
         Vector2f startScreenf = MouseListener.worldToScreen(start);
         Vector2f endScreenf = MouseListener.worldToScreen(end);
         Vector2i startScreen = new Vector2i((int) startScreenf.x + 2, (int) startScreenf.y + 2);
         Vector2i endScreen = new Vector2i((int) endScreenf.x - 2, (int) endScreenf.y - 2);
-        float[] gameObjectIds = propertiesWindow.getPickingTexture().readPixels(startScreen, endScreen);
+        float[] gameObjectIds = inspectorWindow.getPickingTexture().readPixels(startScreen, endScreen);
 
         for (int i = 0; i < gameObjectIds.length; i++) {
             if (gameObjectIds[i] > 0) {

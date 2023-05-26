@@ -1,27 +1,29 @@
 package scenes;
 
 import components.*;
+import components.scripts.test.MarioCameraFollow;
+import components.scripts.test.mario.GameCamera;
 import system.*;
 import util.AssetPool;
 
 public class LevelSceneInitializer extends SceneInitializer {
-    //region Contructors
-    public LevelSceneInitializer(){
+    //region Constructors
+    public LevelSceneInitializer() {
 
     }
     //endregion
 
     //region Override methods
     @Override
-    public void init(Scene scene){
+    public void init(Scene scene) {
         Spritesheet sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
 
-        GameObject cameraObject = scene.createGameObject("Game Camera");
-        cameraObject.addComponent(new GameCamera(scene.camera()));
-
-        cameraObject.start();
-
-        scene.addGameObjectToScene(cameraObject);
+//        GameObject cameraObject = scene.createGameObject("Camera Follow Mario");
+//        cameraObject.addComponent(new MarioCameraFollow(scene.camera()));
+//
+//        cameraObject.start();
+//
+//        scene.addGameObjectToScene(cameraObject);
     }
 
     @Override
@@ -67,15 +69,15 @@ public class LevelSceneInitializer extends SceneInitializer {
         AssetPool.addSound("assets/sounds/kick.ogg", false);
         AssetPool.addSound("assets/sounds/invincible.ogg", false);
 
-        for (GameObject g : scene.getGameObjects()){
-            if (g.getComponent(SpriteRenderer.class) != null){
+        for (GameObject g : scene.getGameObjects()) {
+            if (g.getComponent(SpriteRenderer.class) != null) {
                 SpriteRenderer spr = g.getComponent(SpriteRenderer.class);
-                if (spr.getTexture() != null){
+                if (spr.getTexture() != null) {
                     spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
                 }
             }
 
-            if (g.getComponent(StateMachine.class) != null){
+            if (g.getComponent(StateMachine.class) != null) {
                 StateMachine stateMachine = g.getComponent(StateMachine.class);
                 stateMachine.refreshTextures();
             }
@@ -83,7 +85,7 @@ public class LevelSceneInitializer extends SceneInitializer {
     }
 
     @Override
-    public void imgui(){
+    public void imgui() {
 
     }
     //endregion

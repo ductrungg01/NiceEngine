@@ -5,16 +5,18 @@ import org.w3c.dom.Text;
 import renderer.Texture;
 import util.AssetPool;
 
-public class Sprite {
+public class Sprite implements INonAddableComponent {
     //region Fields
     private float width, height;
 
     private Texture texture = null;
     private Vector2f[] texCoords = {
-            new Vector2f(1, 1),
             new Vector2f(1, 0),
+            new Vector2f(1, 1),
+            new Vector2f(0, 1),
             new Vector2f(0, 0),
-            new Vector2f(0, 1)
+
+
     };
     //endregion
 

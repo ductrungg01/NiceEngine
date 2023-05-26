@@ -6,12 +6,21 @@ import components.Component;
 import components.ComponentDeserializer;
 import components.ObjectInfo;
 import components.SpriteRenderer;
+import editor.Debug;
+import editor.uihelper.ButtonColor;
 import editor.uihelper.NiceImGui;
 import imgui.ImGui;
+import imgui.flag.ImGuiTreeNodeFlags;
+import imgui.type.ImBoolean;
+import org.joml.Vector2f;
 import util.AssetPool;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static editor.uihelper.NiceShortCall.COLOR_LightRed;
+import static editor.uihelper.NiceShortCall.COLOR_Red;
 
 public class GameObject {
     //region Fields
@@ -24,7 +33,7 @@ public class GameObject {
     private boolean isDead = false;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public GameObject(String name) {
         this.name = name;
         this.components = new ArrayList<>();
@@ -70,7 +79,7 @@ public class GameObject {
     }
 
     /**
-     * // Update is called once per frame
+     * Update is called once per frame
      *
      * @param dt : The interval in seconds from the last frame to the current one
      */
@@ -91,13 +100,31 @@ public class GameObject {
 
     public void imgui() {
         ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
-        objectInfo.name = NiceImGui.inputText("Name", objectInfo.name);
+        objectInfo.name = NiceImGui.inputText("Name", objectInfo.name, "Name of " + this.hashCode());
+        objectInfo.tag = NiceImGui.inputText("Tag", objectInfo.tag, "Tag of " + this.hashCode());
 
-        for (Component c : components) {
+        for (int i = 0; i < components.size(); i++) {
+            Component c = components.get(i);
+
             if (c.getClass() == ObjectInfo.class) continue;
 
-            if (ImGui.collapsingHeader(c.getClass().getSimpleName()))
+            ImBoolean removeComponentButton = new ImBoolean(true);
+
+            if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
                 c.imgui();
+            }
+
+            if (removeComponentButton.get() == false) {
+                int response = JOptionPane.showConfirmDialog(null,
+                        "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
+                        "Remove component",
+                        JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    components.remove(i);
+                    i--;
+                }
+            }
+
         }
     }
 
@@ -162,6 +189,11 @@ public class GameObject {
 
     public boolean doSerialization() {
         return this.doSerialization;
+    }
+
+    public boolean compareTag(String tag) {
+        ObjectInfo oi = getComponent(ObjectInfo.class);
+        return oi.tag.equals(tag);
     }
     //endregion
 }

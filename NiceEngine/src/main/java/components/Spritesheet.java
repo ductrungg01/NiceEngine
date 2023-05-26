@@ -12,7 +12,7 @@ public class Spritesheet {
     private List<Sprite> sprites;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int numSprites, int spacing) {
         this.sprites = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class Spritesheet {
                     new Vector2f(rightX, topY),
                     new Vector2f(rightX, bottomY),
                     new Vector2f(leftX, bottomY),
-                    new Vector2f(leftX, topY)
+                    new Vector2f(leftX, topY),
             };
 
             Sprite sprite = new Sprite();
@@ -56,6 +56,10 @@ public class Spritesheet {
 
     public int size() {
         return this.sprites.size();
+    }
+
+    public Texture getTexture() {
+        return this.texture;
     }
     //endregion
 }

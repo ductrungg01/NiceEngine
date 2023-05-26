@@ -7,27 +7,27 @@ import org.joml.Vector3f;
 import renderer.DebugDraw;
 import util.Settings;
 
-public class GridLines extends Component{
+public class GridLines extends Component implements INonAddableComponent {
     //region Override methods
     @Override
-    public void editorUpdate(float dt){
+    public void editorUpdate(float dt) {
         Camera camera = Window.getScene().camera();
 
         Vector2f cameraPos = camera.position;
         Vector2f projectionSize = camera.getProjectionSize();
 
-        float firstX = ((int)(cameraPos.x / Settings.GRID_WIDTH)) * Settings.GRID_WIDTH;
-        float firstY = ((int)(cameraPos.y / Settings.GRID_HEIGHT)) * Settings.GRID_HEIGHT;
+        float firstX = ((int) (cameraPos.x / Settings.GRID_WIDTH)) * Settings.GRID_WIDTH;
+        float firstY = ((int) (cameraPos.y / Settings.GRID_HEIGHT)) * Settings.GRID_HEIGHT;
 
-        int numVtLines = (int)(projectionSize.x * camera.getZoom() / Settings.GRID_WIDTH) + 2;
-        int numHzLines = (int)(projectionSize.y * camera.getZoom() / Settings.GRID_HEIGHT) + 2;
+        int numVtLines = (int) (projectionSize.x * camera.getZoom() / Settings.GRID_WIDTH) + 2;
+        int numHzLines = (int) (projectionSize.y * camera.getZoom() / Settings.GRID_HEIGHT) + 2;
 
-        float width = (int)(projectionSize.x * camera.getZoom()) + Settings.GRID_WIDTH * 5;
-        float height = (int)(projectionSize.y * camera.getZoom()) + Settings.GRID_HEIGHT * 5;
+        float width = (int) (projectionSize.x * camera.getZoom()) + Settings.GRID_WIDTH * 5;
+        float height = (int) (projectionSize.y * camera.getZoom()) + Settings.GRID_HEIGHT * 5;
 
         int maxLines = Math.max(numHzLines, numVtLines);
         Vector3f color = new Vector3f(0.2f, 0.2f, 0.2f);
-        for (int i=0; i < maxLines; i++) {
+        for (int i = 0; i < maxLines; i++) {
             float x = firstX + (Settings.GRID_WIDTH * i);
             float y = firstY + (Settings.GRID_HEIGHT * i);
 

@@ -14,24 +14,24 @@ public class Renderer {
     private static Shader currentShader;
     //endregion
 
-    //region Contructors
-    public Renderer(){
+    //region Constructors
+    public Renderer() {
         this.batches = new ArrayList<>();
     }
     //endregion
 
     //region Methods
-    public void add(GameObject go){
+    public void add(GameObject go) {
         SpriteRenderer spr = go.getComponent(SpriteRenderer.class);
-        if (spr != null){
+        if (spr != null) {
             add(spr);
         }
     }
 
-    private void add(SpriteRenderer sprite){
+    private void add(SpriteRenderer sprite) {
         boolean added = false;
-        for (RenderBatch batch: batches){
-            if (batch.hasRoom() && batch.zIndex() == sprite.gameObject.transform.zIndex){
+        for (RenderBatch batch : batches) {
+            if (batch.hasRoom() && batch.zIndex() == sprite.gameObject.transform.zIndex) {
                 Texture tex = sprite.getTexture();
                 if (tex == null || (batch.hasTexture(tex) || batch.hasTextureRoom())) {
                     batch.addSprite(sprite);
@@ -41,7 +41,7 @@ public class Renderer {
             }
         }
 
-        if (!added){
+        if (!added) {
             RenderBatch newBatch = new RenderBatch(MAX_BATCH_SIZE, sprite.gameObject.transform.zIndex, this);
             newBatch.start();
             batches.add(newBatch);
@@ -50,22 +50,22 @@ public class Renderer {
         }
     }
 
-    public void destroyGameObject(GameObject go){
+    public void destroyGameObject(GameObject go) {
         if (go.getComponent(SpriteRenderer.class) == null) return;
-        for (RenderBatch batch : batches){
-            if (batch.destroyIfExists(go)){
+        for (RenderBatch batch : batches) {
+            if (batch.destroyIfExists(go)) {
                 return;
             }
         }
     }
 
-    public static void bindShader(Shader shader){
+    public static void bindShader(Shader shader) {
         currentShader = shader;
     }
 
-    public void render(){
+    public void render() {
         currentShader.use();
-        for (int i = 0; i < batches.size(); i++){
+        for (int i = 0; i < batches.size(); i++) {
             RenderBatch batch = batches.get(i);
             batch.render();
         }
@@ -73,7 +73,7 @@ public class Renderer {
     //endregion
 
     //region Properties
-    public static Shader getBoundShader(){
+    public static Shader getBoundShader() {
         return currentShader;
     }
     //endregion

@@ -1,6 +1,7 @@
 package components.scripts.test.mario;
 
 import components.Component;
+import components.scripts.test.MarioMoving;
 import system.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
@@ -13,21 +14,22 @@ public class Flower extends Component {
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
     @Override
-    public void start(){
+    public void start() {
         this.rb = gameObject.getComponent(RigidBody2D.class);
         AssetPool.getSound("assets/sounds/powerup_appears.ogg").play();
         this.rb.setIsSensor();
     }
 
     @Override
-    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal){
-        PlayerController playerController = obj.getComponent(PlayerController.class);
-        if (playerController != null){
-            playerController.powerup();
+    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
+        MarioMoving marioMoving = obj.getComponent(MarioMoving.class);
+        if (marioMoving != null) {
+            marioMoving.powerup();
             this.gameObject.destroy();
         }
     }

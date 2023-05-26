@@ -11,9 +11,10 @@ import physics2d.components.RigidBody2D;
 public class Fireball extends Component {
     //region Fields
     public transient boolean goingRight = false;
-    private transient RigidBody2D rb;
-    private transient float fireballSpeed = 1.7f;
-    private transient Vector2f velocity = new Vector2f();
+    public transient float diffY;
+    transient RigidBody2D rb;
+    transient float fireballSpeed = 1.7f;
+    transient Vector2f velocity = new Vector2f();
     private transient Vector2f acceleration = new Vector2f();
     private transient Vector2f terminalVelocity = new Vector2f(2.1f, 3.1f);
     private transient boolean onGround = false;

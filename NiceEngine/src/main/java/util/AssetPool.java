@@ -6,9 +6,7 @@ import renderer.Shader;
 import renderer.Texture;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AssetPool {
     //region Fields
@@ -19,9 +17,9 @@ public class AssetPool {
     //endregion
 
     //region Properties
-    public static Shader getShader(String resourceName){
+    public static Shader getShader(String resourceName) {
         File file = new File(resourceName);
-        if (AssetPool.shaders.containsKey(file.getAbsolutePath())){
+        if (AssetPool.shaders.containsKey(file.getAbsolutePath())) {
             return AssetPool.shaders.get(file.getAbsolutePath());
         } else {
             Shader shader = new Shader(resourceName);
@@ -31,36 +29,44 @@ public class AssetPool {
         }
     }
 
-    public static Texture getTexture(String resourceName){
+    public static Texture getTexture(String resourceName) {
         File file = new File(resourceName);
-        if (AssetPool.textures.containsKey(file.getAbsolutePath())){
-            return AssetPool.textures.get(file.getAbsolutePath());
+        if (AssetPool.textures.containsKey(file.getPath())) {
+            return AssetPool.textures.get(file.getPath());
         } else {
             Texture texture = new Texture();
             texture.init(resourceName);
-            AssetPool.textures.put(file.getAbsolutePath(), texture);
+            AssetPool.textures.put(file.getPath(), texture);
             return texture;
         }
     }
 
-
-    public static Spritesheet getSpritesheet(String resourceName){
+    public static Spritesheet getSpritesheet(String resourceName) {
         File file = new File(resourceName);
-        if (!AssetPool.spritesheets.containsKey(file.getAbsolutePath())){
-            assert false: "Error: Tried to access spritesheet '" + resourceName + "' and it has not been to ascess pool";
+        if (!AssetPool.spritesheets.containsKey(file.getPath())) {
+            assert false : "Error: Tried to access spritesheet '" + resourceName + "' and it has not been to ascess pool";
         }
 
-        return AssetPool.spritesheets.getOrDefault(file.getAbsolutePath(), null);
+        return AssetPool.spritesheets.getOrDefault(file.getPath(), null);
     }
 
-    public static Collection<Sound> getAllSounds(){
+    public static List<Spritesheet> getAllSpritesheets() {
+        List<Spritesheet> sprs = new ArrayList<>();
+        for (Spritesheet spr : spritesheets.values()) {
+            sprs.add(spr);
+        }
+
+        return sprs;
+    }
+
+    public static Collection<Sound> getAllSounds() {
         return sounds.values();
     }
 
-    public static Sound getSound(String soundFile){
+    public static Sound getSound(String soundFile) {
         File file = new File(soundFile);
-        if (sounds.containsKey(file.getAbsolutePath())){
-            return sounds.get(file.getAbsolutePath());
+        if (sounds.containsKey(file.getPath())) {
+            return sounds.get(file.getPath());
         } else {
             assert false : "Sound file not added '" + soundFile + "'";
         }
@@ -70,22 +76,22 @@ public class AssetPool {
     //endregion
 
     //region Methods
-    public static Sound addSound(String soundFile, boolean loops){
+    public static Sound addSound(String soundFile, boolean loops) {
         File file = new File(soundFile);
-        if (sounds.containsKey(file.getAbsolutePath())){
-            return sounds.get(file.getAbsolutePath());
+        if (sounds.containsKey(file.getPath())) {
+            return sounds.get(file.getPath());
         } else {
-            Sound sound = new Sound(file.getAbsolutePath(), loops);
-            AssetPool.sounds.put(file.getAbsolutePath(), sound);
+            Sound sound = new Sound(file.getPath(), loops);
+            AssetPool.sounds.put(file.getPath(), sound);
 
             return sound;
         }
     }
 
-    public static void addSpritesheet(String resourceName, Spritesheet spritesheet){
+    public static void addSpritesheet(String resourceName, Spritesheet spritesheet) {
         File file = new File(resourceName);
-        if (!AssetPool.spritesheets.containsKey(file.getAbsolutePath())){
-            AssetPool.spritesheets.put(file.getAbsolutePath(), spritesheet);
+        if (!AssetPool.spritesheets.containsKey(file.getPath())) {
+            AssetPool.spritesheets.put(file.getPath(), spritesheet);
         }
     }
     //endregion

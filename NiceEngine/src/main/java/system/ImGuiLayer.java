@@ -24,16 +24,16 @@ public class ImGuiLayer {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
 
-    private PropertiesWindow propertiesWindow;
+    private InspectorWindow inspectorWindow;
     private MenuBar menuBar;
     private AssetsWindow assetsWindow;
     private MessageBox messageBox;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
-        this.propertiesWindow = new PropertiesWindow(pickingTexture);
+        this.inspectorWindow = new InspectorWindow(pickingTexture);
         this.menuBar = new MenuBar();
         this.assetsWindow = new AssetsWindow();
         this.messageBox = new MessageBox();
@@ -99,9 +99,9 @@ public class ImGuiLayer {
                 ImGui.setWindowFocus(null);
             }
 
-            if (!io.getWantCaptureMouse() || GameViewWindow.getInstance().getWantCaptureMouse()) {
-                MouseListener.mouseButtonCallback(w, button, action, mods);
-            }
+//            if (!io.getWantCaptureMouse()) { //|| GameViewWindow.getInstance().getWantCaptureMouse()) {
+            MouseListener.mouseButtonCallback(w, button, action, mods);
+//            }
         });
 
         glfwSetScrollCallback(glfwWindow, (w, xOffset, yOffset) -> {
@@ -170,10 +170,13 @@ public class ImGuiLayer {
         SceneHierarchyWindow.getInstance().imgui();
         AnimationStateCreator.getInstance().imgui();
         ConsoleWindow.getInstance().imgui();
+        SpritesheetLoaderWindow.getInstance().imgui();
+        FileDialog.getInstance().render();
+        AddingSpritesheetWindow.getInstance().spritesheetPreview();
 
         assetsWindow.imgui();
         messageBox.imgui();
-        propertiesWindow.imgui();
+        inspectorWindow.imgui();
 
         endFrame();
     }
@@ -230,8 +233,8 @@ public class ImGuiLayer {
     //endregion
 
     //region Properties
-    public PropertiesWindow getPropertiesWindow() {
-        return propertiesWindow;
+    public InspectorWindow getInspectorWindow() {
+        return inspectorWindow;
     }
 
     public GameViewWindow getGameViewWindow() {

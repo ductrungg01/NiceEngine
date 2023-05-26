@@ -1,7 +1,8 @@
 package components.scripts.test;
 
 import components.Component;
-import components.Rigidbody;
+import components.Sprite;
+import components.SpriteRenderer;
 import editor.Debug;
 import org.joml.Vector2f;
 import system.*;
@@ -9,8 +10,20 @@ import system.*;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class TestComponent extends Component {
-    public GameObject TargetGo;
+    Sprite sprite = null;
+    public GameObject TargetGo = null;
+    protected Sprite sprite1 = null;
+    final Sprite sprite2 = null;
+    private GameObject spr_go = null;
     private transient float moveSpeed = 3f;
+
+    public TestComponent() {
+    }
+
+    @Override
+    public void start() {
+
+    }
 
     @Override
     public void update(float dt) {

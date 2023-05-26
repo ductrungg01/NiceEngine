@@ -1,6 +1,7 @@
 package components.scripts.test.mario;
 
 import components.StateMachine;
+import components.scripts.test.MarioMoving;
 import system.GameObject;
 import system.Prefabs;
 import system.Window;
@@ -18,16 +19,16 @@ public class QuestionBlock extends Block {
 
     //region Override methods
     @Override
-    void playerHit(PlayerController playerController) {
+    void playerHit(MarioMoving marioMoving) {
         switch (blockType) {
             case Coin:
-                doCoin(playerController);
+                doCoin(marioMoving);
                 break;
             case Powerup:
-                doPowerup(playerController);
+                doPowerup(marioMoving);
                 break;
             case Invincibility:
-                doInvincibility(playerController);
+                doInvincibility(marioMoving);
                 break;
         }
 
@@ -40,22 +41,22 @@ public class QuestionBlock extends Block {
     //endregion
 
     //region Methods
-    private void doCoin(PlayerController playerController) {
+    private void doCoin(MarioMoving marioMoving) {
         GameObject coin = Prefabs.generateBlockCoin();
         coin.transform.position.set(this.gameObject.transform.position);
         coin.transform.position.y += 0.25f;
         Window.getScene().addGameObjectToScene(coin);
     }
 
-    private void doPowerup(PlayerController playerController) {
-        if (playerController.isSmall()){
+    private void doPowerup(MarioMoving marioMoving) {
+        if (marioMoving.isSmall()) {
             spawnMushroom();
         } else {
             spawnFlower();
         }
     }
 
-    private void doInvincibility(PlayerController playerController) {
+    private void doInvincibility(MarioMoving marioMoving) {
 
     }
 

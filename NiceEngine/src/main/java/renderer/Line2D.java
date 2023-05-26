@@ -12,7 +12,7 @@ public class Line2D {
     private int lifetime;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Line2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
         this.from = from;
         this.to = to;
@@ -22,7 +22,7 @@ public class Line2D {
     //endregion
 
     //region Methods
-    public int beginFrame(){
+    public int beginFrame() {
         this.lifetime--;
         return this.lifetime;
     }

@@ -1,5 +1,6 @@
 package system;
 
+import editor.SceneHierarchyWindow;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
@@ -56,7 +57,7 @@ public class Window implements Observer {
     private static Scene currentScene;
     //endregion
 
-    //region Contructors
+    //region Constructors
     private Window() {
         this.width = 3840;
         this.height = 2160;
@@ -73,7 +74,7 @@ public class Window implements Observer {
             currentScene.destroy();
         }
 
-        getImguiLayer().getPropertiesWindow().setActiveGameObject(null);
+        getImguiLayer().getInspectorWindow().setActiveGameObject(null);
         currentScene = new Scene(sceneInitializer);
         currentScene.load();
         currentScene.init();
@@ -135,7 +136,6 @@ public class Window implements Observer {
             KeyListener.endframe();
             MouseListener.endFrame();
             glfwSwapBuffers(glfwWindow);
-            MouseListener.endFrame();
 
             endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
@@ -334,7 +334,9 @@ public class Window implements Observer {
         switch (event.type) {
             case GameEngineStartPlay:
                 this.runtimePlaying = true;
-                currentScene.save();
+                currentScene.save(false);
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
+                SceneHierarchyWindow.clearSelectedGameObject();
                 Window.changeScene(new LevelSceneInitializer());
                 break;
             case GameEngineStopPlay:
@@ -342,7 +344,7 @@ public class Window implements Observer {
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;
             case SaveLevel:
-                currentScene.save();
+                currentScene.save(true);
             case LoadLevel:
                 Window.changeScene(new LevelEditorSceneInitializer());
                 break;

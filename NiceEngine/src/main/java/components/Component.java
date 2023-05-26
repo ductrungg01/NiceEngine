@@ -1,8 +1,9 @@
 package components;
 
 import editor.Debug;
+import editor.ReferenceType;
 import editor.uihelper.NiceImGui;
-import editor.uihelper.ReferenceConfig;
+import editor.ReferenceConfig;
 import imgui.ImGui;
 import imgui.type.ImInt;
 import system.GameObject;
@@ -10,7 +11,9 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
+import util.FileUtils;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -22,6 +25,7 @@ public abstract class Component {
     //endregion
 
     //region Properties
+
     public int getUid() {
         return this.uid;
     }
@@ -84,27 +88,38 @@ public abstract class Component {
                     continue;
                 }
 
-                boolean isPrivate = Modifier.isPrivate(field.getModifiers());
-
-                if (isPrivate) {
-                    continue;
-                }
-
+//                boolean isPrivate = Modifier.isPrivate(field.getModifiers());
+//
+//                if (isPrivate == false && field.getModifiers() == 0) {
+//                    isPrivate = true;
+//                }
+//
+//                Debug.Log("field name: " + field.getName() + ": " + field.getModifiers() + "isPrivate: " + isPrivate);
+////                if (isPrivate) {
+////                    continue;
+////                }
+//
 //                if (isPrivate) {
 //                    field.setAccessible(true);
 //                }
+
+                boolean isPublic = Modifier.isPublic(field.getModifiers());
+
+                field.setAccessible(true);
+
 
                 Class type = field.getType();
                 Object value = field.get(this);
                 String name = field.getName();
                 name = name.substring(0, 1).toUpperCase() + name.substring(1);
 
+
                 if (type == int.class) {
                     int val = (int) value;
                     field.set(this, NiceImGui.dragInt(name, val));
                 } else if (type == float.class) {
                     float val = (float) value;
-                    field.set(this, NiceImGui.dragfloat(name, val));
+                    field.set(this, NiceImGui.dragfloat(name, val, name));
                 } else if (type == boolean.class) {
                     boolean val = (boolean) value;
                     if (ImGui.checkbox(name + ": ", val)) {
@@ -131,8 +146,10 @@ public abstract class Component {
                     }
                 } else if (type == String.class) {
                     field.set(this,
-                            NiceImGui.inputText(name + ": ",
-                                    (String) value));
+                            NiceImGui.inputText(
+                                    name + ": ",
+                                    (String) value,
+                                    name + ":" + gameObject.hashCode()));
                 } else if (type.isArray() && name.equals("Tag")) {
                     String text = NiceImGui.inputArrayText(name + ":", (String[]) value);
                     //format & set value
@@ -140,18 +157,27 @@ public abstract class Component {
                     String[] strArray = null;
                     strArray = text.split(",");
                     field.set(this, strArray);
-                } else if (type == GameObject.class) {
-                    GameObject tmpGo = (GameObject) value;
-                    field.set(this,
-                            NiceImGui.ReferenceButton(name,
-                                    new ReferenceConfig(true, false, false, false, false),
-                                    tmpGo)
-                    );
+                } else if (type == Sprite.class) {
+                    field.set(this, NiceImGui.ReferenceButton(name,
+                            new ReferenceConfig(ReferenceType.SPRITE),
+                            value,
+                            "Sprite" + name + gameObject.hashCode()));
                 }
+//                else if (type == GameObject.class) {
+//                    GameObject tmpGo = (GameObject) value;
+//                    field.set(this,
+//                            NiceImGui.ReferenceButton(name,
+//                                    new ReferenceConfig(ReferenceType.GAMEOBJECT),
+//                                    tmpGo)
+//                    );
+//                }
 
 //                if (isPrivate) {
 //                    field.setAccessible(false);
 //                }
+                if (!isPublic) {
+                    field.setAccessible(false);
+                }
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();

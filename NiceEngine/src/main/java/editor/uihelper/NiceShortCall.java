@@ -10,6 +10,7 @@ public class NiceShortCall {
     public static final Vector4f COLOR_Blue = new Vector4f(0.0f, 0.0f, 1.0f, 1.0f);
     public static final Vector4f COLOR_LightBlue = new Vector4f(0.75f, 0.9f, 1.0f, 1.0f);
     public static final Vector4f COLOR_DarkBlue = new Vector4f(0.0f, 0.0f, 139 / 255f, 1.0f);
+    public static final Vector4f COLOR_NiceBlue = new Vector4f(0.52f, 0.95f, 1, 1.0f);
 
     public static final Vector4f COLOR_Yellow = new Vector4f(1.0f, 1.0f, 0.0f, 1.0f);
     public static final Vector4f COLOR_LightYellow = new Vector4f(1.0f, 1.0f, 0.9f, 1.0f);

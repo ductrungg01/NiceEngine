@@ -1,12 +1,14 @@
 package components;
 
+import editor.ReferenceConfig;
+import editor.ReferenceType;
 import editor.uihelper.NiceImGui;
 import system.Transform;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import renderer.Texture;
 
-public class SpriteRenderer extends Component {
+public class SpriteRenderer extends Component implements INonAddableComponent {
     //region Fields
     private Vector4f color = new Vector4f(1, 1, 1, 1);
     private Sprite sprite = new Sprite();
@@ -26,7 +28,7 @@ public class SpriteRenderer extends Component {
     }
 
     /**
-     * // Update is called once per frame
+     * Update is called once per frame
      *
      * @param dt : The interval in seconds from the last frame to the current one
      */
@@ -50,6 +52,15 @@ public class SpriteRenderer extends Component {
     public void imgui() {
         if (NiceImGui.colorPicker4("Color picker: ", this.color)) {
             this.isDirty = true;
+        }
+
+        Sprite tmp = (Sprite) NiceImGui.ReferenceButton("Sprite",
+                new ReferenceConfig(ReferenceType.SPRITE),
+                sprite,
+                "Sprite of SpriteRenderer " +this.gameObject.hashCode());
+
+        if (tmp != sprite){
+            setSprite(tmp);
         }
     }
     //endregion

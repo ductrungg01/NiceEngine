@@ -7,9 +7,8 @@ import physics2d.components.RigidBody2D;
 import system.GameObject;
 
 public class BirdScript extends Component {
-
     @Override
-    public void start(){
+    public void start() {
         //this.gameObject.getComponent(RigidBody2D.class).setVelocity(new Vector2f(0, -9.81f));
     }
 }

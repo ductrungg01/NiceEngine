@@ -1,6 +1,7 @@
 package components.scripts.test.mario;
 
 import components.Component;
+import components.scripts.test.MarioMoving;
 import system.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
@@ -24,6 +25,7 @@ public abstract class Block extends Component {
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
@@ -35,6 +37,7 @@ public abstract class Block extends Component {
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
     @Override
@@ -60,17 +63,17 @@ public abstract class Block extends Component {
 
     @Override
     public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
-        PlayerController playerController = obj.getComponent(PlayerController.class);
+        MarioMoving marioMoving = obj.getComponent(MarioMoving.class);
         // If the player hit the bottom of this block
-        if (active && playerController != null && contactNormal.y < -0.8f) {
+        if (active && marioMoving != null && contactNormal.y < -0.8f) {
             doBopAnimation = true;
             AssetPool.getSound("assets/sounds/bump.ogg").play();
-            playerHit(playerController);
+            playerHit(marioMoving);
         }
     }
     //endregion
 
     //region Methods
-    abstract void playerHit(PlayerController playerController);
+    abstract void playerHit(MarioMoving marioMoving);
     //endregion
 }

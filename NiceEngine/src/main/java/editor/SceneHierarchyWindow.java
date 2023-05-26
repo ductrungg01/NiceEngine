@@ -1,11 +1,20 @@
 package editor;
 
+import components.ObjectInfo;
+import components.SpriteRenderer;
+import editor.uihelper.ButtonColor;
+import editor.uihelper.NiceImGui;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
+import org.joml.Vector2f;
 import system.GameObject;
+import system.Transform;
 import system.Window;
+import util.FileUtils;
 
 import java.util.List;
+
+import static editor.uihelper.NiceShortCall.*;
 
 public class SceneHierarchyWindow {
     //region Singleton
@@ -25,6 +34,7 @@ public class SceneHierarchyWindow {
 
     //region Fields
     private static String payloadDragDropType = "SceneHierarchy";
+    private static GameObject selectedGameObject = null;
     //endregion
 
     //region Methods
@@ -39,13 +49,43 @@ public class SceneHierarchyWindow {
                 continue;
             }
 
-            boolean treeNodeOpen = doTreeNode(obj, index);
+//            boolean treeNodeOpen = doTreeNode(obj, index);
+//
+//            if (treeNodeOpen) {
+//                ImGui.treePop();
+//            }
+            ImGui.pushID(index);
+            float w = ImGui.getContentRegionAvailX();
+            float h = ImGui.getTextLineHeightWithSpacing();
+            if (obj.equals(selectedGameObject)) {
+                NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+            } else {
+                if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
+                    Window.getImguiLayer().getInspectorWindow().setActiveGameObject(obj);
+                    selectedGameObject = obj;
+                }
+            }
+            ImGui.popID();
+            index++;
+        }
 
-            if (treeNodeOpen) {
-                ImGui.treePop();
+        if (ImGui.beginPopupContextWindow("Hierarchy")){
+
+            if (ImGui.menuItem("New GameObject")){
+                GameObject go = new GameObject("New GameObject");
+                go.addComponent(new ObjectInfo("New GameObject"));
+                go.addComponent(new Transform());
+
+                SpriteRenderer spriteRenderer = new SpriteRenderer();
+                spriteRenderer.setSprite(FileUtils.getDefaultSprite());
+
+                go.addComponent(spriteRenderer);
+                go.transform = go.getComponent(Transform.class);
+
+                Window.getScene().addGameObjectToScene(go);
             }
 
-            index++;
+            ImGui.endPopup();
         }
 
         ImGui.end();
@@ -82,6 +122,14 @@ public class SceneHierarchyWindow {
         }
 
         return treeNodeOpen;
+    }
+
+    public static void setSelectedGameObject(GameObject go) {
+        selectedGameObject = go;
+    }
+
+    public static void clearSelectedGameObject() {
+        selectedGameObject = null;
     }
     //endregion
 }

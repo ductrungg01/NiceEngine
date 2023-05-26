@@ -1,6 +1,8 @@
 package physics2d;
 
 import components.scripts.test.mario.Ground;
+import org.joml.Vector3f;
+import renderer.DebugDraw;
 import system.GameObject;
 import system.Transform;
 import system.Window;
@@ -11,7 +13,7 @@ import org.jbox2d.dynamics.*;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
-import physics2d.components.PillboxCollider;
+import components.scripts.test.mario.PillboxCollider;
 import physics2d.components.RigidBody2D;
 
 public class Physics2D {
@@ -25,26 +27,26 @@ public class Physics2D {
     private int positionIterations = 3;
     //endregion
 
-    //region Contructors
-    public Physics2D(){
+    //region Constructors
+    public Physics2D() {
         world.setContactListener(new ContactListener());
     }
     //endregion
 
     //region Methods
-    public void destroyGameObject(GameObject go){
+    public void destroyGameObject(GameObject go) {
         RigidBody2D rb = go.getComponent(RigidBody2D.class);
-        if (rb != null){
-            if (rb.getRawBody() != null){
+        if (rb != null) {
+            if (rb.getRawBody() != null) {
                 world.destroyBody(rb.getRawBody());
                 rb.setRawBody(null);
             }
         }
     }
 
-    public void update(float dt){
+    public void update(float dt) {
         physicsTime += dt;
-        if (physicsTime >= 0.0f){
+        if (physicsTime >= 0.0f) {
             physicsTime -= physicsTimeStep;
             world.step(physicsTimeStep, velocityIterations, positionIterations);
         }
@@ -52,7 +54,7 @@ public class Physics2D {
 
     public static boolean checkOnGround(GameObject gameObject,
                                         float innerPlayerWidth,
-                                        float height){
+                                        float height) {
         Vector2f raycastBegin = new Vector2f(gameObject.transform.position);
         raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f);
         Vector2f raycastEnd = new Vector2f(raycastBegin).add(0.0f, height);
@@ -63,42 +65,46 @@ public class Physics2D {
         Vector2f raycast2End = new Vector2f(raycastEnd).add(innerPlayerWidth, 0.0f);
         RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
 
-//        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
-//        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
+        //DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+        //DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
 
         return (info.hit && info.hitObject != null && info.hitObject.getComponent(Ground.class) != null) ||
                 (info2.hit && info2.hitObject != null && info2.hitObject.getComponent(Ground.class) != null);
     }
 
-    public void setIsSensor(RigidBody2D rb){
+    public void setIsSensor(RigidBody2D rb) {
         Body body = rb.getRawBody();
-        if (body == null){return;}
+        if (body == null) {
+            return;
+        }
 
         Fixture fixture = body.getFixtureList();
-        while (fixture != null){
+        while (fixture != null) {
             fixture.m_isSensor = true;
             fixture = fixture.m_next;
         }
     }
 
-    public void setNotSensor(RigidBody2D rb){
+    public void setNotSensor(RigidBody2D rb) {
         Body body = rb.getRawBody();
-        if (body == null){return;}
+        if (body == null) {
+            return;
+        }
 
         Fixture fixture = body.getFixtureList();
-        while (fixture != null){
+        while (fixture != null) {
             fixture.m_isSensor = false;
             fixture = fixture.m_next;
         }
     }
 
 
-    public void resetBox2DCollider(RigidBody2D rb, Box2DCollider box2DCollider){
+    public void resetBox2DCollider(RigidBody2D rb, Box2DCollider box2DCollider) {
         Body body = rb.getRawBody();
         if (body == null) return;
 
         int size = fixtureListSize(body);
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             body.destroyFixture(body.getFixtureList());
         }
 
@@ -106,7 +112,7 @@ public class Physics2D {
         body.resetMassData();
     }
 
-    public void addBox2DCollider(RigidBody2D rb, Box2DCollider box2DCollider){
+    public void addBox2DCollider(RigidBody2D rb, Box2DCollider box2DCollider) {
         Body body = rb.getRawBody();
         assert body != null : "Raw body must not be null";
 
@@ -126,12 +132,12 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
-    public void resetCircleCollider(RigidBody2D rb, CircleCollider circleCollider){
+    public void resetCircleCollider(RigidBody2D rb, CircleCollider circleCollider) {
         Body body = rb.getRawBody();
         if (body == null) return;
 
         int size = fixtureListSize(body);
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             body.destroyFixture(body.getFixtureList());
         }
 
@@ -139,7 +145,7 @@ public class Physics2D {
         body.resetMassData();
     }
 
-    public void addCircle2DCollider(RigidBody2D rb, CircleCollider circleCollider){
+    public void addCircle2DCollider(RigidBody2D rb, CircleCollider circleCollider) {
         Body body = rb.getRawBody();
         assert body != null : "Raw body must not be null";
 
@@ -156,12 +162,12 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
-    public void resetPillboxCollider(RigidBody2D rb, PillboxCollider pb){
+    public void resetPillboxCollider(RigidBody2D rb, PillboxCollider pb) {
         Body body = rb.getRawBody();
         if (body == null) return;
 
         int size = fixtureListSize(body);
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             body.destroyFixture(body.getFixtureList());
         }
 
@@ -169,7 +175,7 @@ public class Physics2D {
         body.resetMassData();
     }
 
-    public void addPillboxCollider(RigidBody2D rb, PillboxCollider pb){
+    public void addPillboxCollider(RigidBody2D rb, PillboxCollider pb) {
         Body body = rb.getRawBody();
         assert body != null : "Raw body must not be null";
 
@@ -178,16 +184,16 @@ public class Physics2D {
         addCircle2DCollider(rb, pb.getBottomCircle());
     }
 
-    public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2){
+    public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2) {
         RaycastInfo callback = new RaycastInfo(requestingObject);
         world.raycast(callback, new Vec2(point1.x, point1.y), new Vec2(point2.x, point2.y));
         return callback;
     }
 
-    private int fixtureListSize(Body body){
+    private int fixtureListSize(Body body) {
         int size = 0;
         Fixture fixture = body.getFixtureList();
-        while (fixture != null){
+        while (fixture != null) {
             size++;
             fixture = fixture.m_next;
         }
@@ -197,34 +203,43 @@ public class Physics2D {
     //endregion
 
     //region Properties
-    public boolean isLocked(){
+    public boolean isLocked() {
         return world.isLocked();
     }
 
-    public Vector2f getGravity(){
+    public Vector2f getGravity() {
         return new Vector2f(world.getGravity().x, world.getGravity().y);
     }
 
-    public void add(GameObject go){
+    public void add(GameObject go) {
         RigidBody2D rb = go.getComponent(RigidBody2D.class);
-        if (rb != null && rb.getRawBody() == null){
+        if (rb != null && rb.getRawBody() == null) {
             Transform transform = go.transform;
 
             BodyDef bodyDef = new BodyDef();
-            bodyDef.angle = (float)Math.toRadians(transform.rotation);
+            bodyDef.angle = (float) Math.toRadians(transform.rotation);
             bodyDef.position.set(transform.position.x, transform.position.y);
             bodyDef.angularDamping = rb.getAngularDamping();
             bodyDef.linearDamping = rb.getLinearDamping();
             bodyDef.fixedRotation = rb.isFixedRotation();
-            bodyDef.bullet = rb.isContinousCollision();
+            bodyDef.bullet = rb.isContinuousCollision();
             bodyDef.gravityScale = rb.gravityScale;
             bodyDef.angularVelocity = rb.angularVelocity;
             bodyDef.userData = rb.gameObject;
 
-            switch (rb.getBodyType()){
-                case Static -> { bodyDef.type = BodyType.STATIC; break;}
-                case Dynamic -> { bodyDef.type = BodyType.DYNAMIC; break;}
-                case Kinematic -> { bodyDef.type = BodyType.KINEMATIC; break;}
+            switch (rb.getBodyType()) {
+                case Static -> {
+                    bodyDef.type = BodyType.STATIC;
+                    break;
+                }
+                case Dynamic -> {
+                    bodyDef.type = BodyType.DYNAMIC;
+                    break;
+                }
+                case Kinematic -> {
+                    bodyDef.type = BodyType.KINEMATIC;
+                    break;
+                }
             }
 
             Body body = this.world.createBody(bodyDef);
@@ -234,15 +249,15 @@ public class Physics2D {
             Box2DCollider box2DCollider;
             PillboxCollider pillboxCollider;
 
-            if ((circle2DCollider = go.getComponent(CircleCollider.class)) != null){
+            if ((circle2DCollider = go.getComponent(CircleCollider.class)) != null) {
                 addCircle2DCollider(rb, circle2DCollider);
             }
 
-            if ((box2DCollider = go.getComponent(Box2DCollider.class)) != null){
+            if ((box2DCollider = go.getComponent(Box2DCollider.class)) != null) {
                 addBox2DCollider(rb, box2DCollider);
             }
 
-            if ((pillboxCollider = go.getComponent(PillboxCollider.class)) != null){
+            if ((pillboxCollider = go.getComponent(PillboxCollider.class)) != null) {
                 addPillboxCollider(rb, pillboxCollider);
             }
         }

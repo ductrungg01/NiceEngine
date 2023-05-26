@@ -1,10 +1,11 @@
 package system;
 
 import components.Component;
+import components.INonAddableComponent;
 import editor.uihelper.NiceImGui;
 import org.joml.Vector2f;
 
-public class Transform extends Component {
+public class Transform extends Component implements INonAddableComponent {
     //region Fields
     public Vector2f position;
     public Vector2f scale;
@@ -12,13 +13,13 @@ public class Transform extends Component {
     public int zIndex;
     //endregion
 
-    //region Contructors
+    //region Constructors
     public Transform() {
-        init(new Vector2f(), new Vector2f());
+        init(new Vector2f(), new Vector2f(0.25f, 0.25f));
     }
 
     public Transform(Vector2f position) {
-        init(position, new Vector2f());
+        init(position, new Vector2f(0.25f, 0.25f));
     }
 
     public Transform(Vector2f position, Vector2f scale) {
@@ -46,10 +47,9 @@ public class Transform extends Component {
     //region Override methods
     @Override
     public void imgui() {
-        //gameObject.name = JImGui.inputText("Name: ", gameObject.name);
         NiceImGui.drawVec2Control("Position", this.position);
         NiceImGui.drawVec2Control("Scale", this.scale, 32.0f);
-        this.rotation = NiceImGui.dragfloat("Rotation", this.rotation);
+        this.rotation = NiceImGui.dragfloat("Rotation", this.rotation, "Rotation");
         this.zIndex = NiceImGui.dragInt("Z-Index", this.zIndex);
     }
 

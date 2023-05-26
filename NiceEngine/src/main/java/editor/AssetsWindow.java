@@ -34,7 +34,7 @@ public class AssetsWindow {
     private ArrayList<String> nextFolder = new ArrayList<>();
 
 
-    private GameObject gameObject = new GameObject("");
+    private GameObject gameObject = new GameObject("DragImage");
     private Scene scene;
 
     private static ImVec2 widgetPos = new ImVec2();
@@ -42,6 +42,7 @@ public class AssetsWindow {
 
 
     public AssetsWindow() {
+        gameObject.setNoSerialize();
         gameObject.addComponent(new MouseControls());
     }
 
@@ -95,7 +96,8 @@ public class AssetsWindow {
             } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT) && !isFolder && FileUtils.isImageFile(item)) {
                 Sprite tmp = new Sprite();
                 tmp.setTexture(AssetPool.getTexture(item.getPath()));
-                GameObject object = Prefabs.generateSpriteObject(tmp, 0.25f, 0.25f);
+                GameObject object = Prefabs.generateSpriteObject(tmp, 0.25f, 0.25f,
+                        FileUtils.getFileNameWithoutExtension(itemName));
                 gameObject.getComponent(MouseControls.class).pickupObject(object);
             } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT) && !isFolder) {
                 //Debug.Log(selectedItem);
@@ -297,6 +299,5 @@ public class AssetsWindow {
         //endregion
 
         ImGui.end();
-
     }
 }

@@ -1,8 +1,9 @@
 package util;
 
+import editor.Debug;
 import components.Sprite;
 import editor.MessageBox;
-import editor.uihelper.ReferenceConfig;
+import editor.ReferenceConfig;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -16,6 +17,7 @@ import java.util.Map;
 public class FileUtils {
 
     final static String defaultAssetFolder = "Assets";
+    final static String defaultSprite = "assets/images/Default Sprite.png";
     final static Map<String, String> icons = new HashMap<>() {
         {
             put("FOLDER", "assets/images/folder-icon.png");
@@ -45,7 +47,7 @@ public class FileUtils {
                     if (file.isFile()) {
                         files.add(file);
                     } else if (file.isDirectory()) {
-                        files.addAll(getAllFiles(file.getAbsolutePath()));
+                        files.addAll(getAllFiles(file.getPath()));
                     }
                 }
             }
@@ -53,21 +55,23 @@ public class FileUtils {
         return files;
     }
 
+    // Get file only,
     public static List<File> getFilesWithReferenceConfig(ReferenceConfig refConfig) {
         List<File> files = new ArrayList<>();
 
-        if (refConfig.showAllFile) {
-            files.addAll(getAllFiles());
-        } else {
-            if (refConfig.showJavaFile) {
+        switch (refConfig.type) {
+            case SPRITE -> {
+                files.addAll(getAllFilesWithExtensions(imageExtensions));
+                break;
+            }
+            case JAVA -> {
                 List<String> tmp = List.of("java");
                 files.addAll(getAllFilesWithExtensions(tmp));
+                break;
             }
-            if (refConfig.showImageFile) {
-                files.addAll(getAllFilesWithExtensions(imageExtensions));
-            }
-            if (refConfig.showSoundFile) {
+            case SOUND -> {
                 files.addAll(getAllFilesWithExtensions(soundExtensions));
+                break;
             }
         }
 
@@ -94,7 +98,7 @@ public class FileUtils {
                             }
                         }
                     } else if (file.isDirectory()) {
-                        files.addAll(getAllFilesWithExtensions(file.getAbsolutePath(), extensions));
+                        files.addAll(getAllFilesWithExtensions(file.getPath(), extensions));
                     }
                 }
             }
@@ -132,9 +136,9 @@ public class FileUtils {
 
     public static void copyFile(File srcFile, File desFile) {
         try {
-            Path desPath = Paths.get(desFile.getAbsolutePath());
+            Path desPath = Paths.get(desFile.getPath());
             Files.copy(srcFile.toPath(), desPath);
-            System.out.println("Copy file " + srcFile.getAbsolutePath() + " to " + desPath);
+            Debug.Log("Copy file " + srcFile.getName() + " to " + desPath);
             if (srcFile.isDirectory()) {
                 File[] listOfFiles = srcFile.listFiles();
                 for (int i = 0; i < listOfFiles.length; i++) {
@@ -143,7 +147,7 @@ public class FileUtils {
             }
         } catch (Exception e) {
             MessageBox.setContext(true, MessageBox.TypeOfMsb.ERROR, "File already exist");
-            System.err.println("Failed to copy file: " + e.getMessage());
+            Debug.Log("Failed to copy file: " + e.getMessage());
         }
 
     }
@@ -152,7 +156,7 @@ public class FileUtils {
         String name = getFileNameWithoutExtension(fileName);
         String ext = getFileExtension(fileName);
 
-        final int MAX_LENGTH_ALLOW = 7;
+        final int MAX_LENGTH_ALLOW = 10;
         if (name.length() > MAX_LENGTH_ALLOW) {
             name = name.substring(0, MAX_LENGTH_ALLOW) + "..";
         }
@@ -178,13 +182,24 @@ public class FileUtils {
         }
     }
 
+    public static String getFileName(String filePath) {
+        int slashIndex = filePath.lastIndexOf('/');
+        if (slashIndex == -1) slashIndex = filePath.lastIndexOf('\\');
+        
+        if (slashIndex == -1) {
+            return filePath;
+        } else {
+            return filePath.substring(slashIndex + 1);
+        }
+    }
+
     public static Sprite getIconByFile(File file) {
         Sprite spr = new Sprite();
 
         String extension = getFileExtension(file.getName()).toLowerCase();
 
         if (isImageFile(file)) {
-            spr.setTexture(AssetPool.getTexture(file.getAbsolutePath()));
+            spr.setTexture(AssetPool.getTexture(file.getPath()));
         } else if (extension.equals("java")) {
             spr.setTexture(AssetPool.getTexture(icons.get("JAVA")));
         } else if (isSoundFile(file)) {
@@ -200,5 +215,15 @@ public class FileUtils {
         Sprite spr = new Sprite();
         spr.setTexture(AssetPool.getTexture(icons.get("GAME_OBJECT")));
         return spr;
+    }
+
+    public static Sprite convertImageToSprite(File imgFile) {
+        Sprite spr = new Sprite(imgFile.getPath());
+
+        return spr;
+    }
+
+    public static Sprite getDefaultSprite() {
+        return new Sprite(defaultSprite);
     }
 }

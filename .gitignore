@@ -1,2 +1,3 @@
 NiceEngine/.gradle/
 NiceEngine/build/
+*.class

@@ -10,10 +10,18 @@ public class Box2DCollider extends Component {
     //region Fields
     private Vector2f offset = new Vector2f();
 
-    private Vector2f halfSize = new Vector2f(1);
+    private Vector2f halfSize = new Vector2f(0.25f);
     private Vector2f origin = new Vector2f();
     //endregion
+    public Box2DCollider () {
 
+    }
+
+    public Box2DCollider (Box2DCollider box2DCollider) {
+        this.offset = box2DCollider.offset;
+        this.halfSize = box2DCollider.halfSize;
+        this.origin = box2DCollider.origin;
+    }
     //region Properties
     public Vector2f getOffset(){
         return this.offset;
