@@ -37,6 +37,7 @@ public class ImGuiLayer {
         this.menuBar = new MenuBar();
         this.assetsWindow = new AssetsWindow();
         this.messageBox = new MessageBox();
+        PrefabsWindow.getInstance().start();
     }
     //endregion
 
@@ -172,6 +173,7 @@ public class ImGuiLayer {
         SpritesheetLoaderWindow.getInstance().imgui();
         FileDialog.getInstance().render();
         AddingSpritesheetWindow.getInstance().spritesheetPreview();
+        PrefabsWindow.getInstance().imgui();
 
         assetsWindow.imgui();
         messageBox.imgui();

@@ -139,6 +139,8 @@ public class FileDialog {
         final float DEFAULT_SPRITE_BUTTON_SIZE = 32;
 
         if (ImGui.beginTabItem("SPRITESHEET")) {
+            settings();
+
             ImGui.text("Select an spritesheet tab and choose an sprite below!");
             if (ImGui.beginTabBar("FileDialogSpritesheetTabBar")) {
                 for (Spritesheet spritesheet : spritesheetList) {
@@ -165,12 +167,6 @@ public class FileDialog {
                         ImVec2 itemSpacing = new ImVec2();
                         ImGui.getStyle().getItemSpacing(itemSpacing);
                         float windowX2 = windowPos.x + windowSize.x;
-
-                        BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "FileDialogSettingBoostButtonSizeForSpriteInSpritesheet" + spritesheetName);
-                        ImGui.sameLine();
-                        if (ImGui.button("Reset")) {
-                            BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;
-                        }
 
                         for (int i = 0; i < spritesheet.size(); i++) {
                             Sprite spr = spritesheet.getSprite(i);
@@ -216,6 +212,24 @@ public class FileDialog {
             close();
             ImGui.closeCurrentPopup();
         }
+    }
+
+    private void settings() {
+        //region BUTTON SIZE BOOST
+        final float SETTINGS_WIDTH = 500f;
+
+        ImGui.beginChild("ButtonSizeBoostOfSpritesheetLoaderWindow", SETTINGS_WIDTH, 30f);
+
+        BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "FileDialogSettingBoostButtonSizeForSpriteInSpritesheet");
+        ImGui.sameLine();
+        if (ImGui.button("Reset")) {
+            BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;
+        }
+
+        ImGui.endChild();
+        //endregion
+
+        ImGui.separator();
     }
 
     // 0: is show, and nothing

@@ -26,7 +26,6 @@ public class SpritesheetLoaderWindow {
 
         return instance;
     }
-
     //endregion
 
     static float BUTTON_SIZE_BOOST = 1;
@@ -39,6 +38,11 @@ public class SpritesheetLoaderWindow {
     //region Methods
     public void imgui() {
         ImGui.begin("Spritesheet loader");
+
+        settings();
+
+        ImGui.text("Select a spritesheet tab and see sprite list below!");
+
         List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
         for (int i = 0; i < spritesheets.size(); i++) {
             String sprsheetName = FileUtils.getFileName(spritesheets.get(i).getTexture().getFilePath());
@@ -62,27 +66,6 @@ public class SpritesheetLoaderWindow {
                     ImGui.getStyle().getItemSpacing(itemSpacing);
                     float windowX2 = windowPos.x + windowSize.x;
                     int sprsheetLength = spritesheets.get(i).size();
-
-                    //region ADD NEW SPRITESHEET
-                    final String ID_WAITING_FILE_DIALOG = "Add new spritesheet imgui id";
-                    if (ImGui.button("Add new spritesheet")) {
-                        FileDialog.getInstance().showSpritesheetAlso = false;
-                        FileDialog.getInstance().open(ID_WAITING_FILE_DIALOG, ReferenceType.SPRITE);
-                    }
-
-                    SPRITE_WAITING = (Sprite) FileDialog.getInstance().getSelectedObject(ID_WAITING_FILE_DIALOG, SPRITE_WAITING);
-
-                    if (SPRITE_WAITING != null && !AddingSpritesheetWindow.getInstance().isOpened()) {
-                        AddingSpritesheetWindow.getInstance().open(SPRITE_WAITING);
-                        SPRITE_WAITING = null;
-                    }
-                    //endregion
-
-                    BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "SpritesheetLoaderTabBar" + i + "btnsizeboost");
-                    ImGui.sameLine();
-                    if (ImGui.button("Reset")) {
-                        BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;
-                    }
 
                     for (int j = 0; j < sprsheetLength; j++) {
                         Sprite sprite = spritesheets.get(i).getSprite(j);
@@ -122,6 +105,39 @@ public class SpritesheetLoaderWindow {
             }
         }
         ImGui.end();
+    }
+
+    private void settings() {
+        //region ADD NEW SPRITESHEET
+        final String ID_WAITING_FILE_DIALOG = "Add new spritesheet imgui id";
+        if (ImGui.button("Add new spritesheet")) {
+            FileDialog.getInstance().showSpritesheetAlso = false;
+            FileDialog.getInstance().open(ID_WAITING_FILE_DIALOG, ReferenceType.SPRITE);
+        }
+
+        SPRITE_WAITING = (Sprite) FileDialog.getInstance().getSelectedObject(ID_WAITING_FILE_DIALOG, SPRITE_WAITING);
+
+        if (SPRITE_WAITING != null && !AddingSpritesheetWindow.getInstance().isOpened()) {
+            AddingSpritesheetWindow.getInstance().open(SPRITE_WAITING);
+            SPRITE_WAITING = null;
+        }
+        //endregion
+
+        //region BUTTON SIZE BOOST
+        final float SETTINGS_WIDTH = 500f;
+
+        ImGui.beginChild("ButtonSizeBoostOfSpritesheetLoaderWindow", SETTINGS_WIDTH, 30f);
+
+        BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "SpritesheetLoaderTabBar BUTTON_SIZE_BOOST");
+        ImGui.sameLine();
+        if (ImGui.button("Reset")) {
+            BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;
+        }
+
+        ImGui.endChild();
+        //endregion
+
+        ImGui.separator();
     }
     //endregion
 }
