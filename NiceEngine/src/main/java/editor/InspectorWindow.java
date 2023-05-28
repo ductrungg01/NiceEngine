@@ -74,11 +74,14 @@ public class InspectorWindow {
 
     public enum InspectorBottomButtonTitle {
         SaveAsPrefab,
-        OverrideThePrefab
+        OverrideThePrefab,
+        OverrideAllChildren
     }
 
     private final String SAVE_AS_PREFAB_BUTTON_TITLE = "Save as prefab";
     private final String OVERRIDE_THE_PREFAB_BUTTON_TITLE = "Override the prefab";
+    private final String OVERRIDE_ALL_CHILDREN_BUTTON_TITLE = "Override all children";
+    private boolean alwaysOverrideChildren = false;
     private String bottomButtonTitle = "";
 
     //region Methods
@@ -111,7 +114,7 @@ public class InspectorWindow {
         }
 
         if (drawBottomButton(windowCursorPos)) {
-            
+
         }
 
         if (showAddComponentMenu) {
@@ -176,6 +179,16 @@ public class InspectorWindow {
             isClick = true;
         }
 
+        if (bottomButtonTitle.equals(OVERRIDE_ALL_CHILDREN_BUTTON_TITLE)) {
+            float checkboxTitleLength = NiceImGui.getLengthOfText("Always override children");
+            ImGui.setCursorPos(bottomMiddlePosX - checkboxTitleLength / 2f, ImGui.getCursorPosY());
+
+            boolean tmpBoolean = this.alwaysOverrideChildren;
+            if (ImGui.checkbox("Always override children", tmpBoolean)) {
+                this.alwaysOverrideChildren = !tmpBoolean;
+            }
+        }
+
         ImGui.setCursorPos(oldCursorPos.x, oldCursorPos.y);
 
         ImGui.popID();
@@ -209,17 +222,30 @@ public class InspectorWindow {
     }
 
     public void setActiveGameObject(GameObject go) {
-        setActiveGameObject(go, InspectorBottomButtonTitle.OverrideThePrefab);
+        setActiveGameObject(go, InspectorBottomButtonTitle.SaveAsPrefab);
     }
 
     public void setActiveGameObject(GameObject go, InspectorBottomButtonTitle buttonTitle) {
+        if (this.activeGameObject != null && this.activeGameObject == go) return;
+
         if (go != null) {
             clearSelected();
             this.activeGameObjects.add(go);
         }
 
-        this.bottomButtonTitle = (buttonTitle == InspectorBottomButtonTitle.SaveAsPrefab ?
-                SAVE_AS_PREFAB_BUTTON_TITLE : OVERRIDE_THE_PREFAB_BUTTON_TITLE);
+        this.alwaysOverrideChildren = false;
+
+        switch (buttonTitle) {
+            case SaveAsPrefab -> {
+                bottomButtonTitle = SAVE_AS_PREFAB_BUTTON_TITLE;
+            }
+            case OverrideThePrefab -> {
+                bottomButtonTitle = OVERRIDE_THE_PREFAB_BUTTON_TITLE;
+            }
+            case OverrideAllChildren -> {
+                bottomButtonTitle = OVERRIDE_ALL_CHILDREN_BUTTON_TITLE;
+            }
+        }
     }
 
     public void addActiveGameObject(GameObject go) {
