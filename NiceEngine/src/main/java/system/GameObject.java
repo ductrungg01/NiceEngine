@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.Component;
 import components.ComponentDeserializer;
-import components.ObjectInfo;
 import components.SpriteRenderer;
 import editor.NiceImGui;
 import imgui.ImGui;
@@ -19,7 +18,8 @@ public class GameObject {
     //region Fields
     private static int ID_COUNTER = 0;
     private int uid = -1;
-    public String name;
+    public String name = "";
+    public String tag = "";
     private List<Component> components;
     public transient Transform transform;
     private boolean doSerialization = true;
@@ -92,14 +92,11 @@ public class GameObject {
     }
 
     public void imgui() {
-        ObjectInfo objectInfo = this.getComponent(ObjectInfo.class);
-        objectInfo.name = NiceImGui.inputText("Name", objectInfo.name, "Name of " + this.hashCode());
-        objectInfo.tag = NiceImGui.inputText("Tag", objectInfo.tag, "Tag of " + this.hashCode());
+        this.name = NiceImGui.inputText("Name", this.name, "Name of " + this.hashCode());
+        this.tag = NiceImGui.inputText("Tag", this.tag, "Tag of " + this.hashCode());
 
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
-
-            if (c.getClass() == ObjectInfo.class) continue;
 
             ImBoolean removeComponentButton = new ImBoolean(true);
 
@@ -185,8 +182,7 @@ public class GameObject {
     }
 
     public boolean compareTag(String tag) {
-        ObjectInfo oi = getComponent(ObjectInfo.class);
-        return oi.tag.equals(tag);
+        return this.tag.equals(tag);
     }
     //endregion
 }
