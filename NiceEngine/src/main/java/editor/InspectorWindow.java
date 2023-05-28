@@ -3,8 +3,12 @@ package editor;
 import components.*;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import imgui.ImVec2;
+import imgui.ImVec4;
+import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
+import org.lwjgl.system.CallbackI;
 import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
@@ -15,8 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static editor.uihelper.NiceShortCall.COLOR_Blue;
-import static editor.uihelper.NiceShortCall.COLOR_DarkBlue;
+import static editor.uihelper.NiceShortCall.*;
 
 public class InspectorWindow {
 
@@ -69,6 +72,15 @@ public class InspectorWindow {
     String searchText = "";
     boolean showAddComponentMenu = false;
 
+    public enum InspectorBottomButtonTitle {
+        SaveAsPrefab,
+        OverrideThePrefab
+    }
+
+    private final String SAVE_AS_PREFAB_BUTTON_TITLE = "Save as prefab";
+    private final String OVERRIDE_THE_PREFAB_BUTTON_TITLE = "Override the prefab";
+    private String bottomButtonTitle = "";
+
     //region Methods
     public void imgui() {
         ImGui.begin("Inspector");
@@ -84,6 +96,8 @@ public class InspectorWindow {
             return;
         }
 
+        Vector2f windowCursorPos = new Vector2f(ImGui.getCursorPosX(), ImGui.getCursorPosY());
+
         activeGameObject.imgui();
 
         ImGui.separator();
@@ -94,6 +108,10 @@ public class InspectorWindow {
             showAddComponentMenu = true;
             searchText = "";
             ImGui.openPopup("AddComponentMenu");
+        }
+
+        if (drawBottomButton(windowCursorPos)) {
+            
         }
 
         if (showAddComponentMenu) {
@@ -131,6 +149,40 @@ public class InspectorWindow {
         ImGui.end();
     }
 
+    private boolean drawBottomButton(Vector2f windowCursorPos) {
+        ImGui.pushID("BottomButton");
+
+        ImVec2 windowSize = new ImVec2();
+        ImGui.getWindowSize(windowSize);
+        windowSize.y -= 35f; // Offset, I don't know why
+
+        float bottomMiddlePosX = windowCursorPos.x + windowSize.x / 2f;
+        float bottomMiddlePosY = windowCursorPos.y + windowSize.y;
+
+        Vector2f buttonSize = NiceImGui.getSizeOfButton(bottomButtonTitle);
+
+        float buttonPosX = bottomMiddlePosX - buttonSize.x / 2f;
+        float buttonPosY = bottomMiddlePosY - buttonSize.y;
+
+        Vector2f oldCursorPos = new Vector2f(ImGui.getCursorPosX(), ImGui.getCursorPosY());
+        ImGui.setCursorPos(buttonPosX, buttonPosY);
+
+        Vector4f buttonColor = new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1);
+
+        boolean isClick = false;
+
+        if (NiceImGui.drawButton(bottomButtonTitle,
+                new ButtonColor(buttonColor, COLOR_Blue, COLOR_DarkBlue))) {
+            isClick = true;
+        }
+
+        ImGui.setCursorPos(oldCursorPos.x, oldCursorPos.y);
+
+        ImGui.popID();
+
+        return isClick;
+    }
+
     public GameObject getActiveGameObject() {
         return activeGameObjects.size() == 1 ? this.activeGameObjects.get(0) : null;
     }
@@ -157,10 +209,17 @@ public class InspectorWindow {
     }
 
     public void setActiveGameObject(GameObject go) {
+        setActiveGameObject(go, InspectorBottomButtonTitle.OverrideThePrefab);
+    }
+
+    public void setActiveGameObject(GameObject go, InspectorBottomButtonTitle buttonTitle) {
         if (go != null) {
             clearSelected();
             this.activeGameObjects.add(go);
         }
+
+        this.bottomButtonTitle = (buttonTitle == InspectorBottomButtonTitle.SaveAsPrefab ?
+                SAVE_AS_PREFAB_BUTTON_TITLE : OVERRIDE_THE_PREFAB_BUTTON_TITLE);
     }
 
     public void addActiveGameObject(GameObject go) {

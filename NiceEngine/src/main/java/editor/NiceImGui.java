@@ -319,12 +319,17 @@ public class NiceImGui {
     }
 
     public static boolean drawButton(String label, ButtonColor btnColor) {
-        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
 
-        // Tính toán kích thước của button
-        Vector2f buttonSize = new Vector2f(getLengthOfText(label) + ImGui.getStyle().getFramePaddingX() * 2.0f, lineHeight);
+        Vector2f buttonSize = getSizeOfButton(label);
 
         return drawButton(label, btnColor, buttonSize);
+    }
+
+    public static Vector2f getSizeOfButton(String label) {
+        float width = getLengthOfText(label) + ImGui.getStyle().getFramePaddingX() * 2.0f;
+        float height = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
+
+        return new Vector2f(width, height);
     }
 
     public static boolean drawButtonWithLeftText(String label, ButtonColor btnColor, Vector2f btnSize) {
