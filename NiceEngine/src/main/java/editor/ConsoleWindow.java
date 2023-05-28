@@ -27,7 +27,7 @@ public class ConsoleWindow {
     //endregion
 
     public List<String> debugLogs = new ArrayList<>();
-    private final int MAX_DEBUGLOG_SIZE = 2000;
+    private final int MAX_DEBUGLOG_SIZE = 200;
     private boolean isRemoved = false;
 
     public void imgui() {

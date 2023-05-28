@@ -95,8 +95,7 @@ public class TurtleAI extends Component {
                 this.stateMachine.setCurrentState("TurtleShellSpin");
             }
         }
-        Debug.Log("isDead:" + isDead + "  |  " + "isMoving: " + isMoving + "  | State: " + this.stateMachine.getCurrentStateTitle());
-    }
+  }
 
     @Override
     public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {

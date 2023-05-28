@@ -42,7 +42,6 @@ public class FlowerAI extends Component {
                 this.active = true;
             }
         }
-        Debug.Log("Flower active:" + active);
         delay -= dt;
         if (active) {
             if (delay > 0) return;

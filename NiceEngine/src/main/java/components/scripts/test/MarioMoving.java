@@ -212,7 +212,14 @@ public class MarioMoving extends Component {
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
         if (isDead) return;
-
+        if (collidingObject.compareTag("TopGround")) {
+            float posYP = this.gameObject.transform.position.y - (this.gameObject.transform.scale.y / 2);
+            float posYT = collidingObject.transform.position.y + (collidingObject.transform.scale.y / 2);
+            if (contactNormal.y > 0 && posYP < posYT) {
+                contact.setEnabled(false);
+                return;
+            }
+        }
         if (collidingObject.getComponent(Ground.class) != null) {
             if (Math.abs(contactNormal.x) > 0.8f) {
                 this.velocity.x = 0;
@@ -220,6 +227,19 @@ public class MarioMoving extends Component {
                 this.velocity.y = 0;
                 this.acceleration.y = 0;
                 this.jumpTime = 0;
+            }
+        }
+    }
+
+    @Override
+    public void preSolve(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
+        if (collidingObject.compareTag("TopGround") || collidingObject.compareTag("Enemy")) {
+            float posYP = this.gameObject.transform.position.y - (this.gameObject.transform.scale.y / 2);
+            float posYT = collidingObject.transform.position.y + (collidingObject.transform.scale.y / 2);
+            Debug.Log("PosYP: " + posYP + " | PosYT: " + posYT );
+            if (hitNormal.y > 0 && posYP < posYT) {
+                contact.setEnabled(false);
+                return;
             }
         }
     }
