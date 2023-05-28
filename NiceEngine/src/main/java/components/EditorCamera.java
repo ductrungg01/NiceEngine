@@ -1,5 +1,6 @@
 package components;
 
+import editor.Debug;
 import system.Camera;
 import system.KeyListener;
 import system.MouseListener;
@@ -33,28 +34,29 @@ public class EditorCamera extends Component implements INonAddableComponent {
     //region Override methods
     @Override
     public void editorUpdate(float dt) {
-        if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE) && dragDebounce > 0) {
-            this.clickOrigin = MouseListener.getWorld();
-            dragDebounce -= dt;
-            return;
-        } else if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE)) {
-            Vector2f mousePos = MouseListener.getWorld();
-            Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
+        if ((KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW_KEY_RIGHT_CONTROL))) {
+            if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && dragDebounce > 0) {
+                this.clickOrigin = MouseListener.getWorld();
+                dragDebounce -= dt;
+                return;
+            } else if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+                Vector2f mousePos = MouseListener.getWorld();
+                Vector2f delta = new Vector2f(mousePos).sub(this.clickOrigin);
 
-            levelEditorCamera.position.sub(delta.mul(dt).mul(dragSensitivity));
-            this.clickOrigin.lerp(mousePos, dt);
-        }
+                levelEditorCamera.position.sub(delta.mul(dt).mul(dragSensitivity));
+                this.clickOrigin.lerp(mousePos, dt);
+            }
+            if (dragDebounce <= 0.0f && !MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+                dragDebounce = 0.1f;
+            }
 
-        if (dragDebounce <= 0.0f && !MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_MIDDLE)) {
-            dragDebounce = 0.1f;
-        }
+            if (MouseListener.getScrollY() != 0.0f) {
+                float addValue = (float) Math.pow(Math.abs(MouseListener.getScrollY() * scrollSensivity),
+                        1 / levelEditorCamera.getZoom());
 
-        if (MouseListener.getScrollY() != 0.0f) {
-            float addValue = (float) Math.pow(Math.abs(MouseListener.getScrollY() * scrollSensivity),
-                    1 / levelEditorCamera.getZoom());
-
-            addValue *= -Math.signum(MouseListener.getScrollY());
-            levelEditorCamera.addZoom(addValue);
+                addValue *= -Math.signum(MouseListener.getScrollY());
+                levelEditorCamera.addZoom(addValue);
+            }
         }
 
         if (KeyListener.isKeyPressed(GLFW_KEY_KP_DECIMAL)) {

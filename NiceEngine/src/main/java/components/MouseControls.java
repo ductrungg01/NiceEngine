@@ -16,8 +16,7 @@ import util.Settings;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class MouseControls extends Component implements INonAddableComponent {
     //region Fields
@@ -34,6 +33,8 @@ public class MouseControls extends Component implements INonAddableComponent {
     @Override
     public void editorUpdate(float dt) {
         if (FileDialog.getInstance().isOpen() || !GameViewWindow.getInstance().getWantCaptureMouse()) return;
+        if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW_KEY_RIGHT_CONTROL)) return;
+
         debounce -= dt;
         PickingTexture pickingTexture = Window.getImguiLayer().getInspectorWindow().getPickingTexture();
         Scene currentScene = Window.getScene();
