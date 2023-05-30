@@ -197,7 +197,6 @@ public class Scene {
 
     public GameObject createGameObject(String name) {
         GameObject go = new GameObject(name);
-        go.addComponent(new ObjectInfo(name));
         go.addComponent(new Transform());
         go.transform = go.getComponent(Transform.class);
 
@@ -234,6 +233,30 @@ public class Scene {
         }
         //endregion
 
+        //region Save Prefabs
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(PrefabObject.class, new PrefabDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+
+        try {
+            FileWriter writer = new FileWriter("prefabs.txt");
+
+            List<PrefabObject> objsToSerialize = Prefabs.prefabObjects;
+
+            writer.write(gson.toJson(objsToSerialize));
+            writer.close();
+            if (isShowMessage)
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+        } catch (IOException e) {
+            e.printStackTrace();
+            if (isShowMessage)
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
+        }
+        //endregion
+
         //region Save Spritesheet
         List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
         try {
@@ -257,6 +280,9 @@ public class Scene {
 
     public void load() {
         //region Load Game object
+        int maxGoId = -1;
+        int maxCompId = -1;
+
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
@@ -273,9 +299,6 @@ public class Scene {
         }
 
         if (!inFile.equals("")) {
-            int maxGoId = -1;
-            int maxCompId = -1;
-
             GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
             for (int i = 0; i < objs.length; i++) {
                 addGameObjectToScene(objs[i]);
@@ -295,6 +318,53 @@ public class Scene {
             maxCompId++;
 
             GameObject.init(maxGoId);
+            Component.init(maxCompId);
+        }
+        //endregion
+
+        //region Load Prefabs
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(PrefabObject.class, new PrefabDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+
+        inFile = "";
+
+        try {
+            inFile = new String(Files.readAllBytes(Paths.get("prefabs.txt")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (!inFile.equals("")) {
+            PrefabObject[] objs = gson.fromJson(inFile, PrefabObject[].class);
+            for (int i = 0; i < objs.length; i++) {
+                Prefabs.prefabObjects.add(objs[i]);
+
+                for (Component c : objs[i].getAllComponents()) {
+                    if (c instanceof SpriteRenderer) {
+                        String textureSrc = ((SpriteRenderer) c).getTexture().getFilePath();
+                        Texture texture = new Texture();
+                        texture.init(textureSrc);
+                        ((SpriteRenderer) c).setTexture(texture);
+                    }
+
+                    if (c.getUid() > maxCompId) {
+                        maxCompId = c.getUid();
+                    }
+                }
+
+                if (objs[i].getUid() > maxGoId) {
+                    maxGoId = objs[i].getUid();
+                }
+            }
+
+            maxGoId++;
+            maxCompId++;
+
+            PrefabObject.init(maxGoId);
             Component.init(maxCompId);
         }
         //endregion
