@@ -8,11 +8,13 @@ import components.SpriteRenderer;
 import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
+import org.joml.Vector2f;
 import util.AssetPool;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class GameObject {
     //region Fields
@@ -20,6 +22,10 @@ public class GameObject {
     private int uid = -1;
     public String name = "";
     public String tag = "";
+    private boolean isPrefab = false;
+    public String prefabId = "";
+    public String parentId = "";
+    public static List<GameObject> PrefabLists = new ArrayList<>();
     private List<Component> components;
     public transient Transform transform;
     private boolean doSerialization = true;
@@ -33,6 +39,16 @@ public class GameObject {
 
         this.uid = ID_COUNTER++;
     }
+
+    public GameObject(String name, String prefabId) {
+        this.name = name;
+        this.components = new ArrayList<>();
+
+        this.uid = ID_COUNTER++;
+
+        this.prefabId = prefabId;
+        this.isPrefab = true;
+    }
     //endregion
 
     //region Methods
@@ -41,6 +57,30 @@ public class GameObject {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
                 .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+        String objAsJson = gson.toJson(this);
+        GameObject obj = gson.fromJson(objAsJson, GameObject.class);
+
+        obj.generateUid();
+
+        for (Component c : obj.getAllComponents()) {
+            c.generateId();
+        }
+
+        SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
+        if (sprite != null && sprite.getTexture() != null) {
+            sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
+        }
+
+        return obj;
+    }
+
+    public GameObject copyFromPrefab() {
+        // TODO: come up with cleaner solution
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new PrefabDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
         String objAsJson = gson.toJson(this);
@@ -183,6 +223,71 @@ public class GameObject {
 
     public boolean compareTag(String tag) {
         return this.tag.equals(tag);
+    }
+
+    public boolean isPrefab() {
+        return this.isPrefab;
+    }
+
+    public void setAsPrefab() {
+        GameObject prefab = this.copy();
+
+        prefab.transform.position = new Vector2f();
+        prefab.isPrefab = true;
+        prefab.isDead = true;
+        this.parentId = "";
+        prefab.generatePrefabId();
+        GameObject.PrefabLists.add(prefab);
+    }
+
+    public void setIsNotPrefab() {
+        this.isPrefab = false;
+        this.prefabId = "";
+        GameObject.PrefabLists.remove(this);
+    }
+
+    public GameObject generateChildGameObject() {
+        if (!this.isPrefab) return null;
+        GameObject newGo = this.copyFromPrefab();
+        newGo.isPrefab = false;
+        newGo.prefabId = "";
+        newGo.isDead = false;
+        newGo.doSerialization();
+        newGo.parentId = this.prefabId;
+
+        return newGo;
+    }
+
+    public void generatePrefabId() {
+        do {
+            this.prefabId = generateRandomString();
+        } while (isExistedId(this.prefabId));
+    }
+
+    private boolean isExistedId(String id) {
+        for (GameObject go : GameObject.PrefabLists) {
+            String prefabId = go.prefabId;
+            if (id.equals(prefabId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private String generateRandomString() {
+        int length = 10;
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder sb = new StringBuilder();
+
+        Random random = new Random();
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            char randomChar = characters.charAt(index);
+            sb.append(randomChar);
+        }
+
+        return sb.toString();
     }
     //endregion
 }

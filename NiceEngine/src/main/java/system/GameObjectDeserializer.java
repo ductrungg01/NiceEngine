@@ -11,15 +11,24 @@ public class GameObjectDeserializer implements JsonDeserializer<GameObject> {
     public GameObject deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
         String name = jsonObject.get("name").getAsString();
-        JsonArray components = jsonObject.getAsJsonArray("components");
+        String tag = jsonObject.get("tag").getAsString();
+        String parentId = jsonObject.get("parentId").getAsString();
+        boolean isPrefab = jsonObject.get("isPrefab").getAsBoolean();
 
-        GameObject go = new GameObject(name);
-        for (JsonElement e: components){
-            Component c = context.deserialize(e, Component.class);
-            go.addComponent(c);
-        }
-        go.transform = go.getComponent(Transform.class);
-        return go;
+        if (!isPrefab) {
+            JsonArray components = jsonObject.getAsJsonArray("components");
+
+            GameObject go = new GameObject(name);
+            for (JsonElement e : components) {
+                Component c = context.deserialize(e, Component.class);
+                go.addComponent(c);
+            }
+            go.transform = go.getComponent(Transform.class);
+            go.tag = tag;
+            go.parentId = parentId;
+            return go;
+        } else
+            return null;
     }
     //endregion
 }

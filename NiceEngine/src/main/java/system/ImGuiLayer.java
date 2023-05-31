@@ -37,7 +37,6 @@ public class ImGuiLayer {
         this.menuBar = new MenuBar();
         this.assetsWindow = new AssetsWindow();
         this.messageBox = new MessageBox();
-        PrefabsWindow.getInstance().start();
     }
     //endregion
 

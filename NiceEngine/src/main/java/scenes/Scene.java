@@ -237,14 +237,14 @@ public class Scene {
         gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(PrefabObject.class, new PrefabDeserializer())
+                .registerTypeAdapter(GameObject.class, new PrefabDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
 
         try {
             FileWriter writer = new FileWriter("prefabs.txt");
 
-            List<PrefabObject> objsToSerialize = Prefabs.prefabObjects;
+            List<GameObject> objsToSerialize = GameObject.PrefabLists;
 
             writer.write(gson.toJson(objsToSerialize));
             writer.close();
@@ -323,10 +323,12 @@ public class Scene {
         //endregion
 
         //region Load Prefabs
+        GameObject.PrefabLists.clear();
+
         gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Component.class, new ComponentDeserializer())
-                .registerTypeAdapter(PrefabObject.class, new PrefabDeserializer())
+                .registerTypeAdapter(GameObject.class, new PrefabDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
 
@@ -339,9 +341,9 @@ public class Scene {
         }
 
         if (!inFile.equals("")) {
-            PrefabObject[] objs = gson.fromJson(inFile, PrefabObject[].class);
+            GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
             for (int i = 0; i < objs.length; i++) {
-                Prefabs.prefabObjects.add(objs[i]);
+                GameObject.PrefabLists.add(objs[i]);
 
                 for (Component c : objs[i].getAllComponents()) {
                     if (c instanceof SpriteRenderer) {
@@ -364,7 +366,7 @@ public class Scene {
             maxGoId++;
             maxCompId++;
 
-            PrefabObject.init(maxGoId);
+            GameObject.init(maxGoId);
             Component.init(maxCompId);
         }
         //endregion

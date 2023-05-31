@@ -114,7 +114,9 @@ public class InspectorWindow {
         }
 
         if (drawBottomButton(windowCursorPos)) {
-
+            if (bottomButtonTitle.equals(SAVE_AS_PREFAB_BUTTON_TITLE)) {
+                activeGameObject.setAsPrefab();
+            }
         }
 
         if (showAddComponentMenu) {
