@@ -1,7 +1,9 @@
-package system;
+package deserializers;
 
 import com.google.gson.*;
 import components.Component;
+import system.GameObject;
+import system.Transform;
 
 import java.lang.reflect.Type;
 
