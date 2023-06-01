@@ -117,6 +117,9 @@ public class InspectorWindow {
             if (bottomButtonTitle.equals(SAVE_AS_PREFAB_BUTTON_TITLE)) {
                 activeGameObject.setAsPrefab();
             }
+            if (bottomButtonTitle.equals(OVERRIDE_ALL_CHILDREN_BUTTON_TITLE)) {
+                activeGameObject.overrideAllChildGameObject();
+            }
         }
 
         if (showAddComponentMenu) {

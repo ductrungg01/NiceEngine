@@ -136,6 +136,10 @@ public class GameObject {
     public void imgui() {
         this.name = NiceImGui.inputText("Name", this.name, "Name of " + this.hashCode());
         this.tag = NiceImGui.inputText("Tag", this.tag, "Tag of " + this.hashCode());
+        ImGui.text("isPrefab? : " + this.isPrefab);
+        ImGui.text("prefab ID : " + this.prefabId);
+        ImGui.text("parent ID : " + this.parentId);
+
 
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
@@ -237,9 +241,11 @@ public class GameObject {
         prefab.transform.position = new Vector2f();
         prefab.isPrefab = true;
         prefab.isDead = true;
-        this.parentId = "";
+        prefab.parentId = "";
         prefab.generatePrefabId();
         GameObject.PrefabLists.add(prefab);
+
+        this.parentId = prefab.prefabId;
     }
 
     public void setIsNotPrefab() {
@@ -251,6 +257,7 @@ public class GameObject {
     public GameObject generateChildGameObject() {
         if (!this.isPrefab) return null;
         GameObject newGo = this.copyFromPrefab();
+
         newGo.isPrefab = false;
         newGo.prefabId = "";
         newGo.isDead = false;
@@ -258,6 +265,19 @@ public class GameObject {
         newGo.parentId = this.prefabId;
 
         return newGo;
+    }
+
+    public void overrideAllChildGameObject() {
+        List<GameObject> gameObjects = Window.getScene().getGameObjects();
+
+        for (int i = 0; i < gameObjects.size(); i++) {
+            GameObject go = gameObjects.get(i);
+            if (go.parentId.equals(this.prefabId)) {
+                // TODO: OVERRIDE HERE
+
+
+            }
+        }
     }
 
     public void generatePrefabId() {

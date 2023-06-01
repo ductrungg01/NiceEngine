@@ -1,6 +1,6 @@
 [
   {
-    "uid": 1453,
+    "uid": 7346,
     "name": "testImage",
     "tag": "",
     "isPrefab": true,
@@ -67,9 +67,9 @@
     "isDead": false
   },
   {
-    "uid": 1454,
-    "name": "New GameObject",
-    "tag": "",
+    "uid": 7347,
+    "name": "Mario",
+    "tag": "MarioTag",
     "isPrefab": true,
     "prefabId": "Y8yE0N0hv4",
     "parentId": "",
@@ -233,6 +233,111 @@
           ],
           "defaultStateTitle": "idle",
           "uid": 56
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 907
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 7348,
+    "name": "TreeLeft",
+    "tag": "tree",
+    "isPrefab": true,
+    "prefabId": "ckbwKXVs3l",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": -6,
+          "uid": 35
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "Assets\\images\\spritesheets\\map.png",
+              "width": 256,
+              "height": 256
+            },
+            "texCoords": [
+              {
+                "x": 0.4375,
+                "y": 0.1875
+              },
+              {
+                "x": 0.4375,
+                "y": 0.25
+              },
+              {
+                "x": 0.375,
+                "y": 0.25
+              },
+              {
+                "x": 0.375,
+                "y": 0.1875
+              }
+            ]
+          },
+          "uid": 36
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 70
         }
       }
     ],
