@@ -1,6 +1,8 @@
 package system;
 
+import editor.Debug;
 import editor.SceneHierarchyWindow;
+import imgui.ImGui;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
@@ -8,6 +10,7 @@ import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.PointerBuffer;
 import org.lwjgl.Version;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWDropCallback;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWImage;
@@ -30,6 +33,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.DoubleBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +59,8 @@ public class Window implements Observer {
     private long audioDevice;
 
     private static Scene currentScene;
+    private static boolean isWindowFocused = true;
+
     //endregion
 
     //region Constructors
@@ -133,8 +139,17 @@ public class Window implements Observer {
 
             this.imGuiLayer.update(dt, currentScene);
 
+            glfwSetWindowFocusCallback(glfwWindow, (window, focused) -> {
+                isWindowFocused = focused;
+            });
+
+            if (!isWindowFocused) {
+                GLFW.glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            }
+
             KeyListener.endframe();
             MouseListener.endFrame();
+
             glfwSwapBuffers(glfwWindow);
 
             endTime = (float) glfwGetTime();
