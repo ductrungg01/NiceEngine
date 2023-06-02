@@ -6,6 +6,7 @@ import imgui.ImGui;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.PointerBuffer;
@@ -344,6 +345,8 @@ public class Window implements Observer {
     //endregion
 
     //region Override methods
+    private Vector2f oldEditorCameraPos = new Vector2f();
+
     @Override
     public void onNotify(GameObject object, Event event) {
         switch (event.type) {
@@ -352,11 +355,14 @@ public class Window implements Observer {
                 currentScene.save(false);
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
+                oldEditorCameraPos = Window.getScene().camera().position;
+                ;
                 Window.changeScene(new LevelSceneInitializer());
                 break;
             case GameEngineStopPlay:
                 this.runtimePlaying = false;
                 Window.changeScene(new LevelEditorSceneInitializer());
+                Window.getScene().camera().position = oldEditorCameraPos;
                 break;
             case SaveLevel:
                 currentScene.save(true);
