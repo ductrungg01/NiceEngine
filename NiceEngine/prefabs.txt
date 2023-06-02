@@ -1,6 +1,6 @@
 [
   {
-    "uid": 2920,
+    "uid": 1454,
     "name": "testImage",
     "tag": "",
     "isPrefab": true,
@@ -67,7 +67,7 @@
     "isDead": false
   },
   {
-    "uid": 2921,
+    "uid": 1455,
     "name": "Mario",
     "tag": "MarioTag",
     "isPrefab": true,
@@ -258,7 +258,7 @@
     "isDead": false
   },
   {
-    "uid": 2922,
+    "uid": 1456,
     "name": "TreeLeft",
     "tag": "tree",
     "isPrefab": true,

@@ -5,6 +5,7 @@ import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
 import org.joml.Vector2f;
+import org.joml.Vector4f;
 import system.GameObject;
 import system.Transform;
 import system.Window;
@@ -55,6 +56,11 @@ public class SceneHierarchyWindow {
         int index = 0;
 
         if (ImGui.beginTabBar("HierarchyTabBar")) {
+            if (ImGui.beginTabItem("System")) {
+                NiceImGui.colorPicker4("Camera's clear color", Window.getScene().camera().clearColor);
+                ImGui.endTabItem();
+            }
+
             for (String tag : tags) {
                 if (ImGui.beginTabItem(tag)) {
                     for (GameObject obj : gameObjects) {
