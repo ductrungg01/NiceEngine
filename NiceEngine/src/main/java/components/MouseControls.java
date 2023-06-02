@@ -21,7 +21,7 @@ import static org.lwjgl.glfw.GLFW.*;
 public class MouseControls extends Component implements INonAddableComponent {
     //region Fields
     static GameObject holdingObject = null;
-    private static float debounceTime = 0.2f;
+    private static float debounceTime = 0.3f;
     private static float debounce = debounceTime;
 
     private static boolean boxSelectSet = false;
@@ -140,18 +140,18 @@ public class MouseControls extends Component implements INonAddableComponent {
 
     //region Methods
     public void pickupObject(GameObject go) {
-        if (this.holdingObject != null) {
-            this.holdingObject.destroy();
+        if (holdingObject != null) {
+            holdingObject.destroy();
         }
-        this.holdingObject = go;
-        this.holdingObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
-        this.holdingObject.addComponent(new NonPickable());
+        holdingObject = go;
+        holdingObject.getComponent(SpriteRenderer.class).setColor(new Vector4f(0.8f, 0.8f, 0.8f, 0.5f));
+        holdingObject.addComponent(new NonPickable());
         Window.getScene().addGameObjectToScene(go);
     }
 
     public void place() {
         if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()) return;
-        GameObject newObj = this.holdingObject.copy();
+        GameObject newObj = holdingObject.copy();
         newObj.doSerialization();
         if (newObj.getComponent(StateMachine.class) != null) {
             newObj.getComponent(StateMachine.class).refreshTextures();

@@ -1,4 +1,4 @@
-package components;
+package deserializers;
 
 import com.google.gson.*;
 import components.Component;
@@ -16,7 +16,7 @@ public class ComponentDeserializer implements JsonSerializer<Component>,
 
         try {
             return context.deserialize(element, Class.forName(type));
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             throw new JsonParseException("Unknown element type: " + type, e);
         }
     }

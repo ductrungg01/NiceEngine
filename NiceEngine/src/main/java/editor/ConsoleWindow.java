@@ -30,26 +30,37 @@ public class ConsoleWindow {
     private final int MAX_DEBUGLOG_SIZE = 200;
     private boolean isRemoved = false;
 
+    static boolean alwaysShowInBottom = true;
+
     public void imgui() {
         ImGui.begin("Console");
 
         if (NiceImGui.drawButton("Clear", new ButtonColor())) {
             debugLogs.clear();
         }
+        boolean tmpBoolean = alwaysShowInBottom;
+        if (ImGui.checkbox("Dock in the bottom", tmpBoolean)) {
+            alwaysShowInBottom = !tmpBoolean;
+        }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 4f, ImGui.getContentRegionMaxY() - 85f, true);
+        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 4f, ImGui.getContentRegionMaxY() - NiceImGui.getHeightOfALine() * 4, true);
 
         if (debugLogs.size() > MAX_DEBUGLOG_SIZE) {
             removeOldValue();
+        }
+
+        if (isRemoved) {
+            ImGui.text("The old value was be removed by because low performance");
         }
 
         for (int i = debugLogs.size() - 1; i >= 0; i--) {
             ImGui.text(debugLogs.get(i));
         }
 
-        if (isRemoved) {
-            ImGui.text("The old value was be removed by because low performance");
+        if (alwaysShowInBottom) {
+            ImGui.setScrollHereY();
         }
+
 
         ImGui.endChild();
         ImGui.end();

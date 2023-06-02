@@ -170,9 +170,17 @@ public class StateMachine extends Component {
     @Override
     public void imgui() {
         List<String> stateTitles = new ArrayList<>();
-        for (AnimationState s : states) stateTitles.add(s.title);
 
-        if (defaultStateTitle.equals("") && states.size() > 0) {
+        boolean isDefaultStateAvailable = false;
+
+        for (AnimationState s : states) {
+            stateTitles.add(s.title);
+            if (s.title.equals(defaultStateTitle)) {
+                isDefaultStateAvailable = true;
+            }
+        }
+
+        if ((defaultStateTitle.equals("") || !isDefaultStateAvailable) && states.size() > 0) {
             defaultStateTitle = states.get(0).title;
         }
 

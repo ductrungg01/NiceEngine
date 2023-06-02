@@ -32,7 +32,7 @@ public class DebugDraw {
     //endregion
 
     //region Methods
-    public static void start(){
+    public static void start() {
         // Generate the vao
         vaoID = glGenVertexArrays();
         glBindVertexArray(vaoID);
@@ -52,27 +52,27 @@ public class DebugDraw {
         glLineWidth(2.0f);
     }
 
-    public static void beginFrame(){
-        if (!started){
+    public static void beginFrame() {
+        if (!started) {
             start();
             started = true;
         }
 
         // Remove dead lines
-        for (int i = 0; i < lines.size(); i++){
-            if (lines.get(i).beginFrame() < 0){
+        for (int i = 0; i < lines.size(); i++) {
+            if (lines.get(i).beginFrame() < 0) {
                 lines.remove(i);
                 i--;
             }
         }
     }
 
-    public static void draw(){
+    public static void draw() {
         if (lines.size() <= 0) return;
 
         int index = 0;
-        for (Line2D line : lines){
-            for (int i = 0; i < 2; i++){
+        for (Line2D line : lines) {
+            for (int i = 0; i < 2; i++) {
                 Vector2f position = i == 0 ? line.getFrom() : line.getTo();
                 Vector3f color = line.getColor();
 
@@ -118,16 +118,16 @@ public class DebugDraw {
     // ===========================================================================
     // Add Line2D methods
     // ===========================================================================
-    public static void addLine2D(Vector2f from, Vector2f to){
+    public static void addLine2D(Vector2f from, Vector2f to) {
         // TODO: ADD CONSTAINTS FOR COMMON COLOR
         addLine2D(from, to, new Vector3f(0, 1, 0), 1);
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color){
+    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color) {
         addLine2D(from, to, color, 1);
     }
 
-    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime){
+    public static void addLine2D(Vector2f from, Vector2f to, Vector3f color, int lifetime) {
         Camera camera = Window.getScene().camera();
         Vector2f cameraLeft = new Vector2f(camera.position).add(new Vector2f(-2.0f, -2.0f));
         Vector2f cameraRight = new Vector2f(camera.position)
@@ -136,8 +136,8 @@ public class DebugDraw {
 
         if (lines.size() >= MAX_LINES ||
                 !(
-                    ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
-                    ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y))
+                        ((from.x >= cameraLeft.x && from.x <= cameraRight.x) && (from.y >= cameraLeft.y && from.y <= cameraRight.y)) ||
+                                ((to.x >= cameraLeft.x && to.x <= cameraRight.x) && (to.y >= cameraLeft.y && to.y <= cameraRight.y))
                 )
         ) {
             return;
@@ -151,7 +151,7 @@ public class DebugDraw {
     // ===========================================================================
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation) {
         // TODO: ADD CONSTANTS FOR COMMON COLORS
-        addBox2D(center, dimensions, rotation, new Vector3f(0, 1, 0), 1);
+        addBox2D(center, dimensions, rotation, new Vector3f(1, 0, 0), 1);
     }
 
     public static void addBox2D(Vector2f center, Vector2f dimensions, float rotation, Vector3f color) {
@@ -185,7 +185,7 @@ public class DebugDraw {
     // ===========================================================================
     public static void addCircle(Vector2f center, float radius) {
         // TODO: ADD CONSTANTS FOR COMMON COLORS
-        addCircle(center, radius, new Vector3f(0, 1, 0), 1);
+        addCircle(center, radius, new Vector3f(1, 0, 0), 1);
     }
 
     public static void addCircle(Vector2f center, float radius, Vector3f color) {
@@ -197,7 +197,7 @@ public class DebugDraw {
         int increment = 360 / points.length;
         int currentAngle = 0;
 
-        for (int i=0; i < points.length; i++) {
+        for (int i = 0; i < points.length; i++) {
             Vector2f tmp = new Vector2f(0, radius);
             JMath.rotate(tmp, currentAngle, new Vector2f());
             points[i] = new Vector2f(tmp).add(center);

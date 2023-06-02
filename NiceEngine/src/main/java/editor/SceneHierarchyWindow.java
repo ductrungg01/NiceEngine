@@ -1,6 +1,5 @@
 package editor;
 
-import components.ObjectInfo;
 import components.SpriteRenderer;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
@@ -72,7 +71,6 @@ public class SceneHierarchyWindow {
 
             if (ImGui.menuItem("New GameObject")) {
                 GameObject go = new GameObject("New GameObject");
-                go.addComponent(new ObjectInfo("New GameObject"));
                 go.addComponent(new Transform());
 
                 SpriteRenderer spriteRenderer = new SpriteRenderer();
