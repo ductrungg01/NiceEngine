@@ -356,7 +356,6 @@ public class Window implements Observer {
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
                 oldEditorCameraPos = Window.getScene().camera().position;
-                ;
                 Window.changeScene(new LevelSceneInitializer());
                 break;
             case GameEngineStopPlay:

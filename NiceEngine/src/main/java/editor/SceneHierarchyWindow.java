@@ -10,6 +10,7 @@ import system.Transform;
 import system.Window;
 import util.FileUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
@@ -41,48 +42,70 @@ public class SceneHierarchyWindow {
 
         List<GameObject> gameObjects = Window.getScene().getGameObjects();
 
-        int index = 0;
-        for (GameObject obj : gameObjects) {
-            if (!obj.doSerialization()) {
-                continue;
+        List<String> tags = new ArrayList<>();
+        for (GameObject go : gameObjects) {
+            String goTag = go.tag;
+            if (goTag.equals("")) goTag = "Non-tag";
+
+            if (!tags.contains(goTag)) {
+                tags.add(goTag);
             }
+        }
+
+        int index = 0;
+
+        if (ImGui.beginTabBar("HierarchyTabBar")) {
+            for (String tag : tags) {
+                if (ImGui.beginTabItem(tag)) {
+                    for (GameObject obj : gameObjects) {
+                        if (!obj.doSerialization()) {
+                            continue;
+                        }
+
+                        if (tag.equals("Non-tag")) tag = "";
+
+                        if (!obj.compareTag(tag)) continue;
 
 //            boolean treeNodeOpen = doTreeNode(obj, index);
 //
 //            if (treeNodeOpen) {
 //                ImGui.treePop();
 //            }
-            ImGui.pushID(index);
-            float w = ImGui.getContentRegionAvailX();
-            float h = ImGui.getTextLineHeightWithSpacing();
-            if (obj.equals(selectedGameObject)) {
-                NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
-            } else {
-                if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
-                    Window.getImguiLayer().getInspectorWindow().setActiveGameObject(obj);
-                    selectedGameObject = obj;
+                        ImGui.pushID(index);
+                        float w = ImGui.getContentRegionAvailX();
+                        float h = ImGui.getTextLineHeightWithSpacing();
+                        if (obj.equals(selectedGameObject)) {
+                            NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+                        } else {
+                            if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
+                                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(obj);
+                                selectedGameObject = obj;
+                            }
+                        }
+                        ImGui.popID();
+                        index++;
+                    }
+
+                    if (ImGui.beginPopupContextWindow("Hierarchy")) {
+                        if (ImGui.menuItem("New GameObject")) {
+                            GameObject go = new GameObject("New GameObject");
+                            go.addComponent(new Transform());
+
+                            SpriteRenderer spriteRenderer = new SpriteRenderer();
+                            spriteRenderer.setSprite(FileUtils.getDefaultSprite());
+
+                            go.addComponent(spriteRenderer);
+                            go.transform = go.getComponent(Transform.class);
+
+                            Window.getScene().addGameObjectToScene(go);
+                        }
+
+                        ImGui.endPopup();
+                    }
+                    ImGui.endTabItem();
                 }
             }
-            ImGui.popID();
-            index++;
-        }
-
-        if (ImGui.beginPopupContextWindow("Hierarchy")) {
-
-            if (ImGui.menuItem("New GameObject")) {
-                GameObject go = new GameObject("New GameObject");
-                go.addComponent(new Transform());
-
-                SpriteRenderer spriteRenderer = new SpriteRenderer();
-                spriteRenderer.setSprite(FileUtils.getDefaultSprite());
-
-                go.addComponent(spriteRenderer);
-                go.transform = go.getComponent(Transform.class);
-
-                Window.getScene().addGameObjectToScene(go);
-            }
-
-            ImGui.endPopup();
+            ImGui.endTabBar();
         }
 
         ImGui.end();
