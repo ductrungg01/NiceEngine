@@ -318,6 +318,10 @@ public class NiceImGui {
         return labelWidth + ImGui.getStyle().getFramePaddingX() * 2.0f;
     }
 
+    public static float getHeightOfALine() {
+        return ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
+    }
+
     public static boolean drawButton(String label, ButtonColor btnColor) {
 
         Vector2f buttonSize = getSizeOfButton(label);

@@ -136,9 +136,9 @@ public class GameObject {
     public void imgui() {
         this.name = NiceImGui.inputText("Name", this.name, "Name of " + this.hashCode());
         this.tag = NiceImGui.inputText("Tag", this.tag, "Tag of " + this.hashCode());
-        ImGui.text("isPrefab? : " + this.isPrefab);
-        ImGui.text("prefab ID : " + this.prefabId);
-        ImGui.text("parent ID : " + this.parentId);
+//        ImGui.text("isPrefab? : " + this.isPrefab);
+//        ImGui.text("prefab ID : " + this.prefabId);
+//        ImGui.text("parent ID : " + this.parentId);
 
 
         for (int i = 0; i < components.size(); i++) {
