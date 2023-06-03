@@ -91,6 +91,11 @@ public class SpritesheetWindow {
                                     sprsheetName + "(" + j + ")");
                             gameObject.getComponent(MouseControls.class).pickupObject(newGo);
                         }
+                        if (ImGui.isItemHovered()) {
+                            ImGui.beginTooltip();
+                            ImGui.text("Spritesheet: " + sprsheetName + "\nIndex: " + j);
+                            ImGui.endTooltip();
+                        }
                         ImGui.popID();
 
                         ImVec2 lastButtonPos = new ImVec2();
