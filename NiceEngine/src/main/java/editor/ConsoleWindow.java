@@ -2,6 +2,7 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import system.MouseListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +54,11 @@ public class ConsoleWindow {
             ImGui.text("The old value was be removed by because low performance");
         }
 
-        for (int i = debugLogs.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < debugLogs.size(); i++) {
             ImGui.text(debugLogs.get(i));
         }
+
+        ImGui.text("From MouseListener: X=" + MouseListener.getX() + " : Y=" + MouseListener.getY());
 
         if (alwaysShowInBottom) {
             ImGui.setScrollHereY();

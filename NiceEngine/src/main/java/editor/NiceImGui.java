@@ -461,7 +461,7 @@ public class NiceImGui {
         ImGui.text(label);
         ImGui.nextColumn();
 
-        float[] imColor = {color.x, color.y, color.w, color.z};
+        float[] imColor = {color.x, color.y, color.z, color.w};
         if (ImGui.colorEdit4("##colorPicker", imColor)) {
             color.set(imColor[0], imColor[1], imColor[2], imColor[3]);
             res = true;
