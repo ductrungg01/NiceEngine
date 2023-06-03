@@ -19,9 +19,9 @@ public class TranslateGizmo extends Gizmo implements INonAddableComponent {
     public void editorUpdate(float dt) {
         if (activeGameObject != null) {
             if (xAxisActive && !yAxisActive) {
-                activeGameObject.transform.position.x -= MouseListener.getWorldX();
+                activeGameObject.transform.position.x = MouseListener.getWorldX() - Gizmo.getxAxisOffsetCalc(this.activeGameObject.transform.scale.x).x;
             } else if (yAxisActive) {
-                activeGameObject.transform.position.y -= MouseListener.getWorldY();
+                activeGameObject.transform.position.y = MouseListener.getWorldY() - Gizmo.getyAxisOffsetCalc(this.activeGameObject.transform.scale.y).y;
             }
         }
 

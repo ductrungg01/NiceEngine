@@ -21,14 +21,19 @@ public class Gizmo extends Component implements INonAddableComponent {
 
     protected GameObject activeGameObject = null;
 
-    private Vector2f xAxisOffset = new Vector2f(24f / 80f, -6f / 80f);
-    private Vector2f yAxisOffset = new Vector2f(-7f / 80f, 21f / 80f);
+    private static Vector2f xAxisOffset = new Vector2f(0.1f, -0f);
+    private static Vector2f yAxisOffset = new Vector2f(-0f, 0.1f);
 
-    private float gizmoWidth = 16f / 80f;
-    private float gizmoHeight = 48f / 80f;
+    private static float gizmoWidth = 0.35f;
+    private static float gizmoHeight = 0.45f;
 
     protected boolean xAxisActive = false;
     protected boolean yAxisActive = false;
+
+    protected boolean xAxisHot = false;
+    protected boolean yAxisHot = false;
+
+    static boolean isUsingGizmo = false;
     private boolean using = false;
     private InspectorWindow inspectorWindow;
     //endregion
@@ -84,18 +89,20 @@ public class Gizmo extends Component implements INonAddableComponent {
     @Override
     public void editorUpdate(float dt) {
         if (!using) return;
-        ;
+        isUsingGizmo = checkUsingGizmo();
 
         this.activeGameObject = this.inspectorWindow.getActiveGameObject();
         if (this.activeGameObject != null) {
             this.setActive();
         } else {
             this.setInactive();
+            xAxisActive = false;
+            yAxisActive = false;
             return;
         }
 
-        boolean xAxisHot = checkXHoverState();
-        boolean yAxisHot = checkYHoverState();
+        xAxisHot = checkXHoverState();
+        yAxisHot = checkYHoverState();
 
         if ((xAxisHot || xAxisActive) && MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
             xAxisActive = true;
@@ -103,7 +110,7 @@ public class Gizmo extends Component implements INonAddableComponent {
         } else if ((yAxisHot || yAxisActive) && MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
             xAxisActive = false;
             yAxisActive = true;
-        } else {
+        } else if (!MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) || MouseListener.isMouseRelease(GLFW_MOUSE_BUTTON_LEFT)){
             xAxisActive = false;
             yAxisActive = false;
         }
@@ -111,8 +118,10 @@ public class Gizmo extends Component implements INonAddableComponent {
         if (this.activeGameObject != null) {
             this.xAxisObject.transform.position.set(this.activeGameObject.transform.position);
             this.yAxisObject.transform.position.set(this.activeGameObject.transform.position);
-            this.xAxisObject.transform.position.add(xAxisOffset);
-            this.yAxisObject.transform.position.add(yAxisOffset);
+
+            this.xAxisObject.transform.position.add(getxAxisOffsetCalc(this.activeGameObject.transform.scale.x));
+            this.yAxisObject.transform.position.add(getyAxisOffsetCalc(this.activeGameObject.transform.scale.y));
+
         }
     }
     //endregion
@@ -166,6 +175,25 @@ public class Gizmo extends Component implements INonAddableComponent {
     public void setNotUsing() {
         this.using = false;
         this.setInactive();
+    }
+
+    public static Vector2f getxAxisOffsetCalc(float scale) {
+        float xOffset = (scale + gizmoWidth + xAxisOffset.x) / 2;
+        return new Vector2f(xOffset, 0);
+    }
+
+    public static Vector2f getyAxisOffsetCalc(float scale) {
+        float yOffset = (scale + gizmoHeight + yAxisOffset.y) / 2;
+        return new Vector2f(0, yOffset);
+    }
+    private boolean checkUsingGizmo() {
+        if (xAxisHot || yAxisHot || xAxisActive || yAxisActive)
+             return true;
+        return false;
+    }
+
+    public static boolean getUsingGizmo() {
+        return isUsingGizmo;
     }
     //endregion
 

@@ -38,7 +38,6 @@ public class MouseControls extends Component implements INonAddableComponent {
         debounce -= dt;
         PickingTexture pickingTexture = Window.getImguiLayer().getInspectorWindow().getPickingTexture();
         Scene currentScene = Window.getScene();
-
         if (holdingObject != null) {
             boxSelectSet = false;
             holdingObject.setNoSerialize();
@@ -73,11 +72,13 @@ public class MouseControls extends Component implements INonAddableComponent {
                 Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
                 SceneHierarchyWindow.setSelectedGameObject(pickedObj);
             } else if (pickedObj == null && !MouseListener.isDragging()) {
+                if (Gizmo.getUsingGizmo()) return;
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
             }
             this.debounce = debounceTime;
         } else if (MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+            if (Gizmo.getUsingGizmo()) return;
             if (!boxSelectSet) {
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 boxSelectStart = MouseListener.getScreen();
