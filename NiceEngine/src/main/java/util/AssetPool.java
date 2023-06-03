@@ -58,6 +58,7 @@ public class AssetPool {
 
         return sprs;
     }
+    
 
     public static Collection<Sound> getAllSounds() {
         return sounds.values();

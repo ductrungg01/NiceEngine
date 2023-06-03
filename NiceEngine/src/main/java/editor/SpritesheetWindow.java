@@ -1,5 +1,6 @@
 package editor;
 
+import components.MouseControls;
 import components.Sprite;
 import components.Spritesheet;
 import imgui.ImGui;
@@ -7,26 +8,34 @@ import imgui.ImVec2;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import org.lwjgl.glfw.GLFW;
+import system.GameObject;
+import system.Prefabs;
 import util.AssetPool;
 import util.FileUtils;
 
+import javax.swing.*;
 import java.util.List;
 
-public class SpritesheetLoaderWindow {
+public class SpritesheetWindow {
     //region Singleton
-    private SpritesheetLoaderWindow() {
+    private SpritesheetWindow() {
+        gameObject = new GameObject("Drag GO");
+        gameObject.setNoSerialize();
+        gameObject.addComponent(new MouseControls());
     }
 
-    private static SpritesheetLoaderWindow instance = null;
+    private static SpritesheetWindow instance = null;
 
-    public static SpritesheetLoaderWindow getInstance() {
+    public static SpritesheetWindow getInstance() {
         if (instance == null) {
-            instance = new SpritesheetLoaderWindow();
+            instance = new SpritesheetWindow();
         }
 
         return instance;
     }
     //endregion
+
+    private GameObject gameObject;
 
     static float BUTTON_SIZE_BOOST = 1;
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
@@ -37,7 +46,7 @@ public class SpritesheetLoaderWindow {
 
     //region Methods
     public void imgui() {
-        ImGui.begin("Spritesheet loader");
+        ImGui.begin("Spritesheet");
 
         settings();
 
@@ -57,6 +66,8 @@ public class SpritesheetLoaderWindow {
                     pOpen = new ImBoolean(true);
                 }
 
+                boolean previousOpen = pOpen.get();
+
                 if (ImGui.beginTabItem(sprsheetName, pOpen)) {
                     ImVec2 windowPos = new ImVec2();
                     ImGui.getWindowPos(windowPos);
@@ -74,8 +85,11 @@ public class SpritesheetLoaderWindow {
                         float spriteHeight = sprite.getHeight() * offset * BUTTON_SIZE_BOOST;
                         Vector2f[] texCoords = sprite.getTexCoords();
 
-                        ImGui.pushID(sprite.getTexId());
+                        ImGui.pushID(sprite.getTexId() + sprsheetName + j);
                         if (ImGui.imageButton(sprite.getTexId(), spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y)) {
+                            GameObject newGo = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f,
+                                    sprsheetName + "(" + j + ")");
+                            gameObject.getComponent(MouseControls.class).pickupObject(newGo);
                         }
                         ImGui.popID();
 
@@ -101,6 +115,18 @@ public class SpritesheetLoaderWindow {
 
                     ImGui.endTabItem();
                 }
+
+                if (previousOpen && !pOpen.get()) {
+                    int response = JOptionPane.showConfirmDialog(null,
+                            "Remove spritesheet '" + sprsheetName + "'?",
+                            "REMOVE SPRITESHEET",
+                            JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        Debug.Log(sprsheetName + " has just removed!");
+                        AssetPool.removeSpritesheet(spritesheets.get(i).getTexture().getFilePath());
+                    }
+                }
+
                 ImGui.endTabBar();
             }
         }

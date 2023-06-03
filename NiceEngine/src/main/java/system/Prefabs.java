@@ -13,7 +13,6 @@ import util.AssetPool;
 public class Prefabs {
     //region user custom prefabs
     public static GameObject generateSpriteObject(Sprite sprite, float sizeX, float sizeY) {
-        GameObject sprite_go = Window.getScene().createGameObject("Sprite_Object_Generated");
         return generateSpriteObject(sprite, sizeX, sizeY, "Sprite Object Generated");
     }
 
