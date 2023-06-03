@@ -2,6 +2,7 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import org.lwjgl.system.CallbackI;
 import system.MouseListener;
 
 import java.util.ArrayList;
@@ -30,21 +31,17 @@ public class ConsoleWindow {
     public List<String> debugLogs = new ArrayList<>();
     private final int MAX_DEBUGLOG_SIZE = 200;
     private boolean isRemoved = false;
-
-    static boolean alwaysShowInBottom = true;
-
+    static boolean scrollToBottom = true;
+    static boolean firstFrame = true;
+    
     public void imgui() {
         ImGui.begin("Console");
 
         if (NiceImGui.drawButton("Clear", new ButtonColor())) {
             debugLogs.clear();
         }
-        boolean tmpBoolean = alwaysShowInBottom;
-        if (ImGui.checkbox("Dock in the bottom", tmpBoolean)) {
-            alwaysShowInBottom = !tmpBoolean;
-        }
 
-        ImGui.beginChild("consoleItem", ImGui.getContentRegionMaxX() - 4f, ImGui.getContentRegionMaxY() - NiceImGui.getHeightOfALine() * 4, true);
+        ImGui.beginChild("consoleItem", 0, 0, true);
 
         if (debugLogs.size() > MAX_DEBUGLOG_SIZE) {
             removeOldValue();
@@ -58,14 +55,19 @@ public class ConsoleWindow {
             ImGui.text(debugLogs.get(i));
         }
 
-        ImGui.text("From MouseListener: X=" + MouseListener.getX() + " : Y=" + MouseListener.getY());
-
-        if (alwaysShowInBottom) {
-            ImGui.setScrollHereY();
+        if (ImGui.getScrollY() < ImGui.getScrollMaxY()) {
+            scrollToBottom = false;
+        } else {
+            scrollToBottom = true;
         }
 
-
+        if (scrollToBottom || firstFrame) {
+            ImGui.setScrollHereY(1.0f);
+        }
         ImGui.endChild();
+
+        firstFrame = false;
+
         ImGui.end();
     }
 
