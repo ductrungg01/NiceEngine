@@ -13,7 +13,7 @@ public class EditorCamera extends Component implements INonAddableComponent {
     //region Fields
     private float dragDebounce = 0.032f;
 
-    private Camera levelEditorCamera;
+    private static Camera levelEditorCamera;
     private Vector2f clickOrigin;
     private boolean reset = false;
     private float lerpTime = 0.0f;
@@ -76,6 +76,18 @@ public class EditorCamera extends Component implements INonAddableComponent {
                 reset = false;
             }
         }
+    }
+
+    public static void setEditorCamera(Vector2f position) {
+        levelEditorCamera.position = position;
+    }
+
+    public static Vector2f getEditorCameraSize() {
+        return levelEditorCamera.getProjectionSize();
+    }
+
+    public static float getEditorCameraZoom() {
+        return levelEditorCamera.getZoom();
     }
     //endregion
 }

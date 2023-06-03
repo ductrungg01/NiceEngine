@@ -1,5 +1,6 @@
 package editor;
 
+import components.EditorCamera;
 import components.SpriteRenderer;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
@@ -56,11 +57,14 @@ public class SceneHierarchyWindow {
             float w = ImGui.getContentRegionAvailX();
             float h = ImGui.getTextLineHeightWithSpacing();
             if (obj.equals(selectedGameObject)) {
-                NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h));
+                if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
+                    setCameraCenterGameObject(obj);
+                }
             } else {
                 if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
                     Window.getImguiLayer().getInspectorWindow().setActiveGameObject(obj);
                     selectedGameObject = obj;
+                    setCameraCenterGameObject(obj);
                 }
             }
             ImGui.popID();
@@ -127,6 +131,15 @@ public class SceneHierarchyWindow {
 
     public static void clearSelectedGameObject() {
         selectedGameObject = null;
+    }
+
+    void setCameraCenterGameObject(GameObject go) {
+        float zoom = EditorCamera.getEditorCameraZoom();
+        Vector2f editorCameraSize = new Vector2f(EditorCamera.getEditorCameraSize().x, EditorCamera.getEditorCameraSize().y);
+        editorCameraSize.x = editorCameraSize.x * zoom;
+        editorCameraSize.y = editorCameraSize.y * zoom;
+        Vector2f centerObjectPosition = new Vector2f(go.transform.position.x - (editorCameraSize.x / 2), go.transform.position.y - (editorCameraSize.y / 2));
+        EditorCamera.setEditorCamera(centerObjectPosition);
     }
     //endregion
 }
