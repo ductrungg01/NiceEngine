@@ -153,7 +153,7 @@ public class GameObject {
             if (!removeComponentButton.get()) {
                 int response = JOptionPane.showConfirmDialog(null,
                         "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
-                        "Remove component",
+                        "REMOVE COMPONENT",
                         JOptionPane.YES_NO_OPTION);
                 if (response == JOptionPane.YES_OPTION) {
                     components.remove(i);

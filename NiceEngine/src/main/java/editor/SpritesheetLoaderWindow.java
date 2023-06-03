@@ -10,6 +10,7 @@ import org.lwjgl.glfw.GLFW;
 import util.AssetPool;
 import util.FileUtils;
 
+import javax.swing.*;
 import java.util.List;
 
 public class SpritesheetLoaderWindow {
@@ -57,6 +58,8 @@ public class SpritesheetLoaderWindow {
                     pOpen = new ImBoolean(true);
                 }
 
+                boolean previousOpen = pOpen.get();
+
                 if (ImGui.beginTabItem(sprsheetName, pOpen)) {
                     ImVec2 windowPos = new ImVec2();
                     ImGui.getWindowPos(windowPos);
@@ -101,6 +104,18 @@ public class SpritesheetLoaderWindow {
 
                     ImGui.endTabItem();
                 }
+
+                if (previousOpen && !pOpen.get()) {
+                    int response = JOptionPane.showConfirmDialog(null,
+                            "Remove spritesheet '" + sprsheetName + "'?",
+                            "REMOVE SPRITESHEET",
+                            JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        Debug.Log(sprsheetName + " has just removed!");
+                        AssetPool.removeSpritesheet(spritesheets.get(i).getTexture().getFilePath());
+                    }
+                }
+
                 ImGui.endTabBar();
             }
         }

@@ -24,13 +24,6 @@ public class MenuBar {
             ImGui.endMenu();
         }
 
-        if (ImGui.beginMenu("Windows")) {
-            if (ImGui.menuItem("Animation State Creator")) {
-                AnimationStateCreator.getInstance().isShow = true;
-            }
-            ImGui.endMenu();
-        }
-
         ImGui.endMenuBar();
     }
     //endregion
