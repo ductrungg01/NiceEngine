@@ -154,7 +154,8 @@ public class MouseListener {
                 get().mouseBeginPress[button] = true;
             }
         } else if (action == GLFW_RELEASE) {
-            get().mouseButtonDown--;
+            if (get().mouseButtonDown > 0)
+                get().mouseButtonDown--;
 
             if (button < get().mouseButtonPressed.length) {
                 get().mouseButtonPressed[button] = false;
