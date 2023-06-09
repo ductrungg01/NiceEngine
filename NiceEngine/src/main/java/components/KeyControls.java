@@ -51,6 +51,13 @@ public class KeyControls extends Component implements INonAddableComponent {
                     copy.getComponent(StateMachine.class).refreshTextures();
                 }
             }
+        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) && KeyListener.keyBeginPress(GLFW_KEY_C) && activeGameObject != null) {
+            inspectorWindow.setCopyGameObject(activeGameObject);
+        } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) && KeyListener.keyBeginPress(GLFW_KEY_V) && activeGameObject != null) {
+            GameObject go = inspectorWindow.getCopyGameObject();
+            if (go != null) {
+                gameObject.getComponent(MouseControls.class).pickupObject(go.copy());
+            }
         } else if (KeyListener.keyBeginPress(GLFW_KEY_DELETE)) {
             for (GameObject go : activeGameObjects) {
                 go.destroy();

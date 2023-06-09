@@ -27,6 +27,7 @@ public class InspectorWindow {
     List<GameObject> activeGameObjects;
     private List<Vector4f> activeGameObjectOriginalColor;
     private GameObject activeGameObject = null;
+    private GameObject copyGameObject = null;
     private PickingTexture pickingTexture;
 
     boolean firstTime = true;
@@ -267,5 +268,14 @@ public class InspectorWindow {
     public PickingTexture getPickingTexture() {
         return this.pickingTexture;
     }
+
+    public GameObject getCopyGameObject() {
+        return copyGameObject;
+    }
+
+    public void setCopyGameObject(GameObject copyGameObject) {
+        this.copyGameObject = copyGameObject;
+    }
+
     //endregion
 }
