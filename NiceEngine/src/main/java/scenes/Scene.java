@@ -357,6 +357,9 @@ public class Scene {
             Component.init(maxCompId);
         }
 
+        for (GameObject g : this.gameObjects) {
+            g.refreshTexture();
+        }
         //endregion
 
         //region Load Prefabs
@@ -385,21 +388,12 @@ public class Scene {
                 GameObject.PrefabLists.add(prefab);
 
                 for (Component c : prefab.getAllComponents()) {
-                    if (c instanceof SpriteRenderer) {
-                        String textureSrc = ((SpriteRenderer) c).getTexture().getFilePath();
-                        Texture texture = new Texture();
-                        texture.init(textureSrc);
-                        ((SpriteRenderer) c).setTexture(texture);
-                    }
-
-                    if (c instanceof StateMachine) {
-                        ((StateMachine) c).refreshTextures();
-                    }
-
                     if (c.getUid() > maxCompId) {
                         maxCompId = c.getUid();
                     }
                 }
+
+                prefab.refreshTexture();
 
                 if (prefab.getUid() > maxGoId) {
                     maxGoId = prefab.getUid();

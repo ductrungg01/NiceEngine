@@ -71,15 +71,7 @@ public class GameObject {
             c.generateId();
         }
 
-        SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
-        if (sprite != null && sprite.getTexture() != null) {
-            sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
-        }
-
-        StateMachine stateMachine = obj.getComponent(StateMachine.class);
-        if (stateMachine != null) {
-            stateMachine.refreshTextures();
-        }
+        obj.refreshTexture();
 
         return obj;
     }
@@ -100,15 +92,7 @@ public class GameObject {
             c.generateId();
         }
 
-        SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
-        if (sprite != null && sprite.getTexture() != null) {
-            sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
-        }
-
-        StateMachine stateMachine = obj.getComponent(StateMachine.class);
-        if (stateMachine != null) {
-            stateMachine.refreshTextures();
-        }
+        obj.refreshTexture();
 
         obj.prefabId = "";
         obj.parentId = this.prefabId;
@@ -126,6 +110,21 @@ public class GameObject {
         }
 
         GameObject.PrefabLists.remove(this);
+    }
+
+    // TODO: This is temporary method before we find out the correctly method
+    public void refreshTexture() {
+        if (this.getComponent(SpriteRenderer.class) != null) {
+            SpriteRenderer spr = this.getComponent(SpriteRenderer.class);
+            if (spr.getTexture() != null) {
+                spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
+            }
+        }
+
+        if (this.getComponent(StateMachine.class) != null) {
+            StateMachine stateMachine = this.getComponent(StateMachine.class);
+            stateMachine.refreshTextures();
+        }
     }
 
     public void destroy() {
