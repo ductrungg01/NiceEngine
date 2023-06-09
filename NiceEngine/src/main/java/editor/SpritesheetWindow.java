@@ -1,6 +1,5 @@
 package editor;
 
-import components.MouseControls;
 import components.Sprite;
 import components.Spritesheet;
 import imgui.ImGui;
@@ -10,6 +9,7 @@ import org.joml.Vector2f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.Prefabs;
+import system.Window;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -19,9 +19,6 @@ import java.util.List;
 public class SpritesheetWindow {
     //region Singleton
     private SpritesheetWindow() {
-        gameObject = new GameObject("Drag GO");
-        gameObject.setNoSerialize();
-        gameObject.addComponent(new MouseControls());
     }
 
     private static SpritesheetWindow instance = null;
@@ -34,8 +31,6 @@ public class SpritesheetWindow {
         return instance;
     }
     //endregion
-
-    private GameObject gameObject;
 
     static float BUTTON_SIZE_BOOST = 1;
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
@@ -89,7 +84,7 @@ public class SpritesheetWindow {
                         if (ImGui.imageButton(sprite.getTexId(), spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y)) {
                             GameObject newGo = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f,
                                     sprsheetName + "(" + j + ")");
-                            gameObject.getComponent(MouseControls.class).pickupObject(newGo);
+                            Window.getScene().getMouseControls().pickupObject(newGo);
                         }
                         if (ImGui.isItemHovered()) {
                             ImGui.beginTooltip();

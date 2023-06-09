@@ -1,5 +1,6 @@
-package components;
+package editor;
 
+import components.StateMachine;
 import editor.InspectorWindow;
 import system.GameObject;
 import system.KeyListener;
@@ -11,14 +12,12 @@ import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class KeyControls extends Component implements INonAddableComponent {
+public class KeyControls {
     //region Fields
     private float debounceTime = 0.2f;
     private float debounce = 0;
     //endregion
 
-    //region Override methods
-    @Override
     public void editorUpdate(float dt) {
         debounce -= dt;
 
@@ -88,5 +87,4 @@ public class KeyControls extends Component implements INonAddableComponent {
             }
         }
     }
-    //endregion
 }

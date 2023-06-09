@@ -1,24 +1,16 @@
 package editor;
 
-import components.MouseControls;
 import components.Sprite;
 import components.SpriteRenderer;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
 import system.GameObject;
-import system.Prefabs;
 import system.Window;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PrefabsWindow {
     //region Singleton
     private PrefabsWindow() {
-        gameObject = new GameObject("PrefabWindow Object");
-        gameObject.setNoSerialize();
-        gameObject.addComponent(new MouseControls());
     }
 
     private static PrefabsWindow instance = null;
@@ -34,16 +26,13 @@ public class PrefabsWindow {
 
     final float DEFAULT_BUTTON_SIZE = 64;
 
-    private GameObject gameObject;
-
-
     public void imgui() {
         ImGui.begin("Prefabs");
 
         for (GameObject prefab : GameObject.PrefabLists) {
             if (drawPrefabButton(prefab)) {
                 GameObject childGo = prefab.generateChildGameObject();
-                gameObject.getComponent(MouseControls.class).pickupObject(childGo);
+                Window.getScene().getMouseControls().pickupObject(childGo);
 
                 SceneHierarchyWindow.clearSelectedGameObject();
                 Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab, InspectorWindow.InspectorBottomButtonTitle.OverrideAllChildren);

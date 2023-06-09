@@ -6,7 +6,9 @@ import components.*;
 import deserializers.ComponentDeserializer;
 import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
+import editor.KeyControls;
 import editor.MessageBox;
+import editor.MouseControls;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
@@ -38,6 +40,9 @@ public class Scene {
     private List<GameObject> pendingObjects;
     private Physics2D physics2D;
     private SceneInitializer sceneInitializer;
+
+    private MouseControls mouseControls = new MouseControls();
+    private KeyControls keyControls = new KeyControls();
     //endregion
 
     //region Constructors
@@ -132,6 +137,8 @@ public class Scene {
         }
 
         this.camera.adjustProjection();
+        mouseControls.editorUpdate(dt);
+        keyControls.editorUpdate(dt);
 
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject go = gameObjects.get(i);
@@ -190,6 +197,14 @@ public class Scene {
 
     public Camera camera() {
         return this.camera;
+    }
+
+    public MouseControls getMouseControls() {
+        return this.mouseControls;
+    }
+
+    public KeyControls getKeyControls() {
+        return this.keyControls;
     }
 
     public void imgui() {
