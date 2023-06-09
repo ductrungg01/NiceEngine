@@ -67,7 +67,7 @@ public class KeyControls {
         } else if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) && KeyListener.keyBeginPress(GLFW_KEY_V) && activeGameObject != null) {
             GameObject go = inspectorWindow.getCopyGameObject();
             if (go != null) {
-                gameObject.getComponent(MouseControls.class).pickupObject(go.copy());
+                Window.getScene().getMouseControls().pickupObject(go.copy());
             }
         } else if (KeyListener.keyBeginPress(GLFW_KEY_DELETE)) {
             for (GameObject go : activeGameObjects) {
