@@ -5,8 +5,11 @@ import components.SpriteRenderer;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
+import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.Window;
+
+import javax.swing.*;
 
 public class PrefabsWindow {
     //region Singleton
@@ -26,23 +29,27 @@ public class PrefabsWindow {
 
     final float DEFAULT_BUTTON_SIZE = 64;
 
+    boolean isClick = false;
+    boolean isCreateChild = false;
+    boolean isRemove = false;
+
     public void imgui() {
         ImGui.begin("Prefabs");
 
-        for (GameObject prefab : GameObject.PrefabLists) {
-            if (drawPrefabButton(prefab)) {
-                GameObject childGo = prefab.generateChildGameObject();
-                Window.getScene().getMouseControls().pickupObject(childGo);
+        for (int i = 0; i < GameObject.PrefabLists.size(); i++) {
+            GameObject prefab = GameObject.PrefabLists.get(i);
 
-                SceneHierarchyWindow.clearSelectedGameObject();
-                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab, InspectorWindow.InspectorBottomButtonTitle.OverrideAllChildren);
+            drawPrefabButton(prefab);
+
+            if (isRemove) {
+                i--;
             }
         }
 
         ImGui.end();
     }
 
-    private boolean drawPrefabButton(GameObject go) {
+    private void drawPrefabButton(GameObject prefab) {
         ImVec2 windowPos = new ImVec2();
         ImGui.getWindowPos(windowPos);
         ImVec2 windowSize = new ImVec2();
@@ -51,19 +58,34 @@ public class PrefabsWindow {
         ImGui.getStyle().getItemSpacing(itemSpacing);
         float windowX2 = windowPos.x + windowSize.x;
 
-        Sprite sprite = go.getComponent(SpriteRenderer.class).getSprite();
+        Sprite sprite = prefab.getComponent(SpriteRenderer.class).getSprite();
 
-//        float offset = Math.min(DEFAULT_BUTTON_SIZE / sprite.getTexture().getWidth(), DEFAULT_BUTTON_SIZE / sprite.getTexture().getHeight());
-//        float spriteWidth = sprite.getTexture().getWidth() * offset;
-//        float spriteHeight = sprite.getTexture().getHeight() * offset;
         Vector2f[] texCoords = sprite.getTexCoords();
 
-        boolean isClick = false;
+        isClick = false;
+        isCreateChild = false;
+        isRemove = false;
 
-        ImGui.pushID(sprite.getTexId() + "### Prefab shower" + go.hashCode());
+        String idPush = sprite.getTexId() + "### Prefab shower" + prefab.hashCode();
+        ImGui.pushID(idPush);
         if (ImGui.imageButton(sprite.getTexId(), DEFAULT_BUTTON_SIZE, DEFAULT_BUTTON_SIZE, texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y)) {
             isClick = true;
         }
+
+        if (ImGui.isItemHovered() && ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
+            ImGui.openPopup("RightClick of Prefab" + prefab.hashCode());
+        }
+
+        if (ImGui.beginPopup("RightClick of Prefab" + prefab.hashCode())) {
+            if (ImGui.menuItem("Create a child game object")) {
+                isCreateChild = true;
+            }
+            if (ImGui.menuItem("Remove this prefab")) {
+                isRemove = true;
+            }
+            ImGui.endPopup();
+        }
+
         ImGui.popID();
 
         ImVec2 lastButtonPos = new ImVec2();
@@ -74,6 +96,27 @@ public class PrefabsWindow {
             ImGui.sameLine();
         }
 
-        return isClick;
+        if (isClick) {
+            SceneHierarchyWindow.clearSelectedGameObject();
+            Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab, InspectorWindow.InspectorBottomButtonTitle.OverrideAllChildren);
+        }
+        if (isCreateChild) {
+            GameObject childGo = prefab.generateChildGameObject();
+            Window.getScene().getMouseControls().pickupObject(childGo);
+        }
+        if (isRemove) {
+            int response = JOptionPane.showConfirmDialog(null,
+                    "Remove prefab '" + prefab.name + "'?",
+                    "REMOVE PREFAB",
+                    JOptionPane.YES_NO_OPTION);
+            if (response == JOptionPane.YES_OPTION) {
+                prefab.removeAsPrefab();
+
+                GameObject activeGoInspector = Window.getImguiLayer().getInspectorWindow().getActiveGameObject();
+                if (activeGoInspector == prefab) {
+                    Window.getImguiLayer().getInspectorWindow().clearSelected();
+                }
+            }
+        }
     }
 }

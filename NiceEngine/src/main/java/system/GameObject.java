@@ -117,6 +117,17 @@ public class GameObject {
         return obj;
     }
 
+    public void removeAsPrefab() {
+        for (GameObject go : Window.getScene().getGameObjects()) {
+            if (go.parentId.equals(this.prefabId) ||
+                    (go.isPrefab && go.prefabId.equals(this.prefabId))) {
+                go.parentId = "";
+            }
+        }
+
+        GameObject.PrefabLists.remove(this);
+    }
+
     public void destroy() {
         isDead = true;
         for (int i = 0; i < components.size(); i++) {
