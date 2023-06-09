@@ -3,6 +3,7 @@ package system;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.Component;
+import components.StateMachine;
 import deserializers.ComponentDeserializer;
 import components.SpriteRenderer;
 import deserializers.GameObjectDeserializer;
@@ -75,6 +76,11 @@ public class GameObject {
             sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
         }
 
+        StateMachine stateMachine = obj.getComponent(StateMachine.class);
+        if (stateMachine != null) {
+            stateMachine.refreshTextures();
+        }
+
         return obj;
     }
 
@@ -98,6 +104,15 @@ public class GameObject {
         if (sprite != null && sprite.getTexture() != null) {
             sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
         }
+
+        StateMachine stateMachine = obj.getComponent(StateMachine.class);
+        if (stateMachine != null) {
+            stateMachine.refreshTextures();
+        }
+
+        obj.prefabId = "";
+        obj.parentId = this.prefabId;
+        obj.isPrefab = false;
 
         return obj;
     }
@@ -273,9 +288,12 @@ public class GameObject {
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject go = gameObjects.get(i);
             if (go.parentId.equals(this.prefabId)) {
-                // TODO: OVERRIDE HERE
+                Vector2f oldPosition = go.transform.position;
 
-
+                go.destroy();
+                GameObject newGameObject = this.copyFromPrefab();
+                newGameObject.transform.position = oldPosition;
+                Window.getScene().addGameObjectToScene(newGameObject);
             }
         }
     }

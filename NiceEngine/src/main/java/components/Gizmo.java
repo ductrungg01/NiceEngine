@@ -14,8 +14,8 @@ public class Gizmo extends Component implements INonAddableComponent {
     private Vector4f yAxisColor = new Vector4f(0.3f, 1, 0.3f, 1);
     private Vector4f yAxisColorHover = new Vector4f(0, 1, 0, 1);
 
-    private GameObject xAxisObject;
-    private GameObject yAxisObject;
+    protected GameObject xAxisObject;
+    protected GameObject yAxisObject;
     private SpriteRenderer xAxisSprite;
     private SpriteRenderer yAxisSprite;
 
@@ -39,9 +39,11 @@ public class Gizmo extends Component implements INonAddableComponent {
     //endregion
 
     //region Constructors
-    public Gizmo(Sprite arrowSprite, InspectorWindow inspectorWindow) {
-        this.xAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
-        this.yAxisObject = Prefabs.generateSpriteObject(arrowSprite, gizmoWidth, gizmoHeight);
+    public Gizmo(Sprite sprite, InspectorWindow inspectorWindow) {
+        this.xAxisObject = Prefabs.generateSpriteObject(sprite, gizmoWidth, gizmoHeight);
+        this.xAxisObject.name = "Gizmo - xAxisObject";
+        this.yAxisObject = Prefabs.generateSpriteObject(sprite, gizmoWidth, gizmoHeight);
+        this.yAxisObject.name = "Gizmo - yAxisObject";
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
         this.inspectorWindow = inspectorWindow;
@@ -73,7 +75,7 @@ public class Gizmo extends Component implements INonAddableComponent {
     }
 
     /**
-     * // Update is called once per frame
+     * Update is called once per frame
      *
      * @param dt : The interval in seconds from the last frame to the current one
      */
@@ -110,7 +112,7 @@ public class Gizmo extends Component implements INonAddableComponent {
         } else if ((yAxisHot || yAxisActive) && MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
             xAxisActive = false;
             yAxisActive = true;
-        } else if (!MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) || MouseListener.isMouseRelease(GLFW_MOUSE_BUTTON_LEFT)){
+        } else if (!MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) || MouseListener.isMouseRelease(GLFW_MOUSE_BUTTON_LEFT)) {
             xAxisActive = false;
             yAxisActive = false;
         }
@@ -186,9 +188,10 @@ public class Gizmo extends Component implements INonAddableComponent {
         float yOffset = (scale + gizmoHeight + yAxisOffset.y) / 2;
         return new Vector2f(0, yOffset);
     }
+
     private boolean checkUsingGizmo() {
         if (xAxisHot || yAxisHot || xAxisActive || yAxisActive)
-             return true;
+            return true;
         return false;
     }
 

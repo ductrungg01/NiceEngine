@@ -2,9 +2,6 @@ package components.scripts.test;
 
 import components.Component;
 import components.Sprite;
-import components.SpriteRenderer;
-import editor.Debug;
-import org.joml.Vector2f;
 import system.*;
 
 import static org.lwjgl.glfw.GLFW.*;

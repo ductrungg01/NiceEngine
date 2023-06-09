@@ -11,6 +11,8 @@ public class TranslateGizmo extends Gizmo implements INonAddableComponent {
 
     public TranslateGizmo(Sprite arrowSprite, InspectorWindow inspectorWindow) {
         super(arrowSprite, inspectorWindow);
+        this.xAxisObject.name = "TranslateGizmo - xAxisObject";
+        this.yAxisObject.name = "TranslateGizmo - yAxisObject";
     }
     //endregion
 

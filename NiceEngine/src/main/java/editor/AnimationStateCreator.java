@@ -10,7 +10,6 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import util.AssetPool;
 
-import static editor.NiceImGui.drawButton;
 import static editor.uihelper.NiceShortCall.*;
 
 public class AnimationStateCreator {

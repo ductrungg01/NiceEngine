@@ -1,6 +1,5 @@
 package components;
 
-import editor.Debug;
 import system.Camera;
 import system.KeyListener;
 import system.MouseListener;

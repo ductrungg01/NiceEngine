@@ -6,7 +6,6 @@ import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;
 import org.joml.Vector2f;
-import org.joml.Vector4f;
 import system.GameObject;
 import system.Transform;
 import system.Window;
@@ -78,13 +77,14 @@ public class SceneHierarchyWindow {
 //            if (treeNodeOpen) {
 //                ImGui.treePop();
 //            }
-              ImGui.pushID(index);
+                        ImGui.pushID(index);
                         float w = ImGui.getContentRegionAvailX();
                         float h = ImGui.getTextLineHeightWithSpacing();
                         if (obj.equals(selectedGameObject)) {
                             if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_Blue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
                                 setCameraCenterGameObject(obj);
-                            };
+                            }
+                            ;
                         } else {
                             if (NiceImGui.drawButtonWithLeftText(obj.name, new ButtonColor(COLOR_DarkBlue, COLOR_DarkAqua, COLOR_Blue), new Vector2f(w, h))) {
                                 Window.getImguiLayer().getInspectorWindow().setActiveGameObject(obj);

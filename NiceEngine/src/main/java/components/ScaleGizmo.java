@@ -13,6 +13,8 @@ public class ScaleGizmo extends Gizmo implements INonAddableComponent {
 
     public ScaleGizmo(Sprite scaleSprite, InspectorWindow inspectorWindow) {
         super(scaleSprite, inspectorWindow);
+        this.xAxisObject.name = "ScaleGizmo - xAxisObject";
+        this.yAxisObject.name = "ScaleGizmo - yAxisObject";
     }
     //endregion
 

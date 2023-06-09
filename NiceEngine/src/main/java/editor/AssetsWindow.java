@@ -1,6 +1,5 @@
 package editor;
 
-import components.MouseControls;
 import components.Sprite;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -31,7 +30,6 @@ public class AssetsWindow {
     private ArrayList<String> nextFolder = new ArrayList<>();
 
 
-    private GameObject gameObject = new GameObject("DragImage");
     private Scene scene;
 
     private static ImVec2 widgetPos = new ImVec2();
@@ -39,15 +37,12 @@ public class AssetsWindow {
 
 
     public AssetsWindow() {
-        gameObject.setNoSerialize();
-        gameObject.addComponent(new MouseControls());
     }
 
     public void handleItemSelect(File item, boolean isFolder) {
         String itemName = item.getName();
         if (scene == null) {
             scene = Window.getScene();
-            scene.addGameObjectToScene(gameObject);
         }
         //rename
         if (!rename || !selectedItem.equals(itemName)) {
@@ -95,7 +90,7 @@ public class AssetsWindow {
                 tmp.setTexture(AssetPool.getTexture(item.getPath()));
                 GameObject object = Prefabs.generateSpriteObject(tmp, 0.25f, 0.25f,
                         FileUtils.getFileNameWithoutExtension(itemName));
-                gameObject.getComponent(MouseControls.class).pickupObject(object);
+                Window.getScene().getMouseControls().pickupObject(object);
             } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT) && !isFolder) {
                 //Debug.Log(selectedItem);
             }

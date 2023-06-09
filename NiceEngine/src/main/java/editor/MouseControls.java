@@ -1,6 +1,9 @@
-package components;
+package editor;
 
-import editor.*;
+import components.Gizmo;
+import components.NonPickable;
+import components.SpriteRenderer;
+import components.StateMachine;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;
@@ -18,7 +21,7 @@ import java.util.Set;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class MouseControls extends Component implements INonAddableComponent {
+public class MouseControls {
     //region Fields
     static GameObject holdingObject = null;
     private static float debounceTime = 0.3f;
@@ -29,8 +32,6 @@ public class MouseControls extends Component implements INonAddableComponent {
     private static Vector2f boxSelectEnd = new Vector2f();
     //endregion
 
-    //region Override methods
-    @Override
     public void editorUpdate(float dt) {
         if (FileDialog.getInstance().isOpen() || !GameViewWindow.getInstance().getWantCaptureMouse()) return;
         if (KeyListener.isKeyPressed(GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW_KEY_RIGHT_CONTROL)) return;
@@ -137,7 +138,6 @@ public class MouseControls extends Component implements INonAddableComponent {
             }
         }
     }
-    //endregion
 
     //region Methods
     public void pickupObject(GameObject go) {

@@ -6,7 +6,10 @@ import components.*;
 import deserializers.ComponentDeserializer;
 import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
+import editor.Debug;
+import editor.KeyControls;
 import editor.MessageBox;
+import editor.MouseControls;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
@@ -29,7 +32,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class Scene {
-
     //region Fields
     private Renderer renderer;
     private Camera camera;
@@ -38,6 +40,9 @@ public class Scene {
     private List<GameObject> pendingObjects;
     private Physics2D physics2D;
     private SceneInitializer sceneInitializer;
+
+    private MouseControls mouseControls = new MouseControls();
+    private KeyControls keyControls = new KeyControls();
     //endregion
 
     //region Constructors
@@ -123,18 +128,13 @@ public class Scene {
     }
 
     public void editorUpdate(float dt) {
-        if ((KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.keyBeginPress(GLFW.GLFW_KEY_S)) {
-            EventSystem.notify(null, new Event(EventType.SaveLevel));
-        }
-
-        if (KeyListener.isKeyRelease(GLFW.GLFW_KEY_L) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
-            EventSystem.notify(null, new Event(EventType.LoadLevel));
-        }
-
         this.camera.adjustProjection();
+        mouseControls.editorUpdate(dt);
+        keyControls.editorUpdate(dt);
 
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject go = gameObjects.get(i);
+
             go.editorUpdate(dt);
 
             if (go.isDead()) {
@@ -190,6 +190,14 @@ public class Scene {
 
     public Camera camera() {
         return this.camera;
+    }
+
+    public MouseControls getMouseControls() {
+        return this.mouseControls;
+    }
+
+    public KeyControls getKeyControls() {
+        return this.keyControls;
     }
 
     public void imgui() {
@@ -280,6 +288,31 @@ public class Scene {
     }
 
     public void load() {
+        //region Load spritesheet
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("spritesheet.txt"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split("\\|");
+
+                String textureSrc = values[0];
+                Texture texture = AssetPool.getTexture(textureSrc);
+                int sprWidth = Integer.parseInt(values[1]);
+                int sprHeight = Integer.parseInt(values[2]);
+                int numsSprite = Integer.parseInt(values[3]);
+                int spacing = Integer.parseInt(values[4]);
+
+                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacing);
+                AssetPool.addSpritesheet(textureSrc, spritesheet);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //endregion
+
         //region Load Game object
         int maxGoId = -1;
         int maxCompId = -1;
@@ -302,16 +335,18 @@ public class Scene {
         if (!inFile.equals("")) {
             GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
             for (int i = 0; i < objs.length; i++) {
-                addGameObjectToScene(objs[i]);
+                GameObject go = objs[i];
 
-                for (Component c : objs[i].getAllComponents()) {
+                addGameObjectToScene(go);
+
+                for (Component c : go.getAllComponents()) {
                     if (c.getUid() > maxCompId) {
                         maxCompId = c.getUid();
                     }
                 }
 
-                if (objs[i].getUid() > maxGoId) {
-                    maxGoId = objs[i].getUid();
+                if (go.getUid() > maxGoId) {
+                    maxGoId = go.getUid();
                 }
             }
 
@@ -321,6 +356,7 @@ public class Scene {
             GameObject.init(maxGoId);
             Component.init(maxCompId);
         }
+
         //endregion
 
         //region Load Prefabs
@@ -344,9 +380,11 @@ public class Scene {
         if (!inFile.equals("")) {
             GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
             for (int i = 0; i < objs.length; i++) {
-                GameObject.PrefabLists.add(objs[i]);
+                GameObject prefab = objs[i];
 
-                for (Component c : objs[i].getAllComponents()) {
+                GameObject.PrefabLists.add(prefab);
+
+                for (Component c : prefab.getAllComponents()) {
                     if (c instanceof SpriteRenderer) {
                         String textureSrc = ((SpriteRenderer) c).getTexture().getFilePath();
                         Texture texture = new Texture();
@@ -354,13 +392,17 @@ public class Scene {
                         ((SpriteRenderer) c).setTexture(texture);
                     }
 
+                    if (c instanceof StateMachine) {
+                        ((StateMachine) c).refreshTextures();
+                    }
+
                     if (c.getUid() > maxCompId) {
                         maxCompId = c.getUid();
                     }
                 }
 
-                if (objs[i].getUid() > maxGoId) {
-                    maxGoId = objs[i].getUid();
+                if (prefab.getUid() > maxGoId) {
+                    maxGoId = prefab.getUid();
                 }
             }
 
@@ -369,32 +411,6 @@ public class Scene {
 
             GameObject.init(maxGoId);
             Component.init(maxCompId);
-        }
-        //endregion
-
-        //region Load spritesheet
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("spritesheet.txt"));
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] values = line.split("\\|");
-
-                String textureSrc = values[0];
-                Texture texture = new Texture();
-                texture.init(textureSrc);
-                int sprWidth = Integer.parseInt(values[1]);
-                int sprHeight = Integer.parseInt(values[2]);
-                int numsSprite = Integer.parseInt(values[3]);
-                int spacing = Integer.parseInt(values[4]);
-
-                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacing);
-                AssetPool.addSpritesheet(textureSrc, spritesheet);
-            }
-
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         //endregion
     }
