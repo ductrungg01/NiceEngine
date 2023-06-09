@@ -1,6 +1,7 @@
 package components;
 
 import editor.InspectorWindow;
+import editor.MouseControls;
 import system.MouseListener;
 
 public class ScaleGizmo extends Gizmo implements INonAddableComponent {
@@ -46,7 +47,11 @@ public class ScaleGizmo extends Gizmo implements INonAddableComponent {
             }
         }
 
-        super.editorUpdate(dt);
+        if (MouseControls.holdingObject == null)
+            super.editorUpdate(dt);
+        else {
+            setNotUsing();
+        }
     }
     //endregion
 }

@@ -1,6 +1,7 @@
 package components;
 
 import editor.InspectorWindow;
+import editor.MouseControls;
 import system.*;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
@@ -90,11 +91,23 @@ public class Gizmo extends Component implements INonAddableComponent {
 
     @Override
     public void editorUpdate(float dt) {
+        if (MouseControls.holdingObject != null) {
+            setActive();
+
+            this.xAxisObject.transform.position.set(MouseControls.holdingObject.transform.position);
+            this.yAxisObject.transform.position.set(MouseControls.holdingObject.transform.position);
+
+            this.xAxisObject.transform.position.add(getxAxisOffsetCalc(MouseControls.holdingObject.transform.scale.x));
+            this.yAxisObject.transform.position.add(getyAxisOffsetCalc(MouseControls.holdingObject.transform.scale.y));
+
+            return;
+        }
+
         if (!using) return;
         isUsingGizmo = checkUsingGizmo();
 
         this.activeGameObject = this.inspectorWindow.getActiveGameObject();
-        if (this.activeGameObject != null) {
+        if (this.activeGameObject != null && !this.activeGameObject.isPrefab()) {
             this.setActive();
         } else {
             this.setInactive();
@@ -123,7 +136,6 @@ public class Gizmo extends Component implements INonAddableComponent {
 
             this.xAxisObject.transform.position.add(getxAxisOffsetCalc(this.activeGameObject.transform.scale.x));
             this.yAxisObject.transform.position.add(getyAxisOffsetCalc(this.activeGameObject.transform.scale.y));
-
         }
     }
     //endregion
