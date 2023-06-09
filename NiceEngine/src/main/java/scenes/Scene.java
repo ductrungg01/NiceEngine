@@ -128,14 +128,6 @@ public class Scene {
     }
 
     public void editorUpdate(float dt) {
-        if ((KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.keyBeginPress(GLFW.GLFW_KEY_S)) {
-            EventSystem.notify(null, new Event(EventType.SaveLevel));
-        }
-
-        if (KeyListener.isKeyRelease(GLFW.GLFW_KEY_L) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
-            EventSystem.notify(null, new Event(EventType.LoadLevel));
-        }
-
         this.camera.adjustProjection();
         mouseControls.editorUpdate(dt);
         keyControls.editorUpdate(dt);

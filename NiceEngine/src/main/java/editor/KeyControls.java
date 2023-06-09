@@ -2,6 +2,10 @@ package editor;
 
 import components.StateMachine;
 import editor.InspectorWindow;
+import observers.EventSystem;
+import observers.events.Event;
+import observers.events.EventType;
+import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.KeyListener;
 import system.Window;
@@ -20,6 +24,14 @@ public class KeyControls {
 
     public void editorUpdate(float dt) {
         debounce -= dt;
+
+        if ((KeyListener.isKeyPressed(org.lwjgl.glfw.GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL)) && KeyListener.keyBeginPress(GLFW.GLFW_KEY_S)) {
+            EventSystem.notify(null, new Event(EventType.SaveLevel));
+        }
+
+        if (KeyListener.isKeyRelease(GLFW.GLFW_KEY_L) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
+            EventSystem.notify(null, new Event(EventType.LoadLevel));
+        }
 
         InspectorWindow inspectorWindow = Window.getImguiLayer().getInspectorWindow();
         GameObject activeGameObject = inspectorWindow.getActiveGameObject();
