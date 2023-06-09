@@ -62,6 +62,7 @@ public class PrefabsWindow {
                         "REMOVE PREFAB",
                         JOptionPane.YES_NO_OPTION);
                 if (response == JOptionPane.YES_OPTION) {
+                    i--;
                     prefab.removeAsPrefab();
 
                     GameObject activeGoInspector = Window.getImguiLayer().getInspectorWindow().getActiveGameObject();
@@ -69,7 +70,6 @@ public class PrefabsWindow {
                         Window.getImguiLayer().getInspectorWindow().clearSelected();
                     }
                 }
-                i--;
             }
 
         }
@@ -119,7 +119,5 @@ public class PrefabsWindow {
         if (nextButtonX2 <= windowX2) {
             ImGui.sameLine();
         }
-
-
     }
 }
