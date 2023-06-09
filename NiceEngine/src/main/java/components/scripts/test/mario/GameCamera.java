@@ -2,7 +2,6 @@ package components.scripts.test.mario;
 
 import components.Component;
 import components.INonAddableComponent;
-import components.scripts.test.MarioCollision;
 import system.Camera;
 import system.GameObject;
 import system.Window;

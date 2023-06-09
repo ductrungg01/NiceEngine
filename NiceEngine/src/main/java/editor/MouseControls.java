@@ -4,7 +4,6 @@ import components.Gizmo;
 import components.NonPickable;
 import components.SpriteRenderer;
 import components.StateMachine;
-import editor.*;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;

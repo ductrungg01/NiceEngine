@@ -2,7 +2,6 @@ package system;
 
 import editor.AssetsWindow;
 import editor.Debug;
-import editor.MessageBox;
 import imgui.ImVec2;
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
@@ -12,9 +11,6 @@ import org.lwjgl.system.MemoryUtil;
 import util.FileUtils;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
 import static org.lwjgl.glfw.GLFW.*;

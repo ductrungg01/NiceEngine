@@ -3,6 +3,7 @@ package system;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.Component;
+import components.StateMachine;
 import deserializers.ComponentDeserializer;
 import components.SpriteRenderer;
 import deserializers.GameObjectDeserializer;
@@ -75,6 +76,11 @@ public class GameObject {
             sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
         }
 
+        StateMachine stateMachine = obj.getComponent(StateMachine.class);
+        if (stateMachine != null) {
+            stateMachine.refreshTextures();
+        }
+
         return obj;
     }
 
@@ -97,6 +103,11 @@ public class GameObject {
         SpriteRenderer sprite = obj.getComponent(SpriteRenderer.class);
         if (sprite != null && sprite.getTexture() != null) {
             sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
+        }
+
+        StateMachine stateMachine = obj.getComponent(StateMachine.class);
+        if (stateMachine != null) {
+            stateMachine.refreshTextures();
         }
 
         return obj;

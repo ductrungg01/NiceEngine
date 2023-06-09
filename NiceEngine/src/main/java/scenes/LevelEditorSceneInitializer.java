@@ -1,20 +1,9 @@
 package scenes;
 
 import components.*;
-import components.scripts.test.mario.BreakableBrick;
-import components.scripts.test.mario.Ground;
-import system.Direction;
-import imgui.ImGui;
-import imgui.ImVec2;
 import system.*;
-import org.joml.Vector2f;
-import physics2d.components.Box2DCollider;
-import physics2d.components.RigidBody2D;
-import physics2d.enums.BodyType;
 import util.AssetPool;
 
-import java.io.File;
-import java.util.Collection;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
     //region Fields
@@ -37,7 +26,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
         Spritesheet gizmos = AssetPool.getSpritesheet("assets/images/gizmos.png");
 
-        levelEditorStuff = scene.createGameObject("LevelEditor");
+        levelEditorStuff = scene.createGameObject("LevelEditorSceneInitializer");
         levelEditorStuff.setNoSerialize();
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(scene.camera()));
