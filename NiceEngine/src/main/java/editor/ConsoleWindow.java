@@ -2,6 +2,8 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import system.Window;
+import util.Settings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,8 @@ public class ConsoleWindow {
     static boolean firstFrame = true;
 
     public void imgui() {
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
+
         ImGui.begin("Console");
 
         if (NiceImGui.drawButton("Clear", new ButtonColor())) {

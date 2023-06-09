@@ -10,6 +10,7 @@ import system.Prefabs;
 import system.Window;
 import util.AssetPool;
 import util.FileUtils;
+import util.Settings;
 
 import java.io.File;
 import java.io.IOException;
@@ -145,6 +146,7 @@ public class AssetsWindow {
     }
 
     public void imgui() {
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
 
         ImGui.begin("Assets");
 

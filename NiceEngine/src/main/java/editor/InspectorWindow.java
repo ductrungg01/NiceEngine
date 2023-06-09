@@ -13,6 +13,8 @@ import org.reflections.Reflections;
 import system.GameObject;
 import org.joml.Vector4f;
 import renderer.PickingTexture;
+import system.Window;
+import util.Settings;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -87,6 +89,8 @@ public class InspectorWindow {
 
     //region Methods
     public void imgui() {
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
+
         ImGui.begin("Inspector");
 
         if (activeGameObjects.size() == 1 && activeGameObjects.get(0) != null) {

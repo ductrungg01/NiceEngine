@@ -8,7 +8,9 @@ import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImString;
 import org.joml.Vector2f;
+import system.Window;
 import util.AssetPool;
+import util.Settings;
 
 import static editor.uihelper.NiceShortCall.*;
 
@@ -41,7 +43,7 @@ public class AnimationStateCreator {
     public void imgui() {
         if (!isShow) return;
 
-        ImGui.setNextWindowSize(1000, 1000);
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
 
         ImGui.begin("Animation State Creator", new ImBoolean(true),
                 ImGuiWindowFlags.NoResize);

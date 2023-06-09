@@ -8,6 +8,7 @@ import org.joml.Vector2f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.Window;
+import util.Settings;
 
 import javax.swing.*;
 
@@ -34,6 +35,8 @@ public class PrefabsWindow {
     boolean isRemove = false;
 
     public void imgui() {
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
+
         ImGui.begin("Prefabs");
 
         for (int i = 0; i < GameObject.PrefabLists.size(); i++) {

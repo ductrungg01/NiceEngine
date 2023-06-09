@@ -10,6 +10,7 @@ import system.GameObject;
 import system.Transform;
 import system.Window;
 import util.FileUtils;
+import util.Settings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,8 @@ public class SceneHierarchyWindow {
 
     //region Methods
     public void imgui() {
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
+
         ImGui.begin("Hierarchy");
 
         List<GameObject> gameObjects = Window.getScene().getGameObjects();

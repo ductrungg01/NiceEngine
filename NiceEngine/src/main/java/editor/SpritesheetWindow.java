@@ -12,6 +12,7 @@ import system.Prefabs;
 import system.Window;
 import util.AssetPool;
 import util.FileUtils;
+import util.Settings;
 
 import javax.swing.*;
 import java.util.List;
@@ -41,6 +42,8 @@ public class SpritesheetWindow {
 
     //region Methods
     public void imgui() {
+        ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
+
         ImGui.begin("Spritesheet");
 
         settings();
