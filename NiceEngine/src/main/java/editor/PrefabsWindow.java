@@ -42,11 +42,36 @@ public class PrefabsWindow {
         for (int i = 0; i < GameObject.PrefabLists.size(); i++) {
             GameObject prefab = GameObject.PrefabLists.get(i);
 
+            isClick = false;
+            isCreateChild = false;
+            isRemove = false;
+
             drawPrefabButton(prefab);
 
+            if (isClick) {
+                SceneHierarchyWindow.clearSelectedGameObject();
+                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab, InspectorWindow.InspectorBottomButtonTitle.OverrideAllChildren);
+            }
+            if (isCreateChild) {
+                GameObject childGo = prefab.generateChildGameObject();
+                Window.getScene().getMouseControls().pickupObject(childGo);
+            }
             if (isRemove) {
+                int response = JOptionPane.showConfirmDialog(null,
+                        "Remove prefab '" + prefab.name + "'?",
+                        "REMOVE PREFAB",
+                        JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    prefab.removeAsPrefab();
+
+                    GameObject activeGoInspector = Window.getImguiLayer().getInspectorWindow().getActiveGameObject();
+                    if (activeGoInspector == prefab) {
+                        Window.getImguiLayer().getInspectorWindow().clearSelected();
+                    }
+                }
                 i--;
             }
+
         }
 
         ImGui.end();
@@ -64,10 +89,6 @@ public class PrefabsWindow {
         Sprite sprite = prefab.getComponent(SpriteRenderer.class).getSprite();
 
         Vector2f[] texCoords = sprite.getTexCoords();
-
-        isClick = false;
-        isCreateChild = false;
-        isRemove = false;
 
         String idPush = sprite.getTexId() + "### Prefab shower" + prefab.hashCode();
         ImGui.pushID(idPush);
@@ -99,27 +120,6 @@ public class PrefabsWindow {
             ImGui.sameLine();
         }
 
-        if (isClick) {
-            SceneHierarchyWindow.clearSelectedGameObject();
-            Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab, InspectorWindow.InspectorBottomButtonTitle.OverrideAllChildren);
-        }
-        if (isCreateChild) {
-            GameObject childGo = prefab.generateChildGameObject();
-            Window.getScene().getMouseControls().pickupObject(childGo);
-        }
-        if (isRemove) {
-            int response = JOptionPane.showConfirmDialog(null,
-                    "Remove prefab '" + prefab.name + "'?",
-                    "REMOVE PREFAB",
-                    JOptionPane.YES_NO_OPTION);
-            if (response == JOptionPane.YES_OPTION) {
-                prefab.removeAsPrefab();
 
-                GameObject activeGoInspector = Window.getImguiLayer().getInspectorWindow().getActiveGameObject();
-                if (activeGoInspector == prefab) {
-                    Window.getImguiLayer().getInspectorWindow().clearSelected();
-                }
-            }
-        }
     }
 }
