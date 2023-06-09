@@ -1,9 +1,6 @@
 package editor;
 
-import components.Gizmo;
-import components.NonPickable;
-import components.SpriteRenderer;
-import components.StateMachine;
+import components.*;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;
@@ -23,7 +20,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class MouseControls {
     //region Fields
-    static GameObject holdingObject = null;
+    static public GameObject holdingObject = null;
     private static float debounceTime = 0.3f;
     private static float debounce = debounceTime;
 
@@ -67,6 +64,7 @@ public class MouseControls {
         } else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
             int x = (int) MouseListener.getScreenX();
             int y = (int) MouseListener.getScreenY();
+            GizmoSystem.setUsingTranslateGizmo();
             int gameObjectId = pickingTexture.readPixel(x, y);
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
