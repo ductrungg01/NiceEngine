@@ -8,6 +8,7 @@ import deserializers.ComponentDeserializer;
 import components.SpriteRenderer;
 import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
+import editor.Debug;
 import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
@@ -78,6 +79,7 @@ public class GameObject {
         return obj;
     }
 
+    // Prefab create a child game object
     public GameObject copyFromPrefab() {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
@@ -101,6 +103,20 @@ public class GameObject {
         obj.isPrefab = false;
 
         return obj;
+    }
+
+    // a child object override it's prefab
+    public void overrideThePrefab() {
+        for (GameObject p : GameObject.PrefabLists) {
+            if (p.prefabId.equals(this.parentId)) {
+                p = this.copy();
+                p.isPrefab = true;
+                p.prefabId = this.parentId;
+                return;
+            }
+        }
+
+        Debug.Log("Cannot find the prefab!");
     }
 
     public void removeAsPrefab() {
