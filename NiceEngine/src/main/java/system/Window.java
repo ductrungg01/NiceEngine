@@ -6,6 +6,7 @@ import imgui.ImGui;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
+import observers.events.EventType;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
@@ -23,6 +24,7 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryUtil;
 import physics2d.Physics2D;
 import renderer.*;
+import renderer.Renderer;
 import scenes.LevelEditorSceneInitializer;
 import scenes.LevelSceneInitializer;
 import scenes.Scene;
@@ -30,6 +32,7 @@ import scenes.SceneInitializer;
 import util.AssetPool;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -156,6 +159,19 @@ public class Window implements Observer {
             endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
             beginTime = endTime;
+
+            if (glfwWindowShouldClose(glfwWindow)) {
+                int response = JOptionPane.showConfirmDialog(null,
+                        "Do you want to SAVE the scene before close?",
+                        "CLOSE",
+                        JOptionPane.YES_NO_CANCEL_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    EventSystem.notify(null, new Event(EventType.SaveLevel));
+                }
+                if (response == JOptionPane.CANCEL_OPTION) {
+                    glfwSetWindowShouldClose(glfwWindow, false);
+                }
+            }
         }
     }
 
