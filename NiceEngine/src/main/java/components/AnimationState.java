@@ -6,7 +6,9 @@ import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.type.ImString;
 import util.AssetPool;
+import util.FileUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +34,9 @@ public class AnimationState implements INonAddableComponent {
     //region Methods
     public void refreshTextures() {
         for (Frame frame : animationFrames) {
-            if (frame.sprite != null)
+            if (frame.sprite != null) {
                 frame.sprite.setTexture(AssetPool.getTexture(frame.sprite.getTexture().getFilePath()));
+            }
         }
     }
 

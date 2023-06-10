@@ -13,8 +13,10 @@ import imgui.ImGui;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import util.AssetPool;
+import util.FileUtils;
 
 import javax.swing.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -116,7 +118,7 @@ public class GameObject {
     public void refreshTexture() {
         if (this.getComponent(SpriteRenderer.class) != null) {
             SpriteRenderer spr = this.getComponent(SpriteRenderer.class);
-            if (spr.getTexture() != null) {
+            if (spr != null) {
                 spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
             }
         }
