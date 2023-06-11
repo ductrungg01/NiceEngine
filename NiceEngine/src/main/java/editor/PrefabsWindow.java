@@ -50,7 +50,7 @@ public class PrefabsWindow {
 
             if (isClick) {
                 SceneHierarchyWindow.clearSelectedGameObject();
-                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab, InspectorWindow.InspectorBottomButtonTitle.OverrideAllChildren);
+                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(prefab);
             }
             if (isCreateChild) {
                 GameObject childGo = prefab.generateChildGameObject();

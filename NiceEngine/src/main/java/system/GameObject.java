@@ -10,10 +10,12 @@ import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
 import editor.Debug;
 import editor.NiceImGui;
+import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
+import org.joml.Vector4f;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -22,6 +24,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static editor.uihelper.NiceShortCall.COLOR_Blue;
+import static editor.uihelper.NiceShortCall.COLOR_DarkBlue;
 
 public class GameObject {
     //region Fields
@@ -183,13 +188,24 @@ public class GameObject {
     }
 
     public void imgui() {
+        ImGui.beginChild("Show prefab and button override of " + this.hashCode(), ImGui.getContentRegionMaxX(), 80, true);
         if (!this.parentId.equals("")) {
-            ImGui.beginChild("Show prefab and button override of " + this.hashCode(), ImGui.getContentRegionMaxX(), 50, true);
             NiceImGui.prefabShowingInInspectorsButton(this);
-            ImGui.endChild();
-
-            ImGui.separator();
         }
+        if (this.isPrefab) {
+            if (NiceImGui.drawButton("Override all children",
+                    new ButtonColor(new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1), COLOR_Blue, COLOR_DarkBlue),
+                    new Vector2f(ImGui.getContentRegionAvailX(), 30f))) {
+                this.overrideAllChildGameObject();
+            }
+        } else if (NiceImGui.drawButton("Save as a new prefab",
+                new ButtonColor(new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1), COLOR_Blue, COLOR_DarkBlue),
+                new Vector2f(ImGui.getContentRegionAvailX(), 30f))) {
+            this.setAsPrefab();
+        }
+        ImGui.endChild();
+
+        ImGui.separator();
 
         this.name = NiceImGui.inputText("Name", this.name, "Name of " + this.hashCode());
         this.tag = NiceImGui.inputText("Tag", this.tag, "Tag of " + this.hashCode());
