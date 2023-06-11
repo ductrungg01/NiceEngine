@@ -205,6 +205,10 @@ public class GameObject {
 
             if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
                 c.imgui();
+
+                if (c instanceof Transform && this.isPrefab) {
+                    ((Transform) c).position = new Vector2f();
+                }
             }
 
             if (!removeComponentButton.get()) {
