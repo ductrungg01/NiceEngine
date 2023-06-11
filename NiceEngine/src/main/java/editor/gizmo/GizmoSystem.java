@@ -1,6 +1,9 @@
-package components;
+package editor.gizmo;
 
+import components.Component;
+import components.INonAddableComponent;
 import system.KeyListener;
+import system.Spritesheet;
 import system.Window;
 
 import static org.lwjgl.glfw.GLFW.*;

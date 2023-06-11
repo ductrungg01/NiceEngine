@@ -1,7 +1,10 @@
-package editor;
+package editor.windows;
 
 import components.Sprite;
-import components.Spritesheet;
+import editor.Debug;
+import editor.NiceImGui;
+import editor.ReferenceType;
+import system.Spritesheet;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.type.ImBoolean;

@@ -1,6 +1,8 @@
 package scenes;
 
 import components.*;
+import editor.GridLines;
+import editor.gizmo.GizmoSystem;
 import system.*;
 import util.AssetPool;
 

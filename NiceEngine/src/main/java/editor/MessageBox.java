@@ -1,5 +1,6 @@
 package editor;
 
+import editor.windows.AssetsWindow;
 import imgui.ImGui;
 
 import java.io.File;

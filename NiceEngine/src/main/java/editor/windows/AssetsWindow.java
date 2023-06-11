@@ -1,6 +1,8 @@
-package editor;
+package editor.windows;
 
 import components.Sprite;
+import editor.MessageBox;
+import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.lwjgl.glfw.GLFW;

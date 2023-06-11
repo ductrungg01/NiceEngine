@@ -1,5 +1,7 @@
-package components;
+package editor;
 
+import components.Component;
+import components.INonAddableComponent;
 import system.Camera;
 import system.Window;
 import org.joml.Vector2f;

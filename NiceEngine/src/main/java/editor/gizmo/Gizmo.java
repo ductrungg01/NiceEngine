@@ -1,6 +1,7 @@
-package components;
+package editor.gizmo;
 
-import editor.InspectorWindow;
+import components.*;
+import editor.windows.InspectorWindow;
 import editor.MouseControls;
 import system.*;
 import org.joml.Vector2f;

@@ -1,8 +1,7 @@
 package editor;
 
-import components.Spritesheet;
 import editor.uihelper.ButtonColor;
-import editor.uihelper.ColorHelp;
+import editor.windows.FileDialog;
 import imgui.ImGui;
 import imgui.ImVec2;
 import components.Sprite;
@@ -15,14 +14,10 @@ import imgui.type.ImString;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
-import renderer.Texture;
 import system.GameObject;
-import system.Window;
-import util.AssetPool;
 import util.FileUtils;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;

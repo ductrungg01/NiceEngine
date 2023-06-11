@@ -1,6 +1,8 @@
-package components;
+package editor.gizmo;
 
-import editor.InspectorWindow;
+import components.INonAddableComponent;
+import components.Sprite;
+import editor.windows.InspectorWindow;
 import editor.MouseControls;
 import system.MouseListener;
 

@@ -1,5 +1,7 @@
-package editor;
+package editor.windows;
 
+import editor.Debug;
+import editor.NiceImGui;
 import editor.uihelper.ButtonColor;
 import components.Sprite;
 import imgui.ImGui;

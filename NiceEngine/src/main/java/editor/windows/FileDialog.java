@@ -1,7 +1,9 @@
-package editor;
+package editor.windows;
 
 import components.Sprite;
-import components.Spritesheet;
+import editor.NiceImGui;
+import editor.ReferenceType;
+import system.Spritesheet;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.ColorHelp;
 import imgui.ImGui;
@@ -10,7 +12,6 @@ import imgui.flag.ImGuiCol;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import util.AssetPool;
 import util.FileUtils;
@@ -21,7 +22,6 @@ import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
 import static editor.uihelper.NiceShortCall.COLOR_Blue;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_LEFT;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class FileDialog {

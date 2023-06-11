@@ -1,7 +1,8 @@
-package editor;
+package editor.windows;
 
 import components.Sprite;
-import components.Spritesheet;
+import editor.NiceImGui;
+import system.Spritesheet;
 import editor.uihelper.ButtonColor;
 import imgui.ImColor;
 import imgui.ImDrawList;

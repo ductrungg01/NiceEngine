@@ -1,7 +1,8 @@
-package editor;
+package editor.windows;
 
 import components.EditorCamera;
 import components.SpriteRenderer;
+import editor.NiceImGui;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.flag.ImGuiTreeNodeFlags;

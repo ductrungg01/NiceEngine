@@ -1,4 +1,4 @@
-package editor;
+package editor.windows;
 
 import components.Sprite;
 import components.SpriteRenderer;
