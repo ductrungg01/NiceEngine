@@ -1,6 +1,6 @@
 package util;
 
-import components.Spritesheet;
+import system.Spritesheet;
 import system.Sound;
 import renderer.Shader;
 import renderer.Texture;
@@ -58,7 +58,7 @@ public class AssetPool {
 
         return sprs;
     }
-    
+
 
     public static Collection<Sound> getAllSounds() {
         return sounds.values();

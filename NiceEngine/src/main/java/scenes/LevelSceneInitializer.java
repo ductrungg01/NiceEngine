@@ -1,8 +1,6 @@
 package scenes;
 
 import components.*;
-import components.scripts.test.MarioCameraFollow;
-import components.scripts.test.mario.GameCamera;
 import system.*;
 import util.AssetPool;
 
