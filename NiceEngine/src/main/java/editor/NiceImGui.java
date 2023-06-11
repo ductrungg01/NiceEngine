@@ -423,6 +423,7 @@ public class NiceImGui {
             if (drawButton("Override prefab!",
                     new ButtonColor(buttonColor, COLOR_Blue, COLOR_DarkBlue),
                     new Vector2f(ImGui.getContentRegionAvailX(), 30f))) {
+                go.overrideThePrefab();
             }
         }
 

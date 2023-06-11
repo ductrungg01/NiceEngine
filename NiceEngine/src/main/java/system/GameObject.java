@@ -108,12 +108,17 @@ public class GameObject {
 
     // a child object override it's prefab
     public void overrideThePrefab() {
-        for (GameObject p : GameObject.PrefabLists) {
+        for (int i = 0; i < GameObject.PrefabLists.size(); i++) {
+            GameObject p = GameObject.PrefabLists.get(i);
+
             if (p.prefabId.equals(this.parentId)) {
-                p = this.copy();
-                p.isPrefab = true;
-                p.prefabId = this.parentId;
-                return;
+                GameObject newPrefab = this.copy();
+                newPrefab.isPrefab = true;
+                newPrefab.prefabId = this.parentId;
+
+                newPrefab.transform.position = new Vector2f();
+
+                GameObject.PrefabLists.set(i, newPrefab);
             }
         }
 
