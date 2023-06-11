@@ -384,6 +384,53 @@ public class NiceImGui {
         return isClick;
     }
 
+    public static void prefabShowingInInspectorsButton(GameObject go) {
+        ImGui.columns(3);
+        ImGui.setColumnWidth(0, 100);
+        ImGui.setColumnWidth(1, 250);
+        ImGui.text("Prefab: ");
+        ImGui.nextColumn();
+
+        String pushId = "GoToPrefabButton" + go.name + go.hashCode();
+        ImGui.pushID(pushId);
+
+        GameObject prefab = GameObject.getPrefabById(go.parentId);
+        if (prefab == null) {
+            ImGui.button("Error: Cannot find the prefab!");
+        } else {
+            Vector4f buttonColor = new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1);
+            if (drawButton("Go to: '" + prefab.name + "'",
+                    new ButtonColor(buttonColor, COLOR_Blue, COLOR_DarkBlue),
+                    new Vector2f(ImGui.getContentRegionAvailX(), 30f))) {
+            }
+        }
+
+        if (ImGui.isItemHovered()) {
+            ImGui.beginTooltip();
+            ImGui.text("Go to prefab");
+            ImGui.endTooltip();
+        }
+        ImGui.popID();
+
+        ImGui.nextColumn();
+
+        pushId = "Override the prefab" + go.name + go.hashCode();
+        ImGui.pushID(pushId);
+        if (prefab == null) {
+            ImGui.button("Error: Cannot find the prefab!");
+        } else {
+            Vector4f buttonColor = new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1);
+            if (drawButton("Override prefab!",
+                    new ButtonColor(buttonColor, COLOR_Blue, COLOR_DarkBlue),
+                    new Vector2f(ImGui.getContentRegionAvailX(), 30f))) {
+            }
+        }
+
+        ImGui.popID();
+
+        ImGui.columns(1);
+    }
+
     public static float dragfloat(String label, float value, String imguiId) {
         final float DEFAULT_SPEED = 0.1f;
         return dragfloat(label, value, DEFAULT_SPEED, imguiId);

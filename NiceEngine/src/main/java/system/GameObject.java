@@ -11,6 +11,7 @@ import deserializers.PrefabDeserializer;
 import editor.Debug;
 import editor.NiceImGui;
 import imgui.ImGui;
+import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import util.AssetPool;
@@ -177,6 +178,14 @@ public class GameObject {
     }
 
     public void imgui() {
+        if (!this.parentId.equals("")) {
+            ImGui.beginChild("Show prefab and button override of " + this.hashCode(), ImGui.getContentRegionMaxX(), 50, true);
+            NiceImGui.prefabShowingInInspectorsButton(this);
+            ImGui.endChild();
+
+            ImGui.separator();
+        }
+
         this.name = NiceImGui.inputText("Name", this.name, "Name of " + this.hashCode());
         this.tag = NiceImGui.inputText("Tag", this.tag, "Tag of " + this.hashCode());
 //        ImGui.text("isPrefab? : " + this.isPrefab);
@@ -224,6 +233,16 @@ public class GameObject {
                     e.printStackTrace();
                     assert false : "Error: Casting component";
                 }
+            }
+        }
+
+        return null;
+    }
+
+    public static GameObject getPrefabById(String prefabId) {
+        for (GameObject prefab : GameObject.PrefabLists) {
+            if (prefab.prefabId.equals(prefabId)) {
+                return prefab;
             }
         }
 
