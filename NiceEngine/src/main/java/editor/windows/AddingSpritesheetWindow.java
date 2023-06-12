@@ -98,9 +98,12 @@ public class AddingSpritesheetWindow {
             float sizeToShowImageX = this.sprite.getTexture().getWidth() * offset;
             float sizeToShowImageY = this.sprite.getTexture().getHeight() * offset;
 
+            float cursorPosX = ImGui.getCursorScreenPosX();
+            float cursorPosY = ImGui.getCursorScreenPosY();
+
             ImGui.image(this.sprite.getTexId(), sizeToShowImageX, sizeToShowImageY);
 
-            drawLineToEasyPreview(new Vector2f(sizeToShowImageX, sizeToShowImageY));
+            drawLineToEasyPreview(new Vector2f(cursorPosX, cursorPosY), new Vector2f(sizeToShowImageX, sizeToShowImageY));
             //endregion
 
             ImGui.columns(1);
@@ -125,19 +128,15 @@ public class AddingSpritesheetWindow {
         return isOpen;
     }
 
-    private void drawLineToEasyPreview(Vector2f sizeToShowImage) {
-        ImDrawList drawList = ImGui.getWindowDrawList();
+    private void drawLineToEasyPreview(Vector2f imgTLPos, Vector2f imgSize) {
         float cursorPosX = ImGui.getCursorScreenPosX();
         float cursorPosY = ImGui.getCursorScreenPosY();
 
-        Vector2f imgTLPos = new Vector2f(cursorPosX, cursorPosY - sizeToShowImage.y);
-        Vector2f imgBRPos = new Vector2f(cursorPosX + sizeToShowImage.x, cursorPosY);
+        Vector2f imgBRPos = new Vector2f(cursorPosX + imgSize.x, cursorPosY);
 
         float offsetX = (imgBRPos.x - imgTLPos.x);
         float offsetY = (imgBRPos.y - imgTLPos.y);
 
-        int color = ImColor.intToColor(255, 255, 255, 100);
-        float lineSize = 0.3f;
 
         final float IMAGE_SIZE_X = this.sprite.getTexture().getWidth();
         final float IMAGE_SIZE_Y = this.sprite.getTexture().getHeight();
@@ -154,10 +153,7 @@ public class AddingSpritesheetWindow {
             Vector2f bottomRightPos = new Vector2f(rightX * offsetX + imgTLPos.x, bottomY * offsetY + imgTLPos.y);
 
             // draw
-            drawList.addLine(topLeftPos.x, topLeftPos.y, bottomRightPos.x, topLeftPos.y, color, lineSize);
-            drawList.addLine(bottomRightPos.x, topLeftPos.y, bottomRightPos.x, bottomRightPos.y, color, lineSize);
-            drawList.addLine(bottomRightPos.x, bottomRightPos.y, topLeftPos.x, bottomRightPos.y, color, lineSize);
-            drawList.addLine(topLeftPos.x, bottomRightPos.y, topLeftPos.x, topLeftPos.y, color, lineSize);
+            draw4lines(topLeftPos, bottomRightPos);
 
             currentX += sprWidth + sprSpacingX;
             if (currentX >= IMAGE_SIZE_X) {
@@ -166,5 +162,17 @@ public class AddingSpritesheetWindow {
                 currentY += sprHeight + sprSpacingY;
             }
         }
+    }
+
+    private void draw4lines(Vector2f topLeftPos, Vector2f bottomRightPos) {
+        ImDrawList drawList = ImGui.getWindowDrawList();
+
+        int color = ImColor.intToColor(255, 255, 255, 100);
+        float lineSize = 0.3f;
+
+        drawList.addLine(topLeftPos.x, topLeftPos.y, bottomRightPos.x, topLeftPos.y, color, lineSize);
+        drawList.addLine(bottomRightPos.x, topLeftPos.y, bottomRightPos.x, bottomRightPos.y, color, lineSize);
+        drawList.addLine(bottomRightPos.x, bottomRightPos.y, topLeftPos.x, bottomRightPos.y, color, lineSize);
+        drawList.addLine(topLeftPos.x, bottomRightPos.y, topLeftPos.x, topLeftPos.y, color, lineSize);
     }
 }
