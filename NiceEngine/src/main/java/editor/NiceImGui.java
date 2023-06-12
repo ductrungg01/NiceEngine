@@ -25,16 +25,22 @@ import static editor.uihelper.NiceShortCall.*;
 public class NiceImGui {
 
     //region Fields
-    private static float defaultColumnWidth = 150.0f;
+    private static final float defaultLabelColumnWidth = 150.0f;
     //endregion
 
     //region Methods
+    private static float calcMinLabelColWith(String label) {
+        float minLength = getLengthOfText(label);
+
+        return Float.max(minLength, defaultLabelColumnWidth);
+    }
+
     public static void drawVec2Control(String label, Vector2f values) {
-        drawVec2Control(label, values, 0.0f, defaultColumnWidth);
+        drawVec2Control(label, values, 0.0f, calcMinLabelColWith(label));
     }
 
     public static void drawVec2Control(String label, Vector2f values, float resetValue) {
-        drawVec2Control(label, values, resetValue, defaultColumnWidth);
+        drawVec2Control(label, values, resetValue, calcMinLabelColWith(label));
     }
 
     public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth) {
@@ -149,7 +155,7 @@ public class NiceImGui {
     }
 
     public static Object ReferenceButton(String label, ReferenceType referenceType, Object oldValue, String idPush) {
-        return ReferenceButton(label, referenceType, oldValue, defaultColumnWidth, idPush);
+        return ReferenceButton(label, referenceType, oldValue, calcMinLabelColWith(label), idPush);
     }
 
     public static Object ReferenceButton(String label, ReferenceType referenceType, Object oldValue, float labelWidth, String idPush) {
@@ -436,7 +442,7 @@ public class NiceImGui {
         ImGui.pushID(imguiID);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -459,7 +465,7 @@ public class NiceImGui {
         ImGui.pushID(imguiID);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -485,7 +491,7 @@ public class NiceImGui {
         ImGui.pushID(label);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -509,7 +515,7 @@ public class NiceImGui {
         ImGui.pushID(label);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -533,7 +539,7 @@ public class NiceImGui {
         ImGui.pushID(idPush);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -606,7 +612,7 @@ public class NiceImGui {
         ImGui.pushID(label);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -639,7 +645,7 @@ public class NiceImGui {
         ImGui.pushID(label + "Checkbox");
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
@@ -658,7 +664,7 @@ public class NiceImGui {
         ImGui.pushID(imguiID);
 
         ImGui.columns(2);
-        ImGui.setColumnWidth(0, defaultColumnWidth);
+        ImGui.setColumnWidth(0, calcMinLabelColWith(label));
         ImGui.text(label);
         ImGui.nextColumn();
 
