@@ -268,7 +268,7 @@ public class Scene {
 
             for (Spritesheet s : spritesheets) {
                 writer.write(s.getTexture().getFilePath() + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
-                        s.size() + "|" + s.spacing + "\n");
+                        s.size() + "|" + s.spacingX + "|" + s.spacingY + "\n");
             }
 
             writer.close();
@@ -296,9 +296,10 @@ public class Scene {
                 int sprWidth = Integer.parseInt(values[1]);
                 int sprHeight = Integer.parseInt(values[2]);
                 int numsSprite = Integer.parseInt(values[3]);
-                int spacing = Integer.parseInt(values[4]);
+                int spacingX = Integer.parseInt(values[4]);
+                int spacingY = Integer.parseInt(values[4]);
 
-                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacing);
+                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacingX, spacingY);
                 AssetPool.addSpritesheet(textureSrc, spritesheet);
             }
 

@@ -14,17 +14,19 @@ public class Spritesheet {
 
     public int spriteWidth;
     public int spriteHeight;
-    public int spacing;
+    public int spacingX;
+    public int spacingY;
     //endregion
 
     //region Constructors
-    public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int numSprites, int spacing) {
+    public Spritesheet(Texture texture, int spriteWidth, int spriteHeight, int numSprites, int spacingX, int spacingY) {
         this.sprites = new ArrayList<>();
 
         this.texture = texture;
         this.spriteWidth = spriteWidth;
         this.spriteHeight = spriteHeight;
-        this.spacing = spacing;
+        this.spacingX = spacingX;
+        this.spacingY = spacingY;
         int currentX = 0;
         int currentY = 0;
 
@@ -48,10 +50,10 @@ public class Spritesheet {
             sprite.setHeight(spriteHeight);
             this.sprites.add(sprite);
 
-            currentX += spriteWidth + spacing;
+            currentX += spriteWidth + spacingX;
             if (currentX >= texture.getWidth()) {
                 currentX = 0;
-                currentY += spriteHeight + spacing;
+                currentY += spriteHeight + spacingY;
             }
         }
     }

@@ -37,7 +37,8 @@ public class AddingSpritesheetWindow {
     private int sprWidth = 1;
     private int sprHeight = 1;
     private int numSprites = 1;
-    private int sprSpacing = 0;
+    private int sprSpacingX = 0;
+    private int sprSpacingY = 0;
 
     public void open(Sprite sprite) {
         this.isOpen = true;
@@ -46,7 +47,8 @@ public class AddingSpritesheetWindow {
         this.sprWidth = 1;
         this.sprHeight = 1;
         this.numSprites = 1;
-        this.sprSpacing = 0;
+        this.sprSpacingX = 0;
+        this.sprSpacingY = 0;
     }
 
     public void spritesheetPreview() {
@@ -65,7 +67,8 @@ public class AddingSpritesheetWindow {
             this.sprWidth = NiceImGui.dragInt("Sprite width: ", sprWidth);
             this.sprHeight = NiceImGui.dragInt("Sprite Height", sprHeight);
             this.numSprites = NiceImGui.dragInt("Number of sprites: ", numSprites);
-            this.sprSpacing = NiceImGui.dragInt("Spacing: ", sprSpacing);
+            this.sprSpacingX = NiceImGui.dragInt("Spacing X: ", sprSpacingX);
+            this.sprSpacingY = NiceImGui.dragInt("Spacing Y: ", sprSpacingY);
             if (NiceImGui.drawButton("ADD THIS SPRITESHEET",
                     new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue),
                     new Vector2f(SETTING_COLUMN_WIDTH, 50f))) {
@@ -109,7 +112,7 @@ public class AddingSpritesheetWindow {
         String spritesheetName = FileUtils.getFileName(this.sprite.getTexture().getFilePath());
 
         AssetPool.addSpritesheet(spritesheetName,
-                new Spritesheet(this.sprite.getTexture(), this.sprWidth, this.sprHeight, this.numSprites, this.sprSpacing));
+                new Spritesheet(this.sprite.getTexture(), this.sprWidth, this.sprHeight, this.numSprites, this.sprSpacingX, this.sprSpacingY));
 
         SpritesheetWindow.spritesheet_has_just_add = spritesheetName;
     }
@@ -156,11 +159,11 @@ public class AddingSpritesheetWindow {
             drawList.addLine(bottomRightPos.x, bottomRightPos.y, topLeftPos.x, bottomRightPos.y, color, lineSize);
             drawList.addLine(topLeftPos.x, bottomRightPos.y, topLeftPos.x, topLeftPos.y, color, lineSize);
 
-            currentX += sprWidth + sprSpacing;
+            currentX += sprWidth + sprSpacingX;
             if (currentX >= IMAGE_SIZE_X) {
                 // next line
                 currentX = 0;
-                currentY += sprHeight + sprSpacing;
+                currentY += sprHeight + sprSpacingY;
             }
         }
     }
