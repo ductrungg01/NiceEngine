@@ -49,7 +49,7 @@ public class Transform extends Component implements INonAddableComponent {
     public void imgui() {
         NiceImGui.drawVec2Control("Position", this.position);
         NiceImGui.drawVec2Control("Scale", this.scale, 32.0f);
-        this.rotation = NiceImGui.dragfloat("Rotation", this.rotation, "Rotation");
+        this.rotation = NiceImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = NiceImGui.dragInt("Z-Index", this.zIndex);
     }
 

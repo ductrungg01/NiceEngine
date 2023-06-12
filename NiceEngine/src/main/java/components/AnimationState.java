@@ -61,32 +61,27 @@ public class AnimationState implements INonAddableComponent {
 
         float w = ImGui.getContentRegionAvailX() * 0.97f;
         float h = (ImGui.getTextLineHeightWithSpacing() + ImGui.getStyle().getFramePaddingX()) * (4 * animationFrames.size() + 6);
+        final float DEFAULT_LABEL_WIDTH = 100f;
+        final float DEFAULT_VALUE_WIDTH = 310.0f;
+        float[] columnWidth = {DEFAULT_LABEL_WIDTH, DEFAULT_VALUE_WIDTH};
 
         ImGui.beginChild("## AnimationStateConfig", w, h, true);
 
-        this.title = NiceImGui.inputText("Title: ", this.title, "AnimationState change title" + this.hashCode());
+        this.title = NiceImGui.inputText("Title: ", this.title, "Title of this state", columnWidth, "AnimationState change title" + this.hashCode());
 
-        this.doesLoop = NiceImGui.checkbox("Loop?", this.doesLoop);
+        this.doesLoop = NiceImGui.checkbox("Loop?", this.doesLoop, columnWidth);
         this.setLoop(doesLoop);
 
         int index = 0;
 
         for (int i = 0; i < animationFrames.size(); i++) {
             Frame frame = animationFrames.get(i);
-
             ImGui.text("Frame (" + index + ")");
+            frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ", ReferenceType.SPRITE, frame.sprite, columnWidth, "AnimationState" + this.title + "Frame" + index);
+            frame.frameTime = NiceImGui.dragFloat("    Time(s): ", frame.frameTime, 0f, 100f, 0.001f, columnWidth, "Frame time of" + this.title + index);
 
-            frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ",
-                    ReferenceType.SPRITE,
-                    frame.sprite,
-                    "AnimationState" + this.title + "Frame" + index);
-
-            frame.frameTime = NiceImGui.dragfloat("    Time: ",
-                    frame.frameTime, 0f, 100f, 0.001f, "Frame time of" + this.title + index);
-
-            ImGui.text("                             ");
+            ImGui.text("                  ");
             ImGui.sameLine();
-
             if (ImGui.button("Remove frame (" + index + ")")) {
                 animationFrames.remove(i);
                 currentSprite = 0;

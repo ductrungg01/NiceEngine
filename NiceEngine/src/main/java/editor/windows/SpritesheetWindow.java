@@ -177,7 +177,7 @@ public class SpritesheetWindow {
 
         ImGui.beginChild("ButtonSizeBoostOfSpritesheetLoaderWindow", SETTINGS_WIDTH, 30f);
 
-        BUTTON_SIZE_BOOST = NiceImGui.dragfloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "SpritesheetLoaderTabBar BUTTON_SIZE_BOOST");
+        BUTTON_SIZE_BOOST = NiceImGui.dragFloat("Button size boost: ", BUTTON_SIZE_BOOST, 0.01f, 100000, "SpritesheetLoaderTabBar BUTTON_SIZE_BOOST");
         ImGui.sameLine();
         if (ImGui.button("Reset")) {
             BUTTON_SIZE_BOOST = BUTTON_SIZE_BOOST_DEFAULT_VALUE;

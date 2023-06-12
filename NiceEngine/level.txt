@@ -1,6 +1,6 @@
 [
   {
-    "uid": 0,
+    "uid": 7,
     "name": "Mario",
     "tag": "MarioTag",
     "isPrefab": false,
@@ -11,14 +11,14 @@
         "type": "system.Transform",
         "properties": {
           "position": {
-            "x": 3.375,
+            "x": 2.875,
             "y": 1.375
           },
           "scale": {
-            "x": 0.25,
-            "y": 0.25
+            "x": 1.55,
+            "y": 1.45
           },
-          "rotation": 0.0,
+          "rotation": 1.4E-45,
           "zIndex": 0,
           "uid": 54
         }

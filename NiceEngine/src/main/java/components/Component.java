@@ -115,7 +115,7 @@ public abstract class Component {
                     field.set(this, NiceImGui.dragInt(name, val));
                 } else if (type == float.class) {
                     float val = (float) value;
-                    field.set(this, NiceImGui.dragfloat(name, val, name));
+                    field.set(this, NiceImGui.dragFloat(name, val));
                 } else if (type == boolean.class) {
                     boolean val = (boolean) value;
                     if (ImGui.checkbox(name + ": ", val)) {
