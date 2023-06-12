@@ -1,6 +1,6 @@
 [
   {
-    "uid": 1,
+    "uid": 0,
     "name": "Mario",
     "tag": "MarioTag",
     "isPrefab": false,

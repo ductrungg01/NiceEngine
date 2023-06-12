@@ -5,6 +5,7 @@ import system.Sound;
 import renderer.Shader;
 import renderer.Texture;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.*;
 
@@ -93,6 +94,18 @@ public class AssetPool {
         File file = new File(resourceName);
         if (!AssetPool.spritesheets.containsKey(file.getPath())) {
             AssetPool.spritesheets.put(file.getPath(), spritesheet);
+        } else {
+
+        }
+    }
+
+    public static void updateSpritesheet(String resourceName, Spritesheet spritesheet) {
+        File file = new File(resourceName);
+        if (AssetPool.spritesheets.containsKey(file.getPath())) {
+            AssetPool.spritesheets.replace(resourceName, spritesheet);
+        } else {
+            JOptionPane.showMessageDialog(null, "Cannot find spritesheet '" + resourceName + "' to update!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 

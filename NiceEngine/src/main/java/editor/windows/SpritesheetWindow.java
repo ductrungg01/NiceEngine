@@ -108,13 +108,30 @@ public class SpritesheetWindow {
                         }
                     }
 
+                    String popupId = "Right Menu Context of " + sprsheetName;
                     if (ImGui.isWindowHovered() && ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
-                        ImGui.openPopup("Right Menu Context of " + sprsheetName);
+                        ImGui.openPopup(popupId);
                     }
-                    if (ImGui.beginPopup("Right Menu Context of " + sprsheetName)) {
+                    if (ImGui.beginPopup(popupId)) {
+                        if (ImGui.menuItem("Edit")) {
+                            Sprite spr = new Sprite(spritesheets.get(i).getTexture().getFilePath());
+                            AddingSpritesheetWindow.getInstance().open(spr);
+                            AddingSpritesheetWindow.getInstance().isAdd = false;
+                            AddingSpritesheetWindow.getInstance().sprWidth = spritesheets.get(i).spriteWidth;
+                            AddingSpritesheetWindow.getInstance().sprHeight = spritesheets.get(i).spriteHeight;
+                            AddingSpritesheetWindow.getInstance().numSprites = spritesheets.get(i).size();
+                            AddingSpritesheetWindow.getInstance().sprSpacingX = spritesheets.get(i).spacingX;
+                            AddingSpritesheetWindow.getInstance().sprSpacingY = spritesheets.get(i).spacingY;
+                        }
                         if (ImGui.menuItem("Remove this spritesheet")) {
-                            String resourceName = spritesheets.get(i).getTexture().getFilePath();
-                            AssetPool.removeSpritesheet(resourceName);
+                            int response = JOptionPane.showConfirmDialog(null,
+                                    "Remove spritesheet '" + sprsheetName + "'?",
+                                    "REMOVE SPRITESHEET",
+                                    JOptionPane.YES_NO_OPTION);
+                            if (response == JOptionPane.YES_OPTION) {
+                                Debug.Log(sprsheetName + " has just removed!");
+                                AssetPool.removeSpritesheet(spritesheets.get(i).getTexture().getFilePath());
+                            }
                         }
                         ImGui.endPopup();
                     }

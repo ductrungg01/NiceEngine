@@ -478,6 +478,10 @@ public class NiceImGui {
     }
 
     public static int dragInt(String label, int value) {
+        return dragInt(label, value, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    public static int dragInt(String label, int value, int minValue, int maxValue) {
         ImGui.pushID(label);
 
         ImGui.columns(2);
@@ -491,7 +495,12 @@ public class NiceImGui {
         ImGui.columns(1);
         ImGui.popID();
 
-        return valArr[0];
+        int v = valArr[0];
+
+        v = Math.min(v, maxValue);
+        v = Math.max(v, minValue);
+
+        return v;
     }
 
     public static boolean colorPicker4(String label, Vector4f color) {

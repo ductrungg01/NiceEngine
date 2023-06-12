@@ -9,8 +9,10 @@ import imgui.ImDrawList;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
+import system.Window;
 import util.AssetPool;
 import util.FileUtils;
+import util.Settings;
 
 import static editor.uihelper.NiceShortCall.*;
 
@@ -34,11 +36,13 @@ public class AddingSpritesheetWindow {
     private Sprite sprite = null;
 
     // SPRITESHEET SETTINGS
-    private int sprWidth = 1;
-    private int sprHeight = 1;
-    private int numSprites = 1;
-    private int sprSpacingX = 0;
-    private int sprSpacingY = 0;
+    public int sprWidth = 1;
+    public int sprHeight = 1;
+    public int numSprites = 1;
+    public int sprSpacingX = 0;
+    public int sprSpacingY = 0;
+
+    public boolean isAdd = true;
 
     public void open(Sprite sprite) {
         this.isOpen = true;
@@ -49,14 +53,19 @@ public class AddingSpritesheetWindow {
         this.numSprites = 1;
         this.sprSpacingX = 0;
         this.sprSpacingY = 0;
+        this.isAdd = true;
     }
 
     public void spritesheetPreview() {
+        String popupId = (this.isAdd ? "Adding new spritesheet" : "Edit spritesheet");
+
         if (this.isOpen) {
-            ImGui.openPopup("Adding new spritesheet");
+            ImGui.openPopup(popupId);
+
+            ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
         }
 
-        if (ImGui.beginPopupModal("Adding new spritesheet", new ImBoolean(this.isOpen))) {
+        if (ImGui.beginPopupModal(popupId, new ImBoolean(this.isOpen))) {
             ImGui.columns(2);
             final float SETTING_COLUMN_WIDTH = 300f;
             ImGui.setColumnWidth(0, SETTING_COLUMN_WIDTH);
@@ -64,15 +73,19 @@ public class AddingSpritesheetWindow {
             //region SPRITESHEET PREVIEW SETTINGS
             ImGui.text("SPRITESHEET SETTING PREVIEW");
             ImGui.beginChild("##SpritesheetSettingPreview", SETTING_COLUMN_WIDTH, 300);
-            this.sprWidth = NiceImGui.dragInt("Sprite width: ", sprWidth);
-            this.sprHeight = NiceImGui.dragInt("Sprite Height", sprHeight);
-            this.numSprites = NiceImGui.dragInt("Number of sprites: ", numSprites);
-            this.sprSpacingX = NiceImGui.dragInt("Spacing X: ", sprSpacingX);
-            this.sprSpacingY = NiceImGui.dragInt("Spacing Y: ", sprSpacingY);
-            if (NiceImGui.drawButton("ADD THIS SPRITESHEET",
+            this.sprWidth = NiceImGui.dragInt("Sprite width: ", sprWidth, 0, this.sprite.getTexture().getWidth());
+            this.sprHeight = NiceImGui.dragInt("Sprite Height", sprHeight, 0, this.sprite.getTexture().getHeight());
+            this.numSprites = NiceImGui.dragInt("Number of sprites: ", numSprites, 0, Integer.MAX_VALUE);
+            this.sprSpacingX = NiceImGui.dragInt("Spacing X: ", sprSpacingX, 0, this.sprite.getTexture().getWidth());
+            this.sprSpacingY = NiceImGui.dragInt("Spacing Y: ", sprSpacingY, 0, this.sprite.getTexture().getHeight());
+
+            if (NiceImGui.drawButton((this.isAdd ? "ADD NEW SPRITESHEET" : "SAVE"),
                     new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue),
                     new Vector2f(SETTING_COLUMN_WIDTH, 50f))) {
-                addSpritesheetToAssetPool();
+                if (this.isAdd)
+                    addSpritesheetToAssetPool();
+                else
+                    updateSpritesheetToAssetPool();
                 close();
             }
 
@@ -115,6 +128,15 @@ public class AddingSpritesheetWindow {
         String spritesheetName = FileUtils.getFileName(this.sprite.getTexture().getFilePath());
 
         AssetPool.addSpritesheet(spritesheetName,
+                new Spritesheet(this.sprite.getTexture(), this.sprWidth, this.sprHeight, this.numSprites, this.sprSpacingX, this.sprSpacingY));
+
+        SpritesheetWindow.spritesheet_has_just_add = spritesheetName;
+    }
+
+    private void updateSpritesheetToAssetPool() {
+        String spritesheetName = FileUtils.getFileName(this.sprite.getTexture().getFilePath());
+
+        AssetPool.updateSpritesheet(spritesheetName,
                 new Spritesheet(this.sprite.getTexture(), this.sprWidth, this.sprHeight, this.numSprites, this.sprSpacingX, this.sprSpacingY));
 
         SpritesheetWindow.spritesheet_has_just_add = spritesheetName;
