@@ -22,6 +22,7 @@ import java.io.File;
 import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
+import static java.lang.Math.min;
 
 public class NiceImGui {
 
@@ -738,6 +739,16 @@ public class NiceImGui {
         ImGui.popID();
 
         ImGui.columns(1);
+    }
+    //endregion
+
+    //region Image
+    public static void showImage(Sprite spr, Vector2f size) {
+        float offset = min(size.x / spr.getWidth(), size.y / spr.getHeight());
+        Vector2f[] texCoords = spr.getTexCoords();
+        ImGui.image(spr.getTexId(), spr.getWidth() * offset, spr.getHeight() * offset,
+                texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y);
+
     }
     //endregion
 

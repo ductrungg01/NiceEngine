@@ -5,6 +5,7 @@ import editor.uihelper.ButtonColor;
 import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.type.ImString;
+import org.joml.Vector2f;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -77,8 +78,11 @@ public class AnimationState implements INonAddableComponent {
         for (int i = 0; i < animationFrames.size(); i++) {
             Frame frame = animationFrames.get(i);
             ImGui.text("Frame (" + index + ")");
+
+            Vector2f oldCursorPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
+
             frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ", ReferenceType.SPRITE, frame.sprite, columnWidth, "AnimationState" + this.title + "Frame" + index);
-            frame.frameTime = NiceImGui.dragFloat("    Time(s): ", frame.frameTime, 0f, 100f, 0.001f, columnWidth, "Frame time of" + this.title + index);
+            frame.frameTime = NiceImGui.dragFloat("    Time(s): ", frame.frameTime, 0f, Float.MAX_VALUE, 0.001f, columnWidth, "Frame time of" + this.title + index);
 
             ImGui.text("                  ");
             ImGui.sameLine();
@@ -89,6 +93,14 @@ public class AnimationState implements INonAddableComponent {
                 index--;
             }
 
+            Vector2f newCursorPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
+
+            //region Sprite preview
+            ImGui.setCursorScreenPos(oldCursorPos.x + columnWidth[0] + columnWidth[1], oldCursorPos.y);
+            final Vector2f DEFAULT_SIZE_IMAGE = new Vector2f(180, 60);
+            NiceImGui.showImage(frame.sprite, DEFAULT_SIZE_IMAGE);
+            ImGui.setCursorScreenPos(newCursorPos.x, newCursorPos.y);
+            //endregion
             index++;
         }
 
