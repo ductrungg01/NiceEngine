@@ -75,7 +75,7 @@ public class AddingSpritesheetWindow {
             ImGui.beginChild("##SpritesheetSettingPreview", SETTING_COLUMN_WIDTH, 300);
             this.sprWidth = NiceImGui.dragInt("Sprite width: ", sprWidth, 0, this.sprite.getTexture().getWidth());
             this.sprHeight = NiceImGui.dragInt("Sprite Height", sprHeight, 0, this.sprite.getTexture().getHeight());
-            this.numSprites = NiceImGui.dragInt("Number of sprites: ", numSprites, 0, Integer.MAX_VALUE);
+            this.numSprites = NiceImGui.dragInt("Nums of sprites: ", numSprites, 0, Integer.MAX_VALUE);
             this.sprSpacingX = NiceImGui.dragInt("Spacing X: ", sprSpacingX, 0, this.sprite.getTexture().getWidth());
             this.sprSpacingY = NiceImGui.dragInt("Spacing Y: ", sprSpacingY, 0, this.sprite.getTexture().getHeight());
 

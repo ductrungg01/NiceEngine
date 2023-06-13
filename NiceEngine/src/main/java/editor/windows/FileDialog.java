@@ -214,7 +214,24 @@ public class FileDialog {
         }
     }
 
+    private static Sprite SPRITE_WAITING = null;
+
     private void settings() {
+        //region ADD NEW SPRITESHEET
+        final String ID_WAITING_FILE_DIALOG = "Add new spritesheet imgui id";
+        if (ImGui.button("Add new spritesheet")) {
+            FileDialog.getInstance().showSpritesheetAlso = false;
+            FileDialog.getInstance().open(ID_WAITING_FILE_DIALOG, ReferenceType.SPRITE);
+        }
+
+        SPRITE_WAITING = (Sprite) FileDialog.getInstance().getSelectedObject(ID_WAITING_FILE_DIALOG, SPRITE_WAITING);
+
+        if (SPRITE_WAITING != null && !AddingSpritesheetWindow.getInstance().isOpened()) {
+            AddingSpritesheetWindow.getInstance().open(SPRITE_WAITING);
+            SPRITE_WAITING = null;
+        }
+        //endregion
+
         //region BUTTON SIZE BOOST
         final float SETTINGS_WIDTH = 500f;
 
