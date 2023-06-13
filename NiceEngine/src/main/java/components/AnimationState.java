@@ -1,5 +1,6 @@
 package components;
 
+import editor.Gif;
 import editor.ReferenceType;
 import editor.uihelper.ButtonColor;
 import editor.NiceImGui;
@@ -24,11 +25,20 @@ public class AnimationState implements INonAddableComponent {
     private transient float timeTracker = 0.0f;
     private transient int currentSprite = 0;
     public boolean doesLoop = false;
+
+    private transient Gif gifPreview;
+    //endregion
+
+    //region Constructors
+    public AnimationState() {
+        gifPreview = new Gif(new ArrayList<>(), doesLoop, new Vector2f(200, 200));
+    }
     //endregion
 
     //region Properties
     public void setLoop(boolean doesLoop) {
         this.doesLoop = doesLoop;
+        gifPreview.isLoop = this.doesLoop;
     }
     //endregion
 
@@ -42,7 +52,19 @@ public class AnimationState implements INonAddableComponent {
     }
 
     public void addFrame(Sprite sprite, float frameTime) {
-        animationFrames.add(new Frame(sprite, frameTime));
+        Frame frame = new Frame(sprite, frameTime);
+        animationFrames.add(frame);
+        gifPreview.frames.add(frame);
+    }
+
+    public void removeFrame(Frame frame) {
+        animationFrames.remove(frame);
+        gifPreview.frames.remove(frame);
+        gifPreview.restart();
+    }
+
+    public void start() {
+        gifPreview = new Gif(this.animationFrames, doesLoop, new Vector2f(200, 200));
     }
 
     public void update(float dt) {
@@ -66,12 +88,14 @@ public class AnimationState implements INonAddableComponent {
         final float DEFAULT_VALUE_WIDTH = 310.0f;
         float[] columnWidth = {DEFAULT_LABEL_WIDTH, DEFAULT_VALUE_WIDTH};
 
-        ImGui.beginChild("## AnimationStateConfig", w, h, true);
+        ImGui.beginChild("## AnimationStateConfig", w, 0, true);
 
         this.title = NiceImGui.inputText("Title: ", this.title, "Title of this state", columnWidth, "AnimationState change title" + this.hashCode());
 
         this.doesLoop = NiceImGui.checkbox("Loop?", this.doesLoop, columnWidth);
         this.setLoop(doesLoop);
+
+        gifPreview.show();
 
         int index = 0;
 
@@ -87,27 +111,26 @@ public class AnimationState implements INonAddableComponent {
             ImGui.text("                  ");
             ImGui.sameLine();
             if (ImGui.button("Remove frame (" + index + ")")) {
-                animationFrames.remove(i);
+                this.removeFrame(animationFrames.get(i));
                 currentSprite = 0;
                 i--;
                 index--;
             }
 
-            Vector2f newCursorPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
-
             //region Sprite preview
+            Vector2f newCursorPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
             ImGui.setCursorScreenPos(oldCursorPos.x + columnWidth[0] + columnWidth[1], oldCursorPos.y);
             final Vector2f DEFAULT_SIZE_IMAGE = new Vector2f(180, 60);
             NiceImGui.showImage(frame.sprite, DEFAULT_SIZE_IMAGE, true, "", true, new Vector2f(150, 150));
             ImGui.setCursorScreenPos(newCursorPos.x, newCursorPos.y);
             //endregion
+
             index++;
         }
 
         if (NiceImGui.drawButton("Add new Frame",
                 new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue))) {
-            Frame frame = new Frame();
-            animationFrames.add(frame);
+            this.addFrame(FileUtils.getDefaultSprite(), 0);
         }
 
         boolean needToRemove = false;

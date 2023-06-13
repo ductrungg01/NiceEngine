@@ -25,6 +25,7 @@ import scenes.LevelSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
+import util.Time;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -150,6 +151,8 @@ public class Window implements Observer {
             endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
             beginTime = endTime;
+
+            Time.deltaTime = dt;
 
             if (glfwWindowShouldClose(glfwWindow)) {
                 int response = JOptionPane.showConfirmDialog(null,

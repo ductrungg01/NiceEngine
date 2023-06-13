@@ -255,9 +255,10 @@ public class NiceImGui {
         float referenceButtonHeight = 30.0f;
         float referenceButtonWidth = (columnWidths[1] != 0 ? columnWidths[1] - (referenceButtonHeight + offset) * 2 - offset : DEFAULT_REFERENCE_BUTTON_WIDTH);
 
-        // Create reference button
+        //region Reference Button
         String refState = (oldValue == null ? "(Missing) " : "");
         String refName = "";
+        String toolTipRef = "";
         switch (referenceType) {
             case GAMEOBJECT -> {
                 GameObject go = (GameObject) oldValue;
@@ -265,7 +266,7 @@ public class NiceImGui {
                     refName = go.name;
                 else
                     refName = "Game object";
-                break;
+                toolTipRef = refName;
             }
             case SPRITE -> {
                 Sprite spr = (Sprite) oldValue;
@@ -274,15 +275,16 @@ public class NiceImGui {
                     File imageFile = new File(texturePath);
 
                     refName = FileUtils.getShorterName(imageFile.getName());
+                    toolTipRef = spr.getTexture().getFilePath();
                 } else
                     refName = "Sprite";
-                break;
             }
             case SOUND -> {
                 File soundFile = (File) oldValue;
-                if (soundFile != null)
+                if (soundFile != null) {
                     refName = FileUtils.getShorterName(soundFile.getName());
-                else
+                    toolTipRef = soundFile.getName();
+                } else
                     refName = "Sound";
                 break;
             }
@@ -292,20 +294,43 @@ public class NiceImGui {
                     refName = javaFile.getName();
                 else
                     refName = "Java Script";
-                break;
+                toolTipRef = refName;
             }
         }
+
+        ImGui.pushID("ReferenceButton " + idPush);
 
         if (ImGui.button(refState + "<" + refName + ">", referenceButtonWidth, referenceButtonHeight)) {
 
         }
+
+        if (ImGui.isItemHovered()) {
+            ImGui.beginTooltip();
+            ImGui.text(toolTipRef);
+            ImGui.endTooltip();
+        }
+
+        ImGui.popID();
+
+        //endregion
+
         ImGui.sameLine();
 
+        //region Open FileDialog Button
+        ImGui.pushID("OpenFileDialogButton" + idPush);
         if (drawOpenFileDialogButton(referenceButtonHeight)) {
             FileDialog.getInstance().open(idPush, referenceType);
         }
 
+        if (ImGui.isItemHovered()) {
+            ImGui.beginTooltip();
+            ImGui.text("Open file dialog");
+            ImGui.endTooltip();
+        }
+
         oldValue = FileDialog.getInstance().getSelectedObject(idPush, oldValue);
+        ImGui.popID();
+        //endregion
 
         ImGui.sameLine();
 
@@ -761,7 +786,7 @@ public class NiceImGui {
         ImGui.image(spr.getTexId(), spr.getWidth() * offset, spr.getHeight() * offset,
                 texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y);
 
-        if (ImGui.isItemHovered()) {
+        if (ImGui.isItemHovered() && (!tooltipStr.isEmpty() || showTooltipImg)) {
             ImGui.beginTooltip();
             if (!tooltipStr.isEmpty()) {
                 ImGui.text(tooltipStr);
