@@ -267,7 +267,8 @@ public class Scene {
             FileWriter writer = new FileWriter("spritesheet.txt");
 
             for (Spritesheet s : spritesheets) {
-                writer.write(s.getTexture().getFilePath() + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
+                String path = s.getTexture().getFilePath().replace("\\", "/");
+                writer.write(path + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
                         s.size() + "|" + s.spacingX + "|" + s.spacingY + "\n");
             }
 

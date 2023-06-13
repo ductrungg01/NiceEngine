@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class FileUtils {
 
-    final static String defaultAssetFolder = "Assets";
+    final static String defaultAssetFolder = "assets";
     final static String defaultSprite = "assets/images/Default Sprite.png";
     public final static Map<String, String> icons = new HashMap<>() {
         {
