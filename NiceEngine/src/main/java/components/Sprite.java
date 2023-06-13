@@ -70,7 +70,7 @@ public class Sprite implements INonAddableComponent {
         return texture == null ? -1 : texture.getId();
     }
 
-    private void calcWidthAndHeight() {
+    public void calcWidthAndHeight() {
         float w = this.texture.getWidth();
         float h = this.texture.getHeight();
         setWidth(w);

@@ -80,7 +80,7 @@ public class FileDialog {
                 if (ImGui.beginTabItem("SPRITE")) {
                     ImGui.text("Select an image below!");
 
-                    //region Content Tab1
+                    //region Content
                     ImGui.beginChild("fileDialog", ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.8f, true);
                     final float iconWidth = 150f;
                     final float iconHeight = 150f;
@@ -275,7 +275,8 @@ public class FileDialog {
         ImGui.pushStyleColor(ImGuiCol.Button, 0, 0, 0, 0.0f);  // No color
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
-        ImGui.imageButton(icon.getTexId(), iconSize, iconSize);
+        //ImGui.imageButton(icon.getTexId(), iconSize, iconSize);
+        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), "Double-click to select this sprite!", true, new Vector2f(300, 300));
         ImGui.popStyleColor(3);
         //endregion
 

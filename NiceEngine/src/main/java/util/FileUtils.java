@@ -197,13 +197,17 @@ public class FileUtils {
 
         if (isImageFile(file)) {
             spr.setTexture(AssetPool.getTexture(file.getPath()));
+            spr.calcWidthAndHeight();
         } else if (extension.equals("java")) {
             spr.setTexture(AssetPool.getTexture(icons.get("JAVA")));
+            spr.calcWidthAndHeight();
         } else if (isSoundFile(file)) {
             spr.setTexture(AssetPool.getTexture(icons.get("SOUND")));
+            spr.calcWidthAndHeight();
         } else {
             // Default icon : FILE
             spr.setTexture(AssetPool.getTexture(icons.get("FILE")));
+            spr.calcWidthAndHeight();
         }
         return spr;
     }

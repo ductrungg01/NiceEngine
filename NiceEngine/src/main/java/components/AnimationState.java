@@ -98,7 +98,7 @@ public class AnimationState implements INonAddableComponent {
             //region Sprite preview
             ImGui.setCursorScreenPos(oldCursorPos.x + columnWidth[0] + columnWidth[1], oldCursorPos.y);
             final Vector2f DEFAULT_SIZE_IMAGE = new Vector2f(180, 60);
-            NiceImGui.showImage(frame.sprite, DEFAULT_SIZE_IMAGE);
+            NiceImGui.showImage(frame.sprite, DEFAULT_SIZE_IMAGE, "", true, new Vector2f(150, 150));
             ImGui.setCursorScreenPos(newCursorPos.x, newCursorPos.y);
             //endregion
             index++;
