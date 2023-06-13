@@ -325,6 +325,8 @@ public class FileDialog {
                     } else if (item instanceof Sprite) {
                         this.selectedObject = item;
                     }
+
+                    GameViewWindow.getInstance().debounceTimeToCapture = 0.1f;
                 }
                 case SOUND, JAVA -> {
                     File itemFile = (File) item;
