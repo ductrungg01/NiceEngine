@@ -276,7 +276,7 @@ public class FileDialog {
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
         //ImGui.imageButton(icon.getTexId(), iconSize, iconSize);
-        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), "Double-click to select this sprite!", true, new Vector2f(300, 300));
+        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), true, "Double-click to select this sprite!", true, new Vector2f(300, 300));
         ImGui.popStyleColor(3);
         //endregion
 

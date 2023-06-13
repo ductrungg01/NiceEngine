@@ -744,15 +744,17 @@ public class NiceImGui {
 
     //region Image
     public static void showImage(Sprite spr, Vector2f size) {
-        showImage(spr, size, "", false, new Vector2f());
+        showImage(spr, size, false, "", false, new Vector2f());
     }
 
-    public static void showImage(Sprite spr, Vector2f size, String tooltipStr, boolean showTooltipImg, Vector2f tooltipImgSize) {
+    public static void showImage(Sprite spr, Vector2f size, boolean showAtBottom, String tooltipStr, boolean showTooltipImg, Vector2f tooltipImgSize) {
         float offset = min(size.x / spr.getWidth(), size.y / spr.getHeight());
         Vector2f[] texCoords = spr.getTexCoords();
 
-        float heightOffset = size.y - spr.getHeight() * offset;
-        ImGui.setCursorScreenPos(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY() + heightOffset);
+        if (showAtBottom) {
+            float heightOffset = size.y - spr.getHeight() * offset;
+            ImGui.setCursorScreenPos(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY() + heightOffset);
+        }
 
         ImGui.pushID(spr.getTexId());
 
@@ -767,7 +769,6 @@ public class NiceImGui {
             if (showTooltipImg) {
                 showImage(spr, tooltipImgSize);
             }
-
             ImGui.endTooltip();
         }
 
