@@ -10,6 +10,7 @@ import org.joml.Vector2f;
 import util.AssetPool;
 import util.FileUtils;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -111,10 +112,16 @@ public class AnimationState implements INonAddableComponent {
             ImGui.text("                  ");
             ImGui.sameLine();
             if (ImGui.button("Remove frame (" + index + ")")) {
-                this.removeFrame(animationFrames.get(i));
-                currentSprite = 0;
-                i--;
-                index--;
+                int response = JOptionPane.showConfirmDialog(null,
+                        "Remove Frame (" + index + ") from state '" + this.title + "'?",
+                        "REMOVE FRAME",
+                        JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    this.removeFrame(animationFrames.get(i));
+                    currentSprite = 0;
+                    i--;
+                    index--;
+                }
             }
 
             //region Sprite preview
@@ -128,21 +135,20 @@ public class AnimationState implements INonAddableComponent {
             index++;
         }
 
-        if (NiceImGui.drawButton("Add new Frame",
-                new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_Blue))) {
+        ImGui.separator();
+        if (NiceImGui.imageButton(FileUtils.getAddIcon(), new Vector2f(50, 50), "Add new Frame")) {
             this.addFrame(FileUtils.getDefaultSprite(), 0);
         }
-
+        ImGui.sameLine();
         boolean needToRemove = false;
-
-        if (NiceImGui.drawButton("Change to this state (" + this.title + ")",
-                new ButtonColor(COLOR_DarkGreen, COLOR_Green, COLOR_Green))) {
-            stateMachine.setCurrentState(this.title);
-        }
-
-        if (NiceImGui.drawButton("Remove this state (" + this.title + ")",
-                new ButtonColor(COLOR_DarkRed, COLOR_Red, COLOR_Red))) {
-            needToRemove = true;
+        if (NiceImGui.imageButton(FileUtils.getRemoveIcon(), new Vector2f(50, 50), "Remove this AnimationState '" + this.title + "'")) {
+            int response = JOptionPane.showConfirmDialog(null,
+                    "Remove animation state '" + this.title + "'?",
+                    "REMOVE ANIMATION STATE",
+                    JOptionPane.YES_NO_OPTION);
+            if (response == JOptionPane.YES_OPTION) {
+                needToRemove = true;
+            }
         }
 
         ImGui.endChild();

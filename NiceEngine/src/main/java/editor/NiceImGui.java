@@ -801,5 +801,25 @@ public class NiceImGui {
     }
     //endregion
 
+    //region Image button
+    public static boolean imageButton(Sprite spr, Vector2f size, String tooltip) {
+        boolean isClicked = false;
+
+        Vector2f[] texCoords = spr.getTexCoords();
+
+        if (ImGui.imageButton(spr.getTexId(), size.x, size.y, texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y)) {
+            isClicked = true;
+        }
+
+        if (ImGui.isItemHovered() && !tooltip.isEmpty()) {
+            ImGui.beginTooltip();
+            ImGui.text(tooltip);
+            ImGui.endTooltip();
+        }
+
+        return isClicked;
+    }
+    //endregion
+
     //endregion
 }

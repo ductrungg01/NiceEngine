@@ -27,6 +27,8 @@ public class FileUtils {
             put("FILE", "assets/images/file-icon.png");
             put("SOUND", "assets/images/sound-icon.png");
             put("GAME_OBJECT", "assets/images/gameobject-icon.png");
+            put("REMOVE", "assets/images/remove-icon.png");
+            put("ADD", "assets/images/add-icon.png");
         }
     };
 
@@ -215,6 +217,18 @@ public class FileUtils {
     public static Sprite getGameObjectIcon() {
         Sprite spr = new Sprite();
         spr.setTexture(AssetPool.getTexture(icons.get("GAME_OBJECT")));
+        return spr;
+    }
+
+    public static Sprite getRemoveIcon() {
+        Sprite spr = new Sprite();
+        spr.setTexture(AssetPool.getTexture(icons.get("REMOVE")));
+        return spr;
+    }
+
+    public static Sprite getAddIcon() {
+        Sprite spr = new Sprite();
+        spr.setTexture(AssetPool.getTexture(icons.get("ADD")));
         return spr;
     }
 
