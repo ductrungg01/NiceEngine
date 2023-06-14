@@ -76,11 +76,6 @@ public class SceneHierarchyWindow {
 
                         if (!obj.compareTag(tag)) continue;
 
-//            boolean treeNodeOpen = doTreeNode(obj, index);
-//
-//            if (treeNodeOpen) {
-//                ImGui.treePop();
-//            }
                         ImGui.pushID(index);
                         float w = ImGui.getContentRegionAvailX();
                         float h = ImGui.getTextLineHeightWithSpacing();

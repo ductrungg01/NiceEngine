@@ -236,7 +236,7 @@ public class MarioMoving extends Component {
         if (collidingObject.compareTag("TopGround") || collidingObject.compareTag("Enemy")) {
             float posYP = this.gameObject.transform.position.y - (this.gameObject.transform.scale.y / 2);
             float posYT = collidingObject.transform.position.y + (collidingObject.transform.scale.y / 2);
-            Debug.Log("PosYP: " + posYP + " | PosYT: " + posYT );
+            Debug.Log("PosYP: " + posYP + " | PosYT: " + posYT);
             if (hitNormal.y > 0 && posYP < posYT) {
                 contact.setEnabled(false);
                 return;

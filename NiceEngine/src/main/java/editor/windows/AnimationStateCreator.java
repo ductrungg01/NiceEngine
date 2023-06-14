@@ -36,7 +36,7 @@ public class AnimationStateCreator {
     public static boolean isShow = false;
     private boolean showFileDialog = false;
 
-    ImString imagePath = new ImString("Assets/images/something.png");
+    ImString imagePath = new ImString("assets/images/something.png");
     Vector2f deviceBy = new Vector2f(1, 1);
     ImString frameTimeSmall = new ImString("0.02s");
     ImString title = new ImString("This is the name of this Anim State");
@@ -147,6 +147,7 @@ public class AnimationStateCreator {
 
         if (showFileDialog) {
             ImGui.openPopup("File Dialog");
+            ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
         }
 
         if (ImGui.beginPopupModal("File Dialog")) {

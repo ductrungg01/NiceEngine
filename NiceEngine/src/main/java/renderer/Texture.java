@@ -1,5 +1,6 @@
 package renderer;
 
+import editor.Debug;
 import org.lwjgl.BufferUtils;
 
 import java.nio.ByteBuffer;
@@ -77,8 +78,13 @@ public class Texture {
         } else {
             assert false : "Error: (Texture) Could not load image '" + filePath + "'";
         }
-
-        stbi_image_free(image);
+        try {
+            stbi_image_free(image);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(this.filePath);
+            Debug.Log("Cannot find image: '" + this.filePath + "'");
+        }
     }
 
     public void bind() {

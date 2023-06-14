@@ -20,8 +20,8 @@ import org.lwjgl.opengl.GL;
 import physics2d.Physics2D;
 import renderer.*;
 import renderer.Renderer;
-import scenes.LevelEditorSceneInitializer;
-import scenes.LevelSceneInitializer;
+import scenes.EditorSceneInitializer;
+import scenes.GamePlayingSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
@@ -88,8 +88,8 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
-        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
-        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
+        Shader defaultShader = AssetPool.getShader("system-assets/shaders/default.glsl");
+        Shader pickingShader = AssetPool.getShader("system-assets/shaders/pickingShader.glsl");
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events
@@ -118,7 +118,6 @@ public class Window implements Observer {
             Vector4f clearColor = currentScene.camera().clearColor;
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
-
 
             if (dt >= 0) {
 
@@ -265,7 +264,7 @@ public class Window implements Observer {
         this.imGuiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
         this.imGuiLayer.initImGui();
 
-        Window.changeScene(new LevelEditorSceneInitializer());
+        Window.changeScene(new EditorSceneInitializer());
 
     }
 
@@ -274,7 +273,7 @@ public class Window implements Observer {
         // Load the image file
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("assets/images/logo.png"));
+            image = ImageIO.read(new File("system-assets/images/logo.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -366,17 +365,17 @@ public class Window implements Observer {
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
                 oldEditorCameraPos = Window.getScene().camera().position;
-                Window.changeScene(new LevelSceneInitializer());
+                Window.changeScene(new GamePlayingSceneInitializer());
                 break;
             case GameEngineStopPlay:
                 this.runtimePlaying = false;
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new EditorSceneInitializer());
                 Window.getScene().camera().position = oldEditorCameraPos;
                 break;
             case SaveLevel:
                 currentScene.save(true);
             case LoadLevel:
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new EditorSceneInitializer());
                 break;
             case UserEvent:
                 break;

@@ -67,13 +67,11 @@ public class AssetPool {
 
     public static Sound getSound(String soundFile) {
         File file = new File(soundFile);
-        if (sounds.containsKey(file.getPath())) {
-            return sounds.get(file.getPath());
-        } else {
-            assert false : "Sound file not added '" + soundFile + "'";
+        if (!sounds.containsKey(file.getPath())) {
+            addSound(soundFile, false);
         }
-
-        return null;
+        
+        return sounds.get(file.getPath());
     }
     //endregion
 

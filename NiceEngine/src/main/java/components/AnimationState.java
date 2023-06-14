@@ -136,12 +136,12 @@ public class AnimationState implements INonAddableComponent {
         }
 
         ImGui.separator();
-        if (NiceImGui.imageButton(FileUtils.getAddIcon(), new Vector2f(50, 50), "Add new Frame")) {
+        if (NiceImGui.imageButton(FileUtils.getIcon(FileUtils.ICON_NAME.ADD), new Vector2f(50, 50), "Add new Frame")) {
             this.addFrame(FileUtils.getDefaultSprite(), 0);
         }
         ImGui.sameLine();
         boolean needToRemove = false;
-        if (NiceImGui.imageButton(FileUtils.getRemoveIcon(), new Vector2f(50, 50), "Remove this AnimationState '" + this.title + "'")) {
+        if (NiceImGui.imageButton(FileUtils.getIcon(FileUtils.ICON_NAME.REMOVE), new Vector2f(50, 50), "Remove this AnimationState '" + this.title + "'")) {
             int response = JOptionPane.showConfirmDialog(null,
                     "Remove animation state '" + this.title + "'?",
                     "REMOVE ANIMATION STATE",

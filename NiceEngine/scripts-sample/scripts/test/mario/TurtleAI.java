@@ -95,7 +95,7 @@ public class TurtleAI extends Component {
                 this.stateMachine.setCurrentState("TurtleShellSpin");
             }
         }
-  }
+    }
 
     @Override
     public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {

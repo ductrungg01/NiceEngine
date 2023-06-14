@@ -30,11 +30,12 @@ public class GoombaAI extends Component {
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
     @Override
-    public void start(){
+    public void start() {
         this.stateMachine = gameObject.getComponent(StateMachine.class);
         this.rb = gameObject.getComponent(RigidBody2D.class);
         this.acceleration.y = Window.getPhysics().getGravity().y * 0.7f;
@@ -42,18 +43,19 @@ public class GoombaAI extends Component {
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
     @Override
-    public void update(float dt){
+    public void update(float dt) {
 //        Camera camera = Window.getScene().camera();
 //        if (this.gameObject.transform.position.x >
 //                camera.position.x + camera.getProjectionSize().x * camera.getZoom()){
 //            return;
 //        }
-        if (isDead){
+        if (isDead) {
             timeToKill -= dt;
-            if (timeToKill <= 0){
+            if (timeToKill <= 0) {
                 this.gameObject.destroy();
             } else {
                 this.gameObject.getComponent(StateMachine.class).setCurrentState("D");
@@ -62,14 +64,14 @@ public class GoombaAI extends Component {
             return;
         }
 
-        if (goingRight){
+        if (goingRight) {
             velocity.x = walkSpeed;
         } else {
             velocity.x = -walkSpeed;
         }
 
         checkOnGround();
-        if (onGround){
+        if (onGround) {
             this.acceleration.y = 0;
             this.velocity.y = 0;
         } else {
@@ -78,14 +80,14 @@ public class GoombaAI extends Component {
 
         this.velocity.y += this.acceleration.y * dt;
         this.velocity.y = Math.max(Math.min(this.velocity.y, this.terminalVelocity.y),
-                                -terminalVelocity.y);
+                -terminalVelocity.y);
         this.rb.setVelocity(velocity);
 
     }
 
     @Override
-    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal){
-        if (isDead){
+    public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
+        if (isDead) {
             return;
         }
         if (obj.compareTag("Wall")) {
@@ -93,7 +95,7 @@ public class GoombaAI extends Component {
         }
 
         if (obj.compareTag("Mario")) {
-                Debug.Log("Collision with " + obj.name + "| Vector(" + contactNormal.x + ", " + contactNormal.y + ")");
+            Debug.Log("Collision with " + obj.name + "| Vector(" + contactNormal.x + ", " + contactNormal.y + ")");
             if (contactNormal.y > 0.5f) {
                 isDead = true;
                 this.gameObject.getComponent(CircleCollider.class).setRadius(0);
@@ -122,11 +124,11 @@ public class GoombaAI extends Component {
     //endregion
 
     //region Methods
-    public void stomp(){
+    public void stomp() {
         stomp(true);
     }
 
-    public void stomp(boolean playSound){
+    public void stomp(boolean playSound) {
         this.isDead = true;
         this.velocity.zero();
         this.rb.setVelocity(new Vector2f());
@@ -134,12 +136,12 @@ public class GoombaAI extends Component {
         this.rb.setGravityScale(0.0f);
         this.stateMachine.trigger("SquashMe");
         this.rb.setIsSensor();
-        if (playSound){
+        if (playSound) {
             AssetPool.getSound("assets/sounds/bump.ogg").play();
         }
     }
 
-    public void checkOnGround(){
+    public void checkOnGround() {
         float innerPlayerWidth = 0.25f * 0.7f;
         float yVal = -0.14f;
         onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);

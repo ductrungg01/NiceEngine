@@ -11,6 +11,7 @@ public class BlockCoin extends Component {
     //endregion
 
     //region Override methods
+
     /**
      * Start is called before the first frame update
      */
@@ -22,6 +23,7 @@ public class BlockCoin extends Component {
 
     /**
      * // Update is called once per frame
+     *
      * @param dt : The interval in seconds from the last frame to the current one
      */
     @Override

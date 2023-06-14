@@ -21,9 +21,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class AssetsWindow {
-    private final String FOLDER_ICON = "assets/images/folder-icon.png";
-    private final String LEFT_ARROW_ICON = "assets/images/left-arrow-icon.png";
-    private final String RIGHT_ARROW_ICON = "assets/images/right-arrow-icon.png";
+    private final String FOLDER_ICON = "system-assets/images/folder-icon.png";
+    private final String LEFT_ARROW_ICON = "system-assets/images/left-arrow-icon.png";
+    private final String RIGHT_ARROW_ICON = "system-assets/images/right-arrow-icon.png";
     private static final String ROOT_FOLDER = "assets";
 
     private boolean rename = false;
@@ -228,15 +228,15 @@ public class AssetsWindow {
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else if (FileUtils.checkFileExtension("java", listOfFiles[i])) {
-                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get("JAVA")));
+                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get(FileUtils.ICON_NAME.JAVA)));
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else if (FileUtils.isSoundFile(listOfFiles[i])) {
-                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get("SOUND")));
+                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get(FileUtils.ICON_NAME.SOUND)));
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else {
-                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get("FILE")));
+                    spr.setTexture(AssetPool.getTexture(FileUtils.icons.get(FileUtils.ICON_NAME.FILE)));
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 }

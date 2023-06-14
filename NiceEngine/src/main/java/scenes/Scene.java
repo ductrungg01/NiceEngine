@@ -207,6 +207,10 @@ public class Scene {
         return go;
     }
 
+    final String LEVEL_PATH = "data/level.txt";
+    final String PREFAB_PATH = "data/prefabs.txt";
+    final String SPRITESHEET_PATH = "data/spritesheet.txt";
+
     public void save(boolean isShowMessage) {
         //region Save Game Object
         Gson gson = new GsonBuilder()
@@ -217,7 +221,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter("level.txt");
+            FileWriter writer = new FileWriter(LEVEL_PATH);
 
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
@@ -246,7 +250,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter("prefabs.txt");
+            FileWriter writer = new FileWriter(PREFAB_PATH);
 
             List<GameObject> objsToSerialize = GameObject.PrefabLists;
 
@@ -264,7 +268,7 @@ public class Scene {
         //region Save Spritesheet
         List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
         try {
-            FileWriter writer = new FileWriter("spritesheet.txt");
+            FileWriter writer = new FileWriter(SPRITESHEET_PATH);
 
             for (Spritesheet s : spritesheets) {
                 String path = s.getTexture().getFilePath().replace("\\", "/");
@@ -286,7 +290,7 @@ public class Scene {
     public void load() {
         //region Load spritesheet
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("spritesheet.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(SPRITESHEET_PATH));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -324,7 +328,7 @@ public class Scene {
         String inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.txt")));
+            inFile = new String(Files.readAllBytes(Paths.get(LEVEL_PATH)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -372,7 +376,7 @@ public class Scene {
         inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("prefabs.txt")));
+            inFile = new String(Files.readAllBytes(Paths.get(PREFAB_PATH)));
         } catch (IOException e) {
             e.printStackTrace();
         }

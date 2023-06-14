@@ -13,6 +13,7 @@ import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import system.GameObject;
+import system.Window;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -68,9 +69,10 @@ public class FileDialog {
     }
 
     public void render() {
-        if (isOpen)
+        if (isOpen) {
             ImGui.openPopup("FileDialog");
-
+            ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
+        }
         if (ImGui.beginPopupModal("FileDialog")) {
             if (ImGui.beginTabBar("FileDialogTabBar")) {
 
@@ -270,7 +272,7 @@ public class FileDialog {
         } else if (item instanceof GameObject) {
             GameObject go = (GameObject) item;
             id = go.name;
-            icon = FileUtils.getGameObjectIcon();
+            icon = FileUtils.getIcon(FileUtils.ICON_NAME.GAME_OBJECT);
             shortItemName = FileUtils.getShorterName(go.name);
             fullItemName = go.name;
         } else if (item instanceof Sprite) {
