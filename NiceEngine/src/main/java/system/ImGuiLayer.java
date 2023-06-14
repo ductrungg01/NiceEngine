@@ -146,7 +146,7 @@ public class ImGuiLayer {
 
         // Fonts merge example
         fontConfig.setPixelSnapH(true);
-        fontAtlas.addFontFromFileTTF("system-assets/fonts/segoeui.ttf", 22, fontConfig);
+        fontAtlas.addFontFromFileTTF("system-assets/fonts/Exo2-Regular.ttf", 20, fontConfig);
 
         fontConfig.destroy();
 
