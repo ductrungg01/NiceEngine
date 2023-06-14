@@ -213,32 +213,38 @@ public class GameObject {
 //        ImGui.text("isPrefab? : " + this.isPrefab);
 //        ImGui.text("prefab ID : " + this.prefabId);
 //        ImGui.text("parent ID : " + this.parentId);
-
+        
 
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
 
-            ImBoolean removeComponentButton = new ImBoolean(true);
+            if (c instanceof Transform) {
+                // Because Transform is cannot be removed!!!
+                if (ImGui.collapsingHeader("Transform")) {
+                    c.imgui();
+                }
 
-            if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
-                c.imgui();
+                if (this.isPrefab) {
+                    ((Transform) c).position = new Vector2f();  // Prefab's position is always (0,0)
+                }
+            } else {
+                ImBoolean removeComponentButton = new ImBoolean(true);
 
-                if (c instanceof Transform && this.isPrefab) {
-                    ((Transform) c).position = new Vector2f();
+                if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
+                    c.imgui();
+                }
+
+                if (!removeComponentButton.get()) {
+                    int response = JOptionPane.showConfirmDialog(null,
+                            "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
+                            "REMOVE COMPONENT",
+                            JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        components.remove(i);
+                        i--;
+                    }
                 }
             }
-
-            if (!removeComponentButton.get()) {
-                int response = JOptionPane.showConfirmDialog(null,
-                        "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
-                        "REMOVE COMPONENT",
-                        JOptionPane.YES_NO_OPTION);
-                if (response == JOptionPane.YES_OPTION) {
-                    components.remove(i);
-                    i--;
-                }
-            }
-
         }
     }
 
