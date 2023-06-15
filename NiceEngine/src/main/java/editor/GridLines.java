@@ -28,7 +28,7 @@ public class GridLines extends Component implements INonAddableComponent {
         float height = (int) (projectionSize.y * camera.getZoom()) + Settings.GRID_HEIGHT * 5;
 
         int maxLines = Math.max(numHzLines, numVtLines);
-        Vector3f color = new Vector3f(0.2f, 0.2f, 0.2f);
+        Vector3f color = new Vector3f(0.8f, 0.8f, 0.8f);
         for (int i = 0; i < maxLines; i++) {
             float x = firstX + (Settings.GRID_WIDTH * i);
             float y = firstY + (Settings.GRID_HEIGHT * i);

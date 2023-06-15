@@ -88,8 +88,7 @@ public class SpritesheetWindow {
 
                         ImGui.pushID(sprite.getTexId() + sprsheetName + j);
                         if (ImGui.imageButton(sprite.getTexId(), spriteWidth, spriteHeight, texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y)) {
-                            GameObject newGo = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f,
-                                    sprsheetName + "(" + j + ")");
+                            GameObject newGo = Prefabs.generateSpriteObject(sprite, sprsheetName + "(" + j + ")");
                             Window.getScene().getMouseControls().pickupObject(newGo);
                         }
                         if (ImGui.isItemHovered()) {
