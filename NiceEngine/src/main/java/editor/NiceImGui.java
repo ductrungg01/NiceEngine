@@ -2,6 +2,7 @@ package editor;
 
 import editor.uihelper.ButtonColor;
 import editor.windows.FileDialog;
+import editor.windows.PrefabsWindow;
 import imgui.ImGui;
 import imgui.ImVec2;
 import components.Sprite;
@@ -736,6 +737,7 @@ public class NiceImGui {
             if (drawButton("Go to: '" + prefab.name + "'",
                     new ButtonColor(buttonColor, COLOR_Blue, COLOR_DarkBlue),
                     new Vector2f(ImGui.getContentRegionAvailX(), 30f))) {
+                PrefabsWindow.getInstance().prefabNeedToHighlight = prefab.prefabId;
             }
         }
 

@@ -1,26 +1,26 @@
 [
   {
     "uid": 0,
-    "name": "Mario",
-    "tag": "MarioTag",
+    "name": "Enemies - Turtle.png(0)",
+    "tag": "",
     "isPrefab": false,
     "prefabId": "",
-    "parentId": "Y8yE0N0hv4",
+    "parentId": "X04E9ZUJMv",
     "components": [
       {
         "type": "system.Transform",
         "properties": {
           "position": {
-            "x": 2.875,
-            "y": 1.375
+            "x": 1.375,
+            "y": 1.875
           },
           "scale": {
-            "x": 1.55,
-            "y": 1.45
+            "x": 0.25,
+            "y": 0.25
           },
-          "rotation": 1.4E-45,
+          "rotation": 0.0,
           "zIndex": 0,
-          "uid": 54
+          "uid": 927
         }
       },
       {
@@ -33,157 +33,3450 @@
             "w": 1.0
           },
           "sprite": {
-            "width": 16.0,
-            "height": 16.0,
+            "width": 8.0,
+            "height": 8.0,
             "texture": {
-              "filePath": "assets/images/spritesheet.png",
-              "width": 224,
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
               "height": 32
             },
             "texCoords": [
               {
-                "x": 0.14285715,
+                "x": 0.041666668,
                 "y": 0.0
               },
               {
-                "x": 0.14285715,
-                "y": 0.5
+                "x": 0.041666668,
+                "y": 0.25
               },
               {
-                "x": 0.071428575,
-                "y": 0.5
+                "x": 0.0,
+                "y": 0.25
               },
               {
-                "x": 0.071428575,
+                "x": 0.0,
                 "y": 0.0
               }
             ]
           },
-          "uid": 55
+          "uid": 928
         }
-      },
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1,
+    "name": "Enemies - Turtle.png(1)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
       {
-        "type": "components.StateMachine",
+        "type": "system.Transform",
         "properties": {
-          "stateTransfers": {},
-          "states": [
-            {
-              "title": "idle",
-              "animationFrames": [
-                {
-                  "sprite": {
-                    "width": 16.0,
-                    "height": 16.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheet.png",
-                      "width": 224,
-                      "height": 32
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.071428575,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.071428575,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 16.0,
-                    "height": 16.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheet.png",
-                      "width": 224,
-                      "height": 32
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.14285715,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.14285715,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.071428575,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.071428575,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 16.0,
-                    "height": 16.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheet.png",
-                      "width": 224,
-                      "height": 32
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.21428572,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.21428572,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.14285715,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.14285715,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                }
-              ],
-              "doesLoop": true
-            }
-          ],
-          "defaultStateTitle": "idle",
-          "uid": 56
-        }
-      },
-      {
-        "type": "physics2d.components.Box2DCollider",
-        "properties": {
-          "offset": {
-            "x": 0.0,
-            "y": 0.0
+          "position": {
+            "x": 1.625,
+            "y": 1.875
           },
-          "halfSize": {
+          "scale": {
             "x": 0.25,
             "y": 0.25
           },
-          "origin": {
-            "x": 0.0,
-            "y": 0.0
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 930
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
           },
-          "uid": 907
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.083333336,
+                "y": 0.0
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.25
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.25
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 931
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 2,
+    "name": "Enemies - Turtle.png(2)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "3T50jDKEBU",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.625,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 933
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.125,
+                "y": 0.0
+              },
+              {
+                "x": 0.125,
+                "y": 0.25
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.25
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 934
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 3,
+    "name": "Enemies - Turtle.png(4)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "W3EIky21bF",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.875,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 936
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.20833333,
+                "y": 0.0
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.25
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.25
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 937
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 4,
+    "name": "Enemies - Turtle.png(5)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "9ff8WpUBVO",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 939
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 0.0
+              },
+              {
+                "x": 0.25,
+                "y": 0.25
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.25
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 940
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 5,
+    "name": "Enemies - Turtle.png(6)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "CaNRPG2ImH",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.375,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 942
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.29166666,
+                "y": 0.0
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.25
+              },
+              {
+                "x": 0.25,
+                "y": 0.25
+              },
+              {
+                "x": 0.25,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 943
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 6,
+    "name": "Enemies - Turtle.png(7)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "UoVBDakUym",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.625,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 945
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.33333334,
+                "y": 0.0
+              },
+              {
+                "x": 0.33333334,
+                "y": 0.25
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.25
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 946
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 7,
+    "name": "Enemies - Turtle.png(8)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "CF5ipl3Qha",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.875,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 948
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.375,
+                "y": 0.0
+              },
+              {
+                "x": 0.375,
+                "y": 0.25
+              },
+              {
+                "x": 0.33333334,
+                "y": 0.25
+              },
+              {
+                "x": 0.33333334,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 949
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 8,
+    "name": "Enemies - Turtle.png(9)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "LnGBmZSnMD",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 951
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.41666666,
+                "y": 0.0
+              },
+              {
+                "x": 0.41666666,
+                "y": 0.25
+              },
+              {
+                "x": 0.375,
+                "y": 0.25
+              },
+              {
+                "x": 0.375,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 952
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 9,
+    "name": "Enemies - Turtle.png(10)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "l9o04rBXWY",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.375,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 954
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.45833334,
+                "y": 0.0
+              },
+              {
+                "x": 0.45833334,
+                "y": 0.25
+              },
+              {
+                "x": 0.41666666,
+                "y": 0.25
+              },
+              {
+                "x": 0.41666666,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 955
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 10,
+    "name": "Enemies - Turtle.png(11)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "AqcDeu6tCD",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.625,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 957
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.5,
+                "y": 0.0
+              },
+              {
+                "x": 0.5,
+                "y": 0.25
+              },
+              {
+                "x": 0.45833334,
+                "y": 0.25
+              },
+              {
+                "x": 0.45833334,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 958
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 11,
+    "name": "Enemies - Turtle.png(12)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "PocybYKhBc",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.875,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 960
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.5416667,
+                "y": 0.0
+              },
+              {
+                "x": 0.5416667,
+                "y": 0.25
+              },
+              {
+                "x": 0.5,
+                "y": 0.25
+              },
+              {
+                "x": 0.5,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 961
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 12,
+    "name": "Enemies - Turtle.png(14)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "DSEGJk2Tbp",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 963
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.625,
+                "y": 0.0
+              },
+              {
+                "x": 0.625,
+                "y": 0.25
+              },
+              {
+                "x": 0.5833333,
+                "y": 0.25
+              },
+              {
+                "x": 0.5833333,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 964
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 13,
+    "name": "Enemies - Turtle.png(16)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "qdesujVfrs",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.375,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 966
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.7083333,
+                "y": 0.0
+              },
+              {
+                "x": 0.7083333,
+                "y": 0.25
+              },
+              {
+                "x": 0.6666667,
+                "y": 0.25
+              },
+              {
+                "x": 0.6666667,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 967
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 14,
+    "name": "Enemies - Turtle.png(17)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "VhwaeyFTKz",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.625,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 969
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.75,
+                "y": 0.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.25
+              },
+              {
+                "x": 0.7083333,
+                "y": 0.25
+              },
+              {
+                "x": 0.7083333,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 970
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 15,
+    "name": "Enemies - Turtle.png(18)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "VtK8J9e2R8",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.875,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 972
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.7916667,
+                "y": 0.0
+              },
+              {
+                "x": 0.7916667,
+                "y": 0.25
+              },
+              {
+                "x": 0.75,
+                "y": 0.25
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 973
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 16,
+    "name": "Enemies - Turtle.png(19)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "gxpmOts4Bu",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 975
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.8333333,
+                "y": 0.0
+              },
+              {
+                "x": 0.8333333,
+                "y": 0.25
+              },
+              {
+                "x": 0.7916667,
+                "y": 0.25
+              },
+              {
+                "x": 0.7916667,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 976
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 17,
+    "name": "Enemies - Turtle.png(20)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "e7wXV46lSM",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.375,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 978
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.875,
+                "y": 0.0
+              },
+              {
+                "x": 0.875,
+                "y": 0.25
+              },
+              {
+                "x": 0.8333333,
+                "y": 0.25
+              },
+              {
+                "x": 0.8333333,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 979
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 18,
+    "name": "Enemies - Turtle.png(21)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "e1DiNXQVLV",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.625,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 981
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.9166667,
+                "y": 0.0
+              },
+              {
+                "x": 0.9166667,
+                "y": 0.25
+              },
+              {
+                "x": 0.875,
+                "y": 0.25
+              },
+              {
+                "x": 0.875,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 982
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 19,
+    "name": "Enemies - Turtle.png(22)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "8KeK1JxLjs",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.875,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 984
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.9583333,
+                "y": 0.0
+              },
+              {
+                "x": 0.9583333,
+                "y": 0.25
+              },
+              {
+                "x": 0.9166667,
+                "y": 0.25
+              },
+              {
+                "x": 0.9166667,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 985
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 20,
+    "name": "Enemies - Turtle.png(23)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "mAUmefsG1f",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.125,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 987
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 0.25
+              },
+              {
+                "x": 0.9583333,
+                "y": 0.25
+              },
+              {
+                "x": 0.9583333,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 988
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 21,
+    "name": "Enemies - Turtle.png(24)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "ID1XleWkLE",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.375,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 990
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.041666668,
+                "y": 0.25
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 991
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 22,
+    "name": "Enemies - Turtle.png(25)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "J6GRSldc8j",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.625,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 993
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.083333336,
+                "y": 0.25
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.5
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.5
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 994
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 23,
+    "name": "Enemies - Turtle.png(26)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "IOsicC1giO",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.875,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 996
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.125,
+                "y": 0.25
+              },
+              {
+                "x": 0.125,
+                "y": 0.5
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.5
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 997
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 24,
+    "name": "Enemies - Turtle.png(27)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "r1B6r83TuH",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.125,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 999
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.16666667,
+                "y": 0.25
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.5
+              },
+              {
+                "x": 0.125,
+                "y": 0.5
+              },
+              {
+                "x": 0.125,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1000
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 25,
+    "name": "Enemies - Turtle.png(28)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "HNxbcIq4mO",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.375,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1002
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.20833333,
+                "y": 0.25
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.5
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.5
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1003
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 26,
+    "name": "Enemies - Turtle.png(29)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "GQr4NstXDU",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.625,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1005
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 0.25
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.5
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1006
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 27,
+    "name": "Enemies - Turtle.png(30)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "OWCJTGqYPx",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.875,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1008
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.29166666,
+                "y": 0.25
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1009
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 28,
+    "name": "Enemies - Turtle.png(31)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "2h82pDVJ5J",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.125,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1011
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.33333334,
+                "y": 0.25
+              },
+              {
+                "x": 0.33333334,
+                "y": 0.5
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.5
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1012
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 29,
+    "name": "Enemies - Turtle.png(32)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "WS7v7gsiwh",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.375,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1014
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.375,
+                "y": 0.25
+              },
+              {
+                "x": 0.375,
+                "y": 0.5
+              },
+              {
+                "x": 0.33333334,
+                "y": 0.5
+              },
+              {
+                "x": 0.33333334,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1015
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 30,
+    "name": "Enemies - Turtle.png(33)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "FrD4jvs7Vs",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.625,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1017
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.41666666,
+                "y": 0.25
+              },
+              {
+                "x": 0.41666666,
+                "y": 0.5
+              },
+              {
+                "x": 0.375,
+                "y": 0.5
+              },
+              {
+                "x": 0.375,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1018
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 31,
+    "name": "Enemies - Turtle.png(34)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "94EeymWRlk",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.875,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1020
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.45833334,
+                "y": 0.25
+              },
+              {
+                "x": 0.45833334,
+                "y": 0.5
+              },
+              {
+                "x": 0.41666666,
+                "y": 0.5
+              },
+              {
+                "x": 0.41666666,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1021
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 32,
+    "name": "Enemies - Turtle.png(35)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "3yfz1cp3gN",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.125,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1023
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.5,
+                "y": 0.25
+              },
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.45833334,
+                "y": 0.5
+              },
+              {
+                "x": 0.45833334,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1024
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 33,
+    "name": "Enemies - Turtle.png(36)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "czkASl3YJQ",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.375,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1026
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.5416667,
+                "y": 0.25
+              },
+              {
+                "x": 0.5416667,
+                "y": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1027
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 34,
+    "name": "Enemies - Turtle.png(37)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "FYeB8RFsPW",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.625,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1029
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.5833333,
+                "y": 0.25
+              },
+              {
+                "x": 0.5833333,
+                "y": 0.5
+              },
+              {
+                "x": 0.5416667,
+                "y": 0.5
+              },
+              {
+                "x": 0.5416667,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1030
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 35,
+    "name": "Enemies - Turtle.png(38)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "oEHCnPa8Gv",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.875,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1032
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.625,
+                "y": 0.25
+              },
+              {
+                "x": 0.625,
+                "y": 0.5
+              },
+              {
+                "x": 0.5833333,
+                "y": 0.5
+              },
+              {
+                "x": 0.5833333,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1033
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 36,
+    "name": "Enemies - Turtle.png(39)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "yepHcd9NDK",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.125,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1035
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.6666667,
+                "y": 0.25
+              },
+              {
+                "x": 0.6666667,
+                "y": 0.5
+              },
+              {
+                "x": 0.625,
+                "y": 0.5
+              },
+              {
+                "x": 0.625,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1036
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37,
+    "name": "Enemies - Turtle.png(40)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "mgRl4zWUI9",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.375,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1038
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.7083333,
+                "y": 0.25
+              },
+              {
+                "x": 0.7083333,
+                "y": 0.5
+              },
+              {
+                "x": 0.6666667,
+                "y": 0.5
+              },
+              {
+                "x": 0.6666667,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1039
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 38,
+    "name": "Enemies - Turtle.png(41)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "99XU8a7ZGU",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.625,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1041
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.75,
+                "y": 0.25
+              },
+              {
+                "x": 0.75,
+                "y": 0.5
+              },
+              {
+                "x": 0.7083333,
+                "y": 0.5
+              },
+              {
+                "x": 0.7083333,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1042
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 39,
+    "name": "Enemies - Turtle.png(42)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "C8S3eBqxtk",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.875,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1044
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.7916667,
+                "y": 0.25
+              },
+              {
+                "x": 0.7916667,
+                "y": 0.5
+              },
+              {
+                "x": 0.75,
+                "y": 0.5
+              },
+              {
+                "x": 0.75,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1045
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 40,
+    "name": "Enemies - Turtle.png(43)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "9Le0WDbkmJ",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.125,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1047
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.8333333,
+                "y": 0.25
+              },
+              {
+                "x": 0.8333333,
+                "y": 0.5
+              },
+              {
+                "x": 0.7916667,
+                "y": 0.5
+              },
+              {
+                "x": 0.7916667,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1048
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 41,
+    "name": "Enemies - Turtle.png(44)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "HQWIk9r374",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.375,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1050
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.875,
+                "y": 0.25
+              },
+              {
+                "x": 0.875,
+                "y": 0.5
+              },
+              {
+                "x": 0.8333333,
+                "y": 0.5
+              },
+              {
+                "x": 0.8333333,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1051
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 42,
+    "name": "Enemies - Turtle.png(45)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "s57adZ8kFZ",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.625,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1053
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.9166667,
+                "y": 0.25
+              },
+              {
+                "x": 0.9166667,
+                "y": 0.5
+              },
+              {
+                "x": 0.875,
+                "y": 0.5
+              },
+              {
+                "x": 0.875,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1054
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 43,
+    "name": "Enemies - Turtle.png(46)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "f1IqjQ8RW3",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.875,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1056
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.9583333,
+                "y": 0.25
+              },
+              {
+                "x": 0.9583333,
+                "y": 0.5
+              },
+              {
+                "x": 0.9166667,
+                "y": 0.5
+              },
+              {
+                "x": 0.9166667,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1057
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 44,
+    "name": "Enemies - Turtle.png(47)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "wlHSyldNNp",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.125,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1059
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.25
+              },
+              {
+                "x": 1.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.9583333,
+                "y": 0.5
+              },
+              {
+                "x": 0.9583333,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 1060
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 45,
+    "name": "Enemies - Turtle.png(48)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "M8mK5uUbeV",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.375,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1062
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.041666668,
+                "y": 0.5
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.75
+              },
+              {
+                "x": 0.0,
+                "y": 0.75
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1063
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 46,
+    "name": "Enemies - Turtle.png(49)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "NJC05TZhjd",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.625,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1065
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.083333336,
+                "y": 0.5
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.75
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.75
+              },
+              {
+                "x": 0.041666668,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1066
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 47,
+    "name": "Enemies - Turtle.png(50)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "LxORwqxUtS",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.875,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1068
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.125,
+                "y": 0.5
+              },
+              {
+                "x": 0.125,
+                "y": 0.75
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.75
+              },
+              {
+                "x": 0.083333336,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1069
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 48,
+    "name": "Enemies - Turtle.png(51)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "zghYnEyT0v",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.125,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1071
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.16666667,
+                "y": 0.5
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.75
+              },
+              {
+                "x": 0.125,
+                "y": 0.75
+              },
+              {
+                "x": 0.125,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1072
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 49,
+    "name": "Enemies - Turtle.png(52)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "71FKwJRrPJ",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.375,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1074
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.20833333,
+                "y": 0.5
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.75
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.75
+              },
+              {
+                "x": 0.16666667,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1075
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 50,
+    "name": "Enemies - Turtle.png(53)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "JQFG3O48Kt",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.625,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1077
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.25,
+                "y": 0.5
+              },
+              {
+                "x": 0.25,
+                "y": 0.75
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.75
+              },
+              {
+                "x": 0.20833333,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1078
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 51,
+    "name": "Enemies - Turtle.png(54)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "O752ZfkuKt",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.875,
+            "y": 1.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1080
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.29166666,
+                "y": 0.5
+              },
+              {
+                "x": 0.29166666,
+                "y": 0.75
+              },
+              {
+                "x": 0.25,
+                "y": 0.75
+              },
+              {
+                "x": 0.25,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 1081
         }
       }
     ],

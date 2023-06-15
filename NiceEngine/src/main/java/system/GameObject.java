@@ -188,7 +188,7 @@ public class GameObject {
     }
 
     public void imgui() {
-        //region prefab settings
+        //region Prefab settings
         ImGui.beginChild("Show prefab and button override of " + this.hashCode(), ImGui.getContentRegionMaxX(), (!this.isPrefab ? 80 : 50), true);
 
         ButtonColor btnCol = new ButtonColor(new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1), COLOR_Blue, COLOR_DarkBlue);
@@ -198,7 +198,8 @@ public class GameObject {
                 this.overrideAllChildGameObject();
             }
         } else {
-            NiceImGui.prefabShowingInInspectorsButton(this);
+            if (!this.parentId.isEmpty())
+                NiceImGui.prefabShowingInInspectorsButton(this);
             if (NiceImGui.drawButton("Save as a new prefab", btnCol, btnSize)) {
                 this.setAsPrefab();
             }
@@ -213,7 +214,7 @@ public class GameObject {
 //        ImGui.text("isPrefab? : " + this.isPrefab);
 //        ImGui.text("prefab ID : " + this.prefabId);
 //        ImGui.text("parent ID : " + this.parentId);
-        
+
 
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
