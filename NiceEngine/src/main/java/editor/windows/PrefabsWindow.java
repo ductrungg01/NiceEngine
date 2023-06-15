@@ -5,6 +5,7 @@ import components.SpriteRenderer;
 import imgui.ImGui;
 import imgui.ImVec2;
 import org.joml.Vector2f;
+import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import system.GameObject;
 import system.Window;
@@ -96,8 +97,16 @@ public class PrefabsWindow {
             isClick = true;
         }
 
-        if (ImGui.isItemHovered() && ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
-            ImGui.openPopup("RightClick of Prefab" + prefab.hashCode());
+        if (ImGui.isItemHovered()) {
+            if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_RIGHT)) {
+                ImGui.openPopup("RightClick of Prefab" + prefab.hashCode());
+            } else {
+                ImGui.beginTooltip();
+                Vector4f color = Settings.NAME_COLOR;
+                ImGui.textColored(color.x, color.y, color.z, color.w, prefab.name);
+                ImGui.text("Click to see details in Inspectors window");
+                ImGui.endTooltip();
+            }
         }
 
         if (ImGui.beginPopup("RightClick of Prefab" + prefab.hashCode())) {

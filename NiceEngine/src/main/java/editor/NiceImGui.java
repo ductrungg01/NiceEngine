@@ -769,24 +769,42 @@ public class NiceImGui {
 
     //region Image
     public static void showImage(Sprite spr, Vector2f size) {
-        showImage(spr, size, false, "", false, new Vector2f());
+        showImage(spr, size, false, "", false, new Vector2f(), false);
     }
 
-    public static void showImage(Sprite spr, Vector2f size, boolean showAtBottom, String tooltipStr, boolean showTooltipImg, Vector2f tooltipImgSize) {
+    public static void showImage(Sprite spr, Vector2f size, boolean showAtBottom, String tooltipStr, boolean showTooltipImg, Vector2f tooltipImgSize, boolean changeBgWhenHover) {
         float offset = min(size.x / spr.getWidth(), size.y / spr.getHeight());
         Vector2f[] texCoords = spr.getTexCoords();
+
+        ImGui.pushID(spr.getTexId());
+
+        boolean hoverFakeBtn = false;
+        Vector2f oldCursorPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
+        if (showTooltipImg) {
+            Vector4f color = new Vector4f(0, 0, 0, 0);
+            NiceImGui.drawButton("", new ButtonColor(color, color, color), size);
+            if (ImGui.isItemHovered()) {
+                hoverFakeBtn = true;
+                if (changeBgWhenHover) {
+                    ImGui.setCursorScreenPos(oldCursorPos.x, oldCursorPos.y);
+                    ImVec4 btnHoveredCol = new ImVec4();
+                    ImGui.getStyle().getColor(ImGuiCol.ButtonHovered, btnHoveredCol);
+                    color = new Vector4f(btnHoveredCol.x, btnHoveredCol.y, btnHoveredCol.z, btnHoveredCol.w);
+                    NiceImGui.drawButton("", new ButtonColor(color, color, color), size);
+                }
+            }
+            ImGui.setCursorScreenPos(oldCursorPos.x, oldCursorPos.y);
+        }
 
         if (showAtBottom) {
             float heightOffset = size.y - spr.getHeight() * offset;
             ImGui.setCursorScreenPos(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY() + heightOffset);
         }
 
-        ImGui.pushID(spr.getTexId());
-
         ImGui.image(spr.getTexId(), spr.getWidth() * offset, spr.getHeight() * offset,
                 texCoords[3].x, texCoords[3].y, texCoords[1].x, texCoords[1].y);
 
-        if (ImGui.isItemHovered() && (!tooltipStr.isEmpty() || showTooltipImg)) {
+        if ((ImGui.isItemHovered() || hoverFakeBtn) && (!tooltipStr.isEmpty() || showTooltipImg)) {
             ImGui.beginTooltip();
             if (!tooltipStr.isEmpty()) {
                 ImGui.text(tooltipStr);
@@ -795,6 +813,7 @@ public class NiceImGui {
                 showImage(spr, tooltipImgSize);
             }
             ImGui.endTooltip();
+
         }
 
         ImGui.popID();

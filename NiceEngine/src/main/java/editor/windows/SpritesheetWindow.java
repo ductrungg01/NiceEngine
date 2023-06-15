@@ -4,6 +4,7 @@ import components.Sprite;
 import editor.Debug;
 import editor.NiceImGui;
 import editor.ReferenceType;
+import org.joml.Vector4f;
 import system.Spritesheet;
 import imgui.ImGui;
 import imgui.ImVec2;
@@ -93,7 +94,9 @@ public class SpritesheetWindow {
                         }
                         if (ImGui.isItemHovered()) {
                             ImGui.beginTooltip();
-                            ImGui.text("Spritesheet: " + sprsheetName + "\nIndex: " + j);
+                            Vector4f color = Settings.NAME_COLOR;
+                            ImGui.textColored(color.x, color.y, color.z, color.w, "Spritesheet: " + sprsheetName + "\nIndex: " + j);
+                            ImGui.text("Click and move to GameView to create a game object!");
                             ImGui.endTooltip();
                         }
                         ImGui.popID();

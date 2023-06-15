@@ -294,7 +294,7 @@ public class FileDialog {
         ImGui.pushStyleColor(ImGuiCol.Button, 0, 0, 0, 0.0f);  // No color
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
-        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), true, "Double-click to select this sprite!\n" + fullItemName + "\n" + ((File) item).getPath(), true, new Vector2f(300, 300));
+        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), true, "Double-click to select this sprite!\n" + fullItemName + "\n" + ((File) item).getPath(), true, new Vector2f(300, 300), true);
         ImGui.popStyleColor(3);
         //endregion
 

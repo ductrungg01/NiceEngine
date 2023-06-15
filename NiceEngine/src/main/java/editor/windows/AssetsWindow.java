@@ -5,7 +5,10 @@ import editor.MessageBox;
 import editor.NiceImGui;
 import imgui.ImGui;
 import imgui.ImVec2;
+import org.joml.Vector2f;
+import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
+import org.lwjgl.system.CallbackI;
 import scenes.Scene;
 import system.GameObject;
 import system.Prefabs;
@@ -97,8 +100,20 @@ public class AssetsWindow {
             } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT) && !isFolder) {
                 //Debug.Log(selectedItem);
             }
-        }
 
+            if (!isFolder) {
+                ImGui.beginTooltip();
+                Vector4f color = Settings.NAME_COLOR;
+                ImGui.textColored(color.x, color.y, color.z, color.w, item.getPath());
+
+                if (FileUtils.isImageFile(item)) {
+                    ImGui.text("- Click and move to GameView to create a game object!");
+                }
+
+                ImGui.text("- Double click to open this file!");
+                ImGui.endTooltip();
+            }
+        }
 
         if (ImGui.beginPopup("Item popup")) {
             ImGui.pushID("Item popup");
@@ -125,7 +140,6 @@ public class AssetsWindow {
             ImGui.popID();
             ImGui.endPopup();
         }
-
 
         //check click, check if click outside rename input, use hoverany
         if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
@@ -225,18 +239,24 @@ public class AssetsWindow {
                 ImGui.pushID(i);
                 if (FileUtils.isImageFile(listOfFiles[i])) {
                     spr.setTexture(AssetPool.getTexture(listOfFiles[i].getPath()));
-                    ImGui.image(spr.getTexId(), 28, 28);
+                    spr.calcWidthAndHeight();
+                    float oldCursorScreenPosY = ImGui.getCursorScreenPosY();
+                    NiceImGui.showImage(spr, new Vector2f(28, 28), true, "Click the file name and move to GameView to create a game object!", true, new Vector2f(300, 300), false);
                     ImGui.sameLine();
+                    ImGui.setCursorScreenPos(ImGui.getCursorScreenPosX(), oldCursorScreenPosY);
                 } else if (FileUtils.checkFileExtension("java", listOfFiles[i])) {
                     spr.setTexture(AssetPool.getTexture(FileUtils.icons.get(FileUtils.ICON_NAME.JAVA)));
+                    spr.calcWidthAndHeight();
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else if (FileUtils.isSoundFile(listOfFiles[i])) {
                     spr.setTexture(AssetPool.getTexture(FileUtils.icons.get(FileUtils.ICON_NAME.SOUND)));
+                    spr.calcWidthAndHeight();
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 } else {
                     spr.setTexture(AssetPool.getTexture(FileUtils.icons.get(FileUtils.ICON_NAME.FILE)));
+                    spr.calcWidthAndHeight();
                     ImGui.image(spr.getTexId(), 28, 28);
                     ImGui.sameLine();
                 }
