@@ -117,16 +117,16 @@ public class NiceImGui {
     //endregion
 
     //region Vec2
-    public static void drawVec2Control(String label, Vector2f values) {
-        drawVec2Control(label, values, 0.0f, calcMinLabelColWith(label));
+    public static void drawVec2Control(String label, Vector2f values, String imguiId) {
+        drawVec2Control(label, values, 0.0f, calcMinLabelColWith(label), imguiId);
     }
 
-    public static void drawVec2Control(String label, Vector2f values, float resetValue) {
-        drawVec2Control(label, values, resetValue, calcMinLabelColWith(label));
+    public static void drawVec2Control(String label, Vector2f values, float resetValue, String imguiId) {
+        drawVec2Control(label, values, resetValue, calcMinLabelColWith(label), imguiId);
     }
 
-    public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth) {
-        ImGui.pushID(label);
+    public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth, String imguiId) {
+        ImGui.pushID(imguiId);
 
         ImGui.columns(2);
         ImGui.setColumnWidth(0, columnWidth);
@@ -150,7 +150,7 @@ public class NiceImGui {
 
         ImGui.sameLine();
         float[] vecValuesX = {values.x};
-        ImGui.dragFloat("##x", vecValuesX, 0.1f);
+        ImGui.dragFloat("##x", vecValuesX, 0.01f);
         ImGui.popItemWidth();
         ImGui.sameLine();
 
@@ -165,7 +165,7 @@ public class NiceImGui {
 
         ImGui.sameLine();
         float[] vecValuesY = {values.y};
-        ImGui.dragFloat("##y", vecValuesY, 0.1f);
+        ImGui.dragFloat("##y", vecValuesY, 0.01f);
         ImGui.popItemWidth();
         ImGui.sameLine();
 
@@ -450,7 +450,7 @@ public class NiceImGui {
     //endregion
 
     //region Float
-    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.1f;
+    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.01f;
 
     public static float dragFloat(String label, float value) {
         return dragFloat(label, value, Float.MIN_VALUE, Float.MAX_VALUE, DEFAULT_FLOAT_DRAG_SPEED, new float[2], label);

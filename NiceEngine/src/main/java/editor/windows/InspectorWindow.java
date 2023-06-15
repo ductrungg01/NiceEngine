@@ -127,6 +127,7 @@ public class InspectorWindow {
                             showAddComponentMenu = false;
                             if (activeGameObject.getComponent(aClass) == null) {
                                 activeGameObject.addComponent(component);
+                                component.start();
                             }
                             ImGui.closeCurrentPopup();
                         }

@@ -1,26 +1,26 @@
 [
   {
-    "uid": 0,
-    "name": "testImage",
+    "uid": 452,
+    "name": "Enemies - Turtle.png(14)",
     "tag": "",
     "isPrefab": false,
     "prefabId": "",
-    "parentId": "",
+    "parentId": "DSEGJk2Tbp",
     "components": [
       {
         "type": "system.Transform",
         "properties": {
           "position": {
             "x": 3.125,
-            "y": 1.4996368
+            "y": 1.7994536
           },
           "scale": {
-            "x": 2.65,
-            "y": 2.95
+            "x": 0.25,
+            "y": 0.25
           },
           "rotation": 0.0,
           "zIndex": 0,
-          "uid": 1100
+          "uid": 963
         }
       },
       {
@@ -33,33 +33,70 @@
             "w": 1.0
           },
           "sprite": {
-            "width": 16.0,
-            "height": 16.0,
+            "width": 8.0,
+            "height": 8.0,
             "texture": {
-              "filePath": "assets/images/spritesheet.png",
-              "width": 224,
+              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
+              "width": 192,
               "height": 32
             },
             "texCoords": [
               {
-                "x": 0.21428572,
+                "x": 0.625,
                 "y": 0.0
               },
               {
-                "x": 0.21428572,
-                "y": 0.5
+                "x": 0.625,
+                "y": 0.25
               },
               {
-                "x": 0.14285715,
-                "y": 0.5
+                "x": 0.5833333,
+                "y": 0.25
               },
               {
-                "x": 0.14285715,
+                "x": 0.5833333,
                 "y": 0.0
               }
             ]
           },
-          "uid": 1101
+          "uid": 964
+        }
+      },
+      {
+        "type": "physics2d.components.Capsule2DCollider",
+        "properties": {
+          "topCircle": {
+            "offset": {
+              "x": 0.0,
+              "y": 0.13
+            },
+            "radius": 0.13,
+            "uid": -1
+          },
+          "box2DCollider": {
+            "offset": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "halfSize": {
+              "x": 0.26,
+              "y": 0.26
+            },
+            "origin": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "uid": -1
+          },
+          "bottomCircle": {
+            "offset": {
+              "x": 0.0,
+              "y": -0.13
+            },
+            "radius": 0.13,
+            "uid": -1
+          },
+          "uid": 1121
         }
       },
       {
@@ -75,119 +112,221 @@
           "bodyType": "Dynamic",
           "friction": 0.1,
           "angularVelocity": 0.0,
-          "gravityScale": 0.0,
+          "gravityScale": 1.0,
           "isSensor": false,
           "fixedRotation": false,
           "continuousCollision": true,
-          "uid": 1103
+          "uid": 1145
         }
-      },
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 453,
+    "name": "items.png(5)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
       {
-        "type": "components.scripts.MarioMoving",
+        "type": "system.Transform",
         "properties": {
-          "walkSpeed": 2.5,
-          "slowDownForce": 0.05,
-          "terminalVelocity": {
-            "x": 2.1,
-            "y": 3.1
+          "position": {
+            "x": 2.8963594,
+            "y": 0.375
           },
-          "jumpBoost": 1.0,
-          "jumpImpulse": 3.0,
-          "uid": 1104
+          "scale": {
+            "x": 2.35,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1141
         }
       },
       {
-        "type": "components.StateMachine",
+        "type": "components.SpriteRenderer",
         "properties": {
-          "stateTransfers": {},
-          "states": [
-            {
-              "title": "idle",
-              "animationFrames": [
-                {
-                  "sprite": {
-                    "width": 16.0,
-                    "height": 16.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheet.png",
-                      "width": 224,
-                      "height": 32
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.071428575,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.071428575,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 16.0,
-                    "height": 16.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheet.png",
-                      "width": 224,
-                      "height": 32
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.21428572,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.21428572,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.14285715,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.14285715,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                }
-              ],
-              "doesLoop": true
-            }
-          ],
-          "defaultStateTitle": "idle",
-          "uid": 1105
-        }
-      },
-      {
-        "type": "components.scripts.MarioCameraFollow",
-        "properties": {
-          "skyColor": {
-            "x": 0.52,
-            "y": 0.95,
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
             "z": 1.0,
             "w": 1.0
           },
-          "undergroundColor": {
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/items.png",
+              "width": 112,
+              "height": 80
+            },
+            "texCoords": [
+              {
+                "x": 0.85714287,
+                "y": 0.0
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.2
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.2
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1142
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
             "x": 0.0,
-            "y": 0.0,
-            "z": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 2.89,
+            "y": 0.29
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1144
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 1165
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 454,
+    "name": "items.png(5)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.125,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1185
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
             "w": 1.0
           },
-          "uid": 1106
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/items.png",
+              "width": 112,
+              "height": 80
+            },
+            "texCoords": [
+              {
+                "x": 0.85714287,
+                "y": 0.0
+              },
+              {
+                "x": 0.85714287,
+                "y": 0.2
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.2
+              },
+              {
+                "x": 0.71428573,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1186
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 1208
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1209
         }
       }
     ],

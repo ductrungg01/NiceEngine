@@ -1,5 +1,6 @@
 package physics2d;
 
+import physics2d.components.Capsule2DCollider;
 import system.GameObject;
 import system.Transform;
 import system.Window;
@@ -158,6 +159,15 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
+    public void addCapsule2dCollider(RigidBody2D rb, Capsule2DCollider cc) {
+        Body body = rb.getRawBody();
+        assert body != null : "Raw body must not be null";
+
+        addBox2DCollider(rb, cc.getBox());
+        addCircle2DCollider(rb, cc.getTopCircle());
+        addCircle2DCollider(rb, cc.getBottomCircle());
+    }
+
     public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2) {
         RaycastInfo callback = new RaycastInfo(requestingObject);
         world.raycast(callback, new Vec2(point1.x, point1.y), new Vec2(point2.x, point2.y));
@@ -221,6 +231,7 @@ public class Physics2D {
             rb.setRawBody(body);
             CircleCollider circle2DCollider;
             Box2DCollider box2DCollider;
+            Capsule2DCollider capsule2DCollider;
 
             if ((circle2DCollider = go.getComponent(CircleCollider.class)) != null) {
                 addCircle2DCollider(rb, circle2DCollider);
@@ -228,6 +239,10 @@ public class Physics2D {
 
             if ((box2DCollider = go.getComponent(Box2DCollider.class)) != null) {
                 addBox2DCollider(rb, box2DCollider);
+            }
+
+            if ((capsule2DCollider = go.getComponent(Capsule2DCollider.class)) != null) {
+                addCapsule2dCollider(rb, capsule2DCollider);
             }
         }
     }

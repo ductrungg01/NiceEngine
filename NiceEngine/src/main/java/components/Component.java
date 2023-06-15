@@ -84,21 +84,6 @@ public abstract class Component {
                     continue;
                 }
 
-//                boolean isPrivate = Modifier.isPrivate(field.getModifiers());
-//
-//                if (isPrivate == false && field.getModifiers() == 0) {
-//                    isPrivate = true;
-//                }
-//
-//                Debug.Log("field name: " + field.getName() + ": " + field.getModifiers() + "isPrivate: " + isPrivate);
-////                if (isPrivate) {
-////                    continue;
-////                }
-//
-//                if (isPrivate) {
-//                    field.setAccessible(true);
-//                }
-
                 boolean isPublic = Modifier.isPublic(field.getModifiers());
 
                 field.setAccessible(true);
@@ -123,7 +108,7 @@ public abstract class Component {
                     }
                 } else if (type == Vector2f.class) {
                     Vector2f val = (Vector2f) value;
-                    NiceImGui.drawVec2Control(name, val);
+                    NiceImGui.drawVec2Control(name, val, " " + this.hashCode());
                 } else if (type == Vector3f.class) {
                     Vector3f val = (Vector3f) value;
                     float[] imVec = {val.x, val.y, val.z};
@@ -159,18 +144,7 @@ public abstract class Component {
                             value,
                             "Sprite" + name + gameObject.hashCode()));
                 }
-//                else if (type == GameObject.class) {
-//                    GameObject tmpGo = (GameObject) value;
-//                    field.set(this,
-//                            NiceImGui.ReferenceButton(name,
-//                                    ReferenceType.GAMEOBJECT,
-//                                    tmpGo)
-//                    );
-//                }
 
-//                if (isPrivate) {
-//                    field.setAccessible(false);
-//                }
                 if (!isPublic) {
                     field.setAccessible(false);
                 }

@@ -36,7 +36,7 @@ public class PrefabsWindow {
     }
     //endregion
 
-    final float DEFAULT_BUTTON_SIZE = 64;
+    final float DEFAULT_BUTTON_SIZE = 45;
 
     boolean isClick = false;
     boolean isCreateChild = false;
@@ -61,7 +61,7 @@ public class PrefabsWindow {
         ImGui.getWindowSize(windowSize);
         ImVec2 oldItemSpacing = new ImVec2();
         ImGui.getStyle().getItemSpacing(oldItemSpacing);
-        final Vector2f ITEM_SPACING_DEFAULT = new Vector2f(14, 14);
+        final Vector2f ITEM_SPACING_DEFAULT = new Vector2f(12, 12);
         ImGui.getStyle().setItemSpacing(ITEM_SPACING_DEFAULT.x, ITEM_SPACING_DEFAULT.y);
         float windowX2 = windowPos.x + windowSize.x;
         ImVec2 itemSpacing = new ImVec2(ITEM_SPACING_DEFAULT.x, ITEM_SPACING_DEFAULT.y);

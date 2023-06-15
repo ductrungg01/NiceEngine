@@ -47,8 +47,8 @@ public class Transform extends Component implements INonAddableComponent {
     //region Override methods
     @Override
     public void imgui() {
-        NiceImGui.drawVec2Control("Position", this.position);
-        NiceImGui.drawVec2Control("Scale", this.scale, 32.0f);
+        NiceImGui.drawVec2Control("Position", this.position, "Position of transform " + this.gameObject.hashCode());
+        NiceImGui.drawVec2Control("Scale", this.scale, 32.0f, "Scale of transform " + this.gameObject.hashCode());
         this.rotation = NiceImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = NiceImGui.dragInt("Z-Index", this.zIndex);
     }
