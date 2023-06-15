@@ -30,7 +30,7 @@ public class MarioCameraFollow extends Component {
     }
 
     public MarioCameraFollow() {
-        this.camera = Window.getScene().camera();
+
     }
     //endregion
 
@@ -41,6 +41,7 @@ public class MarioCameraFollow extends Component {
      */
     @Override
     public void start() {
+        this.camera = Window.getScene().camera();
     }
 
     /**
