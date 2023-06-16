@@ -127,7 +127,6 @@ public class PrefabsWindow {
             }
         }
 
-        Debug.Log(highlightTimeRemain);
     }
 
     private void drawPrefabButton(GameObject prefab) {
@@ -153,7 +152,7 @@ public class PrefabsWindow {
         ImGui.getStyle().getItemSpacing(itemSpacing);
         if (needToHighLight) {
             Vector4f highlightBtnCol = COLOR_Red;
-            ImGui.pushStyleColor(ImGuiCol.Button, highlightBtnCol.x, highlightBtnCol.y, highlightBtnCol.z, highlightBtnCol.w);
+            ImGui.pushStyleColor(ImGuiCol.Button, highlightBtnCol.x, highlightBtnCol.y, highlightBtnCol.z, highlightTimeRemain/HIGHLIGHT_TIME);
             ImGui.setCursorScreenPos(ImGui.getCursorScreenPosX() - itemSpacing.x / 2, ImGui.getCursorScreenPosY() - itemSpacing.y / 2);
             ImGui.button("", DEFAULT_BUTTON_SIZE + itemSpacing.x * 1.5f, DEFAULT_BUTTON_SIZE + itemSpacing.y * 1.5f);
             ImGui.setCursorScreenPos(oldCursorScreenPos.x, oldCursorScreenPos.y);
