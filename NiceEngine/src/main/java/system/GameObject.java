@@ -8,16 +8,25 @@ import deserializers.ComponentDeserializer;
 import components.SpriteRenderer;
 import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
+import editor.Debug;
 import editor.NiceImGui;
+import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
+import org.joml.Vector4f;
 import util.AssetPool;
+import util.FileUtils;
 
 import javax.swing.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static editor.uihelper.NiceShortCall.COLOR_Blue;
+import static editor.uihelper.NiceShortCall.COLOR_DarkBlue;
 
 public class GameObject {
     //region Fields
@@ -76,6 +85,7 @@ public class GameObject {
         return obj;
     }
 
+    // Prefab create a child game object
     public GameObject copyFromPrefab() {
         // TODO: come up with cleaner solution
         Gson gson = new GsonBuilder()
@@ -101,6 +111,25 @@ public class GameObject {
         return obj;
     }
 
+    // a child object override it's prefab
+    public void overrideThePrefab() {
+        for (int i = 0; i < GameObject.PrefabLists.size(); i++) {
+            GameObject p = GameObject.PrefabLists.get(i);
+
+            if (p.prefabId.equals(this.parentId)) {
+                GameObject newPrefab = this.copy();
+                newPrefab.isPrefab = true;
+                newPrefab.prefabId = this.parentId;
+
+                newPrefab.transform.position = new Vector2f();
+
+                GameObject.PrefabLists.set(i, newPrefab);
+            }
+        }
+
+        Debug.Log("Cannot find the prefab!");
+    }
+
     public void removeAsPrefab() {
         for (GameObject go : Window.getScene().getGameObjects()) {
             if (go.parentId.equals(this.prefabId) ||
@@ -116,7 +145,7 @@ public class GameObject {
     public void refreshTexture() {
         if (this.getComponent(SpriteRenderer.class) != null) {
             SpriteRenderer spr = this.getComponent(SpriteRenderer.class);
-            if (spr.getTexture() != null) {
+            if (spr != null) {
                 spr.setTexture(AssetPool.getTexture(spr.getTexture().getFilePath()));
             }
         }
@@ -159,6 +188,27 @@ public class GameObject {
     }
 
     public void imgui() {
+        //region Prefab settings
+        ImGui.beginChild("Show prefab and button override of " + this.hashCode(), ImGui.getContentRegionMaxX(), (!this.isPrefab ? 80 : 50), true);
+
+        ButtonColor btnCol = new ButtonColor(new Vector4f(14 / 255f, 14 / 255f, 28 / 255f, 1), COLOR_Blue, COLOR_DarkBlue);
+        Vector2f btnSize = new Vector2f(ImGui.getContentRegionAvailX(), 30f);
+        if (this.isPrefab) {
+            if (NiceImGui.drawButton("Override all children", btnCol, btnSize)) {
+                this.overrideAllChildGameObject();
+            }
+        } else {
+            if (!this.parentId.isEmpty())
+                NiceImGui.prefabShowingInInspectorsButton(this);
+            if (NiceImGui.drawButton("Save as a new prefab", btnCol, btnSize)) {
+                this.setAsPrefab();
+            }
+        }
+        ImGui.endChild();
+
+        ImGui.separator();
+        //endregion
+
         this.name = NiceImGui.inputText("Name", this.name, "Name of " + this.hashCode());
         this.tag = NiceImGui.inputText("Tag", this.tag, "Tag of " + this.hashCode());
 //        ImGui.text("isPrefab? : " + this.isPrefab);
@@ -169,23 +219,33 @@ public class GameObject {
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
 
-            ImBoolean removeComponentButton = new ImBoolean(true);
+            if (c instanceof Transform) {
+                // Because Transform is cannot be removed!!!
+                if (ImGui.collapsingHeader("Transform")) {
+                    c.imgui();
+                }
 
-            if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
-                c.imgui();
-            }
+                if (this.isPrefab) {
+                    ((Transform) c).position = new Vector2f();  // Prefab's position is always (0,0)
+                }
+            } else {
+                ImBoolean removeComponentButton = new ImBoolean(true);
 
-            if (!removeComponentButton.get()) {
-                int response = JOptionPane.showConfirmDialog(null,
-                        "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
-                        "REMOVE COMPONENT",
-                        JOptionPane.YES_NO_OPTION);
-                if (response == JOptionPane.YES_OPTION) {
-                    components.remove(i);
-                    i--;
+                if (ImGui.collapsingHeader(c.getClass().getSimpleName(), removeComponentButton)) {
+                    c.imgui();
+                }
+
+                if (!removeComponentButton.get()) {
+                    int response = JOptionPane.showConfirmDialog(null,
+                            "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
+                            "REMOVE COMPONENT",
+                            JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        components.remove(i);
+                        i--;
+                    }
                 }
             }
-
         }
     }
 
@@ -206,6 +266,16 @@ public class GameObject {
                     e.printStackTrace();
                     assert false : "Error: Casting component";
                 }
+            }
+        }
+
+        return null;
+    }
+
+    public static GameObject getPrefabById(String prefabId) {
+        for (GameObject prefab : GameObject.PrefabLists) {
+            if (prefab.prefabId.equals(prefabId)) {
+                return prefab;
             }
         }
 

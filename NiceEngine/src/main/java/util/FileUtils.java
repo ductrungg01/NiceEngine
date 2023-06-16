@@ -4,6 +4,8 @@ import editor.Debug;
 import components.Sprite;
 import editor.MessageBox;
 import editor.ReferenceType;
+import renderer.Texture;
+import system.Spritesheet;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -16,17 +18,32 @@ import java.util.Map;
 
 public class FileUtils {
 
-    final static String defaultAssetFolder = "Assets";
-    final static String defaultSprite = "assets/images/Default Sprite.png";
-    public final static Map<String, String> icons = new HashMap<>() {
+    final static String defaultAssetFolder = "assets";
+    final static String defaultSprite = "system-assets/images/Default Sprite.png";
+
+    public enum ICON_NAME {
+        FOLDER,
+        LEFT_ARROW,
+        RIGHT_ARROW,
+        JAVA,
+        FILE,
+        SOUND,
+        GAME_OBJECT,
+        REMOVE,
+        ADD
+    }
+
+    public final static Map<ICON_NAME, String> icons = new HashMap<>() {
         {
-            put("FOLDER", "assets/images/folder-icon.png");
-            put("LEFT_ARROW", "assets/images/left-arrow-icon.png");
-            put("RIGHT_ARROW", "assets/images/right-arrow-icon.png");
-            put("JAVA", "assets/images/java-icon.png");
-            put("FILE", "assets/images/file-icon.png");
-            put("SOUND", "assets/images/sound-icon.png");
-            put("GAME_OBJECT", "assets/images/gameobject-icon.png");
+            put(ICON_NAME.FOLDER, "system-assets/images/folder-icon.png");
+            put(ICON_NAME.LEFT_ARROW, "system-assets/images/left-arrow-icon.png");
+            put(ICON_NAME.RIGHT_ARROW, "system-assets/images/right-arrow-icon.png");
+            put(ICON_NAME.JAVA, "system-assets/images/java-icon.png");
+            put(ICON_NAME.FILE, "system-assets/images/file-icon.png");
+            put(ICON_NAME.SOUND, "system-assets/images/sound-icon.png");
+            put(ICON_NAME.GAME_OBJECT, "system-assets/images/gameobject-icon.png");
+            put(ICON_NAME.REMOVE, "system-assets/images/remove-icon.png");
+            put(ICON_NAME.ADD, "system-assets/images/add-icon.png");
         }
     };
 
@@ -153,7 +170,7 @@ public class FileUtils {
         String name = getFileNameWithoutExtension(fileName);
         String ext = getFileExtension(fileName);
 
-        final int MAX_LENGTH_ALLOW = 10;
+        final int MAX_LENGTH_ALLOW = 13;
         if (name.length() > MAX_LENGTH_ALLOW) {
             name = name.substring(0, MAX_LENGTH_ALLOW) + "..";
         }
@@ -197,26 +214,29 @@ public class FileUtils {
 
         if (isImageFile(file)) {
             spr.setTexture(AssetPool.getTexture(file.getPath()));
+            spr.calcWidthAndHeight();
         } else if (extension.equals("java")) {
-            spr.setTexture(AssetPool.getTexture(icons.get("JAVA")));
+            spr.setTexture(AssetPool.getTexture(icons.get(ICON_NAME.JAVA)));
+            spr.calcWidthAndHeight();
         } else if (isSoundFile(file)) {
-            spr.setTexture(AssetPool.getTexture(icons.get("SOUND")));
+            spr.setTexture(AssetPool.getTexture(icons.get(ICON_NAME.SOUND)));
+            spr.calcWidthAndHeight();
         } else {
-            // Default icon : FILE
-            spr.setTexture(AssetPool.getTexture(icons.get("FILE")));
+            spr.setTexture(AssetPool.getTexture(icons.get(ICON_NAME.FILE)));
+            spr.calcWidthAndHeight();
         }
         return spr;
     }
 
-    public static Sprite getGameObjectIcon() {
+    public static Sprite getIcon(ICON_NAME iconName) {
         Sprite spr = new Sprite();
-        spr.setTexture(AssetPool.getTexture(icons.get("GAME_OBJECT")));
+        spr.setTexture(AssetPool.getTexture(icons.get(iconName)));
         return spr;
     }
 
-    public static Sprite convertImageToSprite(File imgFile) {
-        Sprite spr = new Sprite(imgFile.getPath());
-
+    public static Spritesheet getGizmosSprSheet() {
+        Texture texture = AssetPool.getTexture("system-assets/images/gizmos.png");
+        Spritesheet spr = new Spritesheet(texture, 24, 48, 3, 0, 0);
         return spr;
     }
 

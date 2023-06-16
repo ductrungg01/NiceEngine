@@ -1,6 +1,6 @@
 package system;
 
-import editor.AssetsWindow;
+import editor.windows.AssetsWindow;
 import editor.Debug;
 import imgui.ImVec2;
 import org.joml.Matrix4f;

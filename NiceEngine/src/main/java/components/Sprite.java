@@ -24,10 +24,12 @@ public class Sprite implements INonAddableComponent {
 
     public Sprite(Texture texture) {
         setTexture(texture);
+        calcWidthAndHeight();
     }
 
     public Sprite(String TexturePath) {
         setTexture(AssetPool.getTexture(TexturePath));
+        calcWidthAndHeight();
     }
     //endregion
 
@@ -66,6 +68,13 @@ public class Sprite implements INonAddableComponent {
 
     public int getTexId() {
         return texture == null ? -1 : texture.getId();
+    }
+
+    public void calcWidthAndHeight() {
+        float w = this.texture.getWidth();
+        float h = this.texture.getHeight();
+        setWidth(w);
+        setHeight(h);
     }
     //endregion
 }

@@ -65,6 +65,7 @@ public class StateMachine extends Component {
 
     public void addState(AnimationState state) {
         this.states.add(state);
+        state.start();
     }
 
     public void setDefaultState(String animationTitle) {
@@ -135,8 +136,8 @@ public class StateMachine extends Component {
         for (AnimationState state : states) {
             if (state.title.equals(defaultStateTitle)) {
                 currentState = state;
-                break;
             }
+            state.start();
         }
     }
 

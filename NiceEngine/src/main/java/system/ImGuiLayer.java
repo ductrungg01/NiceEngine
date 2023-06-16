@@ -1,6 +1,7 @@
 package system;
 
 import editor.*;
+import editor.windows.*;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
 import imgui.callback.ImStrSupplier;
@@ -145,7 +146,7 @@ public class ImGuiLayer {
 
         // Fonts merge example
         fontConfig.setPixelSnapH(true);
-        fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf", 22, fontConfig);
+        fontAtlas.addFontFromFileTTF("system-assets/fonts/Exo2-Regular.ttf", 20, fontConfig);
 
         fontConfig.destroy();
 

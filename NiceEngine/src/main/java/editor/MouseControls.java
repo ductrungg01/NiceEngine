@@ -1,6 +1,12 @@
 package editor;
 
 import components.*;
+import editor.gizmo.Gizmo;
+import editor.gizmo.GizmoSystem;
+import editor.windows.FileDialog;
+import editor.windows.GameViewWindow;
+import editor.windows.InspectorWindow;
+import editor.windows.SceneHierarchyWindow;
 import system.GameObject;
 import system.KeyListener;
 import system.MouseListener;

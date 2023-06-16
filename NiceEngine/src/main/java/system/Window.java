@@ -1,18 +1,15 @@
 package system;
 
-import editor.Debug;
-import editor.SceneHierarchyWindow;
-import imgui.ImGui;
+import editor.windows.SceneHierarchyWindow;
 import observers.EventSystem;
 import observers.Observer;
 import observers.events.Event;
+import observers.events.EventType;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
-import org.lwjgl.PointerBuffer;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFW;
-import org.lwjgl.glfw.GLFWDropCallback;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWImage;
 import org.lwjgl.openal.AL;
@@ -20,24 +17,22 @@ import org.lwjgl.openal.ALC;
 import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.system.MemoryUtil;
 import physics2d.Physics2D;
 import renderer.*;
-import scenes.LevelEditorSceneInitializer;
-import scenes.LevelSceneInitializer;
+import renderer.Renderer;
+import scenes.EditorSceneInitializer;
+import scenes.GamePlayingSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
+import util.Time;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.DoubleBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -93,8 +88,8 @@ public class Window implements Observer {
         float endTime;
         float dt = -1.0f;
 
-        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
-        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
+        Shader defaultShader = AssetPool.getShader("system-assets/shaders/default.glsl");
+        Shader pickingShader = AssetPool.getShader("system-assets/shaders/pickingShader.glsl");
 
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events
@@ -123,7 +118,6 @@ public class Window implements Observer {
             Vector4f clearColor = currentScene.camera().clearColor;
             glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
             glClear(GL_COLOR_BUFFER_BIT);
-
 
             if (dt >= 0) {
 
@@ -156,6 +150,21 @@ public class Window implements Observer {
             endTime = (float) glfwGetTime();
             dt = endTime - beginTime;
             beginTime = endTime;
+
+            Time.deltaTime = dt;
+
+            if (glfwWindowShouldClose(glfwWindow)) {
+                int response = JOptionPane.showConfirmDialog(null,
+                        "Do you want to SAVE the scene before close?",
+                        "CLOSE",
+                        JOptionPane.YES_NO_CANCEL_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    EventSystem.notify(null, new Event(EventType.SaveLevel));
+                }
+                if (response == JOptionPane.CANCEL_OPTION) {
+                    glfwSetWindowShouldClose(glfwWindow, false);
+                }
+            }
         }
     }
 
@@ -255,7 +264,7 @@ public class Window implements Observer {
         this.imGuiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
         this.imGuiLayer.initImGui();
 
-        Window.changeScene(new LevelEditorSceneInitializer());
+        Window.changeScene(new EditorSceneInitializer());
 
     }
 
@@ -264,7 +273,7 @@ public class Window implements Observer {
         // Load the image file
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("assets/images/logo.png"));
+            image = ImageIO.read(new File("system-assets/images/logo.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -356,17 +365,17 @@ public class Window implements Observer {
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
                 oldEditorCameraPos = Window.getScene().camera().position;
-                Window.changeScene(new LevelSceneInitializer());
+                Window.changeScene(new GamePlayingSceneInitializer());
                 break;
             case GameEngineStopPlay:
                 this.runtimePlaying = false;
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new EditorSceneInitializer());
                 Window.getScene().camera().position = oldEditorCameraPos;
                 break;
             case SaveLevel:
                 currentScene.save(true);
             case LoadLevel:
-                Window.changeScene(new LevelEditorSceneInitializer());
+                Window.changeScene(new EditorSceneInitializer());
                 break;
             case UserEvent:
                 break;

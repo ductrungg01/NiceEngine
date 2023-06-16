@@ -1,8 +1,6 @@
 package physics2d;
 
-import components.scripts.test.mario.Ground;
-import org.joml.Vector3f;
-import renderer.DebugDraw;
+import physics2d.components.Capsule2DCollider;
 import system.GameObject;
 import system.Transform;
 import system.Window;
@@ -13,7 +11,6 @@ import org.jbox2d.dynamics.*;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
-import components.scripts.test.mario.PillboxCollider;
 import physics2d.components.RigidBody2D;
 
 public class Physics2D {
@@ -68,8 +65,8 @@ public class Physics2D {
         //DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
         //DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
 
-        return (info.hit && info.hitObject != null && info.hitObject.getComponent(Ground.class) != null) ||
-                (info2.hit && info2.hitObject != null && info2.hitObject.getComponent(Ground.class) != null);
+        return (info.hit && info.hitObject != null && info.hitObject.compareTag("Ground")) ||
+                (info2.hit && info2.hitObject != null && info2.hitObject.compareTag("Ground"));
     }
 
     public void setIsSensor(RigidBody2D rb) {
@@ -162,26 +159,13 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
-    public void resetPillboxCollider(RigidBody2D rb, PillboxCollider pb) {
-        Body body = rb.getRawBody();
-        if (body == null) return;
-
-        int size = fixtureListSize(body);
-        for (int i = 0; i < size; i++) {
-            body.destroyFixture(body.getFixtureList());
-        }
-
-        addPillboxCollider(rb, pb);
-        body.resetMassData();
-    }
-
-    public void addPillboxCollider(RigidBody2D rb, PillboxCollider pb) {
+    public void addCapsule2dCollider(RigidBody2D rb, Capsule2DCollider cc) {
         Body body = rb.getRawBody();
         assert body != null : "Raw body must not be null";
 
-        addBox2DCollider(rb, pb.getBox());
-        addCircle2DCollider(rb, pb.getTopCircle());
-        addCircle2DCollider(rb, pb.getBottomCircle());
+        addBox2DCollider(rb, cc.getBox());
+        addCircle2DCollider(rb, cc.getTopCircle());
+        addCircle2DCollider(rb, cc.getBottomCircle());
     }
 
     public RaycastInfo raycast(GameObject requestingObject, Vector2f point1, Vector2f point2) {
@@ -247,7 +231,7 @@ public class Physics2D {
             rb.setRawBody(body);
             CircleCollider circle2DCollider;
             Box2DCollider box2DCollider;
-            PillboxCollider pillboxCollider;
+            Capsule2DCollider capsule2DCollider;
 
             if ((circle2DCollider = go.getComponent(CircleCollider.class)) != null) {
                 addCircle2DCollider(rb, circle2DCollider);
@@ -257,8 +241,8 @@ public class Physics2D {
                 addBox2DCollider(rb, box2DCollider);
             }
 
-            if ((pillboxCollider = go.getComponent(PillboxCollider.class)) != null) {
-                addPillboxCollider(rb, pillboxCollider);
+            if ((capsule2DCollider = go.getComponent(Capsule2DCollider.class)) != null) {
+                addCapsule2dCollider(rb, capsule2DCollider);
             }
         }
     }

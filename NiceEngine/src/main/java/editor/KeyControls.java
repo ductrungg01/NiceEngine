@@ -1,7 +1,7 @@
 package editor;
 
 import components.StateMachine;
-import editor.InspectorWindow;
+import editor.windows.InspectorWindow;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
