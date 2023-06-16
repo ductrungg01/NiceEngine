@@ -778,7 +778,7 @@ public class NiceImGui {
         float offset = min(size.x / spr.getWidth(), size.y / spr.getHeight());
         Vector2f[] texCoords = spr.getTexCoords();
 
-        ImGui.pushID(spr.getTexId());
+        ImGui.pushID(spr.getTexId() + tooltipStr);
 
         boolean hoverFakeBtn = false;
         Vector2f oldCursorPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
