@@ -1,10 +1,11 @@
 package util;
 
-import components.Spritesheet;
+import system.Spritesheet;
 import system.Sound;
 import renderer.Shader;
 import renderer.Texture;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.*;
 
@@ -58,7 +59,7 @@ public class AssetPool {
 
         return sprs;
     }
-    
+
 
     public static Collection<Sound> getAllSounds() {
         return sounds.values();
@@ -66,13 +67,11 @@ public class AssetPool {
 
     public static Sound getSound(String soundFile) {
         File file = new File(soundFile);
-        if (sounds.containsKey(file.getPath())) {
-            return sounds.get(file.getPath());
-        } else {
-            assert false : "Sound file not added '" + soundFile + "'";
+        if (!sounds.containsKey(file.getPath())) {
+            addSound(soundFile, false);
         }
-
-        return null;
+        
+        return sounds.get(file.getPath());
     }
     //endregion
 
@@ -93,6 +92,18 @@ public class AssetPool {
         File file = new File(resourceName);
         if (!AssetPool.spritesheets.containsKey(file.getPath())) {
             AssetPool.spritesheets.put(file.getPath(), spritesheet);
+        } else {
+
+        }
+    }
+
+    public static void updateSpritesheet(String resourceName, Spritesheet spritesheet) {
+        File file = new File(resourceName);
+        if (AssetPool.spritesheets.containsKey(file.getPath())) {
+            AssetPool.spritesheets.replace(resourceName, spritesheet);
+        } else {
+            JOptionPane.showMessageDialog(null, "Cannot find spritesheet '" + resourceName + "' to update!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 

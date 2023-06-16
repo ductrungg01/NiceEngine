@@ -61,6 +61,8 @@ public class SpriteRenderer extends Component implements INonAddableComponent {
         if (tmp != sprite) {
             setSprite(tmp);
         }
+
+        NiceImGui.showImage(this.sprite, new Vector2f(100, 100));
     }
     //endregion
 

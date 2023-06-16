@@ -1,5 +1,6 @@
 package renderer;
 
+import editor.Debug;
 import org.lwjgl.BufferUtils;
 
 import java.nio.ByteBuffer;
@@ -58,7 +59,6 @@ public class Texture {
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
-        //stbi_set_flip_vertically_on_load(true);
         ByteBuffer image = stbi_load(filePath, width, height, channels, 0);
 
         if (image != null) {
@@ -77,8 +77,13 @@ public class Texture {
         } else {
             assert false : "Error: (Texture) Could not load image '" + filePath + "'";
         }
-
-        stbi_image_free(image);
+        try {
+            stbi_image_free(image);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(this.filePath);
+            Debug.Log("Cannot find image: '" + this.filePath + "'");
+        }
     }
 
     public void bind() {

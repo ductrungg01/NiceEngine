@@ -6,14 +6,9 @@ import components.*;
 import deserializers.ComponentDeserializer;
 import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
-import editor.Debug;
 import editor.KeyControls;
 import editor.MessageBox;
 import editor.MouseControls;
-import observers.EventSystem;
-import observers.events.Event;
-import observers.events.EventType;
-import org.lwjgl.glfw.GLFW;
 import renderer.Texture;
 import system.*;
 import org.joml.Vector2f;
@@ -212,6 +207,10 @@ public class Scene {
         return go;
     }
 
+    final String LEVEL_PATH = "data/level.txt";
+    final String PREFAB_PATH = "data/prefabs.txt";
+    final String SPRITESHEET_PATH = "data/spritesheet.txt";
+
     public void save(boolean isShowMessage) {
         //region Save Game Object
         Gson gson = new GsonBuilder()
@@ -222,7 +221,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter("level.txt");
+            FileWriter writer = new FileWriter(LEVEL_PATH);
 
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
@@ -251,7 +250,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter("prefabs.txt");
+            FileWriter writer = new FileWriter(PREFAB_PATH);
 
             List<GameObject> objsToSerialize = GameObject.PrefabLists;
 
@@ -269,11 +268,12 @@ public class Scene {
         //region Save Spritesheet
         List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
         try {
-            FileWriter writer = new FileWriter("spritesheet.txt");
+            FileWriter writer = new FileWriter(SPRITESHEET_PATH);
 
             for (Spritesheet s : spritesheets) {
-                writer.write(s.getTexture().getFilePath() + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
-                        s.size() + "|" + s.spacing + "\n");
+                String path = s.getTexture().getFilePath().replace("\\", "/");
+                writer.write(path + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
+                        s.size() + "|" + s.spacingX + "|" + s.spacingY + "\n");
             }
 
             writer.close();
@@ -290,7 +290,7 @@ public class Scene {
     public void load() {
         //region Load spritesheet
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("spritesheet.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(SPRITESHEET_PATH));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -301,9 +301,10 @@ public class Scene {
                 int sprWidth = Integer.parseInt(values[1]);
                 int sprHeight = Integer.parseInt(values[2]);
                 int numsSprite = Integer.parseInt(values[3]);
-                int spacing = Integer.parseInt(values[4]);
+                int spacingX = Integer.parseInt(values[4]);
+                int spacingY = Integer.parseInt(values[4]);
 
-                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacing);
+                Spritesheet spritesheet = new Spritesheet(texture, sprWidth, sprHeight, numsSprite, spacingX, spacingY);
                 AssetPool.addSpritesheet(textureSrc, spritesheet);
             }
 
@@ -327,7 +328,7 @@ public class Scene {
         String inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("level.txt")));
+            inFile = new String(Files.readAllBytes(Paths.get(LEVEL_PATH)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -375,7 +376,7 @@ public class Scene {
         inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get("prefabs.txt")));
+            inFile = new String(Files.readAllBytes(Paths.get(PREFAB_PATH)));
         } catch (IOException e) {
             e.printStackTrace();
         }

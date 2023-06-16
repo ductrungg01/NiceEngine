@@ -23,7 +23,7 @@ public class DebugDraw {
     private static List<Line2D> lines = new ArrayList<>();
     // 6 floats per vertex, 2 vertices per line
     private static float[] vertexArray = new float[MAX_LINES * 6 * 2];
-    private static Shader shader = AssetPool.getShader("assets/shaders/debugLine2D.glsl");
+    private static Shader shader = AssetPool.getShader("system-assets/shaders/debugLine2D.glsl");
 
     private static int vaoID;
     private static int vboID;
