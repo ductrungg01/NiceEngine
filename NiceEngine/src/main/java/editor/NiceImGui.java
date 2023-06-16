@@ -450,10 +450,10 @@ public class NiceImGui {
     //endregion
 
     //region Float
-    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.01f;
+    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.1f;
 
     public static float dragFloat(String label, float value) {
-        return dragFloat(label, value, Float.MIN_VALUE, Float.MAX_VALUE, DEFAULT_FLOAT_DRAG_SPEED, new float[2], label);
+        return dragFloat(label, value, (float) -1E5, (float) 1E5, DEFAULT_FLOAT_DRAG_SPEED, new float[2], label);
     }
 
     public static float dragFloat(String label, float value, float minValue, float maxValue, String imguiID) {

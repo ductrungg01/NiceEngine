@@ -1,6 +1,6 @@
 [
   {
-    "uid": 452,
+    "uid": 0,
     "name": "Enemies - Turtle.png(14)",
     "tag": "",
     "isPrefab": false,
@@ -18,7 +18,7 @@
             "x": 0.25,
             "y": 0.25
           },
-          "rotation": 0.0,
+          "rotation": 1.4E-45,
           "zIndex": 0,
           "uid": 963
         }
@@ -124,7 +124,7 @@
     "isDead": false
   },
   {
-    "uid": 453,
+    "uid": 1,
     "name": "items.png(5)",
     "tag": "",
     "isPrefab": false,
@@ -229,7 +229,7 @@
     "isDead": false
   },
   {
-    "uid": 454,
+    "uid": 2,
     "name": "items.png(5)",
     "tag": "",
     "isPrefab": false,
