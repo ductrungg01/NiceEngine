@@ -11,12 +11,17 @@ import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
 import org.lwjgl.system.CallbackI;
 import org.reflections.Reflections;
+import physics2d.components.Box2DCollider;
+import physics2d.components.Capsule2DCollider;
+import physics2d.components.CircleCollider;
+import physics2d.components.RigidBody2D;
 import system.GameObject;
 import org.joml.Vector4f;
 import renderer.PickingTexture;
 import system.Window;
 import util.Settings;
 
+import javax.swing.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +122,18 @@ public class InspectorWindow {
                             Component component = null;
                             try {
                                 component = aClass.getDeclaredConstructor().newInstance();
-                                if (activeGameObject.getComponent(aClass) != null) continue;
+                                if (activeGameObject.getComponent(aClass) != null) {
+                                    JOptionPane.showMessageDialog(null, "Component '" + className + "' is existed!",
+                                            "ERROR", JOptionPane.ERROR_MESSAGE);
+                                    continue;
+                                }
+                                if ((component instanceof Box2DCollider) || (component instanceof CircleCollider) || (component instanceof Capsule2DCollider)) {
+                                    if (activeGameObject.getComponent(RigidBody2D.class) == null) {
+                                        JOptionPane.showMessageDialog(null, "You need add RigidBody2D before add any Collider!",
+                                                "ERROR", JOptionPane.ERROR_MESSAGE);
+                                        continue;
+                                    }
+                                }
                             } catch (InstantiationException | IllegalAccessException e) {
                                 e.printStackTrace();
                             } catch (InvocationTargetException | NoSuchMethodException e) {
