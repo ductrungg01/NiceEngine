@@ -27,7 +27,7 @@ public class ConsoleWindow {
     //endregion
 
     public List<String> debugLogs = new ArrayList<>();
-    private final int MAX_DEBUGLOG_SIZE = 100;
+    private final int MAX_DEBUGLOG_SIZE = 50;
     private boolean isRemoved = false;
     static boolean scrollToBottom = true;
     static boolean firstFrame = true;

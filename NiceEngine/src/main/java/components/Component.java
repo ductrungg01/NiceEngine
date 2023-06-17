@@ -108,7 +108,7 @@ public abstract class Component {
                     }
                 } else if (type == Vector2f.class) {
                     Vector2f val = (Vector2f) value;
-                    NiceImGui.drawVec2Control(name, val, " " + this.hashCode());
+                    NiceImGui.drawVec2Control(name, val, " " + this.hashCode() + name);
                 } else if (type == Vector3f.class) {
                     Vector3f val = (Vector3f) value;
                     float[] imVec = {val.x, val.y, val.z};

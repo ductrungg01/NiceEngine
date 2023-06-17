@@ -151,6 +151,10 @@ public class AnimationState implements INonAddableComponent {
             }
         }
 
+        if (ImGui.button("Change to this state")) {
+            stateMachine.setCurrentState(this.title);
+        }
+
         ImGui.endChild();
         ImGui.popID();
 

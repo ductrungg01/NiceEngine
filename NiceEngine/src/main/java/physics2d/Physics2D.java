@@ -1,6 +1,8 @@
 package physics2d;
 
+import org.joml.Vector3f;
 import physics2d.components.Capsule2DCollider;
+import renderer.DebugDraw;
 import system.GameObject;
 import system.Transform;
 import system.Window;
@@ -62,11 +64,11 @@ public class Physics2D {
         Vector2f raycast2End = new Vector2f(raycastEnd).add(innerPlayerWidth, 0.0f);
         RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
 
-        //DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
-        //DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
+        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
 
-        return (info.hit && info.hitObject != null && info.hitObject.compareTag("Ground")) ||
-                (info2.hit && info2.hitObject != null && info2.hitObject.compareTag("Ground"));
+        return (info.hit && info.hitObject != null && info.hitObject.tag.toLowerCase().contains("ground")) ||
+                (info2.hit && info2.hitObject != null && info2.hitObject.tag.toLowerCase().contains("ground"));
     }
 
     public void setIsSensor(RigidBody2D rb) {
