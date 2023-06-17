@@ -32,23 +32,25 @@ public class AssetPool {
 
     public static Texture getTexture(String resourceName) {
         File file = new File(resourceName);
-        if (AssetPool.textures.containsKey(file.getPath())) {
-            return AssetPool.textures.get(file.getPath());
+        String filePath = file.getPath().replace("\\", "/");
+        if (AssetPool.textures.containsKey(filePath)) {
+            return AssetPool.textures.get(filePath);
         } else {
             Texture texture = new Texture();
             texture.init(resourceName);
-            AssetPool.textures.put(file.getPath(), texture);
+            AssetPool.textures.put(filePath, texture);
             return texture;
         }
     }
 
     public static Spritesheet getSpritesheet(String resourceName) {
         File file = new File(resourceName);
-        if (!AssetPool.spritesheets.containsKey(file.getPath())) {
+        String filePath = file.getPath().replace("\\", "/");
+        if (!AssetPool.spritesheets.containsKey(filePath)) {
             assert false : "Error: Tried to access spritesheet '" + resourceName + "' and it has not been to ascess pool";
         }
 
-        return AssetPool.spritesheets.getOrDefault(file.getPath(), null);
+        return AssetPool.spritesheets.getOrDefault(filePath, null);
     }
 
     public static List<Spritesheet> getAllSpritesheets() {
@@ -67,22 +69,24 @@ public class AssetPool {
 
     public static Sound getSound(String soundFile) {
         File file = new File(soundFile);
-        if (!sounds.containsKey(file.getPath())) {
+        String filePath = file.getPath().replace("\\", "/");
+        if (!sounds.containsKey(filePath)) {
             addSound(soundFile, false);
         }
-        
-        return sounds.get(file.getPath());
+
+        return sounds.get(filePath);
     }
     //endregion
 
     //region Methods
     public static Sound addSound(String soundFile, boolean loops) {
         File file = new File(soundFile);
-        if (sounds.containsKey(file.getPath())) {
-            return sounds.get(file.getPath());
+        String filePath = file.getPath().replace("\\", "/");
+        if (sounds.containsKey(filePath)) {
+            return sounds.get(filePath);
         } else {
-            Sound sound = new Sound(file.getPath(), loops);
-            AssetPool.sounds.put(file.getPath(), sound);
+            Sound sound = new Sound(filePath, loops);
+            AssetPool.sounds.put(filePath, sound);
 
             return sound;
         }
@@ -90,8 +94,9 @@ public class AssetPool {
 
     public static void addSpritesheet(String resourceName, Spritesheet spritesheet) {
         File file = new File(resourceName);
-        if (!AssetPool.spritesheets.containsKey(file.getPath())) {
-            AssetPool.spritesheets.put(file.getPath(), spritesheet);
+        String filePath = file.getPath().replace("\\", "/");
+        if (!AssetPool.spritesheets.containsKey(filePath)) {
+            AssetPool.spritesheets.put(filePath, spritesheet);
         } else {
 
         }
@@ -99,7 +104,8 @@ public class AssetPool {
 
     public static void updateSpritesheet(String resourceName, Spritesheet spritesheet) {
         File file = new File(resourceName);
-        if (AssetPool.spritesheets.containsKey(file.getPath())) {
+        String filePath = file.getPath().replace("\\", "/");
+        if (AssetPool.spritesheets.containsKey(filePath)) {
             AssetPool.spritesheets.replace(resourceName, spritesheet);
         } else {
             JOptionPane.showMessageDialog(null, "Cannot find spritesheet '" + resourceName + "' to update!",
@@ -109,8 +115,9 @@ public class AssetPool {
 
     public static void removeSpritesheet(String resourceName) {
         File file = new File(resourceName);
-        if (AssetPool.spritesheets.containsKey(file.getPath())) {
-            AssetPool.spritesheets.remove(file.getPath());
+        String filePath = file.getPath().replace("\\", "/");
+        if (AssetPool.spritesheets.containsKey(filePath)) {
+            AssetPool.spritesheets.remove(filePath);
         }
     }
     //endregion
