@@ -296,7 +296,7 @@ public class Scene {
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split("\\|");
 
-                String textureSrc = values[0];
+                String textureSrc = values[0].replace("\\", "/");
                 Texture texture = AssetPool.getTexture(textureSrc);
                 int sprWidth = Integer.parseInt(values[1]);
                 int sprHeight = Integer.parseInt(values[2]);

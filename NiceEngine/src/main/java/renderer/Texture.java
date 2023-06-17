@@ -41,6 +41,8 @@ public class Texture {
 
     //region Methods
     public void init(String filePath) {
+        filePath = filePath.replace("\\", "/");
+
         this.filePath = filePath;
 
         //  Generate texture on GPU

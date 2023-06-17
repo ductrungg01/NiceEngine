@@ -1,8 +1,10 @@
 package editor.windows;
 
 import components.Sprite;
+import editor.Debug;
 import editor.NiceImGui;
 import editor.ReferenceType;
+import imgui.flag.ImGuiHoveredFlags;
 import system.Spritesheet;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.ColorHelp;
@@ -287,14 +289,15 @@ public class FileDialog {
         float posX = ImGui.getCursorPosX();
         float posY = ImGui.getCursorPosY();
 
-        Vector4f hoveredColor = ColorHelp.ColorChangeAlpha(COLOR_LightBlue, 0.3f);
-        Vector4f activeColor = COLOR_Blue;
+        Vector4f hoveredColor = ColorHelp.ColorChangeAlpha(COLOR_Green, 0.3f);
+        Vector4f activeColor = COLOR_Green;
 
         //region draw the icon
         ImGui.pushStyleColor(ImGuiCol.Button, 0, 0, 0, 0.0f);  // No color
         ImGui.pushStyleColor(ImGuiCol.ButtonHovered, hoveredColor.x, hoveredColor.y, hoveredColor.z, hoveredColor.w);
         ImGui.pushStyleColor(ImGuiCol.ButtonActive, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
-        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), true, "Double-click to select this sprite!\n" + fullItemName + "\n" + ((File) item).getPath(), true, new Vector2f(300, 300), true);
+        NiceImGui.showImage(icon, new Vector2f(iconSize, iconSize), true, "", false, new Vector2f(), true);
+        //ImGui.image(icon.getTexId(), iconSize, iconSize);
         ImGui.popStyleColor(3);
         //endregion
 
@@ -303,6 +306,7 @@ public class FileDialog {
         final float offsetOfIconAndName = 5f;
         ImGui.setCursorPos(posX + 5f, posY + iconSize + offsetOfIconAndName);
         if (ImGui.isItemHovered()) {
+            Debug.Log(fullItemName);
             if (ImGui.isMouseDoubleClicked(GLFW_MOUSE_BUTTON_LEFT)) {
                 ImGui.pushStyleColor(ImGuiCol.Text, activeColor.x, activeColor.y, activeColor.z, activeColor.w);
                 ImGui.text(shortItemName);
