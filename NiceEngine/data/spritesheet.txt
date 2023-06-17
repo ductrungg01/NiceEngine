@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-assets/images/spritesheets/Enemies - Turtle.png|8|8|55|0|0
-assets/images/spritesheet.png|16|16|26|0|0
-assets/images/turtle.png|16|24|4|0|0
-assets/images/bigSpritesheet.png|16|32|42|0|0
-assets/images/birds.png|532|532|2|0|0
-assets/images/spritesheets/numbers_spritesheet.png|120|120|8|0|0
-assets/images/items.png|16|16|43|0|0
-assets/images/pipes.png|32|32|6|0|0
-assets/images/spritesheets/decorationsAndBlocks.png|16|16|81|0|0
-=======
 assets/images/spritesheets/map.png|16|16|77|0|0
 assets/images/spritesheets/coin.png|16|16|4|0|0
 assets/images/spritesheets/NES - Super Mario Bros 3 - Stage 1-1.png|1|1|1|0|0
@@ -18,4 +7,3 @@ assets/images/spritesheets/mario.png|16|16|10|0|0
 assets/images/spritesheets/goomba.png|20|23|7|0|0
 assets/images/spritesheets/turtle.png|16|32|22|0|0
 assets/images/spritesheets/mario-big.png|16|26|4|0|0
->>>>>>> Stashed changes

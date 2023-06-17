@@ -1,138 +1,8 @@
 [
   {
-<<<<<<< Updated upstream
-    "uid": 0,
-    "name": "Enemies - Turtle.png(14)",
-    "tag": "",
-    "isPrefab": false,
-    "prefabId": "",
-    "parentId": "DSEGJk2Tbp",
-    "components": [
-      {
-        "type": "system.Transform",
-        "properties": {
-          "position": {
-            "x": 3.125,
-            "y": 1.7994536
-          },
-          "scale": {
-            "x": 0.25,
-            "y": 0.25
-          },
-          "rotation": 1.4E-45,
-          "zIndex": 0,
-          "uid": 963
-        }
-      },
-      {
-        "type": "components.SpriteRenderer",
-        "properties": {
-          "color": {
-            "x": 1.0,
-            "y": 1.0,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "sprite": {
-            "width": 8.0,
-            "height": 8.0,
-            "texture": {
-              "filePath": "assets/images/spritesheets/Enemies - Turtle.png",
-              "width": 192,
-              "height": 32
-            },
-            "texCoords": [
-              {
-                "x": 0.625,
-                "y": 0.0
-              },
-              {
-                "x": 0.625,
-                "y": 0.25
-              },
-              {
-                "x": 0.5833333,
-                "y": 0.25
-              },
-              {
-                "x": 0.5833333,
-                "y": 0.0
-              }
-            ]
-          },
-          "uid": 964
-        }
-      },
-      {
-        "type": "physics2d.components.Capsule2DCollider",
-        "properties": {
-          "topCircle": {
-            "offset": {
-              "x": 0.0,
-              "y": 0.13
-            },
-            "radius": 0.13,
-            "uid": -1
-          },
-          "box2DCollider": {
-            "offset": {
-              "x": 0.0,
-              "y": 0.0
-            },
-            "halfSize": {
-              "x": 0.26,
-              "y": 0.26
-            },
-            "origin": {
-              "x": 0.0,
-              "y": 0.0
-            },
-            "uid": -1
-          },
-          "bottomCircle": {
-            "offset": {
-              "x": 0.0,
-              "y": -0.13
-            },
-            "radius": 0.13,
-            "uid": -1
-          },
-          "uid": 1121
-        }
-      },
-      {
-        "type": "physics2d.components.RigidBody2D",
-        "properties": {
-          "velocity": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
-          "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
-          "fixedRotation": false,
-          "continuousCollision": true,
-          "uid": 1145
-        }
-      }
-    ],
-    "doSerialization": true,
-    "isDead": false
-  },
-  {
-    "uid": 1,
-    "name": "items.png(5)",
-    "tag": "",
-=======
     "uid": 470,
     "name": "coin",
     "tag": "Coin",
->>>>>>> Stashed changes
     "isPrefab": false,
     "prefabId": "",
     "parentId": "m9pUpRn3ai",
@@ -8341,15 +8211,9 @@
     "isDead": false
   },
   {
-<<<<<<< Updated upstream
-    "uid": 2,
-    "name": "items.png(5)",
-    "tag": "",
-=======
     "uid": 548,
     "name": "questionBlock",
     "tag": "Ground",
->>>>>>> Stashed changes
     "isPrefab": false,
     "prefabId": "",
     "parentId": "jw8qSB8ItB",
