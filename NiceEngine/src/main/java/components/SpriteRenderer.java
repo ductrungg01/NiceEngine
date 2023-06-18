@@ -72,7 +72,7 @@ public class SpriteRenderer extends Component implements INonAddableComponent {
     }
 
     public Vector4f getColor() {
-        return this.color;
+        return new Vector4f(this.color);
     }
 
     public Texture getTexture() {
