@@ -70,12 +70,12 @@ public class MouseControls {
         } else if (!MouseListener.isDragging() && MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT) && debounce < 0) {
             int x = (int) MouseListener.getScreenX();
             int y = (int) MouseListener.getScreenY();
-            GizmoSystem.setUsingTranslateGizmo();
             int gameObjectId = pickingTexture.readPixel(x, y);
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
                 Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
                 SceneHierarchyWindow.setSelectedGameObject(pickedObj);
+                GizmoSystem.setUsingTranslateGizmo();
             } else if (pickedObj == null && !MouseListener.isDragging()) {
                 if (Gizmo.getUsingGizmo()) return;
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
