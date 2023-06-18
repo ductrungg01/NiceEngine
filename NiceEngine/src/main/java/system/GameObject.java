@@ -381,10 +381,12 @@ public class GameObject {
             GameObject go = gameObjects.get(i);
             if (go.parentId.equals(this.prefabId)) {
                 Vector2f oldPosition = go.transform.position;
+                String oldName = go.name;
 
                 go.destroy();
                 GameObject newGameObject = this.copyFromPrefab();
                 newGameObject.transform.position = oldPosition;
+                newGameObject.name = oldName;
                 Window.getScene().addGameObjectToScene(newGameObject);
             }
         }
