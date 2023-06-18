@@ -131,6 +131,9 @@ public class GameObject {
             }
         }
 
+        JOptionPane.showMessageDialog(null, "Override the prefab successful!",
+                "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+
         Debug.Log("Cannot find the prefab!");
     }
 
@@ -229,7 +232,7 @@ public class GameObject {
                     c.imgui();
                 }
 
-                if (this.isPrefab) {
+                if (this.isPrefab && c instanceof Transform) {
                     ((Transform) c).position = new Vector2f();  // Prefab's position is always (0,0)
                 }
             } else {
@@ -385,6 +388,9 @@ public class GameObject {
                 Window.getScene().addGameObjectToScene(newGameObject);
             }
         }
+
+        JOptionPane.showMessageDialog(null, "Override all children successful!",
+                "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void generatePrefabId() {
