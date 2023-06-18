@@ -1,6 +1,6 @@
 [
   {
-    "uid": 211,
+    "uid": 37660,
     "name": "coin",
     "tag": "Coin",
     "isPrefab": true,
@@ -36,26 +36,26 @@
             "width": 16.0,
             "height": 16.0,
             "texture": {
-              "filePath": "assets/images/spritesheets/coin.png",
-              "width": 64,
-              "height": 16
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
             },
             "texCoords": [
               {
-                "x": 0.75,
-                "y": 0.0
+                "x": 0.27272728,
+                "y": 0.14285715
               },
               {
-                "x": 0.75,
-                "y": 1.0
+                "x": 0.27272728,
+                "y": 0.2857143
               },
               {
-                "x": 0.5,
-                "y": 1.0
+                "x": 0.18181819,
+                "y": 0.2857143
               },
               {
-                "x": 0.5,
-                "y": 0.0
+                "x": 0.18181819,
+                "y": 0.14285715
               }
             ]
           },
@@ -203,9 +203,9 @@
     "isDead": false
   },
   {
-    "uid": 212,
+    "uid": 37661,
     "name": "shine-block",
-    "tag": "",
+    "tag": "Ground",
     "isPrefab": true,
     "prefabId": "FyK0oWYH32",
     "parentId": "",
@@ -444,7 +444,7 @@
     "isDead": false
   },
   {
-    "uid": 213,
+    "uid": 37662,
     "name": "questionBlock",
     "tag": "Ground",
     "isPrefab": true,
@@ -721,7 +721,7 @@
     "isDead": false
   },
   {
-    "uid": 214,
+    "uid": 37663,
     "name": "mario",
     "tag": "",
     "isPrefab": true,
@@ -1207,7 +1207,7 @@
         "properties": {
           "velocity": {
             "x": 0.0,
-            "y": -3.0
+            "y": 0.0
           },
           "angularDamping": 0.8,
           "linearDamping": 0.9,
@@ -1215,11 +1215,79 @@
           "bodyType": "Dynamic",
           "friction": 0.1,
           "angularVelocity": 0.0,
-          "gravityScale": 1.0,
+          "gravityScale": 2.9,
           "isSensor": false,
           "fixedRotation": true,
           "continuousCollision": true,
           "uid": 268
+        }
+      },
+      {
+        "type": "components.mariodemo.MarioCameraFollow",
+        "properties": {
+          "skyColor": {
+            "x": 0.7366548,
+            "y": 0.96709496,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "undergroundColor": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "changeClearCol": false,
+          "uid": 831
+        }
+      },
+      {
+        "type": "components.mariodemo.MarioCollision",
+        "properties": {
+          "collisionDebounce": 1.0,
+          "marioMoving": {
+            "maxVelocity": {
+              "x": 1.5,
+              "y": 2.2
+            },
+            "acceleration": {
+              "x": 5.0,
+              "y": 0.0
+            },
+            "SLOWDOWN_FORCE": 5.0,
+            "velocity": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "directionChangeDebounce": 0.2,
+            "velocityDebounce": 0.2,
+            "jumpTimeDebounce": 0.95,
+            "onGroundTimeDebouce": 0.2,
+            "jumpTimeBuffer": 0.32,
+            "maxJumpTime": 0.8,
+            "disableJump": false,
+            "isOnGround": false,
+            "isDead": false,
+            "uid": 1050
+          },
+          "rb": {
+            "velocity": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "angularDamping": 0.8,
+            "linearDamping": 0.9,
+            "mass": 0.0,
+            "bodyType": "Dynamic",
+            "friction": 0.1,
+            "angularVelocity": 0.0,
+            "gravityScale": 2.9,
+            "isSensor": false,
+            "fixedRotation": true,
+            "continuousCollision": true,
+            "uid": 268
+          },
+          "uid": 1049
         }
       },
       {
@@ -1236,39 +1304,18 @@
           "SLOWDOWN_FORCE": 5.0,
           "velocity": {
             "x": 0.0,
-            "y": -3.0
+            "y": 0.0
           },
           "directionChangeDebounce": 0.2,
           "velocityDebounce": 0.2,
           "jumpTimeDebounce": 0.45,
+          "onGroundTimeDebouce": 0.2,
           "jumpTimeBuffer": 0.32,
           "maxJumpTime": 0.8,
-          "jumpTime": 0.0,
-          "startJumpTime": 0.0,
-          "directionChangeTime": 0.0,
           "disableJump": false,
           "isOnGround": false,
           "isDead": false,
-          "uid": 810
-        }
-      },
-      {
-        "type": "components.mariodemo.MarioCameraFollow",
-        "properties": {
-          "skyColor": {
-            "x": 0.0,
-            "y": 0.87500334,
-            "z": 1.0,
-            "w": 1.0
-          },
-          "undergroundColor": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0,
-            "w": 1.0
-          },
-          "changeClearCol": false,
-          "uid": 831
+          "uid": 1070
         }
       }
     ],
@@ -1276,7 +1323,7 @@
     "isDead": false
   },
   {
-    "uid": 215,
+    "uid": 37664,
     "name": "goomba",
     "tag": "",
     "isPrefab": true,
@@ -1581,7 +1628,7 @@
     "isDead": false
   },
   {
-    "uid": 216,
+    "uid": 37665,
     "name": "flower",
     "tag": "",
     "isPrefab": true,
@@ -1724,7 +1771,7 @@
     "isDead": false
   },
   {
-    "uid": 217,
+    "uid": 37666,
     "name": "fireFlower",
     "tag": "",
     "isPrefab": true,
@@ -1999,7 +2046,7 @@
     "isDead": false
   },
   {
-    "uid": 218,
+    "uid": 37667,
     "name": "turtle",
     "tag": "",
     "isPrefab": true,
@@ -2430,7 +2477,7 @@
     "isDead": false
   },
   {
-    "uid": 219,
+    "uid": 37668,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -2535,9 +2582,9 @@
     "isDead": false
   },
   {
-    "uid": 220,
+    "uid": 37669,
     "name": "tree",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "TkFBNzTB0b",
     "parentId": "",
@@ -2554,7 +2601,7 @@
             "y": 0.25
           },
           "rotation": 0.0,
-          "zIndex": 0,
+          "zIndex": 1,
           "uid": 851
         }
       },
@@ -2602,9 +2649,9 @@
     "isDead": false
   },
   {
-    "uid": 221,
+    "uid": 37670,
     "name": "tree",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "8AZYJiRgK1",
     "parentId": "",
@@ -2621,7 +2668,7 @@
             "y": 0.25
           },
           "rotation": 0.0,
-          "zIndex": 0,
+          "zIndex": 1,
           "uid": 855
         }
       },
@@ -2669,9 +2716,9 @@
     "isDead": false
   },
   {
-    "uid": 222,
+    "uid": 37671,
     "name": "tree",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "yHZqhO8wVi",
     "parentId": "",
@@ -2736,9 +2783,9 @@
     "isDead": false
   },
   {
-    "uid": 223,
+    "uid": 37672,
     "name": "tree",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "Pdzl11Ym2b",
     "parentId": "",
@@ -2803,9 +2850,9 @@
     "isDead": false
   },
   {
-    "uid": 224,
+    "uid": 37673,
     "name": "tree",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "lbyhhJj3gv",
     "parentId": "",
@@ -2870,9 +2917,9 @@
     "isDead": false
   },
   {
-    "uid": 225,
+    "uid": 37674,
     "name": "bush",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "1beEuuSTKQ",
     "parentId": "",
@@ -2937,7 +2984,7 @@
     "isDead": false
   },
   {
-    "uid": 226,
+    "uid": 37675,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -3042,7 +3089,7 @@
     "isDead": false
   },
   {
-    "uid": 227,
+    "uid": 37676,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -3147,7 +3194,7 @@
     "isDead": false
   },
   {
-    "uid": 228,
+    "uid": 37677,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -3252,9 +3299,9 @@
     "isDead": false
   },
   {
-    "uid": 229,
+    "uid": 37678,
     "name": "highGroundDecor",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "EVpb5KnF0J",
     "parentId": "",
@@ -3319,9 +3366,9 @@
     "isDead": false
   },
   {
-    "uid": 230,
+    "uid": 37679,
     "name": "highGroundDecor",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "TD7Pby7X08",
     "parentId": "",
@@ -3386,9 +3433,9 @@
     "isDead": false
   },
   {
-    "uid": 231,
+    "uid": 37680,
     "name": "highGroundDecor",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "QNIBbPz2CB",
     "parentId": "",
@@ -3453,9 +3500,9 @@
     "isDead": false
   },
   {
-    "uid": 232,
+    "uid": 37681,
     "name": "highGroundDecor",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "wo0PvvwVUB",
     "parentId": "",
@@ -3520,9 +3567,9 @@
     "isDead": false
   },
   {
-    "uid": 233,
+    "uid": 37682,
     "name": "highGroundDecor",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "fQcgPL3mJO",
     "parentId": "",
@@ -3587,9 +3634,9 @@
     "isDead": false
   },
   {
-    "uid": 234,
+    "uid": 37683,
     "name": "highGroundDecor",
-    "tag": "",
+    "tag": "Decoration",
     "isPrefab": true,
     "prefabId": "6ytPr2NyOd",
     "parentId": "",
@@ -3647,6 +3694,1956 @@
             ]
           },
           "uid": 966
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37684,
+    "name": "shadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "xhuq6QV859",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 1,
+          "uid": 1110
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.72727275,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.72727275,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.71428573
+              }
+            ]
+          },
+          "uid": 1111
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37685,
+    "name": "shadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "KsqfRLWcnn",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 1,
+          "uid": 1113
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.72727275,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.72727275,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.5714286
+              }
+            ]
+          },
+          "uid": 1114
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37686,
+    "name": "pipe",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "PyB7Mu1UqB",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1133
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.6363636,
+                "y": 0.0
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1134
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 1142
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1143
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37687,
+    "name": "pipe",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "QU6MaEZCwZ",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1130
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.72727275,
+                "y": 0.0
+              },
+              {
+                "x": 0.72727275,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1131
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 1144
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1145
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37688,
+    "name": "pipe",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "OXnZcZFwig",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1136
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.6363636,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.14285715
+              }
+            ]
+          },
+          "uid": 1137
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 1146
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1148
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37689,
+    "name": "pipe",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "odtCsoQjwi",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1139
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.72727275,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.72727275,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.14285715
+              }
+            ]
+          },
+          "uid": 1140
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 1149
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1150
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37690,
+    "name": "ground",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "IXaQlatt0s",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 184
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.54545456,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.71428573
+              }
+            ]
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 208
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.0,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": false,
+          "uid": 228
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37691,
+    "name": "ground",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "XZmp3BHDvN",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 184
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.45454547,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.71428573
+              }
+            ]
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 208
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.0,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": false,
+          "uid": 228
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37692,
+    "name": "ground",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "Ekq9ww4WKa",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 184
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.6363636,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.5714286
+              }
+            ]
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 208
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.0,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": false,
+          "uid": 228
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37693,
+    "name": "ground",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "NEvny5Z2aw",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 184
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.45454547,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.5714286
+              }
+            ]
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 208
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.0,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": false,
+          "uid": 228
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37694,
+    "name": "ground",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "rhFjcr32eY",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 184
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.6363636,
+                "y": 0.71428573
+              },
+              {
+                "x": 0.6363636,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.85714287
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.71428573
+              }
+            ]
+          },
+          "uid": 185
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 208
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Static",
+          "friction": 0.0,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": false,
+          "uid": 228
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37695,
+    "name": "cloud",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "tiAaNpdUki",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1175
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.36363637,
+                "y": 0.0
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.27272728,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.27272728,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1176
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37696,
+    "name": "cloud",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "mEIdtQ0SVi",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1178
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.45454547,
+                "y": 0.0
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1179
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37697,
+    "name": "cloud",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "AUxghDcn6A",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1181
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.54545456,
+                "y": 0.0
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 1182
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37698,
+    "name": "cloud",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "VLIawscBzq",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1184
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.36363637,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.27272728,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.27272728,
+                "y": 0.14285715
+              }
+            ]
+          },
+          "uid": 1185
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37699,
+    "name": "cloud",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "WtrLQv5igk",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1187
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.45454547,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.14285715
+              }
+            ]
+          },
+          "uid": 1188
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37700,
+    "name": "cloud",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "dWH4m77LvX",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1190
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.54545456,
+                "y": 0.14285715
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.14285715
+              }
+            ]
+          },
+          "uid": 1191
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37701,
+    "name": "woodBlock",
+    "tag": "Ground",
+    "isPrefab": true,
+    "prefabId": "13vKa89F4S",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1214
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.45454547,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.36363637,
+                "y": 0.2857143
+              }
+            ]
+          },
+          "uid": 1215
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37702,
+    "name": "shadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "sT9n5dG2E2",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1238
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.54545456,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.54545456,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.45454547,
+                "y": 0.2857143
+              }
+            ]
+          },
+          "uid": 1239
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37703,
+    "name": "shadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "mE0A1M7NOj",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1259
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.90909094,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.90909094,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.8181818,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.8181818,
+                "y": 0.42857143
+              }
+            ]
+          },
+          "uid": 1260
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37704,
+    "name": "treeShadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "MBaZscyXdB",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1269
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.18181819,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.18181819,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.09090909,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.09090909,
+                "y": 0.2857143
+              }
+            ]
+          },
+          "uid": 1270
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37705,
+    "name": "treeShadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "2HNMI5XtcG",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1278
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.27272728,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.27272728,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.18181819,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.18181819,
+                "y": 0.42857143
+              }
+            ]
+          },
+          "uid": 1279
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37706,
+    "name": "treeShadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "nFSIz5BiwT",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1275
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.18181819,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.18181819,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.09090909,
+                "y": 0.5714286
+              },
+              {
+                "x": 0.09090909,
+                "y": 0.42857143
+              }
+            ]
+          },
+          "uid": 1276
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37707,
+    "name": "treeShadow",
+    "tag": "Decoration",
+    "isPrefab": true,
+    "prefabId": "rOiAZXf0av",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 1272
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/map.png",
+              "width": 176,
+              "height": 112
+            },
+            "texCoords": [
+              {
+                "x": 0.27272728,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.27272728,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.18181819,
+                "y": 0.42857143
+              },
+              {
+                "x": 0.18181819,
+                "y": 0.2857143
+              }
+            ]
+          },
+          "uid": 1273
         }
       }
     ],
