@@ -360,11 +360,11 @@ public class Window implements Observer {
     public void onNotify(GameObject object, Event event) {
         switch (event.type) {
             case GameEngineStartPlay:
-                this.runtimePlaying = true;
-                currentScene.save(false);
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
                 oldEditorCameraPos = Window.getScene().camera().position;
+                this.runtimePlaying = true;
+                currentScene.save(false);
                 Window.changeScene(new GamePlayingSceneInitializer());
                 break;
             case GameEngineStopPlay:

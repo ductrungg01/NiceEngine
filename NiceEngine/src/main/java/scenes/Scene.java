@@ -9,6 +9,7 @@ import deserializers.PrefabDeserializer;
 import editor.KeyControls;
 import editor.MessageBox;
 import editor.MouseControls;
+import editor.windows.SceneHierarchyWindow;
 import renderer.Texture;
 import system.*;
 import org.joml.Vector2f;
@@ -212,6 +213,8 @@ public class Scene {
     final String SPRITESHEET_PATH = "data/spritesheet.txt";
 
     public void save(boolean isShowMessage) {
+        Window.getImguiLayer().getInspectorWindow().clearSelected();
+        SceneHierarchyWindow.clearSelectedGameObject();
         //region Save Game Object
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
