@@ -23,7 +23,7 @@ public class Gizmo extends Component implements INonAddableComponent {
 
     protected GameObject activeGameObject = null;
 
-    private static Vector2f xAxisOffset = new Vector2f(0.1f, -0f);
+    private static Vector2f xAxisOffset = new Vector2f(0.2f, -0f);
     private static Vector2f yAxisOffset = new Vector2f(-0f, 0.1f);
 
     private static float gizmoWidth = 0.35f;
