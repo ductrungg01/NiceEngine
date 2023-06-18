@@ -124,6 +124,7 @@ public class GameObject {
                 newPrefab.transform.position = new Vector2f();
 
                 GameObject.PrefabLists.set(i, newPrefab);
+                return;
             }
         }
 

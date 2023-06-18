@@ -5,13 +5,23 @@ import editor.Debug;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
+import physics2d.components.RigidBody2D;
 import system.GameObject;
 
-public class MarioCollision extends MarioMoving {
-    private float collisionDebounce = 0.1f;
+public class MarioCollision extends Component {
+    private float collisionDebounce = 0.2f;
+    private MarioMoving marioMoving;
+    private RigidBody2D rb;
+
+    @Override
+    public void start() {
+        marioMoving = this.gameObject.getComponent(MarioMoving.class);
+        rb = this.gameObject.getComponent(RigidBody2D.class);
+    }
+
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f contactNormal) {
-        if (isDead) return;
+        if (this.marioMoving.isDead) return;
         if (collidingObject.compareTag("Coin")) {
             collidingObject.destroy();
         }
@@ -29,15 +39,16 @@ public class MarioCollision extends MarioMoving {
                 return;
             }
         }
-        if (collidingObject.getComponent(Box2DCollider.class) != null && !this.rb.isSensor()) {
-            if (Math.abs(contactNormal.x) > 0.8f) {
-                this.velocity.x = 0;
-            } else if (contactNormal.y > 0.8f) {
-                this.velocity.y = -maxVelocity.y;
-                this.jumpTime = 0;
-                this.startJumpTime = 0;
-            }
-        }
+//        if (collidingObject.getComponent(Box2DCollider.class) != null && !this.rb.isSensor() && !collidingObject.compareTag("HighGround")) {
+//            Debug.Log("collider with: " + collidingObject.tag);
+//            if (Math.abs(contactNormal.x) > 0.8f) {
+//                this.velocity.x = 0;
+//            } else if (contactNormal.y > 0.8f) {
+//                this.velocity.y = -maxVelocity.y;
+//                this.jumpTime = 0;
+//                this.startJumpTime = 0;
+//            }
+//        }
     }
 
     @Override
@@ -45,7 +56,6 @@ public class MarioCollision extends MarioMoving {
         if (collidingObject.compareTag("HighGround") || collidingObject.compareTag("Enemy")) {
             float posYP = this.gameObject.transform.position.y - (this.gameObject.transform.scale.y / 2);
             float posYT = collidingObject.transform.position.y + (collidingObject.transform.scale.y / 2);
-            Debug.Log("PosYP: " + posYP + " | PosYT: " + posYT);
             if (hitNormal.y > 0 && posYP < posYT + collisionDebounce) {
                 contact.setEnabled(false);
                 return;

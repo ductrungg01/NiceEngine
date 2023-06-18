@@ -17,18 +17,20 @@ public class MarioMoving extends Component {
     protected transient SpriteRenderer spr;
     protected transient StateMachine stateMachine;
 
-    protected Vector2f maxVelocity = new Vector2f(1.5f, 2.2f);
+    protected Vector2f maxVelocity = new Vector2f(1.8f, 2.2f);
     protected Vector2f acceleration = new Vector2f(5f, 0);
     protected float SLOWDOWN_FORCE = 5f;
     protected Vector2f velocity;
     protected float directionChangeDebounce = 0.2f;
     protected float velocityDebounce = 0.2f;
-    protected float jumpTimeDebounce = 0.45f;
+    protected float jumpTimeDebounce = 0.55f;
+    protected float onGroundTimeDebouce = 0.1f;
     protected float jumpTimeBuffer = 0.32f;
-    protected float maxJumpTime = 0.8f;
-    protected float jumpTime = 0;
-    protected float startJumpTime = 0;
-    protected float directionChangeTime = 0;
+    protected float maxJumpTime = 0.9f;
+    protected static float jumpTime = 0;
+    protected static float startJumpTime = 0;
+    protected static float directionChangeTime = 0;
+    protected static float onGroundTime = 0;
     protected boolean disableJump = false;
     protected boolean isOnGround = false;
     protected boolean isDead = false;
@@ -75,8 +77,14 @@ public class MarioMoving extends Component {
         }
 
         //handle velocity Y
-        isOnGround = Physics2D.checkOnGround(this.gameObject, this.gameObject.transform.scale.x, -0.15f);
-        if (isOnGround) velocity.y = 0;
+        if (Physics2D.checkOnGround(this.gameObject, this.gameObject.transform.scale.x, -0.15f) && !isOnGround) {
+            isOnGround = true;
+            onGroundTime = onGroundTimeDebouce;
+        } else isOnGround = Physics2D.checkOnGround(this.gameObject, this.gameObject.transform.scale.x, -0.15f);
+        if (onGroundTime >= 0 && isOnGround) {
+            onGroundTime -= dt;
+        }
+
         if (KeyListener.keyBeginPress(GLFW.GLFW_KEY_SPACE) && !disableJump && isOnGround) {
             startJumpTime = maxJumpTime;
             jumpTime = jumpTimeDebounce;
@@ -85,11 +93,13 @@ public class MarioMoving extends Component {
             jumpTime -= dt;
             startJumpTime -= dt;
             velocity.y = maxVelocity.y;
+            Debug.Log(jumpTime);
         } else {
             if (!disableJump && startJumpTime > 0) {
                 jumpTime = jumpTimeBuffer;
                 disableJump = true;
             } else {
+                jumpTime = 0;
                 if (!isOnGround) {
                     velocity.y = -maxVelocity.y ;
                 }
@@ -99,10 +109,8 @@ public class MarioMoving extends Component {
             disableJump = true;
             startJumpTime = jumpTime;
         }
-        if (isOnGround) {
+        if (isOnGround && onGroundTime <= 0) {
             disableJump = false;
-            jumpTime = 0;
-            startJumpTime = 0;
         }
 
         this.rb.setVelocity(velocity);
@@ -115,6 +123,7 @@ public class MarioMoving extends Component {
 //        Debug.Log(("jumpTime: " + jumpTime));
 //        Debug.Log(("OnGround: " + isOnGround));
 //        Debug.Log(("disableJump: " + disableJump));
+//        Debug.Log(("onGroundTime: " + onGroundTime));
 //        Debug.Log(("startJumpTime: " + startJumpTime));
     }
     void setState() {
@@ -122,7 +131,7 @@ public class MarioMoving extends Component {
             this.gameObject.transform.scale.x *= Math.signum(this.gameObject.transform.scale.x * velocity.x);
         }
 
-        if (!isOnGround) {
+        if (!isOnGround || jumpTime > 0) {
             stateMachine.setCurrentState("Jump");
             return;
         }
