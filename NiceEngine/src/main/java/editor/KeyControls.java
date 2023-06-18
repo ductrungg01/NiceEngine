@@ -2,6 +2,7 @@ package editor;
 
 import components.StateMachine;
 import editor.windows.InspectorWindow;
+import editor.windows.SceneHierarchyWindow;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
@@ -31,6 +32,11 @@ public class KeyControls {
 
         if (KeyListener.isKeyRelease(GLFW.GLFW_KEY_L) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
             EventSystem.notify(null, new Event(EventType.LoadLevel));
+        }
+
+        if (KeyListener.isKeyPressed(GLFW_KEY_ESCAPE)) {
+            Window.getImguiLayer().getInspectorWindow().clearSelected();
+            SceneHierarchyWindow.clearSelectedGameObject();
         }
 
         InspectorWindow inspectorWindow = Window.getImguiLayer().getInspectorWindow();
