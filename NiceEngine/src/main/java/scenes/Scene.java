@@ -106,6 +106,10 @@ public class Scene {
         }
     }
 
+    public void removeAllGameObjectInScene() {
+        this.gameObjects.clear();
+    }
+
     public void destroy() {
         for (GameObject go : gameObjects) {
             go.destroy();
