@@ -120,6 +120,7 @@ public abstract class Component {
                     NiceImGui.colorPicker4(name, val);
                 } else if (type.isEnum()) {
                     String[] enumValues = getEnumValues(type);
+                    if (value == null) value = type.getEnumConstants()[0];
                     String enumType = ((Enum) value).name();
                     ImInt index = new ImInt(indexOf(enumType, enumValues));
                     if (ImGui.combo(name, index, enumValues, enumValues.length)) {
