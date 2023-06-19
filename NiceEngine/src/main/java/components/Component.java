@@ -3,12 +3,14 @@ package components;
 import editor.ReferenceType;
 import editor.NiceImGui;
 import imgui.ImGui;
+import imgui.flag.ImGuiComboFlags;
 import imgui.type.ImInt;
 import system.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
+import util.AssetPool;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -123,6 +125,7 @@ public abstract class Component {
                     if (value == null) value = type.getEnumConstants()[0];
                     String enumType = ((Enum) value).name();
                     ImInt index = new ImInt(indexOf(enumType, enumValues));
+
                     if (ImGui.combo(name, index, enumValues, enumValues.length)) {
                         field.set(this, type.getEnumConstants()[index.get()]);
                     }
@@ -140,10 +143,19 @@ public abstract class Component {
                     strArray = text.split(",");
                     field.set(this, strArray);
                 } else if (type == Sprite.class) {
+                    if (((Sprite) value).getTexId() == -1) {
+                        String texturePath = ((Sprite) value).getTexture().getFilePath();
+                        ((Sprite) value).setTexture(AssetPool.getTexture(texturePath));
+                    }
+
                     field.set(this, NiceImGui.ReferenceButton(name,
                             ReferenceType.SPRITE,
                             value,
                             "Sprite" + name + gameObject.hashCode()));
+                    if (value != null) {
+                        ImGui.sameLine();
+                        NiceImGui.showImage((Sprite) value, new Vector2f(25, 25), true, "Value of " + name, true, new Vector2f(300, 300), false);
+                    }
                 }
 
                 if (!isPublic) {
