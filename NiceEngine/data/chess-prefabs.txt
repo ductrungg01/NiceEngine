@@ -1,8 +1,8 @@
 [
   {
-    "uid": 199,
+    "uid": 97,
     "name": "table-1",
-    "tag": "",
+    "tag": "Square",
     "isPrefab": true,
     "prefabId": "WSasVJfuj0",
     "parentId": "",
@@ -67,15 +67,22 @@
         "properties": {
           "uid": 73
         }
+      },
+      {
+        "type": "components.DemoChess.SquareInfor",
+        "properties": {
+          "row": 0,
+          "uid": 94
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 200,
+    "uid": 98,
     "name": "table-2",
-    "tag": "",
+    "tag": "Square",
     "isPrefab": true,
     "prefabId": "j9XfNiODjV",
     "parentId": "",
@@ -139,6 +146,13 @@
         "type": "components.DemoChess.ChangeColorWhenHover",
         "properties": {
           "uid": 72
+        }
+      },
+      {
+        "type": "components.DemoChess.SquareInfor",
+        "properties": {
+          "row": 0,
+          "uid": 93
         }
       }
     ],
