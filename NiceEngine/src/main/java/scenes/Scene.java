@@ -122,6 +122,30 @@ public class Scene {
         return null;
     }
 
+    public <T extends Component> List<GameObject> findAllGameObjectWith(Class<T> clazz) {
+        List<GameObject> gameObjectList = new ArrayList<>();
+
+        for (GameObject go : gameObjects) {
+            if (go.getComponent(clazz) != null) {
+                gameObjectList.add(go);
+            }
+        }
+
+        return gameObjectList;
+    }
+
+    public List<GameObject> findAllGameObjectWithTag(String tag) {
+        List<GameObject> gameObjectList = new ArrayList<>();
+
+        for (GameObject go : this.gameObjects) {
+            if (go.compareTag(tag)) {
+                gameObjectList.add(go);
+            }
+        }
+
+        return gameObjectList;
+    }
+
     public void editorUpdate(float dt) {
         this.camera.adjustProjection();
         mouseControls.editorUpdate(dt);
