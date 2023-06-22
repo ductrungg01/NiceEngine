@@ -6,6 +6,7 @@ import system.Transform;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import renderer.Texture;
+import util.AssetPool;
 
 public class SpriteRenderer extends Component implements INonAddableComponent {
     //region Fields
@@ -84,6 +85,10 @@ public class SpriteRenderer extends Component implements INonAddableComponent {
     }
 
     public void setSprite(Sprite sprite) {
+        if (sprite.getTexId() == -1) {
+            sprite.setTexture(AssetPool.getTexture(sprite.getTexture().getFilePath()));
+        }
+
         this.sprite = sprite;
         this.isDirty = true;
     }
