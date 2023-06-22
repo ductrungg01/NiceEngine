@@ -8,12 +8,10 @@ import system.MouseListener;
 
 import static editor.uihelper.NiceShortCall.COLOR_Green;
 
-public class ChangeColorWhenHover extends Component {
+public class Square extends Component {
 
     private transient Vector4f originalColor;
     private transient SpriteRenderer spr;
-
-    public transient boolean isHighlight = false;
 
     @Override
     public void start() {
@@ -33,10 +31,8 @@ public class ChangeColorWhenHover extends Component {
 
         if (mousePos.x >= start.x && mousePos.x <= end.x && mousePos.y >= start.y && mousePos.y <= end.y) {
             this.spr.setColor(COLOR_Green);
-            isHighlight = true;
         } else {
             this.spr.setColor(originalColor);
-            isHighlight = false;
         }
     }
 }
