@@ -374,7 +374,8 @@ public class Window implements Observer {
                 Window.getScene().camera().position = oldEditorCameraPos;
                 break;
             case SaveLevel:
-                currentScene.save(true);
+                if (!this.runtimePlaying)
+                    currentScene.save(true);
             case LoadLevel:
                 Window.changeScene(new EditorSceneInitializer());
                 break;
