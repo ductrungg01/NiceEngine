@@ -161,7 +161,7 @@ public class AnimationState implements INonAddableComponent {
         if (currentSprite < animationFrames.size()) {
             return animationFrames.get(currentSprite).sprite;
         }
-        return defaultSprite;
+        return null;
     }
     //endregion
 }
