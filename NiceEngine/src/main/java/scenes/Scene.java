@@ -235,9 +235,9 @@ public class Scene {
         return go;
     }
 
-    final String LEVEL_PATH = "data/chess-level.txt";
-    final String PREFAB_PATH = "data/chess-prefabs.txt";
-    final String SPRITESHEET_PATH = "data/chess-spritesheet.txt";
+    final String LEVEL_PATH = "data/pvz-level.txt";
+    final String PREFAB_PATH = "data/pvz-prefabs.txt";
+    final String SPRITESHEET_PATH = "data/pvz-spritesheet.txt";
 
     public void save(boolean isShowMessage) {
         //region Save Game Object
