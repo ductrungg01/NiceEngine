@@ -1,6 +1,6 @@
 [
   {
-    "uid": 28,
+    "uid": 10,
     "name": "PeeShooter",
     "tag": "",
     "isPrefab": false,
@@ -12,7 +12,7 @@
         "properties": {
           "position": {
             "x": 3.125,
-            "y": 1.375
+            "y": 2.125
           },
           "scale": {
             "x": 1.25,
@@ -42,19 +42,19 @@
             },
             "texCoords": [
               {
-                "x": 0.1,
+                "x": 0.2,
                 "y": 0.0
               },
               {
+                "x": 0.2,
+                "y": 0.5
+              },
+              {
                 "x": 0.1,
                 "y": 0.5
               },
               {
-                "x": 0.0,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
+                "x": 0.1,
                 "y": 0.0
               }
             ]
@@ -599,7 +599,7 @@
     "isDead": false
   },
   {
-    "uid": 29,
+    "uid": 11,
     "name": "Zombie",
     "tag": "",
     "isPrefab": false,
@@ -611,7 +611,7 @@
         "properties": {
           "position": {
             "x": 1.625,
-            "y": 1.425
+            "y": 2.175
           },
           "scale": {
             "x": 1.85,
@@ -641,20 +641,20 @@
             },
             "texCoords": [
               {
-                "x": 0.1,
+                "x": 0.7,
+                "y": 0.0
+              },
+              {
+                "x": 0.7,
                 "y": 0.25
               },
               {
-                "x": 0.1,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
+                "x": 0.6,
                 "y": 0.25
+              },
+              {
+                "x": 0.6,
+                "y": 0.0
               }
             ]
           },
@@ -2434,7 +2434,7 @@
     "isDead": false
   },
   {
-    "uid": 30,
+    "uid": 12,
     "name": "SunFlower",
     "tag": "",
     "isPrefab": false,
@@ -2446,7 +2446,7 @@
         "properties": {
           "position": {
             "x": 4.375,
-            "y": 1.3000003
+            "y": 2.0500002
           },
           "scale": {
             "x": 1.0,
@@ -2476,20 +2476,20 @@
             },
             "texCoords": [
               {
-                "x": 0.3,
+                "x": 0.9,
+                "y": 0.0
+              },
+              {
+                "x": 0.9,
                 "y": 0.5
               },
               {
-                "x": 0.3,
-                "y": 1.0
-              },
-              {
-                "x": 0.2,
-                "y": 1.0
-              },
-              {
-                "x": 0.2,
+                "x": 0.8,
                 "y": 0.5
+              },
+              {
+                "x": 0.8,
+                "y": 0.0
               }
             ]
           },
@@ -3110,6 +3110,365 @@
           ],
           "defaultStateTitle": "Idle",
           "uid": 104
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 13,
+    "name": "PotatoMine.png(0)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.875,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 124
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 256.0,
+            "height": 256.0,
+            "texture": {
+              "filePath": "assets/images/UnarmedPotatoMine.png",
+              "width": 256,
+              "height": 256
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 125
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Unarmed",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 256.0,
+                    "height": 256.0,
+                    "texture": {
+                      "filePath": "assets/images/UnarmedPotatoMine.png",
+                      "width": 256,
+                      "height": 256
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "Armed",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.125,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.125,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.125,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.125,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.375,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.375,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.375,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.375,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.625,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.625,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.625,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.625,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.875,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.875,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.875,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.875,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Unarmed",
+          "uid": 127
         }
       }
     ],

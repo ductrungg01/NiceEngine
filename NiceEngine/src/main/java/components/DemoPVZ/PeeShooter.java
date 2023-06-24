@@ -8,7 +8,6 @@ public class PeeShooter extends Component {
 
     @Override
     public void start() {
-//        stateMachine = this.gameObject.getComponent(StateMachine.class);
-//        stateMachine.setCurrentState("Shoot");
+
     }
 }
