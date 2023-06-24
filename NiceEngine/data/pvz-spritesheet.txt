@@ -1,1 +1,4 @@
-assets/images/spritesheets/PeeShooter.png|250|239|60|0|0
+assets/images/spritesheets/Zombie-Move.png|91|127|34|0|0
+assets/images/spritesheets/Zombie-Eat.png|95|124|14|0|0
+assets/images/spritesheets/PeeShooter.png|250|239|15|0|0
+assets/images/spritesheets/Zombie-Dead.png|144|99|10|0|0
