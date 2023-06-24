@@ -1,6 +1,7 @@
 package system;
 
 import components.*;
+import editor.Debug;
 import org.joml.Vector2f;
 import util.AssetPool;
 import util.Settings;
@@ -34,5 +35,27 @@ public class Prefabs {
 
         Vector2f size = new Vector2f(spr.getWidth() * offset, spr.getHeight() * offset);
         return generateSpriteObject(spr, size.x, size.y, name);
+    }
+
+    public static GameObject getPrefab(String name) {
+        for (GameObject prefab : GameObject.PrefabLists) {
+            if (prefab.name.equals(name)) {
+                return prefab;
+            }
+        }
+
+        System.out.println("Cannot find prefab '" + name + "'");
+        Debug.Log("Cannot find prefab '" + name + "'");
+        return null;
+    }
+
+    public static GameObject createChildFrom(String prefabName) {
+        GameObject prefab = getPrefab(prefabName);
+
+        if (prefab == null) return null;
+
+        GameObject newGo = prefab.generateChildGameObject();
+
+        return newGo;
     }
 }
