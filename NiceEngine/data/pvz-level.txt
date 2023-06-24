@@ -1,6 +1,6 @@
 [
   {
-    "uid": 0,
+    "uid": 28,
     "name": "PeeShooter",
     "tag": "",
     "isPrefab": false,
@@ -599,7 +599,7 @@
     "isDead": false
   },
   {
-    "uid": 1,
+    "uid": 29,
     "name": "Zombie",
     "tag": "",
     "isPrefab": false,
@@ -641,19 +641,19 @@
             },
             "texCoords": [
               {
-                "x": 0.7,
+                "x": 0.1,
                 "y": 0.25
               },
               {
-                "x": 0.7,
+                "x": 0.1,
                 "y": 0.5
               },
               {
-                "x": 0.6,
+                "x": 0.0,
                 "y": 0.5
               },
               {
-                "x": 0.6,
+                "x": 0.0,
                 "y": 0.25
               }
             ]
@@ -2427,6 +2427,689 @@
           ],
           "defaultStateTitle": "Move",
           "uid": 81
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 30,
+    "name": "SunFlower",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.375,
+            "y": 1.3000003
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.1
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 101
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 203.0,
+            "height": 219.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/SunFlower.png",
+              "width": 2030,
+              "height": 438
+            },
+            "texCoords": [
+              {
+                "x": 0.3,
+                "y": 0.5
+              },
+              {
+                "x": 0.3,
+                "y": 1.0
+              },
+              {
+                "x": 0.2,
+                "y": 1.0
+              },
+              {
+                "x": 0.2,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 102
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Idle",
+          "uid": 104
         }
       }
     ],
