@@ -30,7 +30,8 @@ public class FileUtils {
         SOUND,
         GAME_OBJECT,
         REMOVE,
-        ADD
+        ADD,
+        DEMO
     }
 
     public final static Map<ICON_NAME, String> icons = new HashMap<>() {
@@ -44,6 +45,7 @@ public class FileUtils {
             put(ICON_NAME.GAME_OBJECT, "system-assets/images/gameobject-icon.png");
             put(ICON_NAME.REMOVE, "system-assets/images/remove-icon.png");
             put(ICON_NAME.ADD, "system-assets/images/add-icon.png");
+            put(ICON_NAME.DEMO, "system-assets/images/demo-icon.png");
         }
     };
 
