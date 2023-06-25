@@ -1,5 +1,5 @@
 assets/images/spritesheets/coin.png|16|16|4|0|0
-assets/images/spritesheets/mario-big.png|16|26|4|0|0
+assets/images/spritesheets/mario-big.png|16|28|5|0|0
 assets/images/spritesheets/map.png|16|16|77|0|0
 assets/images/spritesheets/animation-block.png|16|16|9|1|1
 assets/images/spritesheets/flower.png|16|30|16|0|0
