@@ -76,6 +76,16 @@ public class AssetPool {
 
         return sounds.get(filePath);
     }
+
+    public static Sound getLoopSound(String soundFile) {
+        File file = new File(soundFile);
+        String filePath = file.getPath().replace("\\", "/");
+        if (!sounds.containsKey(filePath)) {
+            addSound(soundFile, true);
+        }
+
+        return sounds.get(filePath);
+    }
     //endregion
 
     //region Methods
