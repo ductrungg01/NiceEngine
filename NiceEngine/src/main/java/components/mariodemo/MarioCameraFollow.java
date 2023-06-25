@@ -19,9 +19,12 @@ public class MarioCameraFollow extends Component {
     private transient float skyYLevel = 0.0f;
     private transient float cameraBuffer = 1.5f;
     private transient float playerBuffer = 0.25f;
+    private transient boolean changeClearCol = false;
 
     private Vector4f skyColor = COLOR_NiceBlue;
     private Vector4f undergroundColor = COLOR_Black;
+    private float endLevelXPosition = 35;
+    private float cameraFrameHeight = 0.8f;
     //endregion
 
     //region Constructors
@@ -49,13 +52,6 @@ public class MarioCameraFollow extends Component {
                 this.camera.getProjectionSize().y - this.cameraBuffer;
     }
 
-    /**
-     * Update is called once per frame
-     *
-     * @param dt : The interval in seconds from the last frame to the current one
-     */
-
-    boolean changeClearCol = false;
     @Override
     public void update(float dt) {
         if (!changeClearCol){
@@ -65,17 +61,11 @@ public class MarioCameraFollow extends Component {
 
         if (player != null && player.getComponent(MarioMoving.class) != null) {
             camera.position.x = player.transform.position.x - 2.5f;
+            camera.position.x = Math.max(camera.position.x, -3f);
+            camera.position.x = Math.min(camera.position.x, endLevelXPosition);
 
-            if (player.transform.position.y < -playerBuffer) {
-                this.camera.position.y = undergroundYLevel;
-                this.camera.clearColor.set(undergroundColor);
-            } else if (player.transform.position.y >= 0.0f && this.player.transform.position.y < skyYLevel + playerBuffer) {
-                this.camera.position.y = 0.0f;
-                this.camera.clearColor.set(skyColor);
-            } else if (player.transform.position.y > skyYLevel + playerBuffer) {
-                this.camera.position.y = skyYLevel;
-                this.camera.clearColor.set(skyColor);
-            }
+            camera.position.y = player.transform.position.y - (camera.getProjectionSize().y * cameraFrameHeight);
+            camera.position.y = Math.max(0, camera.position.y);
         }
     }
     //endregion
