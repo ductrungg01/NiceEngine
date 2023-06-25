@@ -16,6 +16,10 @@ import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import physics2d.components.Box2DCollider;
+import physics2d.components.Capsule2DCollider;
+import physics2d.components.CircleCollider;
+import physics2d.components.RigidBody2D;
 import util.AssetPool;
 import util.FileUtils;
 
@@ -128,6 +132,9 @@ public class GameObject {
             }
         }
 
+        JOptionPane.showMessageDialog(null, "Override the prefab successful!",
+                "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+
         Debug.Log("Cannot find the prefab!");
     }
 
@@ -220,13 +227,13 @@ public class GameObject {
         for (int i = 0; i < components.size(); i++) {
             Component c = components.get(i);
 
-            if (c instanceof Transform) {
+            if (c instanceof Transform || c instanceof SpriteRenderer) {
                 // Because Transform is cannot be removed!!!
-                if (ImGui.collapsingHeader("Transform")) {
+                if (ImGui.collapsingHeader(c.getClass().getSimpleName())) {
                     c.imgui();
                 }
 
-                if (this.isPrefab) {
+                if (this.isPrefab && c instanceof Transform) {
                     ((Transform) c).position = new Vector2f();  // Prefab's position is always (0,0)
                 }
             } else {
@@ -237,13 +244,18 @@ public class GameObject {
                 }
 
                 if (!removeComponentButton.get()) {
-                    int response = JOptionPane.showConfirmDialog(null,
-                            "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
-                            "REMOVE COMPONENT",
-                            JOptionPane.YES_NO_OPTION);
-                    if (response == JOptionPane.YES_OPTION) {
-                        components.remove(i);
-                        i--;
+                    if (c instanceof RigidBody2D && (this.getComponent(Box2DCollider.class) != null || this.getComponent(CircleCollider.class) != null || this.getComponent(Capsule2DCollider.class) != null)) {
+                        JOptionPane.showMessageDialog(null, "You need remove all Collider first!",
+                                "ERROR", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        int response = JOptionPane.showConfirmDialog(null,
+                                "Remove component '" + c.getClass().getSimpleName() + "' from game object '" + this.name + "'?",
+                                "REMOVE COMPONENT",
+                                JOptionPane.YES_NO_OPTION);
+                        if (response == JOptionPane.YES_OPTION) {
+                            components.remove(i);
+                            i--;
+                        }
                     }
                 }
             }
@@ -370,13 +382,18 @@ public class GameObject {
             GameObject go = gameObjects.get(i);
             if (go.parentId.equals(this.prefabId)) {
                 Vector2f oldPosition = go.transform.position;
+                String oldName = go.name;
 
                 go.destroy();
                 GameObject newGameObject = this.copyFromPrefab();
                 newGameObject.transform.position = oldPosition;
+                newGameObject.name = oldName;
                 Window.getScene().addGameObjectToScene(newGameObject);
             }
         }
+
+        JOptionPane.showMessageDialog(null, "Override all children successful!",
+                "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void generatePrefabId() {

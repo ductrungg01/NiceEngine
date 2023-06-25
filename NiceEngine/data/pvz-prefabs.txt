@@ -1,0 +1,3478 @@
+[
+  {
+    "uid": 1,
+    "name": "PotatoMine",
+    "tag": "",
+    "isPrefab": true,
+    "prefabId": "NbA0zmcuxW",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 124
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 256.0,
+            "height": 256.0,
+            "texture": {
+              "filePath": "assets/images/UnarmedPotatoMine.png",
+              "width": 256,
+              "height": 256
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 125
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Unarmed",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 256.0,
+                    "height": 256.0,
+                    "texture": {
+                      "filePath": "assets/images/UnarmedPotatoMine.png",
+                      "width": 256,
+                      "height": 256
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "Armed",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.125,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.125,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.125,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.125,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.375,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.375,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.375,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.375,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.625,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.625,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.625,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.625,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.875,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.875,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 250.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PotatoMine.png",
+                      "width": 2000,
+                      "height": 250
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.875,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.875,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Unarmed",
+          "uid": 127
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 2,
+    "name": "Zombie",
+    "tag": "",
+    "isPrefab": true,
+    "prefabId": "ETSRCKY9pW",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.85,
+            "y": 1.396
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 60
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 91.0,
+            "height": 127.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Zombie-Move.png",
+              "width": 910,
+              "height": 508
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.25
+              },
+              {
+                "x": 1.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.9,
+                "y": 0.5
+              },
+              {
+                "x": 0.9,
+                "y": 0.25
+              }
+            ]
+          },
+          "uid": 61
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Move",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.75
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.75
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.75
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Eat",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Dead",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Move",
+          "uid": 81
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 3,
+    "name": "PeeShooter",
+    "tag": "",
+    "isPrefab": true,
+    "prefabId": "jJPHkRS62J",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.25,
+            "y": 1.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 250.0,
+            "height": 239.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/PeeShooter.png",
+              "width": 2500,
+              "height": 478
+            },
+            "texCoords": [
+              {
+                "x": 0.1,
+                "y": 0.0
+              },
+              {
+                "x": 0.1,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.5
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.5
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Shoot",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Idle",
+          "uid": 40
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 4,
+    "name": "SunFlower",
+    "tag": "",
+    "isPrefab": true,
+    "prefabId": "a9Y1BuL5KN",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 1.0,
+            "y": 1.1
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 101
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 203.0,
+            "height": 219.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/SunFlower.png",
+              "width": 2030,
+              "height": 438
+            },
+            "texCoords": [
+              {
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 1.0
+              },
+              {
+                "x": 0.4,
+                "y": 1.0
+              },
+              {
+                "x": 0.4,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 102
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 203.0,
+                    "height": 219.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/SunFlower.png",
+                      "width": 2030,
+                      "height": 438
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Idle",
+          "uid": 104
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

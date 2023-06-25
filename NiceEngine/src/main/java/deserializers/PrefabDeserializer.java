@@ -22,7 +22,9 @@ public class PrefabDeserializer implements JsonDeserializer<GameObject> {
             GameObject go = new GameObject(name, prefabId);
             for (JsonElement e : components) {
                 Component c = context.deserialize(e, Component.class);
-                go.addComponent(c);
+                if (c != null) {
+                    go.addComponent(c);
+                }
             }
             go.transform = go.getComponent(Transform.class);
             go.tag = tag;

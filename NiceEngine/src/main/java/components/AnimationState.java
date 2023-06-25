@@ -151,7 +151,8 @@ public class AnimationState implements INonAddableComponent {
             }
         }
 
-        if (ImGui.button("Change to this state")) {
+        ImGui.sameLine();
+        if (NiceImGui.imageButton(FileUtils.getIcon(FileUtils.ICON_NAME.DEMO), new Vector2f(50, 50), "[DEMO ONLY]\nDemo this animation state in the GameView window!")) {
             stateMachine.setCurrentState(this.title);
         }
 
@@ -165,7 +166,7 @@ public class AnimationState implements INonAddableComponent {
         if (currentSprite < animationFrames.size()) {
             return animationFrames.get(currentSprite).sprite;
         }
-        return defaultSprite;
+        return null;
     }
     //endregion
 }

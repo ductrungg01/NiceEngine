@@ -365,6 +365,7 @@ public class Window implements Observer {
                 oldEditorCameraPos = Window.getScene().camera().position;
                 this.runtimePlaying = true;
                 currentScene.save(false);
+                currentScene.removeAllGameObjectInScene();
                 Window.changeScene(new GamePlayingSceneInitializer());
                 break;
             case GameEngineStopPlay:
@@ -373,7 +374,8 @@ public class Window implements Observer {
                 Window.getScene().camera().position = oldEditorCameraPos;
                 break;
             case SaveLevel:
-                currentScene.save(true);
+                if (!this.runtimePlaying)
+                    currentScene.save(true);
             case LoadLevel:
                 Window.changeScene(new EditorSceneInitializer());
                 break;

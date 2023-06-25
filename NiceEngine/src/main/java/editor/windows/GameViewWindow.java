@@ -3,24 +3,29 @@ package editor.windows;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiWindowFlags;
-import system.MouseListener;
-import system.Window;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
 import org.joml.Vector2f;
+import system.MouseListener;
+import system.Window;
 import util.Settings;
 import util.Time;
 
 public class GameViewWindow {
+    public static boolean isPlaying = false;
+    private static GameViewWindow instance = null;
     //region Singleton
     private final float diffScreenX = 10.0f;
     private final float diffScreenY = -20.0f;
+    public float debounceTimeToCapture = 0;
+
+    //endregion
+    //region Fields
+    private float leftX, rightX, topY, bottomY;
 
     private GameViewWindow() {
     }
-
-    private static GameViewWindow instance = null;
 
     public static GameViewWindow getInstance() {
         if (instance == null) {
@@ -29,15 +34,6 @@ public class GameViewWindow {
 
         return instance;
     }
-
-    //endregion
-
-
-    //region Fields
-    private float leftX, rightX, topY, bottomY;
-    private boolean isPlaying = false;
-
-    public float debounceTimeToCapture = 0;
     //endregion
 
     //region Methods
@@ -52,11 +48,9 @@ public class GameViewWindow {
 
         ImGui.beginMenuBar();
         if (ImGui.menuItem("Play", "", isPlaying, !isPlaying)) {
-            isPlaying = true;
             EventSystem.notify(null, new Event(EventType.GameEngineStartPlay));
         }
         if (ImGui.menuItem("Stop", "", !isPlaying, isPlaying)) {
-            isPlaying = false;
             EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
         }
         ImGui.endMenuBar();

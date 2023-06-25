@@ -2,11 +2,14 @@ package physics2d.components;
 
 import components.Component;
 import imgui.ImGui;
+import system.Window;
 
 public class Capsule2DCollider extends Component {
     private CircleCollider topCircle = new CircleCollider();
     private Box2DCollider box2DCollider = new Box2DCollider();
     private CircleCollider bottomCircle = new CircleCollider();
+    private transient boolean resetFixtureNextFrame = false;
+
 
     @Override
     public void start() {
@@ -20,6 +23,17 @@ public class Capsule2DCollider extends Component {
         bottomCircle.editorUpdate(dt);
         box2DCollider.editorUpdate(dt);
         topCircle.editorUpdate(dt);
+
+        if (resetFixtureNextFrame){
+            resetFixture();
+        }
+    }
+
+    @Override
+    public void update(float dt) {
+        if (resetFixtureNextFrame){
+            resetFixture();
+        }
     }
 
     @Override
@@ -44,5 +58,36 @@ public class Capsule2DCollider extends Component {
 
     public CircleCollider getBottomCircle() {
         return this.bottomCircle;
+    }
+
+    public void setTopCircle(CircleCollider topCircle) {
+        this.topCircle = topCircle;
+        resetFixture();
+    }
+
+    public void setBox2DCollider(Box2DCollider box2DCollider) {
+        this.box2DCollider = box2DCollider;
+        resetFixture();
+    }
+
+    public void setBottomCircle(CircleCollider bottomCircle) {
+        this.bottomCircle = bottomCircle;
+        resetFixture();
+    }
+
+    public void resetFixture(){
+        if (Window.getPhysics().isLocked()){
+            resetFixtureNextFrame = true;
+            return;
+        }
+
+        resetFixtureNextFrame = false;
+
+        if (gameObject != null){
+            RigidBody2D rb = gameObject.getComponent(RigidBody2D.class);
+            if (rb != null){
+                Window.getPhysics().resetCapsule2dCollider(rb, this);
+            }
+        }
     }
 }
