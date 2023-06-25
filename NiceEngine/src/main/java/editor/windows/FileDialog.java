@@ -18,6 +18,7 @@ import system.GameObject;
 import system.Window;
 import util.AssetPool;
 import util.FileUtils;
+import util.Settings;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -184,6 +185,11 @@ public class FileDialog {
                             }
 
                             if (ImGui.isItemHovered()) {
+                                ImGui.beginTooltip();
+                                Vector4f textColor = Settings.NAME_COLOR;
+                                ImGui.textColored(textColor.x, textColor.y, textColor.z, textColor.w, "spritesheetName \nIndex: " + i);
+                                ImGui.text("Double-click to select this sprite!");
+                                ImGui.endTooltip();
                                 if (ImGui.isMouseDoubleClicked(GLFW_MOUSE_BUTTON_LEFT)) {
                                     spriteChosen = spr;
                                 }

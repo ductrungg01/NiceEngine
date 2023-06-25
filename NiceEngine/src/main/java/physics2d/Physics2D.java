@@ -159,6 +159,19 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
+    public void resetCapsule2dCollider(RigidBody2D rb, Capsule2DCollider cd){
+        Body body = rb.getRawBody();
+        if (body == null) return;
+
+        int size = fixtureListSize(body);
+        for (int i = 0; i < size; i++){
+            body.destroyFixture(body.getFixtureList());
+        }
+
+        addCapsule2dCollider(rb, cd);
+        body.resetMassData();
+    }
+
     public void addCapsule2dCollider(RigidBody2D rb, Capsule2DCollider cc) {
         Body body = rb.getRawBody();
         assert body != null : "Raw body must not be null";

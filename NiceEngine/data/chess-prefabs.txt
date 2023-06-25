@@ -1,0 +1,1332 @@
+[
+  {
+    "uid": 129,
+    "name": "table-1",
+    "tag": "Square",
+    "isPrefab": true,
+    "prefabId": "WSasVJfuj0",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": -1,
+          "uid": 25
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/table-1.png",
+              "width": 16,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 26
+        }
+      },
+      {
+        "type": "components.DemoChess.Square",
+        "properties": {
+          "uid": 73
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 446
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 130,
+    "name": "table-2",
+    "tag": "Square",
+    "isPrefab": true,
+    "prefabId": "j9XfNiODjV",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": -2,
+          "uid": 28
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/table-2.png",
+              "width": 16,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 29
+        }
+      },
+      {
+        "type": "components.DemoChess.Square",
+        "properties": {
+          "uid": 72
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 445
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 131,
+    "name": "Pawn - white",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "3jAQSXdj9E",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 309
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.8318891,
+                "y": 0.0
+              },
+              {
+                "x": 0.8318891,
+                "y": 1.0
+              },
+              {
+                "x": 0.7487002,
+                "y": 1.0
+              },
+              {
+                "x": 0.7487002,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 310
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "WHITE",
+          "type": "PAWN",
+          "uid": 318
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R2",
+          "uid": 369
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfPawn",
+        "properties": {
+          "queenSpr": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.7487002,
+                "y": 0.0
+              },
+              {
+                "x": 0.7487002,
+                "y": 1.0
+              },
+              {
+                "x": 0.66551125,
+                "y": 1.0
+              },
+              {
+                "x": 0.66551125,
+                "y": 0.0
+              }
+            ]
+          },
+          "canMoveList": [
+            {
+              "column": "A",
+              "row": "R3",
+              "uid": -1
+            }
+          ],
+          "uid": 746
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 132,
+    "name": "Queen - white",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "KL1Dj7bbln",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 315
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.7487002,
+                "y": 0.0
+              },
+              {
+                "x": 0.7487002,
+                "y": 1.0
+              },
+              {
+                "x": 0.66551125,
+                "y": 1.0
+              },
+              {
+                "x": 0.66551125,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 316
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "WHITE",
+          "type": "QUEEN",
+          "uid": 320
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 368
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfQueen",
+        "properties": {
+          "canMoveList": [],
+          "uid": 896
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 133,
+    "name": "King - white",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "1TM8p4e1ri",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 306
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.24956672,
+                "y": 0.0
+              },
+              {
+                "x": 0.24956672,
+                "y": 1.0
+              },
+              {
+                "x": 0.16637781,
+                "y": 1.0
+              },
+              {
+                "x": 0.16637781,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 307
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "WHITE",
+          "type": "KING",
+          "uid": 340
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 367
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfKing",
+        "properties": {
+          "canMoveList": [],
+          "uid": 898
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 134,
+    "name": "Bishop - white",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "bdia8OjFJJ",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 300
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.16637781,
+                "y": 0.0
+              },
+              {
+                "x": 0.16637781,
+                "y": 1.0
+              },
+              {
+                "x": 0.08318891,
+                "y": 1.0
+              },
+              {
+                "x": 0.08318891,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 301
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "WHITE",
+          "type": "BISHOP",
+          "uid": 341
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 366
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfBishop",
+        "properties": {
+          "canMoveList": [],
+          "uid": 1047
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 135,
+    "name": "Knight - white",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "D66p1arvHU",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 312
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.9982669,
+                "y": 0.0
+              },
+              {
+                "x": 0.9982669,
+                "y": 1.0
+              },
+              {
+                "x": 0.915078,
+                "y": 1.0
+              },
+              {
+                "x": 0.915078,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 313
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "WHITE",
+          "type": "KNIGHT",
+          "uid": 342
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 365
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfKnight",
+        "properties": {
+          "canMoveList": [
+            {
+              "column": "B",
+              "row": "R3",
+              "uid": -1
+            }
+          ],
+          "uid": 1048
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 136,
+    "name": "Rook - white",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "BgUWVcnvx2",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 303
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.41594455,
+                "y": 0.0
+              },
+              {
+                "x": 0.41594455,
+                "y": 1.0
+              },
+              {
+                "x": 0.33275563,
+                "y": 1.0
+              },
+              {
+                "x": 0.33275563,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 304
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "WHITE",
+          "type": "ROOK",
+          "uid": 344
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R1",
+          "uid": 364
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfRook",
+        "properties": {
+          "canMoveList": [],
+          "uid": 1049
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 137,
+    "name": "Pawn - Black",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "GjpytsiWZb",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 389
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.49913344,
+                "y": 0.0
+              },
+              {
+                "x": 0.49913344,
+                "y": 1.0
+              },
+              {
+                "x": 0.41594455,
+                "y": 1.0
+              },
+              {
+                "x": 0.41594455,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 390
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "BLACK",
+          "type": "PAWN",
+          "uid": 392
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R7",
+          "uid": 393
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfPawn",
+        "properties": {
+          "queenSpr": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.915078,
+                "y": 0.0
+              },
+              {
+                "x": 0.915078,
+                "y": 1.0
+              },
+              {
+                "x": 0.8318891,
+                "y": 1.0
+              },
+              {
+                "x": 0.8318891,
+                "y": 0.0
+              }
+            ]
+          },
+          "canMoveList": [
+            {
+              "column": "A",
+              "row": "R6",
+              "uid": -1
+            },
+            {
+              "column": "A",
+              "row": "R5",
+              "uid": -1
+            }
+          ],
+          "uid": 1050
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 138,
+    "name": "Rook - Black",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "DBChUwByPX",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 395
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.58232236,
+                "y": 0.0
+              },
+              {
+                "x": 0.58232236,
+                "y": 1.0
+              },
+              {
+                "x": 0.49913344,
+                "y": 1.0
+              },
+              {
+                "x": 0.49913344,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 396
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "BLACK",
+          "type": "ROOK",
+          "uid": 398
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "A",
+          "row": "R8",
+          "uid": 399
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfRook",
+        "properties": {
+          "canMoveList": [],
+          "uid": 1051
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 139,
+    "name": "Knight - Black",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "Rwo0GzOoLs",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 401
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.66551125,
+                "y": 0.0
+              },
+              {
+                "x": 0.66551125,
+                "y": 1.0
+              },
+              {
+                "x": 0.58232236,
+                "y": 1.0
+              },
+              {
+                "x": 0.58232236,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 402
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "B",
+          "row": "R8",
+          "uid": 404
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "BLACK",
+          "type": "KNIGHT",
+          "uid": 405
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfKnight",
+        "properties": {
+          "canMoveList": [
+            {
+              "column": "C",
+              "row": "R6",
+              "uid": -1
+            },
+            {
+              "column": "A",
+              "row": "R6",
+              "uid": -1
+            }
+          ],
+          "uid": 1052
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 140,
+    "name": "Bishop - Black",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "FCSLE9nMMC",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 410
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.08318891,
+                "y": 0.0
+              },
+              {
+                "x": 0.08318891,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 411
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "C",
+          "row": "R8",
+          "uid": 413
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "BLACK",
+          "type": "BISHOP",
+          "uid": 414
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfBishop",
+        "properties": {
+          "canMoveList": [],
+          "uid": 1053
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 141,
+    "name": "King - White",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "zQ5ydBMG5f",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 416
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.33275563,
+                "y": 0.0
+              },
+              {
+                "x": 0.33275563,
+                "y": 1.0
+              },
+              {
+                "x": 0.24956672,
+                "y": 1.0
+              },
+              {
+                "x": 0.24956672,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 417
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "E",
+          "row": "R8",
+          "uid": 419
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "BLACK",
+          "type": "KING",
+          "uid": 420
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfKing",
+        "properties": {
+          "canMoveList": [],
+          "uid": 1054
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 142,
+    "name": "Queen - Black",
+    "tag": "ChessPiece",
+    "isPrefab": true,
+    "prefabId": "spUH9vob0L",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 421
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 144.0,
+            "height": 144.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/chess.png",
+              "width": 1731,
+              "height": 144
+            },
+            "texCoords": [
+              {
+                "x": 0.915078,
+                "y": 0.0
+              },
+              {
+                "x": 0.915078,
+                "y": 1.0
+              },
+              {
+                "x": 0.8318891,
+                "y": 1.0
+              },
+              {
+                "x": 0.8318891,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 422
+        }
+      },
+      {
+        "type": "components.DemoChess.ChessPosition",
+        "properties": {
+          "column": "D",
+          "row": "R8",
+          "uid": 424
+        }
+      },
+      {
+        "type": "components.DemoChess.Piece",
+        "properties": {
+          "color": "BLACK",
+          "type": "QUEEN",
+          "uid": 425
+        }
+      },
+      {
+        "type": "components.DemoChess.MoveOfQueen",
+        "properties": {
+          "canMoveList": [],
+          "uid": 1203
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

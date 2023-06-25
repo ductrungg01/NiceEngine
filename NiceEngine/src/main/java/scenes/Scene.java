@@ -106,6 +106,10 @@ public class Scene {
         }
     }
 
+    public void removeAllGameObjectInScene() {
+        this.gameObjects.clear();
+    }
+
     public void destroy() {
         for (GameObject go : gameObjects) {
             go.destroy();
@@ -120,6 +124,30 @@ public class Scene {
         }
 
         return null;
+    }
+
+    public <T extends Component> List<GameObject> findAllGameObjectWith(Class<T> clazz) {
+        List<GameObject> gameObjectList = new ArrayList<>();
+
+        for (GameObject go : gameObjects) {
+            if (go.getComponent(clazz) != null) {
+                gameObjectList.add(go);
+            }
+        }
+
+        return gameObjectList;
+    }
+
+    public List<GameObject> findAllGameObjectWithTag(String tag) {
+        List<GameObject> gameObjectList = new ArrayList<>();
+
+        for (GameObject go : this.gameObjects) {
+            if (go.compareTag(tag)) {
+                gameObjectList.add(go);
+            }
+        }
+
+        return gameObjectList;
     }
 
     public void editorUpdate(float dt) {
@@ -207,9 +235,9 @@ public class Scene {
         return go;
     }
 
-    final String LEVEL_PATH = "data/level.txt";
-    final String PREFAB_PATH = "data/prefabs.txt";
-    final String SPRITESHEET_PATH = "data/spritesheet.txt";
+    final String LEVEL_PATH = "data/pvz-level.txt";
+    final String PREFAB_PATH = "data/pvz-prefabs.txt";
+    final String SPRITESHEET_PATH = "data/pvz-spritesheet.txt";
 
     public void save(boolean isShowMessage) {
         //region Save Game Object
