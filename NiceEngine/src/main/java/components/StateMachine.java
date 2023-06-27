@@ -87,6 +87,7 @@ public class StateMachine extends Component {
         for (AnimationState state : states) {
             if (state.title.equals(animationTitle)) {
                 currentState = state;
+                state.replay();
                 return;
             }
         }

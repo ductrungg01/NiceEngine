@@ -31,7 +31,8 @@ public class FileUtils {
         GAME_OBJECT,
         REMOVE,
         ADD,
-        DEMO
+        DEMO,
+        RESTART
     }
 
     public final static Map<ICON_NAME, String> icons = new HashMap<>() {
@@ -46,6 +47,7 @@ public class FileUtils {
             put(ICON_NAME.REMOVE, "system-assets/images/remove-icon.png");
             put(ICON_NAME.ADD, "system-assets/images/add-icon.png");
             put(ICON_NAME.DEMO, "system-assets/images/demo-icon.png");
+            put(ICON_NAME.RESTART, "system-assets/images/restart-icon.png");
         }
     };
 

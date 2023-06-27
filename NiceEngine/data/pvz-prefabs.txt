@@ -1,6 +1,6 @@
 [
   {
-    "uid": 236,
+    "uid": 152,
     "name": "PotatoMine",
     "tag": "Plant",
     "isPrefab": true,
@@ -359,7 +359,7 @@
     "isDead": false
   },
   {
-    "uid": 247,
+    "uid": 163,
     "name": "Zombie",
     "tag": "Enemy",
     "isPrefab": true,
@@ -401,20 +401,20 @@
             },
             "texCoords": [
               {
-                "x": 0.2,
+                "x": 0.7,
+                "y": 0.25
+              },
+              {
+                "x": 0.7,
                 "y": 0.5
               },
               {
-                "x": 0.2,
-                "y": 0.75
-              },
-              {
-                "x": 0.1,
-                "y": 0.75
-              },
-              {
-                "x": 0.1,
+                "x": 0.6,
                 "y": 0.5
+              },
+              {
+                "x": 0.6,
+                "y": 0.25
               }
             ]
           },
@@ -429,96 +429,6 @@
             {
               "title": "Move",
               "animationFrames": [
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.5,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.6,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.7,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
                 {
                   "sprite": {
                     "width": 91.0,
@@ -1270,7 +1180,7 @@
                   "frameTime": 0.2
                 }
               ],
-              "doesLoop": false
+              "doesLoop": true
             },
             {
               "title": "Eat",
@@ -2200,7 +2110,7 @@
     "isDead": false
   },
   {
-    "uid": 238,
+    "uid": 154,
     "name": "PeeShooter",
     "tag": "Plant",
     "isPrefab": true,
@@ -2799,7 +2709,7 @@
     "isDead": false
   },
   {
-    "uid": 239,
+    "uid": 155,
     "name": "SunFlower",
     "tag": "",
     "isPrefab": true,
@@ -3482,7 +3392,7 @@
     "isDead": false
   },
   {
-    "uid": 240,
+    "uid": 156,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": true,

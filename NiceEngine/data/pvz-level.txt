@@ -1,6 +1,6 @@
 [
   {
-    "uid": 165,
+    "uid": 81,
     "name": "pvzMaps",
     "tag": "",
     "isPrefab": false,
@@ -67,7 +67,7 @@
     "isDead": false
   },
   {
-    "uid": 166,
+    "uid": 82,
     "name": "SelectBar",
     "tag": "",
     "isPrefab": false,
@@ -134,7 +134,7 @@
     "isDead": false
   },
   {
-    "uid": 167,
+    "uid": 83,
     "name": "Card - SunFlower",
     "tag": "Card",
     "isPrefab": false,
@@ -289,7 +289,7 @@
     "isDead": false
   },
   {
-    "uid": 168,
+    "uid": 84,
     "name": "CardManager",
     "tag": "Manager",
     "isPrefab": false,
@@ -362,7 +362,7 @@
     "isDead": false
   },
   {
-    "uid": 169,
+    "uid": 85,
     "name": "Card - PeeShooter",
     "tag": "Card",
     "isPrefab": false,
@@ -517,7 +517,7 @@
     "isDead": false
   },
   {
-    "uid": 170,
+    "uid": 86,
     "name": "Card - PotatoMine",
     "tag": "Card",
     "isPrefab": false,
@@ -672,7 +672,7 @@
     "isDead": false
   },
   {
-    "uid": 171,
+    "uid": 87,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -745,7 +745,7 @@
     "isDead": false
   },
   {
-    "uid": 172,
+    "uid": 88,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -818,7 +818,7 @@
     "isDead": false
   },
   {
-    "uid": 173,
+    "uid": 89,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -891,7 +891,7 @@
     "isDead": false
   },
   {
-    "uid": 174,
+    "uid": 90,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -964,7 +964,7 @@
     "isDead": false
   },
   {
-    "uid": 175,
+    "uid": 91,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1037,7 +1037,7 @@
     "isDead": false
   },
   {
-    "uid": 176,
+    "uid": 92,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1110,7 +1110,7 @@
     "isDead": false
   },
   {
-    "uid": 177,
+    "uid": 93,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1183,7 +1183,7 @@
     "isDead": false
   },
   {
-    "uid": 178,
+    "uid": 94,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1256,7 +1256,7 @@
     "isDead": false
   },
   {
-    "uid": 179,
+    "uid": 95,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1329,7 +1329,7 @@
     "isDead": false
   },
   {
-    "uid": 180,
+    "uid": 96,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1402,7 +1402,7 @@
     "isDead": false
   },
   {
-    "uid": 181,
+    "uid": 97,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1475,7 +1475,7 @@
     "isDead": false
   },
   {
-    "uid": 182,
+    "uid": 98,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1548,7 +1548,7 @@
     "isDead": false
   },
   {
-    "uid": 183,
+    "uid": 99,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1621,7 +1621,7 @@
     "isDead": false
   },
   {
-    "uid": 184,
+    "uid": 100,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1694,7 +1694,7 @@
     "isDead": false
   },
   {
-    "uid": 185,
+    "uid": 101,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1767,7 +1767,7 @@
     "isDead": false
   },
   {
-    "uid": 186,
+    "uid": 102,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1840,7 +1840,7 @@
     "isDead": false
   },
   {
-    "uid": 187,
+    "uid": 103,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1913,7 +1913,7 @@
     "isDead": false
   },
   {
-    "uid": 188,
+    "uid": 104,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1986,7 +1986,7 @@
     "isDead": false
   },
   {
-    "uid": 189,
+    "uid": 105,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2059,7 +2059,7 @@
     "isDead": false
   },
   {
-    "uid": 190,
+    "uid": 106,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2132,7 +2132,7 @@
     "isDead": false
   },
   {
-    "uid": 191,
+    "uid": 107,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2205,7 +2205,7 @@
     "isDead": false
   },
   {
-    "uid": 192,
+    "uid": 108,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2278,7 +2278,7 @@
     "isDead": false
   },
   {
-    "uid": 193,
+    "uid": 109,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2351,7 +2351,7 @@
     "isDead": false
   },
   {
-    "uid": 194,
+    "uid": 110,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2424,7 +2424,7 @@
     "isDead": false
   },
   {
-    "uid": 195,
+    "uid": 111,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2497,7 +2497,7 @@
     "isDead": false
   },
   {
-    "uid": 196,
+    "uid": 112,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2570,7 +2570,7 @@
     "isDead": false
   },
   {
-    "uid": 197,
+    "uid": 113,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2643,7 +2643,7 @@
     "isDead": false
   },
   {
-    "uid": 198,
+    "uid": 114,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2716,7 +2716,7 @@
     "isDead": false
   },
   {
-    "uid": 199,
+    "uid": 115,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2789,7 +2789,7 @@
     "isDead": false
   },
   {
-    "uid": 200,
+    "uid": 116,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2862,7 +2862,7 @@
     "isDead": false
   },
   {
-    "uid": 201,
+    "uid": 117,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2935,7 +2935,7 @@
     "isDead": false
   },
   {
-    "uid": 202,
+    "uid": 118,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3008,7 +3008,7 @@
     "isDead": false
   },
   {
-    "uid": 203,
+    "uid": 119,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3081,7 +3081,7 @@
     "isDead": false
   },
   {
-    "uid": 204,
+    "uid": 120,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3154,7 +3154,7 @@
     "isDead": false
   },
   {
-    "uid": 205,
+    "uid": 121,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3227,7 +3227,7 @@
     "isDead": false
   },
   {
-    "uid": 206,
+    "uid": 122,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3300,7 +3300,7 @@
     "isDead": false
   },
   {
-    "uid": 207,
+    "uid": 123,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3373,7 +3373,7 @@
     "isDead": false
   },
   {
-    "uid": 208,
+    "uid": 124,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3446,7 +3446,7 @@
     "isDead": false
   },
   {
-    "uid": 209,
+    "uid": 125,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3519,7 +3519,7 @@
     "isDead": false
   },
   {
-    "uid": 210,
+    "uid": 126,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3592,7 +3592,7 @@
     "isDead": false
   },
   {
-    "uid": 211,
+    "uid": 127,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3665,7 +3665,7 @@
     "isDead": false
   },
   {
-    "uid": 212,
+    "uid": 128,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3738,7 +3738,7 @@
     "isDead": false
   },
   {
-    "uid": 213,
+    "uid": 129,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3811,7 +3811,7 @@
     "isDead": false
   },
   {
-    "uid": 214,
+    "uid": 130,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3884,7 +3884,7 @@
     "isDead": false
   },
   {
-    "uid": 215,
+    "uid": 131,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3957,7 +3957,7 @@
     "isDead": false
   },
   {
-    "uid": 216,
+    "uid": 132,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4030,7 +4030,7 @@
     "isDead": false
   },
   {
-    "uid": 217,
+    "uid": 133,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4103,7 +4103,7 @@
     "isDead": false
   },
   {
-    "uid": 218,
+    "uid": 134,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4176,7 +4176,7 @@
     "isDead": false
   },
   {
-    "uid": 219,
+    "uid": 135,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4249,7 +4249,7 @@
     "isDead": false
   },
   {
-    "uid": 220,
+    "uid": 136,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4322,7 +4322,7 @@
     "isDead": false
   },
   {
-    "uid": 221,
+    "uid": 137,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4395,7 +4395,7 @@
     "isDead": false
   },
   {
-    "uid": 222,
+    "uid": 138,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4468,7 +4468,7 @@
     "isDead": false
   },
   {
-    "uid": 223,
+    "uid": 139,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4541,7 +4541,7 @@
     "isDead": false
   },
   {
-    "uid": 224,
+    "uid": 140,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4614,7 +4614,7 @@
     "isDead": false
   },
   {
-    "uid": 225,
+    "uid": 141,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4687,7 +4687,7 @@
     "isDead": false
   },
   {
-    "uid": 226,
+    "uid": 142,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4760,7 +4760,7 @@
     "isDead": false
   },
   {
-    "uid": 227,
+    "uid": 143,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4833,7 +4833,7 @@
     "isDead": false
   },
   {
-    "uid": 228,
+    "uid": 144,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4906,7 +4906,7 @@
     "isDead": false
   },
   {
-    "uid": 229,
+    "uid": 145,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4979,7 +4979,7 @@
     "isDead": false
   },
   {
-    "uid": 230,
+    "uid": 146,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5052,7 +5052,7 @@
     "isDead": false
   },
   {
-    "uid": 231,
+    "uid": 147,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5125,7 +5125,7 @@
     "isDead": false
   },
   {
-    "uid": 232,
+    "uid": 148,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5198,7 +5198,7 @@
     "isDead": false
   },
   {
-    "uid": 233,
+    "uid": 149,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5271,7 +5271,7 @@
     "isDead": false
   },
   {
-    "uid": 234,
+    "uid": 150,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5344,7 +5344,7 @@
     "isDead": false
   },
   {
-    "uid": 235,
+    "uid": 151,
     "name": "Zombie",
     "tag": "Enemy",
     "isPrefab": false,
@@ -5414,96 +5414,6 @@
             {
               "title": "Move",
               "animationFrames": [
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.5,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.6,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.7,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
                 {
                   "sprite": {
                     "width": 91.0,
@@ -6255,7 +6165,7 @@
                   "frameTime": 0.2
                 }
               ],
-              "doesLoop": false
+              "doesLoop": true
             },
             {
               "title": "Eat",
@@ -6987,7 +6897,7 @@
                   "frameTime": 0.2
                 }
               ],
-              "doesLoop": true
+              "doesLoop": false
             },
             {
               "title": "Idle",

@@ -168,5 +168,13 @@ public class AnimationState implements INonAddableComponent {
         }
         return null;
     }
+
+    public void replay(){
+        currentSprite = 0;
+    }
+
+    public boolean isEnd(){
+        return (!this.doesLoop && currentSprite == animationFrames.size() - 1);
+    }
     //endregion
 }
