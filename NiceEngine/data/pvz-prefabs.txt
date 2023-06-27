@@ -1,8 +1,8 @@
 [
   {
-    "uid": 1,
+    "uid": 236,
     "name": "PotatoMine",
-    "tag": "",
+    "tag": "Plant",
     "isPrefab": true,
     "prefabId": "NbA0zmcuxW",
     "parentId": "",
@@ -15,11 +15,11 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.0,
-            "y": 1.0
+            "x": 0.45,
+            "y": 0.4
           },
           "rotation": 0.0,
-          "zIndex": 0,
+          "zIndex": 1,
           "uid": 124
         }
       },
@@ -359,12 +359,12 @@
     "isDead": false
   },
   {
-    "uid": 2,
+    "uid": 247,
     "name": "Zombie",
-    "tag": "",
+    "tag": "Enemy",
     "isPrefab": true,
     "prefabId": "ETSRCKY9pW",
-    "parentId": "",
+    "parentId": "ETSRCKY9pW",
     "components": [
       {
         "type": "system.Transform",
@@ -374,8 +374,8 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.85,
-            "y": 1.396
+            "x": 0.4,
+            "y": 0.476
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -401,20 +401,20 @@
             },
             "texCoords": [
               {
-                "x": 1.0,
-                "y": 0.25
-              },
-              {
-                "x": 1.0,
+                "x": 0.2,
                 "y": 0.5
               },
               {
-                "x": 0.9,
-                "y": 0.5
+                "x": 0.2,
+                "y": 0.75
               },
               {
-                "x": 0.9,
-                "y": 0.25
+                "x": 0.1,
+                "y": 0.75
+              },
+              {
+                "x": 0.1,
+                "y": 0.5
               }
             ]
           },
@@ -440,126 +440,6 @@
                     },
                     "texCoords": [
                       {
-                        "x": 0.1,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.2,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.3,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.4,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
                         "x": 0.5,
                         "y": 0.0
                       },
@@ -1383,66 +1263,6 @@
                       },
                       {
                         "x": 0.1,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.3,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.4,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.3,
                         "y": 0.75
                       }
                     ]
@@ -1450,7 +1270,7 @@
                   "frameTime": 0.2
                 }
               ],
-              "doesLoop": true
+              "doesLoop": false
             },
             {
               "title": "Eat",
@@ -2183,6 +2003,192 @@
                 }
               ],
               "doesLoop": true
+            },
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                }
+              ],
+              "doesLoop": true
             }
           ],
           "defaultStateTitle": "Move",
@@ -2194,9 +2200,9 @@
     "isDead": false
   },
   {
-    "uid": 3,
+    "uid": 238,
     "name": "PeeShooter",
-    "tag": "",
+    "tag": "Plant",
     "isPrefab": true,
     "prefabId": "jJPHkRS62J",
     "parentId": "",
@@ -2209,8 +2215,8 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.25,
-            "y": 1.25
+            "x": 0.35,
+            "y": 0.35
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -2793,7 +2799,7 @@
     "isDead": false
   },
   {
-    "uid": 4,
+    "uid": 239,
     "name": "SunFlower",
     "tag": "",
     "isPrefab": true,
@@ -2808,8 +2814,8 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.0,
-            "y": 1.1
+            "x": 0.4,
+            "y": 0.45
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -2835,19 +2841,19 @@
             },
             "texCoords": [
               {
-                "x": 0.5,
+                "x": 0.2,
                 "y": 0.5
               },
               {
-                "x": 0.5,
+                "x": 0.2,
                 "y": 1.0
               },
               {
-                "x": 0.4,
+                "x": 0.1,
                 "y": 1.0
               },
               {
-                "x": 0.4,
+                "x": 0.1,
                 "y": 0.5
               }
             ]
@@ -3469,6 +3475,79 @@
           ],
           "defaultStateTitle": "Idle",
           "uid": 104
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 240,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": true,
+    "prefabId": "57x8Sqkoag",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.49019608,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
         }
       }
     ],

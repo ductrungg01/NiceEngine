@@ -1,5 +1,6 @@
 package system;
 
+import editor.windows.GameViewWindow;
 import editor.windows.SceneHierarchyWindow;
 import observers.EventSystem;
 import observers.Observer;
@@ -362,6 +363,7 @@ public class Window implements Observer {
             case GameEngineStartPlay:
                 this.runtimePlaying = true;
                 currentScene.save(false);
+                GameViewWindow.isPlaying = true;
                 Window.getImguiLayer().getInspectorWindow().clearSelected();
                 SceneHierarchyWindow.clearSelectedGameObject();
                 oldEditorCameraPos = Window.getScene().camera().position;
@@ -370,6 +372,7 @@ public class Window implements Observer {
                 break;
             case GameEngineStopPlay:
                 this.runtimePlaying = false;
+                GameViewWindow.isPlaying = false;
                 Window.changeScene(new EditorSceneInitializer());
                 Window.getScene().camera().position = oldEditorCameraPos;
                 break;
