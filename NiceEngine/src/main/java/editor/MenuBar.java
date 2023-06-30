@@ -1,5 +1,6 @@
 package editor;
 
+import editor.windows.OpenProjectWindow;
 import imgui.ImGui;
 import observers.EventSystem;
 import observers.events.Event;
@@ -15,8 +16,8 @@ public class MenuBar {
                 EventSystem.notify(null, new Event(EventType.SaveLevel));
             }
 
-            if (ImGui.menuItem("Load", "Ctrl+O")) {
-                EventSystem.notify(null, new Event(EventType.LoadLevel));
+            if (ImGui.menuItem("Open", "Ctrl+O")) {
+                OpenProjectWindow.open(true);
             }
 
             ImGui.endMenu();
