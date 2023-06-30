@@ -14,6 +14,7 @@ public class CustomRaycastCallback implements RayCastCallback {
     public CustomRaycastCallback(GameObject requestObject){
         this.requestObject = requestObject;
         this.requestObject.getComponent(PeeShooter.class).isHaveEnemy = false;
+
     }
 
     @Override
@@ -22,8 +23,8 @@ public class CustomRaycastCallback implements RayCastCallback {
 
         // Raycast collide with Zombie (Zombie is going to left-side)
         if (go.compareTag("Enemy")){
-            Debug.Log("Raycast collide with enemy");
-            //notice();
+            //Debug.Log("Raycast collide with enemy");
+            notice();
         }
 
         return 1;
