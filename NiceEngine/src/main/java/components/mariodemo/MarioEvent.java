@@ -14,5 +14,6 @@ enum MarioEvent {
     EnemyGetHit,
     MarioBounce,
     MarioGetHit,
-    LevelUp
+    LevelUp,
+    KickEnemy
 }

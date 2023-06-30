@@ -3,16 +3,18 @@ package components.mariodemo;
 import components.Component;
 import components.SpriteRenderer;
 import components.StateMachine;
-import editor.Debug;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
-import physics2d.Physics2D;
+import physics2d.RaycastInfo;
 import physics2d.components.Box2DCollider;
 import physics2d.components.Capsule2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
+import renderer.DebugDraw;
 import system.KeyListener;
+import system.Window;
 
 public class MarioMoving extends Component {
     protected transient static float jumpTime;
@@ -23,7 +25,7 @@ public class MarioMoving extends Component {
     protected transient static float gameOverTime;
     protected transient static boolean disableJump;
     protected transient static boolean isDead;
-    protected static int marioHP = 1;
+    protected transient static int marioHP;
     protected static float jumpTimeBuffer = 0.2f;
     protected transient static float hurtInvincibilityTimeLeft = 0;
     protected transient static float hurtInvincibilityTime = 2f;
@@ -33,14 +35,14 @@ public class MarioMoving extends Component {
     protected transient SpriteRenderer spr;
     protected transient StateMachine stateMachine;
     protected transient SoundController soundController = SoundController.getInstance();
-    protected Vector2f maxVelocity = new Vector2f(2.3f, 4f);
+    protected Vector2f maxVelocity = new Vector2f(2.5f, 4f);
     protected Vector2f acceleration = new Vector2f(5f, 0);
     protected float SLOWDOWN_FORCE = 5f;
     protected Vector2f velocity;
     protected float directionChangeDebounce = 0.2f;
     protected float velocityDebounce = 0.2f;
     protected float jumpTimeDebounce = 0.3f;
-    protected float onGroundTimeDebounce = 0.2f;
+    protected float onGroundTimeDebounce = 0.05f;
     protected float maxJumpTime = jumpTimeDebounce + jumpTimeBuffer;
     protected transient boolean isOnGround = false;
     private transient float blinkTime = 0.0f;
@@ -78,15 +80,15 @@ public class MarioMoving extends Component {
 
     void changeForm() {
         if (marioHP == 1) {
-            CircleCollider topCircle = new CircleCollider();
+            CircleCollider topCircle = this.capsule2DCollider.getTopCircle();
             topCircle.setRadius(0.07f);
             topCircle.setOffset(new Vector2f(0, 0.04f));
 
-            CircleCollider botCircle = new CircleCollider();
+            CircleCollider botCircle = this.capsule2DCollider.getBottomCircle();
             botCircle.setRadius(0.07f);
             botCircle.setOffset(new Vector2f(0, -0.04f));
 
-            Box2DCollider box2DCollider = new Box2DCollider();
+            Box2DCollider box2DCollider = this.capsule2DCollider.getBox();
             box2DCollider.setOffset(new Vector2f(-0.01f, 0));
             box2DCollider.setHalfSize(new Vector2f(0.14f, 0.12f));
 
@@ -97,15 +99,15 @@ public class MarioMoving extends Component {
         } else {
             CircleCollider topCircle = this.capsule2DCollider.getTopCircle();
             topCircle.setRadius(0.07f);
-            topCircle.setOffset(new Vector2f(0, 0.135f));
+            topCircle.setOffset(new Vector2f(0, 0.13f));
 
             CircleCollider botCircle = this.capsule2DCollider.getBottomCircle();
-            botCircle.setRadius(0.2f);
-            botCircle.setOffset(new Vector2f(0, -1f));
+            botCircle.setRadius(0.07f);
+            botCircle.setOffset(new Vector2f(0, -0.13f));
 
             Box2DCollider box2DCollider = this.capsule2DCollider.getBox();
             box2DCollider.setOffset(new Vector2f(-0.01f, -0.01f));
-            box2DCollider.setHalfSize(new Vector2f(0.2f, 0.6f));
+            box2DCollider.setHalfSize(new Vector2f(0.16f, 0.3f));
 
             this.capsule2DCollider.setTopCircle(topCircle);
             this.capsule2DCollider.setBottomCircle(botCircle);
@@ -128,6 +130,7 @@ public class MarioMoving extends Component {
         this.startJumpTime = 0;
         this.directionChangeTime = 0;
         this.onGroundTime = 0;
+        this.marioHP = 1;
 
     }
 
@@ -174,6 +177,8 @@ public class MarioMoving extends Component {
                     spr.setColor(new Vector4f(1, 1, 1, 1));
                 }
             }
+        } else if (spr.getColor().w == 0) {
+            spr.setColor(new Vector4f(1, 1, 1, 1));
         }
         //region handle velocity X
         if (!KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT) && KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT)) {
@@ -218,11 +223,11 @@ public class MarioMoving extends Component {
         //endregion
 
         //region handle velocity Y
-        if (Physics2D.checkOnGround(this.gameObject, this.gameObject.transform.scale.x, marioHP == 1 ? -0.15f : -0.25f) && !isOnGround) {
+        if (checkOnGround() && !isOnGround) {
             isOnGround = true;
             onGroundTime = onGroundTimeDebounce;
         } else
-            isOnGround = Physics2D.checkOnGround(this.gameObject, this.gameObject.transform.scale.x, marioHP == 1 ? -0.15f : -0.25f);
+            isOnGround = checkOnGround();
         if (onGroundTime >= 0 && isOnGround) {
             onGroundTime -= dt;
         }
@@ -262,12 +267,9 @@ public class MarioMoving extends Component {
     }
 
     void setState() {
-        Debug.Log("BotOffset: " + this.capsule2DCollider.getBottomCircle().getOffset().y);
-        Debug.Log("scale: " + this.gameObject.transform.scale.y);
         if (velocity.x != 0) {
             this.gameObject.transform.scale.x *= Math.signum(this.gameObject.transform.scale.x * velocity.x);
         }
-
         if (marioHP == 1) {
             this.gameObject.transform.scale.y = 0.25f;
             if (!isOnGround || jumpTime > 0) {
@@ -302,4 +304,23 @@ public class MarioMoving extends Component {
             }
         }
     }
+
+    boolean checkOnGround() {
+        Vector2f raycastBegin = new Vector2f(gameObject.transform.position);
+        raycastBegin.sub(this.gameObject.transform.scale.x / 2.0f, 0.0f);
+        Vector2f raycastEnd = new Vector2f(raycastBegin).sub(0.0f, this.gameObject.transform.scale.y / 2);
+        RaycastInfo info = Window.getPhysics().raycast(gameObject, raycastBegin, raycastEnd);
+
+        Vector2f raycast2Begin = new Vector2f(raycastBegin).add(this.gameObject.transform.scale.x, 0.0f);
+        Vector2f raycast2End = new Vector2f(raycastEnd).add(this.gameObject.transform.scale.x, 0.0f);
+        RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
+
+        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
+
+        return (info.hit && info.hitObject != null && info.hitObject.tag.toLowerCase().contains("ground")) ||
+                (info2.hit && info2.hitObject != null && info2.hitObject.tag.toLowerCase().contains("ground"));
+    }
+
+
 }

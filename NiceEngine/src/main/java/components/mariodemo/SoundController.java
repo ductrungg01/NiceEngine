@@ -35,6 +35,7 @@ public class SoundController implements Observer {
             case EnemyGetHit -> filePath = "stomp.ogg";
             case MarioGetHit -> filePath = "pipe.ogg";
             case LevelUp -> filePath = "1-up.ogg";
+            case KickEnemy -> filePath = "kick.ogg";
         }
         return defaultFilePath + filePath;
     }
