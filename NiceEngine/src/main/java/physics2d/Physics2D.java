@@ -1,5 +1,7 @@
 package physics2d;
 
+import editor.Debug;
+import org.jbox2d.callbacks.RayCastCallback;
 import physics2d.components.Capsule2DCollider;
 import system.GameObject;
 import system.Transform;
@@ -12,6 +14,9 @@ import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Physics2D {
     //region Fields
@@ -185,6 +190,10 @@ public class Physics2D {
         RaycastInfo callback = new RaycastInfo(requestingObject);
         world.raycast(callback, new Vec2(point1.x, point1.y), new Vec2(point2.x, point2.y));
         return callback;
+    }
+
+    public void raycast(RayCastCallback customRaycast, Vector2f point1, Vector2f point2){
+        world.raycast(customRaycast, new Vec2(point1.x, point1.y), new Vec2(point2.x, point2.y));
     }
 
     private int fixtureListSize(Body body) {

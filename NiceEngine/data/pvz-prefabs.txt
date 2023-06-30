@@ -1,6 +1,6 @@
 [
   {
-    "uid": 152,
+    "uid": 233,
     "name": "PotatoMine",
     "tag": "Plant",
     "isPrefab": true,
@@ -353,18 +353,62 @@
           "defaultStateTitle": "Unarmed",
           "uid": 127
         }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 404
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": -0.01,
+            "y": -0.03
+          },
+          "halfSize": {
+            "x": 0.19,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 405
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 406
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 163,
+    "uid": 234,
     "name": "Zombie",
     "tag": "Enemy",
     "isPrefab": true,
     "prefabId": "ETSRCKY9pW",
-    "parentId": "ETSRCKY9pW",
+    "parentId": "",
     "components": [
       {
         "type": "system.Transform",
@@ -401,20 +445,20 @@
             },
             "texCoords": [
               {
-                "x": 0.7,
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
                 "y": 0.25
               },
               {
-                "x": 0.7,
-                "y": 0.5
-              },
-              {
-                "x": 0.6,
-                "y": 0.5
-              },
-              {
-                "x": 0.6,
+                "x": 0.9,
                 "y": 0.25
+              },
+              {
+                "x": 0.9,
+                "y": 0.0
               }
             ]
           },
@@ -440,36 +484,6 @@
                     },
                     "texCoords": [
                       {
-                        "x": 0.8,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.8,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
                         "x": 1.0,
                         "y": 0.0
                       },
@@ -484,66 +498,6 @@
                       {
                         "x": 0.9,
                         "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 1.0,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 1.0,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.9,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.9,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.25
                       }
                     ]
                   },
@@ -1143,36 +1097,6 @@
                       },
                       {
                         "x": 0.0,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.2,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.1,
                         "y": 0.75
                       }
                     ]
@@ -1912,7 +1836,7 @@
                   "frameTime": 0.2
                 }
               ],
-              "doesLoop": true
+              "doesLoop": false
             },
             {
               "title": "Idle",
@@ -2104,13 +2028,58 @@
           "defaultStateTitle": "Move",
           "uid": 81
         }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": -0.05,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 336
+        }
+      },
+      {
+        "type": "components.DemoPVZ.ZombieMoving",
+        "properties": {
+          "speed": 0.05,
+          "uid": 337
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.46
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 488
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 154,
+    "uid": 235,
     "name": "PeeShooter",
     "tag": "Plant",
     "isPrefab": true,
@@ -2152,19 +2121,19 @@
             },
             "texCoords": [
               {
-                "x": 0.1,
+                "x": 0.2,
                 "y": 0.0
               },
               {
+                "x": 0.2,
+                "y": 0.5
+              },
+              {
                 "x": 0.1,
                 "y": 0.5
               },
               {
-                "x": 0.0,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
+                "x": 0.1,
                 "y": 0.0
               }
             ]
@@ -2703,13 +2672,63 @@
           "defaultStateTitle": "Idle",
           "uid": 40
         }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 379
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.35
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 380
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 403
+        }
+      },
+      {
+        "type": "components.DemoPVZ.PeeShooter",
+        "properties": {
+          "uid": 508
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 155,
+    "uid": 236,
     "name": "SunFlower",
     "tag": "",
     "isPrefab": true,
@@ -2751,19 +2770,19 @@
             },
             "texCoords": [
               {
-                "x": 0.2,
+                "x": 0.3,
                 "y": 0.5
               },
               {
+                "x": 0.3,
+                "y": 1.0
+              },
+              {
                 "x": 0.2,
                 "y": 1.0
               },
               {
-                "x": 0.1,
-                "y": 1.0
-              },
-              {
-                "x": 0.1,
+                "x": 0.2,
                 "y": 0.5
               }
             ]
@@ -3386,13 +3405,57 @@
           "defaultStateTitle": "Idle",
           "uid": 104
         }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 400
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.38
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 401
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 402
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 156,
+    "uid": 237,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": true,
@@ -3458,6 +3521,104 @@
         "type": "components.DemoPVZ.Spot",
         "properties": {
           "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 238,
+    "name": "PeeShooterBullet",
+    "tag": "Bullet",
+    "isPrefab": true,
+    "prefabId": "DmncBgsqOM",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.125,
+            "y": 0.125
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 425
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 1000.0,
+            "height": 1000.0,
+            "texture": {
+              "filePath": "assets/images/PeeShooterBullet.png",
+              "width": 1000,
+              "height": 1000
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 426
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 428
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "radius": 0.065,
+          "uid": 429
         }
       }
     ],

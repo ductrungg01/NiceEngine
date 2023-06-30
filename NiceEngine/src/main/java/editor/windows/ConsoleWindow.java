@@ -3,6 +3,8 @@ package editor.windows;
 import editor.NiceImGui;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import org.joml.Vector2f;
+import system.MouseListener;
 import system.Window;
 import util.Settings;
 

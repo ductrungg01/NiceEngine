@@ -1,6 +1,6 @@
 [
   {
-    "uid": 81,
+    "uid": 161,
     "name": "pvzMaps",
     "tag": "",
     "isPrefab": false,
@@ -12,14 +12,14 @@
         "properties": {
           "position": {
             "x": 3.475,
-            "y": 1.5
+            "y": -1.75
           },
           "scale": {
             "x": 9.181251,
             "y": 3.0
           },
           "rotation": 0.0,
-          "zIndex": -4,
+          "zIndex": -87,
           "uid": 147
         }
       },
@@ -67,7 +67,7 @@
     "isDead": false
   },
   {
-    "uid": 82,
+    "uid": 162,
     "name": "SelectBar",
     "tag": "",
     "isPrefab": false,
@@ -134,7 +134,7 @@
     "isDead": false
   },
   {
-    "uid": 83,
+    "uid": 163,
     "name": "Card - SunFlower",
     "tag": "Card",
     "isPrefab": false,
@@ -289,7 +289,7 @@
     "isDead": false
   },
   {
-    "uid": 84,
+    "uid": 164,
     "name": "CardManager",
     "tag": "Manager",
     "isPrefab": false,
@@ -362,7 +362,7 @@
     "isDead": false
   },
   {
-    "uid": 85,
+    "uid": 165,
     "name": "Card - PeeShooter",
     "tag": "Card",
     "isPrefab": false,
@@ -517,7 +517,7 @@
     "isDead": false
   },
   {
-    "uid": 86,
+    "uid": 166,
     "name": "Card - PotatoMine",
     "tag": "Card",
     "isPrefab": false,
@@ -672,7 +672,7 @@
     "isDead": false
   },
   {
-    "uid": 87,
+    "uid": 167,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -745,7 +745,7 @@
     "isDead": false
   },
   {
-    "uid": 88,
+    "uid": 168,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -818,7 +818,7 @@
     "isDead": false
   },
   {
-    "uid": 89,
+    "uid": 169,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -891,7 +891,7 @@
     "isDead": false
   },
   {
-    "uid": 90,
+    "uid": 170,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -964,7 +964,7 @@
     "isDead": false
   },
   {
-    "uid": 91,
+    "uid": 171,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1037,7 +1037,7 @@
     "isDead": false
   },
   {
-    "uid": 92,
+    "uid": 172,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1110,7 +1110,7 @@
     "isDead": false
   },
   {
-    "uid": 93,
+    "uid": 173,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1183,7 +1183,7 @@
     "isDead": false
   },
   {
-    "uid": 94,
+    "uid": 174,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1256,7 +1256,7 @@
     "isDead": false
   },
   {
-    "uid": 95,
+    "uid": 175,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1329,7 +1329,7 @@
     "isDead": false
   },
   {
-    "uid": 96,
+    "uid": 176,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1402,7 +1402,7 @@
     "isDead": false
   },
   {
-    "uid": 97,
+    "uid": 177,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1475,7 +1475,7 @@
     "isDead": false
   },
   {
-    "uid": 98,
+    "uid": 178,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1548,7 +1548,7 @@
     "isDead": false
   },
   {
-    "uid": 99,
+    "uid": 179,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1621,7 +1621,7 @@
     "isDead": false
   },
   {
-    "uid": 100,
+    "uid": 180,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1694,7 +1694,7 @@
     "isDead": false
   },
   {
-    "uid": 101,
+    "uid": 181,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1767,7 +1767,7 @@
     "isDead": false
   },
   {
-    "uid": 102,
+    "uid": 182,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1840,7 +1840,7 @@
     "isDead": false
   },
   {
-    "uid": 103,
+    "uid": 183,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1913,7 +1913,7 @@
     "isDead": false
   },
   {
-    "uid": 104,
+    "uid": 184,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -1986,7 +1986,7 @@
     "isDead": false
   },
   {
-    "uid": 105,
+    "uid": 185,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2059,7 +2059,7 @@
     "isDead": false
   },
   {
-    "uid": 106,
+    "uid": 186,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2132,7 +2132,7 @@
     "isDead": false
   },
   {
-    "uid": 107,
+    "uid": 187,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2205,7 +2205,7 @@
     "isDead": false
   },
   {
-    "uid": 108,
+    "uid": 188,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2278,7 +2278,7 @@
     "isDead": false
   },
   {
-    "uid": 109,
+    "uid": 189,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2351,7 +2351,7 @@
     "isDead": false
   },
   {
-    "uid": 110,
+    "uid": 190,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2424,7 +2424,7 @@
     "isDead": false
   },
   {
-    "uid": 111,
+    "uid": 191,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2497,7 +2497,7 @@
     "isDead": false
   },
   {
-    "uid": 112,
+    "uid": 192,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2570,7 +2570,7 @@
     "isDead": false
   },
   {
-    "uid": 113,
+    "uid": 193,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2643,7 +2643,7 @@
     "isDead": false
   },
   {
-    "uid": 114,
+    "uid": 194,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2716,7 +2716,7 @@
     "isDead": false
   },
   {
-    "uid": 115,
+    "uid": 195,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2789,7 +2789,7 @@
     "isDead": false
   },
   {
-    "uid": 116,
+    "uid": 196,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2862,7 +2862,7 @@
     "isDead": false
   },
   {
-    "uid": 117,
+    "uid": 197,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -2935,7 +2935,7 @@
     "isDead": false
   },
   {
-    "uid": 118,
+    "uid": 198,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3008,7 +3008,7 @@
     "isDead": false
   },
   {
-    "uid": 119,
+    "uid": 199,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3081,7 +3081,7 @@
     "isDead": false
   },
   {
-    "uid": 120,
+    "uid": 200,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3154,7 +3154,7 @@
     "isDead": false
   },
   {
-    "uid": 121,
+    "uid": 201,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3227,7 +3227,7 @@
     "isDead": false
   },
   {
-    "uid": 122,
+    "uid": 202,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3300,7 +3300,7 @@
     "isDead": false
   },
   {
-    "uid": 123,
+    "uid": 203,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3373,7 +3373,7 @@
     "isDead": false
   },
   {
-    "uid": 124,
+    "uid": 204,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3446,7 +3446,7 @@
     "isDead": false
   },
   {
-    "uid": 125,
+    "uid": 205,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3519,7 +3519,7 @@
     "isDead": false
   },
   {
-    "uid": 126,
+    "uid": 206,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3592,7 +3592,7 @@
     "isDead": false
   },
   {
-    "uid": 127,
+    "uid": 207,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3665,7 +3665,7 @@
     "isDead": false
   },
   {
-    "uid": 128,
+    "uid": 208,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3738,7 +3738,7 @@
     "isDead": false
   },
   {
-    "uid": 129,
+    "uid": 209,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3811,7 +3811,7 @@
     "isDead": false
   },
   {
-    "uid": 130,
+    "uid": 210,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3884,7 +3884,7 @@
     "isDead": false
   },
   {
-    "uid": 131,
+    "uid": 211,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -3957,7 +3957,7 @@
     "isDead": false
   },
   {
-    "uid": 132,
+    "uid": 212,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4030,7 +4030,7 @@
     "isDead": false
   },
   {
-    "uid": 133,
+    "uid": 213,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4103,7 +4103,7 @@
     "isDead": false
   },
   {
-    "uid": 134,
+    "uid": 214,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4176,7 +4176,7 @@
     "isDead": false
   },
   {
-    "uid": 135,
+    "uid": 215,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4249,7 +4249,7 @@
     "isDead": false
   },
   {
-    "uid": 136,
+    "uid": 216,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4322,7 +4322,7 @@
     "isDead": false
   },
   {
-    "uid": 137,
+    "uid": 217,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4395,7 +4395,7 @@
     "isDead": false
   },
   {
-    "uid": 138,
+    "uid": 218,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4468,7 +4468,7 @@
     "isDead": false
   },
   {
-    "uid": 139,
+    "uid": 219,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4541,7 +4541,7 @@
     "isDead": false
   },
   {
-    "uid": 140,
+    "uid": 220,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4614,7 +4614,7 @@
     "isDead": false
   },
   {
-    "uid": 141,
+    "uid": 221,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4687,7 +4687,7 @@
     "isDead": false
   },
   {
-    "uid": 142,
+    "uid": 222,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4760,7 +4760,7 @@
     "isDead": false
   },
   {
-    "uid": 143,
+    "uid": 223,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4833,7 +4833,7 @@
     "isDead": false
   },
   {
-    "uid": 144,
+    "uid": 224,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4906,7 +4906,7 @@
     "isDead": false
   },
   {
-    "uid": 145,
+    "uid": 225,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -4979,7 +4979,7 @@
     "isDead": false
   },
   {
-    "uid": 146,
+    "uid": 226,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5052,7 +5052,7 @@
     "isDead": false
   },
   {
-    "uid": 147,
+    "uid": 227,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5125,7 +5125,7 @@
     "isDead": false
   },
   {
-    "uid": 148,
+    "uid": 228,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5198,7 +5198,7 @@
     "isDead": false
   },
   {
-    "uid": 149,
+    "uid": 229,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5271,7 +5271,7 @@
     "isDead": false
   },
   {
-    "uid": 150,
+    "uid": 230,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": false,
@@ -5344,7 +5344,7 @@
     "isDead": false
   },
   {
-    "uid": 151,
+    "uid": 231,
     "name": "Zombie",
     "tag": "Enemy",
     "isPrefab": false,
@@ -5355,8 +5355,8 @@
         "type": "system.Transform",
         "properties": {
           "position": {
-            "x": 3.375,
-            "y": 2.125
+            "x": 4.0499997,
+            "y": 0.875
           },
           "scale": {
             "x": 0.4,
@@ -5386,20 +5386,20 @@
             },
             "texCoords": [
               {
-                "x": 0.2,
-                "y": 0.75
+                "x": 0.4,
+                "y": 0.25
               },
               {
-                "x": 0.2,
-                "y": 1.0
+                "x": 0.4,
+                "y": 0.5
               },
               {
-                "x": 0.1,
-                "y": 1.0
+                "x": 0.3,
+                "y": 0.5
               },
               {
-                "x": 0.1,
-                "y": 0.75
+                "x": 0.3,
+                "y": 0.25
               }
             ]
           },
@@ -5425,36 +5425,6 @@
                     },
                     "texCoords": [
                       {
-                        "x": 0.8,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.8,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
                         "x": 1.0,
                         "y": 0.0
                       },
@@ -5469,66 +5439,6 @@
                       {
                         "x": 0.9,
                         "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 1.0,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 1.0,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.9,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.9,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.25
                       }
                     ]
                   },
@@ -6128,36 +6038,6 @@
                       },
                       {
                         "x": 0.0,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.2,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.1,
                         "y": 0.75
                       }
                     ]
@@ -7088,6 +6968,700 @@
           ],
           "defaultStateTitle": "Move",
           "uid": 81
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": -0.05,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 336
+        }
+      },
+      {
+        "type": "components.DemoPVZ.ZombieMoving",
+        "properties": {
+          "speed": 0.05,
+          "uid": 337
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.46
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 488
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 232,
+    "name": "PeeShooter",
+    "tag": "Plant",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "jJPHkRS62J",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.875,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.35,
+            "y": 0.35
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 250.0,
+            "height": 239.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/PeeShooter.png",
+              "width": 2500,
+              "height": 478
+            },
+            "texCoords": [
+              {
+                "x": 0.1,
+                "y": 0.0
+              },
+              {
+                "x": 0.1,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.5
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.5
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.5
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Shoot",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Idle",
+          "uid": 40
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 379
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.35
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 380
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 403
+        }
+      },
+      {
+        "type": "components.DemoPVZ.PeeShooter",
+        "properties": {
+          "uid": 508
         }
       }
     ],
