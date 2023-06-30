@@ -1,6 +1,7 @@
 package components.DemoPVZ;
 
 import components.Component;
+import editor.Debug;
 import org.jbox2d.callbacks.RayCastCallback;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Fixture;
@@ -24,6 +25,9 @@ public class PeeShooter extends Component {
     public void update(float dt) {
         checkEnemy();
 
+        Debug.Clear();
+        Debug.Log(isHaveEnemy);
+
         if (isHaveEnemy){
             bulletCooldownRemain -= dt;
             if (bulletCooldownRemain < 0){
@@ -42,13 +46,14 @@ public class PeeShooter extends Component {
         DebugDraw.addLine2D(start, end, new Vector3f(1, 0, 0));
         CustomRaycastCallback raycast = new CustomRaycastCallback(this.gameObject);
         Window.getPhysics().raycast(raycast, start, end);
+        Debug.Clear();
     }
 
     private void generateBullet(){
         GameObject bullet = Prefabs.createChildFrom("PeeShooterBullet");
         bullet.setNoSerialize();
 
-        bullet.transform.position = new Vector2f(this.gameObject.transform.position);
+        bullet.transform.position = new Vector2f(this.gameObject.transform.position).add(3, 0);
         bullet.getComponent(RigidBody2D.class).setVelocity(new Vector2f(0, 1f));
 
         Window.getScene().addGameObjectToScene(bullet);

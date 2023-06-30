@@ -1,6 +1,6 @@
 [
   {
-    "uid": 233,
+    "uid": 73,
     "name": "PotatoMine",
     "tag": "Plant",
     "isPrefab": true,
@@ -403,7 +403,7 @@
     "isDead": false
   },
   {
-    "uid": 234,
+    "uid": 74,
     "name": "Zombie",
     "tag": "Enemy",
     "isPrefab": true,
@@ -2079,7 +2079,7 @@
     "isDead": false
   },
   {
-    "uid": 235,
+    "uid": 75,
     "name": "PeeShooter",
     "tag": "Plant",
     "isPrefab": true,
@@ -2728,7 +2728,7 @@
     "isDead": false
   },
   {
-    "uid": 236,
+    "uid": 76,
     "name": "SunFlower",
     "tag": "",
     "isPrefab": true,
@@ -3455,7 +3455,7 @@
     "isDead": false
   },
   {
-    "uid": 237,
+    "uid": 77,
     "name": "Spot",
     "tag": "Spot",
     "isPrefab": true,
@@ -3528,7 +3528,7 @@
     "isDead": false
   },
   {
-    "uid": 238,
+    "uid": 78,
     "name": "PeeShooterBullet",
     "tag": "Bullet",
     "isPrefab": true,
@@ -3603,8 +3603,8 @@
           "bodyType": "Dynamic",
           "friction": 0.1,
           "angularVelocity": 0.0,
-          "gravityScale": 1.0,
-          "isSensor": false,
+          "gravityScale": 0.0,
+          "isSensor": true,
           "fixedRotation": false,
           "continuousCollision": true,
           "uid": 428

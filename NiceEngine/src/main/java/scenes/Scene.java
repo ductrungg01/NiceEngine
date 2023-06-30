@@ -15,6 +15,7 @@ import org.joml.Vector2f;
 import physics2d.Physics2D;
 import renderer.Renderer;
 import util.AssetPool;
+import util.ProjectUtils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -235,11 +236,16 @@ public class Scene {
         return go;
     }
 
-    final String LEVEL_PATH = "data/pvz-level.txt";
-    final String PREFAB_PATH = "data/pvz-prefabs.txt";
-    final String SPRITESHEET_PATH = "data/pvz-spritesheet.txt";
+    final String LEVEL_PATH = "level.txt";
+    final String PREFAB_PATH = "prefabs.txt";
+    final String SPRITESHEET_PATH = "spritesheet.txt";
 
     public void save(boolean isShowMessage) {
+        if (ProjectUtils.CURRENT_PROJECT.isEmpty()) return;
+        String level_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  LEVEL_PATH;
+        String prefab_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  PREFAB_PATH;
+        String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  SPRITESHEET_PATH;
+
         //region Save Game Object
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
@@ -249,7 +255,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter(LEVEL_PATH);
+            FileWriter writer = new FileWriter(level_path);
 
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
@@ -278,7 +284,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter(PREFAB_PATH);
+            FileWriter writer = new FileWriter(prefab_path);
 
             List<GameObject> objsToSerialize = GameObject.PrefabLists;
 
@@ -296,7 +302,7 @@ public class Scene {
         //region Save Spritesheet
         List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
         try {
-            FileWriter writer = new FileWriter(SPRITESHEET_PATH);
+            FileWriter writer = new FileWriter(spritesheet_path);
 
             for (Spritesheet s : spritesheets) {
                 String path = s.getTexture().getFilePath().replace("\\", "/");
@@ -313,12 +319,29 @@ public class Scene {
                 MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
         }
         //endregion
+
+        //region Save previous project
+        try {
+            FileWriter writer = new FileWriter("EngineConfig.ini");
+
+            writer.write("PREVIOUS PROJECT:" + ProjectUtils.CURRENT_PROJECT);
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //endregion
     }
 
     public void load() {
+        if (ProjectUtils.CURRENT_PROJECT.isEmpty()) return;
+        String level_path = "data\\" + ProjectUtils.CURRENT_PROJECT  + "\\" + LEVEL_PATH;
+        String prefab_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  PREFAB_PATH;
+        String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  SPRITESHEET_PATH;
+
         //region Load spritesheet
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(SPRITESHEET_PATH));
+            BufferedReader reader = new BufferedReader(new FileReader(spritesheet_path));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -356,7 +379,7 @@ public class Scene {
         String inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get(LEVEL_PATH)));
+            inFile = new String(Files.readAllBytes(Paths.get(level_path)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -404,7 +427,7 @@ public class Scene {
         inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get(PREFAB_PATH)));
+            inFile = new String(Files.readAllBytes(Paths.get(prefab_path)));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -141,7 +141,7 @@ public class AssetsWindow {
             ImGui.endPopup();
         }
 
-        //check click, check if click outside rename input, use hoverany
+        //check click, check if click outside rename input, use hover any
         if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT)) {
             if (!ImGui.isAnyItemHovered()) {
                 rename = false;

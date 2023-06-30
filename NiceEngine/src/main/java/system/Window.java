@@ -1,6 +1,7 @@
 package system;
 
 import editor.windows.GameViewWindow;
+import editor.windows.OpenProjectWindow;
 import editor.windows.SceneHierarchyWindow;
 import observers.EventSystem;
 import observers.Observer;
@@ -26,12 +27,15 @@ import scenes.GamePlayingSceneInitializer;
 import scenes.Scene;
 import scenes.SceneInitializer;
 import util.AssetPool;
+import util.ProjectUtils;
 import util.Time;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -155,15 +159,17 @@ public class Window implements Observer {
             Time.deltaTime = dt;
 
             if (glfwWindowShouldClose(glfwWindow)) {
-                int response = JOptionPane.showConfirmDialog(null,
-                        "Do you want to SAVE the scene before close?",
-                        "CLOSE",
-                        JOptionPane.YES_NO_CANCEL_OPTION);
-                if (response == JOptionPane.YES_OPTION) {
-                    EventSystem.notify(null, new Event(EventType.SaveLevel));
-                }
-                if (response == JOptionPane.CANCEL_OPTION) {
-                    glfwSetWindowShouldClose(glfwWindow, false);
+                if (!ProjectUtils.CURRENT_PROJECT.isEmpty()) {
+                    int response = JOptionPane.showConfirmDialog(null,
+                            "Do you want to SAVE the scene before close?",
+                            "CLOSE",
+                            JOptionPane.YES_NO_CANCEL_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        EventSystem.notify(null, new Event(EventType.SaveLevel));
+                    }
+                    if (response == JOptionPane.CANCEL_OPTION) {
+                        glfwSetWindowShouldClose(glfwWindow, false);
+                    }
                 }
             }
         }
@@ -265,8 +271,39 @@ public class Window implements Observer {
         this.imGuiLayer = new ImGuiLayer(glfwWindow, pickingTexture);
         this.imGuiLayer.initImGui();
 
-        Window.changeScene(new EditorSceneInitializer());
+        String previousProject = getPreviousProject();
 
+        if (previousProject.isEmpty()) {
+            OpenProjectWindow.open(false);
+        } else {
+            ProjectUtils.CURRENT_PROJECT = previousProject;
+        }
+        Window.changeScene(new EditorSceneInitializer());
+    }
+
+    private String getPreviousProject(){
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("EngineConfig.ini"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(":");
+
+                String title = values[0];
+                String value = values[1];
+
+                if (title.equals("PREVIOUS PROJECT")) {
+                    return value;
+                }
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
+
+        return "";
     }
 
     void SetWindowIcon() {
