@@ -1,11 +1,9 @@
 package editor;
 
+import components.Sprite;
 import editor.uihelper.ButtonColor;
 import editor.windows.FileDialog;
 import editor.windows.PrefabsWindow;
-import imgui.ImGui;
-import imgui.ImVec2;
-import components.Sprite;
 import imgui.*;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiMouseCursor;
@@ -24,14 +22,22 @@ import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
 import static java.lang.Math.min;
+import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class NiceImGui {
 
-    //region Fields
-    private static final float defaultLabelColumnWidth = 150.0f;
+    /**
+     * Very good for debugging
+     **/
+    static final Vector4f DEFAULT_DOT_COLOR = COLOR_Red;
     //endregion
 
     //region Methods
+    static final float DEFAULT_DOT_SIZE = 3f;
+    final static float DEFAULT_REFERENCE_BUTTON_WIDTH = 250f;
+    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.003f;
+    //region Fields
+    private static final float defaultLabelColumnWidth = 150.0f;
 
     //region Calc / Settings / Configurations
     private static float calcMinLabelColWith(String label) {
@@ -39,7 +45,9 @@ public class NiceImGui {
 
         return Float.max(minLength, defaultLabelColumnWidth);
     }
+    //endregion
 
+    //region Draw dot
     public static Vector2f getSizeOfButton(String label) {
         float width = getLengthOfText(label);
         float height = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
@@ -85,14 +93,6 @@ public class NiceImGui {
             ImGui.setColumnWidth(numsOfColumns - 1, widths[numsOfColumns - 1]);
         }
     }
-    //endregion
-
-    //region Draw dot
-    /**
-     * Very good for debugging
-     **/
-    static final Vector4f DEFAULT_DOT_COLOR = COLOR_Red;
-    static final float DEFAULT_DOT_SIZE = 3f;
 
     public static void createDot() {
         createDot(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY(), DEFAULT_DOT_SIZE, DEFAULT_DOT_COLOR);
@@ -105,6 +105,7 @@ public class NiceImGui {
     public static void createDot(float x, float y, float size) {
         createDot(x, y, size, DEFAULT_DOT_COLOR);
     }
+
 
     public static void createDot(float x, float y, float size, Vector3f color) {
         createDot(x, y, size, new Vector4f(color, 1f));
@@ -123,6 +124,110 @@ public class NiceImGui {
 
     public static void drawVec2Control(String label, Vector2f values, float resetValue, String imguiId) {
         drawVec2Control(label, values, resetValue, calcMinLabelColWith(label), imguiId);
+    }
+
+    public static boolean drawVec2ControlWithConstrainedProportions(String label, Vector2f values, String imguiId, boolean constrainedProportions) {
+        return drawVec2ControlWithConstrainedProportions(label, values, 0.0f, calcMinLabelColWith(label), imguiId, constrainedProportions);
+    }
+
+    public static boolean drawVec2ControlWithConstrainedProportions(String label, Vector2f values, float resetValue, float columnWidth, String imguiId, boolean constrainedProportions) {
+        ImGui.pushID(imguiId);
+
+        ImGui.columns(2);
+        ImGui.setColumnWidth(0, columnWidth);
+        ImGui.text(label);
+        ImGui.sameLine();
+        if (constrainedProportions) {
+            ImGui.text("            ");
+            ImGui.sameLine();
+            ImGui.image(FileUtils.getIcon(FileUtils.ICON_NAME.ENABLE_CONSTRAINED_PROPORTIONS).getTexId(), 25, 25);
+        } else {
+            ImGui.text("            ");
+            ImGui.sameLine();
+            ImGui.image(FileUtils.getIcon(FileUtils.ICON_NAME.DISABLE_CONSTRAINED_PROPORTIONS).getTexId(), 25, 25);
+        }
+        if (ImGui.isItemHovered()) {
+            ImGui.beginTooltip();
+            ImGui.text("Enable constrained proportions");
+            ImGui.endTooltip();
+            if (ImGui.isMouseClicked(GLFW_MOUSE_BUTTON_LEFT)) {
+                constrainedProportions = !constrainedProportions;
+            }
+        }
+        ImGui.nextColumn();
+
+        ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0, 0);
+
+        float lineHeight = ImGui.getFontSize() + ImGui.getStyle().getFramePaddingY() * 2.0f;
+        Vector2f buttonSize = new Vector2f(lineHeight + 3.0f, lineHeight);
+        float widthEach = (ImGui.calcItemWidth() - buttonSize.x * 2.0f) / 2.0f;
+
+        ImGui.pushItemWidth(widthEach);
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.1f, 0.15f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.8f, 0.2f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.8f, 0.1f, 0.15f, 1.0f);
+        if (ImGui.button("X", buttonSize.x, buttonSize.y)) {
+            values.x = resetValue;
+        }
+        ImGui.popStyleColor(3);
+
+        ImGui.sameLine();
+        float[] vecValuesX = {values.x};
+        float oldX = values.x;
+        ImGui.dragFloat("##x", vecValuesX, 0.003f);
+        ImGui.popItemWidth();
+        ImGui.sameLine();
+
+        ImGui.pushItemWidth(widthEach);
+        ImGui.pushStyleColor(ImGuiCol.Button, 0.2f, 0.7f, 0.2f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.3f, 0.8f, 0.3f, 1.0f);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.2f, 0.7f, 0.2f, 1.0f);
+        if (ImGui.button("Y", buttonSize.x, buttonSize.y)) {
+            values.y = resetValue;
+        }
+        ImGui.popStyleColor(3);
+
+        ImGui.sameLine();
+        float[] vecValuesY = {values.y};
+        float oldY = values.y;
+        ImGui.dragFloat("##y", vecValuesY, 0.003f);
+        ImGui.popItemWidth();
+        ImGui.sameLine();
+
+        if (constrainedProportions) {
+            if (oldX == 0 && oldY == 0) {
+                if (vecValuesY[0] != 0)
+                    vecValuesX[0] = vecValuesY[0];
+                else if (vecValuesX[0] != 0) {
+                    vecValuesY[0] = vecValuesX[0];
+                }
+            } else {
+                if (oldX != vecValuesX[0] || oldY != vecValuesY[0]) {
+                    float offsetX = vecValuesX[0] / oldX;
+                    float offsetY = vecValuesY[0] / oldY;
+                    if (offsetX != 1) {
+                        vecValuesY[0] *= offsetX;
+                    } else if (offsetY != 1) {
+                        vecValuesX[0] *= offsetY;
+                    }
+                } else {
+                    if (oldX == 0) {
+                        vecValuesY[0] = 0;
+                    } else if (oldY == 0) {
+                        vecValuesX[0] = 0;
+                    }
+                }
+            }
+        }
+
+        values.x = vecValuesX[0];
+        values.y = vecValuesY[0];
+
+        ImGui.popStyleVar();
+        ImGui.columns(1);
+        ImGui.popID();
+
+        return constrainedProportions;
     }
 
     public static void drawVec2Control(String label, Vector2f values, float resetValue, float columnWidth, String imguiId) {
@@ -238,8 +343,6 @@ public class NiceImGui {
     //endregion
 
     //region Reference
-    final static float DEFAULT_REFERENCE_BUTTON_WIDTH = 250f;
-
     public static Object ReferenceButton(String label, ReferenceType referenceType, Object oldValue, String idPush) {
         return ReferenceButton(label, referenceType, oldValue, new float[2], idPush);
     }
@@ -415,7 +518,9 @@ public class NiceImGui {
 
         return ans;
     }
+    //endregion
 
+    //region Float
     public static boolean drawButton(String label, ButtonColor btnColor, Vector2f btnSize) {
         boolean isClick = false;
 
@@ -447,10 +552,6 @@ public class NiceImGui {
 
         return isClick;
     }
-    //endregion
-
-    //region Float
-    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.003f;
 
     public static float dragFloat(String label, float value) {
         return dragFloat(label, value, (float) -1E5, (float) 1E5, DEFAULT_FLOAT_DRAG_SPEED, new float[2], label);
@@ -592,7 +693,7 @@ public class NiceImGui {
         ImGui.columns(1);
         ImGui.nextColumn();
         ImString outString = new ImString(text, 256);
-        if (!ImGui.isAnyItemActive() && !ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT))
+        if (!ImGui.isAnyItemActive() && !ImGui.isMouseClicked(GLFW_MOUSE_BUTTON_LEFT))
             ImGui.setKeyboardFocusHere(0);
         if (ImGui.inputText("##" + text, outString)) {
             ImGui.columns(1);

@@ -57,13 +57,13 @@ public class Window implements Observer {
     private static Scene currentScene;
     private static boolean isWindowFocused = true;
     public long glfwWindow;
+    public boolean runtimePlaying = false;
     //region Fields
     private int width, height;
     private String title;
     private ImGuiLayer imGuiLayer;
     private Framebuffer framebuffer;
     private PickingTexture pickingTexture;
-    public boolean runtimePlaying = false;
     private long audioContext;
     private long audioDevice;
 
@@ -568,6 +568,8 @@ public class Window implements Observer {
             case GameEngineStopPlay:
                 this.runtimePlaying = false;
                 GameViewWindow.isPlaying = false;
+                Window.getImguiLayer().getInspectorWindow().clearSelected();
+                SceneHierarchyWindow.clearSelectedGameObject();
                 Window.changeScene(new EditorSceneInitializer());
                 Window.getScene().camera().position = oldEditorCameraPos;
                 break;

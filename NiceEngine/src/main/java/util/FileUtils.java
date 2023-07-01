@@ -1,7 +1,7 @@
 package util;
 
-import editor.Debug;
 import components.Sprite;
+import editor.Debug;
 import editor.MessageBox;
 import editor.ReferenceType;
 import renderer.Texture;
@@ -18,24 +18,6 @@ import java.util.Map;
 
 public class FileUtils {
 
-    final static String defaultAssetFolder = "assets";
-    final static String defaultSprite = "system-assets/images/Default Sprite.png";
-
-    public enum ICON_NAME {
-        FOLDER,
-        LEFT_ARROW,
-        RIGHT_ARROW,
-        JAVA,
-        FILE,
-        SOUND,
-        GAME_OBJECT,
-        REMOVE,
-        ADD,
-        DEMO,
-        RESTART,
-        PROJECT
-    }
-
     public final static Map<ICON_NAME, String> icons = new HashMap<>() {
         {
             put(ICON_NAME.FOLDER, "system-assets/images/folder-icon.png");
@@ -50,9 +32,12 @@ public class FileUtils {
             put(ICON_NAME.DEMO, "system-assets/images/demo-icon.png");
             put(ICON_NAME.RESTART, "system-assets/images/restart-icon.png");
             put(ICON_NAME.PROJECT, "system-assets/images/project-icon.png");
+            put(ICON_NAME.ENABLE_CONSTRAINED_PROPORTIONS, "system-assets/images/EnableConstrainedProportions-icon.png");
+            put(ICON_NAME.DISABLE_CONSTRAINED_PROPORTIONS, "system-assets/images/DisableConstrainedProportions-icon.png");
         }
     };
-
+    final static String defaultAssetFolder = "assets";
+    final static String defaultSprite = "system-assets/images/Default Sprite.png";
     private static List<String> imageExtensions = List.of("jpg", "jpeg", "png");
     private static List<String> soundExtensions = List.of("ogg", "mp3", "wav", "flac", "aiff", "m4a");
 
@@ -248,5 +233,22 @@ public class FileUtils {
 
     public static Sprite getDefaultSprite() {
         return new Sprite(defaultSprite);
+    }
+
+    public enum ICON_NAME {
+        FOLDER,
+        LEFT_ARROW,
+        RIGHT_ARROW,
+        JAVA,
+        FILE,
+        SOUND,
+        GAME_OBJECT,
+        REMOVE,
+        ADD,
+        DEMO,
+        RESTART,
+        PROJECT,
+        ENABLE_CONSTRAINED_PROPORTIONS,
+        DISABLE_CONSTRAINED_PROPORTIONS,
     }
 }

@@ -11,6 +11,7 @@ public class Transform extends Component implements INonAddableComponent {
     public Vector2f scale;
     public float rotation = 0.0f;
     public int zIndex;
+    private transient boolean constrainedProportions = false;
     //endregion
 
     //region Constructors
@@ -48,7 +49,7 @@ public class Transform extends Component implements INonAddableComponent {
     @Override
     public void imgui() {
         NiceImGui.drawVec2Control("Position", this.position, "Position of transform " + this.gameObject.hashCode());
-        NiceImGui.drawVec2Control("Scale", this.scale, 32.0f, "Scale of transform " + this.gameObject.hashCode());
+        constrainedProportions = NiceImGui.drawVec2ControlWithConstrainedProportions("Scale", this.scale, "Scale of transform " + this.gameObject.hashCode(), constrainedProportions);
         this.rotation = NiceImGui.dragFloat("Rotation", this.rotation);
         this.zIndex = NiceImGui.dragInt("Z-Index", this.zIndex);
     }
