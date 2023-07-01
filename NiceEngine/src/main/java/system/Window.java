@@ -1,5 +1,12 @@
 package system;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import components.Component;
+import deserializers.ComponentDeserializer;
+import deserializers.GameObjectDeserializer;
+import deserializers.PrefabDeserializer;
+import editor.MessageBox;
 import editor.windows.GameViewWindow;
 import editor.windows.OpenProjectWindow;
 import editor.windows.SceneHierarchyWindow;
@@ -35,6 +42,10 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -310,8 +321,128 @@ public class Window implements Observer {
     }
 
     public boolean checkHaveAnyChance(){
-        // TODO: implement asap
-        return true;
+        String level_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + "level.txt";
+        String prefab_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  "prefabs.txt";
+        String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  "spritesheet.txt";
+
+        String previewLevelTxtToSave = "";
+        String previewPrefabsTxtToSave = "";
+        String previewSpritesheetTxtToSave = "";
+
+        String previousLevelTxt = "";
+        String previousPrefabsTxt = "";
+        String previousSpritesheetTxt = "";
+
+        int currentMaxGoUid = GameObject.getCurrentMaxUid();
+
+        GameObject.setCurrentMaxUid(-1);
+
+        // region Calc preview to save
+
+        //region get preview file of LEVEL.TXT
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+
+        List<GameObject> objsToSerialize = new ArrayList<>();
+        for (GameObject obj : currentScene.getGameObjects()) {
+            if (obj.doSerialization()) {
+                objsToSerialize.add(obj);
+            }
+        }
+
+        previewLevelTxtToSave += gson.toJson(objsToSerialize) + "\n";
+        //endregion
+
+        //region get preview file of PREFABS.TXT
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new PrefabDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+
+        objsToSerialize = GameObject.PrefabLists;
+
+        previewPrefabsTxtToSave += gson.toJson(objsToSerialize) + "\n";
+        //endregion
+
+        //region get preview file of SPRITESHEET.TXT
+        List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
+
+        for (Spritesheet s : spritesheets) {
+            String path = s.getTexture().getFilePath().replace("\\", "/");
+            previewSpritesheetTxtToSave += path + "|" + s.spriteWidth + "|" + s.spriteHeight + "|" +
+                    s.size() + "|" + s.spacingX + "|" + s.spacingY + "\n" ;
+        }
+
+        //endregion
+
+        //endregion
+
+        GameObject.setCurrentMaxUid(-1);
+
+        //region Load previous data
+
+        //region Load previous spritesheet
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(spritesheet_path));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                previousSpritesheetTxt += line + "\n";
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //endregion
+
+        //region Load previous Game object
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new GameObjectDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+
+        try {
+            previousLevelTxt = new String(Files.readAllBytes(Paths.get(level_path)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        previousLevelTxt += "\n";
+        //endregion
+
+        //region Load previous Prefabs
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Component.class, new ComponentDeserializer())
+                .registerTypeAdapter(GameObject.class, new PrefabDeserializer())
+                .enableComplexMapKeySerialization()
+                .create();
+
+        try {
+            previousPrefabsTxt = new String(Files.readAllBytes(Paths.get(prefab_path)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        previousPrefabsTxt += "\n";
+        //endregion
+
+        //endregion
+
+        GameObject.setCurrentMaxUid(currentMaxGoUid);
+
+        boolean levelTxtChange = !(previousLevelTxt.equals(previewLevelTxtToSave));
+        boolean prefabsTxtChange = !(previousPrefabsTxt.equals(previewPrefabsTxtToSave));
+        boolean spritesheetTxtChange = !(previousSpritesheetTxt.equals(previewSpritesheetTxtToSave));
+
+        return levelTxtChange || prefabsTxtChange || spritesheetTxtChange;
     }
 
     private String getPreviousProject(){

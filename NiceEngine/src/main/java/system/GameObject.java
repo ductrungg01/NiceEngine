@@ -426,5 +426,13 @@ public class GameObject {
 
         return sb.toString();
     }
+
+    public static int getCurrentMaxUid(){
+        return ID_COUNTER;
+    }
+
+    public static void setCurrentMaxUid(int idMax){
+        ID_COUNTER = idMax;
+    }
     //endregion
 }
