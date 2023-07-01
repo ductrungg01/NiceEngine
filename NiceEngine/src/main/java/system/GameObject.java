@@ -128,12 +128,15 @@ public class GameObject {
                 newPrefab.transform.position = new Vector2f();
 
                 GameObject.PrefabLists.set(i, newPrefab);
+                newPrefab.start();
+
+                JOptionPane.showMessageDialog(null, "Override the prefab successful!",
+                        "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
         }
 
-        JOptionPane.showMessageDialog(null, "Override the prefab successful!",
-                "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+
 
         Debug.Log("Cannot find the prefab!");
     }
@@ -352,6 +355,7 @@ public class GameObject {
         prefab.parentId = "";
         prefab.generatePrefabId();
         GameObject.PrefabLists.add(prefab);
+        prefab.start();
 
         this.parentId = prefab.prefabId;
     }
