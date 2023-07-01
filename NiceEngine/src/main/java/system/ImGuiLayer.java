@@ -169,17 +169,19 @@ public class ImGuiLayer {
         GameViewWindow.getInstance().imgui();
         SceneHierarchyWindow.getInstance().imgui();
         ConsoleWindow.getInstance().imgui();
-        SpritesheetWindow.getInstance().imgui();
-        FileDialog.getInstance().render();
-        AddingSpritesheetWindow.getInstance().spritesheetPreview();
-        PrefabsWindow.getInstance().imgui();
-        OpenProjectWindow.imgui();
-        CreateNewProjectWindow.imgui();
-
-        assetsWindow.imgui();
-        messageBox.imgui();
         inspectorWindow.imgui();
 
+        if (!Window.get().runtimePlaying) {
+            SpritesheetWindow.getInstance().imgui();
+            FileDialog.getInstance().render();
+            AddingSpritesheetWindow.getInstance().spritesheetPreview();
+            PrefabsWindow.getInstance().imgui();
+            OpenProjectWindow.imgui();
+            CreateNewProjectWindow.imgui();
+
+            assetsWindow.imgui();
+            messageBox.imgui();
+        }
         endFrame();
     }
 
