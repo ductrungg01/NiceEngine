@@ -63,7 +63,7 @@ public class Window implements Observer {
     private ImGuiLayer imGuiLayer;
     private Framebuffer framebuffer;
     private PickingTexture pickingTexture;
-    private boolean runtimePlaying = false;
+    public boolean runtimePlaying = false;
     private long audioContext;
     private long audioDevice;
 
@@ -72,7 +72,6 @@ public class Window implements Observer {
     private Vector2f oldEditorCameraPos = new Vector2f();
     //endregion
 
-    //region Constructors
     private Window() {
         this.width = 3840;
         this.height = 2160;
@@ -95,7 +94,6 @@ public class Window implements Observer {
         currentScene.start();
     }
 
-    //region Properties
     public static Window get() {
         if (Window.window == null) {
             Window.window = new Window();
@@ -174,6 +172,7 @@ public class Window implements Observer {
             glEnable(GL_BLEND);
 
             // Render pass 2. Render actual game
+            GridLineDraw.beginFrame();
             DebugDraw.beginFrame();
 
             this.framebuffer.bind();
@@ -189,6 +188,7 @@ public class Window implements Observer {
                 } else {
                     currentScene.editorUpdate(dt);
                 }
+                GridLineDraw.draw();
                 DebugDraw.draw();
                 currentScene.render();
             }
@@ -518,7 +518,6 @@ public class Window implements Observer {
 
         return "";
     }
-    //endregion
 
     void SetWindowIcon() {
         //region Set icon
@@ -582,5 +581,4 @@ public class Window implements Observer {
                 break;
         }
     }
-    //endregion
 }

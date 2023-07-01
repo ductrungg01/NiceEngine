@@ -6,7 +6,7 @@ import system.Camera;
 import system.Window;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import renderer.DebugDraw;
+import renderer.GridLineDraw;
 import util.Settings;
 
 public class GridLines extends Component implements INonAddableComponent {
@@ -34,11 +34,11 @@ public class GridLines extends Component implements INonAddableComponent {
             float y = firstY + (Settings.GRID_HEIGHT * i);
 
             if (i < numVtLines) {
-                DebugDraw.addLine2D(new Vector2f(x, firstY), new Vector2f(x, firstY + height), color);
+                GridLineDraw.addLine2D(new Vector2f(x, firstY), new Vector2f(x, firstY + height), color);
             }
 
             if (i < numHzLines) {
-                DebugDraw.addLine2D(new Vector2f(firstX, y), new Vector2f(firstX + width, y), color);
+                GridLineDraw.addLine2D(new Vector2f(firstX, y), new Vector2f(firstX + width, y), color);
             }
         }
     }
