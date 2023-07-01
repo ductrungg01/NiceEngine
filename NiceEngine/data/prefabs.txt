@@ -1,6 +1,6 @@
 [
   {
-    "uid": 24912,
+    "uid": 32845,
     "name": "coin",
     "tag": "Coin",
     "isPrefab": true,
@@ -337,7 +337,7 @@
     "isDead": false
   },
   {
-    "uid": 24913,
+    "uid": 32846,
     "name": "shine-block",
     "tag": "Ground",
     "isPrefab": true,
@@ -578,7 +578,7 @@
     "isDead": false
   },
   {
-    "uid": 24914,
+    "uid": 32847,
     "name": "questionBlock",
     "tag": "Ground",
     "isPrefab": true,
@@ -862,7 +862,7 @@
     "isDead": false
   },
   {
-    "uid": 24915,
+    "uid": 32848,
     "name": "mario",
     "tag": "Mario",
     "isPrefab": true,
@@ -1505,7 +1505,7 @@
     "isDead": false
   },
   {
-    "uid": 24916,
+    "uid": 32849,
     "name": "goomba",
     "tag": "Enemy",
     "isPrefab": true,
@@ -1872,12 +1872,12 @@
     "isDead": false
   },
   {
-    "uid": 24995,
+    "uid": 32850,
     "name": "flower",
     "tag": "",
     "isPrefab": true,
     "prefabId": "SETMLe15d8",
-    "parentId": "SETMLe15d8",
+    "parentId": "",
     "components": [
       {
         "type": "system.Transform",
@@ -2062,7 +2062,7 @@
     "isDead": false
   },
   {
-    "uid": 24918,
+    "uid": 32851,
     "name": "fireFlower",
     "tag": "",
     "isPrefab": true,
@@ -2456,7 +2456,7 @@
     "isDead": false
   },
   {
-    "uid": 24919,
+    "uid": 32852,
     "name": "turtle",
     "tag": "Enemy",
     "isPrefab": true,
@@ -2959,7 +2959,7 @@
     "isDead": false
   },
   {
-    "uid": 24920,
+    "uid": 32853,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -3064,7 +3064,7 @@
     "isDead": false
   },
   {
-    "uid": 24921,
+    "uid": 32854,
     "name": "tree",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3131,7 +3131,7 @@
     "isDead": false
   },
   {
-    "uid": 24922,
+    "uid": 32855,
     "name": "tree",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3198,7 +3198,7 @@
     "isDead": false
   },
   {
-    "uid": 24923,
+    "uid": 32856,
     "name": "tree",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3265,7 +3265,7 @@
     "isDead": false
   },
   {
-    "uid": 24924,
+    "uid": 32857,
     "name": "tree",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3332,7 +3332,7 @@
     "isDead": false
   },
   {
-    "uid": 24925,
+    "uid": 32858,
     "name": "tree",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3399,7 +3399,7 @@
     "isDead": false
   },
   {
-    "uid": 24926,
+    "uid": 32859,
     "name": "bush",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3466,7 +3466,7 @@
     "isDead": false
   },
   {
-    "uid": 24927,
+    "uid": 32860,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -3571,7 +3571,7 @@
     "isDead": false
   },
   {
-    "uid": 24928,
+    "uid": 32861,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -3676,7 +3676,7 @@
     "isDead": false
   },
   {
-    "uid": 24929,
+    "uid": 32862,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -3781,7 +3781,7 @@
     "isDead": false
   },
   {
-    "uid": 24930,
+    "uid": 32863,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3848,7 +3848,7 @@
     "isDead": false
   },
   {
-    "uid": 24931,
+    "uid": 32864,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3915,7 +3915,7 @@
     "isDead": false
   },
   {
-    "uid": 24932,
+    "uid": 32865,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -3982,7 +3982,7 @@
     "isDead": false
   },
   {
-    "uid": 24933,
+    "uid": 32866,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -4049,7 +4049,7 @@
     "isDead": false
   },
   {
-    "uid": 24934,
+    "uid": 32867,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -4116,7 +4116,7 @@
     "isDead": false
   },
   {
-    "uid": 24935,
+    "uid": 32868,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -4183,7 +4183,7 @@
     "isDead": false
   },
   {
-    "uid": 24936,
+    "uid": 32869,
     "name": "shadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -4250,7 +4250,7 @@
     "isDead": false
   },
   {
-    "uid": 24937,
+    "uid": 32870,
     "name": "shadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -4317,7 +4317,7 @@
     "isDead": false
   },
   {
-    "uid": 24938,
+    "uid": 32871,
     "name": "pipe",
     "tag": "Ground",
     "isPrefab": true,
@@ -4422,7 +4422,7 @@
     "isDead": false
   },
   {
-    "uid": 24939,
+    "uid": 32872,
     "name": "pipe",
     "tag": "Ground",
     "isPrefab": true,
@@ -4527,7 +4527,7 @@
     "isDead": false
   },
   {
-    "uid": 24940,
+    "uid": 32873,
     "name": "pipe",
     "tag": "Wall",
     "isPrefab": true,
@@ -4632,7 +4632,7 @@
     "isDead": false
   },
   {
-    "uid": 24941,
+    "uid": 32874,
     "name": "pipe",
     "tag": "Wall",
     "isPrefab": true,
@@ -4737,7 +4737,7 @@
     "isDead": false
   },
   {
-    "uid": 24942,
+    "uid": 32875,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -4842,7 +4842,7 @@
     "isDead": false
   },
   {
-    "uid": 24943,
+    "uid": 32876,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -4947,7 +4947,7 @@
     "isDead": false
   },
   {
-    "uid": 24944,
+    "uid": 32877,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -5052,7 +5052,7 @@
     "isDead": false
   },
   {
-    "uid": 24945,
+    "uid": 32878,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -5157,7 +5157,7 @@
     "isDead": false
   },
   {
-    "uid": 24946,
+    "uid": 32879,
     "name": "ground",
     "tag": "Ground",
     "isPrefab": true,
@@ -5262,7 +5262,7 @@
     "isDead": false
   },
   {
-    "uid": 24947,
+    "uid": 32880,
     "name": "cloud",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5329,7 +5329,7 @@
     "isDead": false
   },
   {
-    "uid": 24948,
+    "uid": 32881,
     "name": "cloud",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5396,7 +5396,7 @@
     "isDead": false
   },
   {
-    "uid": 24949,
+    "uid": 32882,
     "name": "cloud",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5463,7 +5463,7 @@
     "isDead": false
   },
   {
-    "uid": 24950,
+    "uid": 32883,
     "name": "cloud",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5530,7 +5530,7 @@
     "isDead": false
   },
   {
-    "uid": 24951,
+    "uid": 32884,
     "name": "cloud",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5597,7 +5597,7 @@
     "isDead": false
   },
   {
-    "uid": 24952,
+    "uid": 32885,
     "name": "cloud",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5664,7 +5664,7 @@
     "isDead": false
   },
   {
-    "uid": 24953,
+    "uid": 32886,
     "name": "woodBlock",
     "tag": "Ground",
     "isPrefab": true,
@@ -5769,7 +5769,7 @@
     "isDead": false
   },
   {
-    "uid": 24954,
+    "uid": 32887,
     "name": "shadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5836,7 +5836,7 @@
     "isDead": false
   },
   {
-    "uid": 24955,
+    "uid": 32888,
     "name": "shadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5903,7 +5903,7 @@
     "isDead": false
   },
   {
-    "uid": 24956,
+    "uid": 32889,
     "name": "treeShadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -5970,7 +5970,7 @@
     "isDead": false
   },
   {
-    "uid": 24957,
+    "uid": 32890,
     "name": "treeShadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -6037,7 +6037,7 @@
     "isDead": false
   },
   {
-    "uid": 24958,
+    "uid": 32891,
     "name": "treeShadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -6104,7 +6104,7 @@
     "isDead": false
   },
   {
-    "uid": 24959,
+    "uid": 32892,
     "name": "treeShadow",
     "tag": "Decoration",
     "isPrefab": true,
@@ -6171,7 +6171,7 @@
     "isDead": false
   },
   {
-    "uid": 24960,
+    "uid": 32893,
     "name": "InvisibleWall",
     "tag": "InvisibleWall",
     "isPrefab": true,
@@ -6276,7 +6276,7 @@
     "isDead": false
   },
   {
-    "uid": 24961,
+    "uid": 32894,
     "name": "mushroom",
     "tag": "Mushroom",
     "isPrefab": true,
@@ -6380,7 +6380,7 @@
     "isDead": false
   },
   {
-    "uid": 24962,
+    "uid": 32895,
     "name": "flowerfire",
     "tag": "",
     "isPrefab": true,
@@ -6642,7 +6642,7 @@
     "isDead": false
   },
   {
-    "uid": 24963,
+    "uid": 32896,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -6747,7 +6747,7 @@
     "isDead": false
   },
   {
-    "uid": 24964,
+    "uid": 32897,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -6852,7 +6852,7 @@
     "isDead": false
   },
   {
-    "uid": 24965,
+    "uid": 32898,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -6957,7 +6957,7 @@
     "isDead": false
   },
   {
-    "uid": 24966,
+    "uid": 32899,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7024,7 +7024,7 @@
     "isDead": false
   },
   {
-    "uid": 24967,
+    "uid": 32900,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7091,7 +7091,7 @@
     "isDead": false
   },
   {
-    "uid": 24968,
+    "uid": 32901,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7158,7 +7158,7 @@
     "isDead": false
   },
   {
-    "uid": 24969,
+    "uid": 32902,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7225,7 +7225,7 @@
     "isDead": false
   },
   {
-    "uid": 24970,
+    "uid": 32903,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7292,7 +7292,7 @@
     "isDead": false
   },
   {
-    "uid": 24971,
+    "uid": 32904,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -7397,7 +7397,7 @@
     "isDead": false
   },
   {
-    "uid": 24972,
+    "uid": 32905,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -7502,7 +7502,7 @@
     "isDead": false
   },
   {
-    "uid": 24973,
+    "uid": 32906,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -7607,7 +7607,7 @@
     "isDead": false
   },
   {
-    "uid": 24974,
+    "uid": 32907,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7674,7 +7674,7 @@
     "isDead": false
   },
   {
-    "uid": 24975,
+    "uid": 32908,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7741,7 +7741,7 @@
     "isDead": false
   },
   {
-    "uid": 24976,
+    "uid": 32909,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7808,7 +7808,7 @@
     "isDead": false
   },
   {
-    "uid": 24977,
+    "uid": 32910,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7875,7 +7875,7 @@
     "isDead": false
   },
   {
-    "uid": 24978,
+    "uid": 32911,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -7942,7 +7942,7 @@
     "isDead": false
   },
   {
-    "uid": 24979,
+    "uid": 32912,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -8009,7 +8009,7 @@
     "isDead": false
   },
   {
-    "uid": 24980,
+    "uid": 32913,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -8114,7 +8114,7 @@
     "isDead": false
   },
   {
-    "uid": 24981,
+    "uid": 32914,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -8219,7 +8219,7 @@
     "isDead": false
   },
   {
-    "uid": 24982,
+    "uid": 32915,
     "name": "highGround",
     "tag": "HighGround",
     "isPrefab": true,
@@ -8324,7 +8324,7 @@
     "isDead": false
   },
   {
-    "uid": 24983,
+    "uid": 32916,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -8391,7 +8391,7 @@
     "isDead": false
   },
   {
-    "uid": 24984,
+    "uid": 32917,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -8458,7 +8458,7 @@
     "isDead": false
   },
   {
-    "uid": 24985,
+    "uid": 32918,
     "name": "highGroundDecor",
     "tag": "Decoration",
     "isPrefab": true,
@@ -8525,7 +8525,7 @@
     "isDead": false
   },
   {
-    "uid": 24986,
+    "uid": 32919,
     "name": "turtleRed",
     "tag": "",
     "isPrefab": true,
@@ -8986,6 +8986,706 @@
         "type": "components.mariodemo.TurtleAI",
         "properties": {
           "uid": 1964
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 32920,
+    "name": "text",
+    "tag": "",
+    "isPrefab": true,
+    "prefabId": "gEk7SEU9NA",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.125,
+            "y": 0.125
+          },
+          "rotation": 0.0,
+          "zIndex": 21,
+          "uid": 2092
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 8.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/font.png",
+              "width": 118,
+              "height": 28
+            },
+            "texCoords": [
+              {
+                "x": 0.06779661,
+                "y": 0.0
+              },
+              {
+                "x": 0.06779661,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.0,
+                "y": 0.2857143
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 2093
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "0",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.06779661,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.06779661,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "1",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.15254237,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.15254237,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.084745765,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.084745765,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "2",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.23728813,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.23728813,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.16949153,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.16949153,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "3",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3220339,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3220339,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.2542373,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.2542373,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "4",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.40677965,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.40677965,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.33898306,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.33898306,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "5",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4915254,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4915254,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.42372882,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.42372882,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "6",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5762712,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5762712,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.5084746,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.5084746,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "7",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.66101694,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.66101694,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.59322035,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.59322035,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "8",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7457627,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7457627,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.6779661,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.6779661,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "9",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 8.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/font.png",
+                      "width": 118,
+                      "height": 28
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8305085,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8305085,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.7627119,
+                        "y": 0.2857143
+                      },
+                      {
+                        "x": 0.7627119,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "0",
+          "uid": 2113
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 32921,
+    "name": "point",
+    "tag": "",
+    "isPrefab": true,
+    "prefabId": "DIBeEpRWSF",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.125
+          },
+          "rotation": 0.0,
+          "zIndex": 22,
+          "uid": 2132
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 8.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/point.png",
+              "width": 80,
+              "height": 8
+            },
+            "texCoords": [
+              {
+                "x": 0.2,
+                "y": 0.0
+              },
+              {
+                "x": 0.2,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 2133
+        }
+      },
+      {
+        "type": "components.mariodemo.PointShow",
+        "properties": {
+          "uid": 2153
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "100",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/point.png",
+                      "width": 80,
+                      "height": 8
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "200",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/point.png",
+                      "width": 80,
+                      "height": 8
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "400",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/point.png",
+                      "width": 80,
+                      "height": 8
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "800",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/point.png",
+                      "width": 80,
+                      "height": 8
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "1000",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 8.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/point.png",
+                      "width": 80,
+                      "height": 8
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                }
+              ],
+              "doesLoop": false
+            }
+          ],
+          "defaultStateTitle": "100",
+          "uid": 2173
         }
       }
     ],
