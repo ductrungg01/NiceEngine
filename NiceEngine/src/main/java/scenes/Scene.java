@@ -364,6 +364,7 @@ public class Scene {
         //region Load Game object
         int maxGoId = -1;
         int maxCompId = -1;
+        GameObject.setCurrentMaxUid(0);
 
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
