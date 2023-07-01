@@ -1390,7 +1390,7 @@
         "properties": {
           "velocity": {
             "x": 0.0,
-            "y": 0.0
+            "y": -4.0
           },
           "angularDamping": 0.8,
           "linearDamping": 0.9,
@@ -1428,10 +1428,10 @@
       {
         "type": "components.mariodemo.MarioCollision",
         "properties": {
-          "collisionDebounce": 0.5,
+          "collisionDebounce": 0.12,
           "marioMoving": {
             "maxVelocity": {
-              "x": 2.3,
+              "x": 2.5,
               "y": 4.0
             },
             "acceleration": {
@@ -1441,19 +1441,19 @@
             "SLOWDOWN_FORCE": 5.0,
             "velocity": {
               "x": 0.0,
-              "y": 0.0
+              "y": -4.0
             },
             "directionChangeDebounce": 0.2,
             "velocityDebounce": 0.2,
             "jumpTimeDebounce": 0.3,
-            "onGroundTimeDebounce": 0.3,
+            "onGroundTimeDebounce": 0.05,
             "maxJumpTime": 0.5,
             "uid": 1560
           },
           "rb": {
             "velocity": {
               "x": 0.0,
-              "y": 0.0
+              "y": -4.0
             },
             "angularDamping": 0.8,
             "linearDamping": 0.9,
@@ -1480,7 +1480,7 @@
         "type": "components.mariodemo.MarioMoving",
         "properties": {
           "maxVelocity": {
-            "x": 2.3,
+            "x": 2.5,
             "y": 4.0
           },
           "acceleration": {
@@ -1490,12 +1490,12 @@
           "SLOWDOWN_FORCE": 5.0,
           "velocity": {
             "x": 0.0,
-            "y": 0.0
+            "y": -4.0
           },
           "directionChangeDebounce": 0.2,
           "velocityDebounce": 0.2,
           "jumpTimeDebounce": 0.3,
-          "onGroundTimeDebounce": 0.3,
+          "onGroundTimeDebounce": 0.05,
           "maxJumpTime": 0.5,
           "uid": 1560
         }
