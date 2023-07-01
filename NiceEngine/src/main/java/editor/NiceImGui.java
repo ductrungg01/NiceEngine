@@ -26,17 +26,10 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class NiceImGui {
 
-    /**
-     * Very good for debugging
-     **/
     static final Vector4f DEFAULT_DOT_COLOR = COLOR_Red;
-    //endregion
-
-    //region Methods
     static final float DEFAULT_DOT_SIZE = 3f;
     final static float DEFAULT_REFERENCE_BUTTON_WIDTH = 250f;
     static final float DEFAULT_FLOAT_DRAG_SPEED = 0.003f;
-    //region Fields
     private static final float defaultLabelColumnWidth = 150.0f;
 
     //region Calc / Settings / Configurations
@@ -44,6 +37,18 @@ public class NiceImGui {
         float minLength = getLengthOfText(label);
 
         return Float.max(minLength, defaultLabelColumnWidth);
+    }
+
+    public static Vector4f getPopupBgColor(){
+        ImVec4 vec4 = new ImVec4();
+        ImGui.getStyle().getColor(ImGuiCol.PopupBg, vec4);
+        return new Vector4f(vec4.x, vec4.y, vec4.z, vec4.w);
+    }
+
+    public static Vector4f getWindowBgColor(){
+        ImVec4 vec4 = new ImVec4();
+        ImGui.getStyle().getColor(ImGuiCol.WindowBg, vec4);
+        return new Vector4f(vec4.x, vec4.y, vec4.z, vec4.w);
     }
     //endregion
 
@@ -496,6 +501,14 @@ public class NiceImGui {
     //endregion
 
     //region Button
+    public static void drawFakeButton(Vector4f btnColor, Vector2f btnSize){
+        ImGui.pushStyleColor(ImGuiCol.Button, btnColor.x, btnColor.y, btnColor.z, btnColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, btnColor.x, btnColor.y, btnColor.z, btnColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, btnColor.x, btnColor.y, btnColor.z, btnColor.w);
+        ImGui.button("", btnSize.x, btnSize.y);
+        ImGui.popStyleColor(3);
+    }
+
     public static boolean drawButton(String label, ButtonColor btnColor) {
 
         Vector2f buttonSize = getSizeOfButton(label);
@@ -518,9 +531,48 @@ public class NiceImGui {
 
         return ans;
     }
-    //endregion
 
-    //region Float
+    public static boolean buttonFullWidthLeftTextAndHaveIcon(String imguiId, String title, Sprite icon, ButtonColor btnColor, Vector4f fakeButtonCol){
+        boolean isClick = false;
+
+        ImGui.pushID(imguiId);
+
+        Vector2f mousePos = new Vector2f(ImGui.getIO().getMousePosX(), ImGui.getIO().getMousePosY());
+        Vector2f buttonPos = new Vector2f(ImGui.getCursorScreenPosX(), ImGui.getCursorScreenPosY());
+        Vector2f btnSize = new Vector2f(ImGui.getContentRegionAvailX(), NiceImGui.getHeightOfALine());
+
+        if (mousePos.x >= buttonPos.x && mousePos.x <= buttonPos.x + btnSize.x
+                && mousePos.y >= buttonPos.y && mousePos.y <= buttonPos.y + btnSize.y) {
+            if (ImGui.getMouseCursor() != ImGuiMouseCursor.Hand) {
+                ImGui.setMouseCursor(ImGuiMouseCursor.Hand);
+            }
+        }
+
+        ImGui.getIO().setMouseDrawCursor(true);
+
+        ImGui.pushStyleColor(ImGuiCol.Button, btnColor.buttonColor.x, btnColor.buttonColor.y, btnColor.buttonColor.z, btnColor.buttonColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonHovered, btnColor.hoveredColor.x, btnColor.hoveredColor.y, btnColor.hoveredColor.z, btnColor.hoveredColor.w);
+        ImGui.pushStyleColor(ImGuiCol.ButtonActive, btnColor.activeColor.x, btnColor.activeColor.y, btnColor.activeColor.z, btnColor.activeColor.w);
+        if (ImGui.button("", btnSize.x, btnSize.y)) {
+            isClick = true;
+        }
+
+        ImGui.popStyleColor(3);
+
+        ImGui.setCursorScreenPos(buttonPos.x, buttonPos.y);
+        ImGui.image(icon.getTexId(), NiceImGui.getHeightOfALine() * 0.8f, NiceImGui.getHeightOfALine() * 0.8f);
+        ImGui.sameLine();
+        ImGui.text(title);
+        ImGui.setCursorScreenPos(buttonPos.x, buttonPos.y);
+        drawFakeButton(fakeButtonCol, btnSize);
+
+        ImGui.popID();
+
+        return isClick;
+    }
+
+
+
     public static boolean drawButton(String label, ButtonColor btnColor, Vector2f btnSize) {
         boolean isClick = false;
 
@@ -552,7 +604,9 @@ public class NiceImGui {
 
         return isClick;
     }
+    //endregion
 
+    //region Float
     public static float dragFloat(String label, float value) {
         return dragFloat(label, value, (float) -1E5, (float) 1E5, DEFAULT_FLOAT_DRAG_SPEED, new float[2], label);
     }
@@ -941,7 +995,5 @@ public class NiceImGui {
 
         return isClicked;
     }
-    //endregion
-
     //endregion
 }

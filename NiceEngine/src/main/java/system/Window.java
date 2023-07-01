@@ -328,6 +328,10 @@ public class Window implements Observer {
     }
 
     public void changeCurrentProject(String projectName, boolean askToSaveCurrentProject, boolean needToReload) {
+        if (projectName.equals(ProjectUtils.CURRENT_PROJECT)){
+            return;
+        }
+
         if (askToSaveCurrentProject) {
             askToSave(false);
         }

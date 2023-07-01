@@ -79,8 +79,8 @@ public class OpenProjectWindow {
                     boolean needToBreakFlag = false;
 
                     ImGui.pushID("project" + p);
-                    ImGui.image(projectIconTexId, 25f, 25f);
-                    ImGui.sameLine();
+//                    ImGui.image(projectIconTexId, 25f, 25f);
+//                    ImGui.sameLine();
 
 
                     if (p.equals(projectNeedToRename)) {
@@ -118,16 +118,13 @@ public class OpenProjectWindow {
                             ImGui.endTooltip();
                         }
                     } else {
-                        ImGui.button(p);
+                        String buttonTitle = (p.equals(ProjectUtils.CURRENT_PROJECT) ? p + " (Current project)" : p);
 
-                        boolean currentProjectIsHovered = false;
-
-                        if (p.equals(ProjectUtils.CURRENT_PROJECT)) {
-                            if (ImGui.isItemHovered()) currentProjectIsHovered = true;
-                            ImGui.sameLine();
-                            ImGui.textUnformatted("(This is current project)");
-                        }
-                        if (ImGui.isItemHovered() || currentProjectIsHovered) {
+                        NiceImGui.buttonFullWidthLeftTextAndHaveIcon("Project " + p, buttonTitle,
+                                FileUtils.getIcon(FileUtils.ICON_NAME.PROJECT),
+                                new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_DarkBlue),
+                                new Vector4f(0, 0, 0, 0));
+                        if (ImGui.isItemHovered()) {
                             ImGui.beginTooltip();
                             ImGui.textColored(textColor.x, textColor.y, textColor.z, textColor.w, "Double-click to open this project!");
                             ImGui.text("Right-click to more option");
