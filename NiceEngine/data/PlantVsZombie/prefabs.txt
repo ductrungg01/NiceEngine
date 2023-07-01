@@ -1,8 +1,8 @@
 [
   {
-    "uid": 1,
+    "uid": 73,
     "name": "PotatoMine",
-    "tag": "",
+    "tag": "Plant",
     "isPrefab": true,
     "prefabId": "NbA0zmcuxW",
     "parentId": "",
@@ -15,11 +15,11 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.0,
-            "y": 1.0
+            "x": 0.45,
+            "y": 0.4
           },
           "rotation": 0.0,
-          "zIndex": 0,
+          "zIndex": 1,
           "uid": 124
         }
       },
@@ -353,15 +353,59 @@
           "defaultStateTitle": "Unarmed",
           "uid": 127
         }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 404
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": -0.01,
+            "y": -0.03
+          },
+          "halfSize": {
+            "x": 0.19,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 405
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 406
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 2,
+    "uid": 74,
     "name": "Zombie",
-    "tag": "",
+    "tag": "Enemy",
     "isPrefab": true,
     "prefabId": "ETSRCKY9pW",
     "parentId": "",
@@ -374,8 +418,8 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.85,
-            "y": 1.396
+            "x": 0.4,
+            "y": 0.476
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -402,19 +446,19 @@
             "texCoords": [
               {
                 "x": 1.0,
-                "y": 0.25
+                "y": 0.0
               },
               {
                 "x": 1.0,
-                "y": 0.5
-              },
-              {
-                "x": 0.9,
-                "y": 0.5
+                "y": 0.25
               },
               {
                 "x": 0.9,
                 "y": 0.25
+              },
+              {
+                "x": 0.9,
+                "y": 0.0
               }
             ]
           },
@@ -440,246 +484,6 @@
                     },
                     "texCoords": [
                       {
-                        "x": 0.1,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.2,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.3,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.4,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.5,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.6,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.5,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.7,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.6,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.8,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 0.8,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.7,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
                         "x": 1.0,
                         "y": 0.0
                       },
@@ -694,66 +498,6 @@
                       {
                         "x": 0.9,
                         "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 1.0,
-                        "y": 0.0
-                      },
-                      {
-                        "x": 1.0,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.9,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.9,
-                        "y": 0.0
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.1,
-                        "y": 0.25
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.5
-                      },
-                      {
-                        "x": 0.0,
-                        "y": 0.25
                       }
                     ]
                   },
@@ -1353,96 +1097,6 @@
                       },
                       {
                         "x": 0.0,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.2,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.1,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.3,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.2,
-                        "y": 0.75
-                      }
-                    ]
-                  },
-                  "frameTime": 0.2
-                },
-                {
-                  "sprite": {
-                    "width": 91.0,
-                    "height": 127.0,
-                    "texture": {
-                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
-                      "width": 910,
-                      "height": 508
-                    },
-                    "texCoords": [
-                      {
-                        "x": 0.4,
-                        "y": 0.75
-                      },
-                      {
-                        "x": 0.4,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.3,
-                        "y": 1.0
-                      },
-                      {
-                        "x": 0.3,
                         "y": 0.75
                       }
                     ]
@@ -2182,11 +1836,242 @@
                   "frameTime": 0.2
                 }
               ],
+              "doesLoop": false
+            },
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                }
+              ],
               "doesLoop": true
             }
           ],
           "defaultStateTitle": "Move",
           "uid": 81
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": -0.05,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 336
+        }
+      },
+      {
+        "type": "components.DemoPVZ.ZombieMoving",
+        "properties": {
+          "speed": 0.05,
+          "uid": 337
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.46
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 488
         }
       }
     ],
@@ -2194,9 +2079,9 @@
     "isDead": false
   },
   {
-    "uid": 3,
+    "uid": 75,
     "name": "PeeShooter",
-    "tag": "",
+    "tag": "Plant",
     "isPrefab": true,
     "prefabId": "jJPHkRS62J",
     "parentId": "",
@@ -2209,8 +2094,8 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.25,
-            "y": 1.25
+            "x": 0.35,
+            "y": 0.35
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -2236,19 +2121,19 @@
             },
             "texCoords": [
               {
-                "x": 0.1,
+                "x": 0.2,
                 "y": 0.0
               },
               {
+                "x": 0.2,
+                "y": 0.5
+              },
+              {
                 "x": 0.1,
                 "y": 0.5
               },
               {
-                "x": 0.0,
-                "y": 0.5
-              },
-              {
-                "x": 0.0,
+                "x": 0.1,
                 "y": 0.0
               }
             ]
@@ -2787,13 +2672,63 @@
           "defaultStateTitle": "Idle",
           "uid": 40
         }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 379
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.35
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 380
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 403
+        }
+      },
+      {
+        "type": "components.DemoPVZ.PeeShooter",
+        "properties": {
+          "uid": 508
+        }
       }
     ],
     "doSerialization": true,
     "isDead": false
   },
   {
-    "uid": 4,
+    "uid": 76,
     "name": "SunFlower",
     "tag": "",
     "isPrefab": true,
@@ -2808,8 +2743,8 @@
             "y": 0.0
           },
           "scale": {
-            "x": 1.0,
-            "y": 1.1
+            "x": 0.4,
+            "y": 0.45
           },
           "rotation": 0.0,
           "zIndex": 0,
@@ -2835,19 +2770,19 @@
             },
             "texCoords": [
               {
-                "x": 0.5,
+                "x": 0.3,
                 "y": 0.5
               },
               {
-                "x": 0.5,
+                "x": 0.3,
                 "y": 1.0
               },
               {
-                "x": 0.4,
+                "x": 0.2,
                 "y": 1.0
               },
               {
-                "x": 0.4,
+                "x": 0.2,
                 "y": 0.5
               }
             ]
@@ -3469,6 +3404,221 @@
           ],
           "defaultStateTitle": "Idle",
           "uid": 104
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 400
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.38
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 401
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 402
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 77,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": true,
+    "prefabId": "57x8Sqkoag",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.49019608,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 78,
+    "name": "PeeShooterBullet",
+    "tag": "Bullet",
+    "isPrefab": true,
+    "prefabId": "DmncBgsqOM",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.125,
+            "y": 0.125
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 425
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 1000.0,
+            "height": 1000.0,
+            "texture": {
+              "filePath": "assets/images/PeeShooterBullet.png",
+              "width": 1000,
+              "height": 1000
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 426
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "continuousCollision": true,
+          "uid": 428
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "radius": 0.065,
+          "uid": 429
         }
       }
     ],

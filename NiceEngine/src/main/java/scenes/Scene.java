@@ -2,25 +2,25 @@ package scenes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import components.*;
+import components.Component;
 import deserializers.ComponentDeserializer;
 import deserializers.GameObjectDeserializer;
 import deserializers.PrefabDeserializer;
 import editor.KeyControls;
 import editor.MessageBox;
 import editor.MouseControls;
+import editor.windows.OpenProjectWindow;
 import editor.windows.SceneHierarchyWindow;
-import renderer.Texture;
-import system.*;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import renderer.Renderer;
+import renderer.Texture;
+import system.*;
 import util.AssetPool;
+import util.ProjectUtils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -28,6 +28,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class Scene {
+    final String LEVEL_PATH = "level.txt";
+    final String PREFAB_PATH = "prefabs.txt";
+    final String SPRITESHEET_PATH = "spritesheet.txt";
     //region Fields
     private Renderer renderer;
     private Camera camera;
@@ -35,11 +38,11 @@ public class Scene {
     private List<GameObject> gameObjects;
     private List<GameObject> pendingObjects;
     private Physics2D physics2D;
+    //endregion
     private SceneInitializer sceneInitializer;
-
+    //endregion
     private MouseControls mouseControls = new MouseControls();
     private KeyControls keyControls = new KeyControls();
-    //endregion
 
     //region Constructors
     public Scene(SceneInitializer sceneInitializer) {
@@ -50,12 +53,12 @@ public class Scene {
         this.pendingObjects = new ArrayList<>();
         this.isRunning = false;
     }
-    //endregion
 
     //region Properties
     public Physics2D getPhysics() {
         return this.physics2D;
     }
+    //endregion
 
     public List<GameObject> getGameObjects() {
         return this.gameObjects;
@@ -76,7 +79,6 @@ public class Scene {
 
         return result.orElse(null);
     }
-    //endregion
 
     //region Methods
     public void init() {
@@ -236,13 +238,14 @@ public class Scene {
         return go;
     }
 
-    final String LEVEL_PATH = "data/pvz-level.txt";
-    final String PREFAB_PATH = "data/pvz-prefabs.txt";
-    final String SPRITESHEET_PATH = "data/pvz-spritesheet.txt";
-
     public void save(boolean isShowMessage) {
         Window.getImguiLayer().getInspectorWindow().clearSelected();
         SceneHierarchyWindow.clearSelectedGameObject();
+        if (ProjectUtils.CURRENT_PROJECT.isEmpty()) return;
+        String level_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + LEVEL_PATH;
+        String prefab_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + PREFAB_PATH;
+        String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + SPRITESHEET_PATH;
+
         //region Save Game Object
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
@@ -252,7 +255,7 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter(LEVEL_PATH);
+            FileWriter writer = new FileWriter(level_path);
 
             List<GameObject> objsToSerialize = new ArrayList<>();
             for (GameObject obj : this.gameObjects) {
@@ -264,7 +267,7 @@ public class Scene {
             writer.write(gson.toJson(objsToSerialize));
             writer.close();
             if (isShowMessage)
-                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save project '" + ProjectUtils.CURRENT_PROJECT + "' successfully");
         } catch (IOException e) {
             e.printStackTrace();
             if (isShowMessage)
@@ -281,14 +284,14 @@ public class Scene {
                 .create();
 
         try {
-            FileWriter writer = new FileWriter(PREFAB_PATH);
+            FileWriter writer = new FileWriter(prefab_path);
 
             List<GameObject> objsToSerialize = GameObject.PrefabLists;
 
             writer.write(gson.toJson(objsToSerialize));
             writer.close();
             if (isShowMessage)
-                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save project '" + ProjectUtils.CURRENT_PROJECT + "' successfully");
         } catch (IOException e) {
             e.printStackTrace();
             if (isShowMessage)
@@ -299,7 +302,7 @@ public class Scene {
         //region Save Spritesheet
         List<Spritesheet> spritesheets = AssetPool.getAllSpritesheets();
         try {
-            FileWriter writer = new FileWriter(SPRITESHEET_PATH);
+            FileWriter writer = new FileWriter(spritesheet_path);
 
             for (Spritesheet s : spritesheets) {
                 String path = s.getTexture().getFilePath().replace("\\", "/");
@@ -309,7 +312,7 @@ public class Scene {
 
             writer.close();
             if (isShowMessage)
-                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save project '" + ProjectUtils.CURRENT_PROJECT + "' successfully");
         } catch (IOException e) {
             e.printStackTrace();
             if (isShowMessage)
@@ -319,9 +322,24 @@ public class Scene {
     }
 
     public void load() {
+        if (ProjectUtils.CURRENT_PROJECT.isEmpty()) return;
+        File folder = new File("data\\" + ProjectUtils.CURRENT_PROJECT);
+        if (!folder.exists()) {
+            JOptionPane.showMessageDialog(null, "Cannot find the previous project (" + ProjectUtils.CURRENT_PROJECT + ")",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+            Window.get().changeCurrentProject("", false, false);
+            OpenProjectWindow.open(false);
+            return;
+        }
+
+        String level_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + LEVEL_PATH;
+        String prefab_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + PREFAB_PATH;
+        String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" + SPRITESHEET_PATH;
+
         //region Load spritesheet
+        AssetPool.removeAllSpritesheet();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(SPRITESHEET_PATH));
+            BufferedReader reader = new BufferedReader(new FileReader(spritesheet_path));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -348,6 +366,7 @@ public class Scene {
         //region Load Game object
         int maxGoId = -1;
         int maxCompId = -1;
+        GameObject.setCurrentMaxUid(0);
 
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
@@ -359,7 +378,7 @@ public class Scene {
         String inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get(LEVEL_PATH)));
+            inFile = new String(Files.readAllBytes(Paths.get(level_path)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -407,7 +426,7 @@ public class Scene {
         inFile = "";
 
         try {
-            inFile = new String(Files.readAllBytes(Paths.get(PREFAB_PATH)));
+            inFile = new String(Files.readAllBytes(Paths.get(prefab_path)));
         } catch (IOException e) {
             e.printStackTrace();
         }

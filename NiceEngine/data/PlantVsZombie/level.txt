@@ -1,0 +1,7738 @@
+[
+  {
+    "uid": 0,
+    "name": "pvzMaps",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.475,
+            "y": -1.75
+          },
+          "scale": {
+            "x": 9.181251,
+            "y": 3.0
+          },
+          "rotation": 0.0,
+          "zIndex": -87,
+          "uid": 147
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 1400.0,
+            "height": 600.0,
+            "texture": {
+              "filePath": "assets/images/pvzMaps.png",
+              "width": 1400,
+              "height": 600
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 148
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1,
+    "name": "SelectBar",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.8225086,
+            "y": 2.8073726
+          },
+          "scale": {
+            "x": 3.0524998,
+            "y": 0.38888884
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 213
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 666.0,
+            "height": 100.0,
+            "texture": {
+              "filePath": "assets/images/SelectBar.png",
+              "width": 666,
+              "height": 100
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 214
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 2,
+    "name": "Card - SunFlower",
+    "tag": "Card",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.81518316,
+            "y": 2.8076644
+          },
+          "scale": {
+            "x": 0.2057972,
+            "y": 0.27701283
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 234
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/SunFlowerCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 235
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Card",
+        "properties": {
+          "peeShooterCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PeeshooterCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "sunFlowerCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/SunFlowerCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "potatoMineCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PotatoMineCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "cardType": "SunFlower",
+          "uid": 255
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 3,
+    "name": "CardManager",
+    "tag": "Manager",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 275
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 276
+        }
+      },
+      {
+        "type": "components.DemoPVZ.CardManager",
+        "properties": {
+          "uid": 296
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 4,
+    "name": "Card - PeeShooter",
+    "tag": "Card",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.0767294,
+            "y": 2.8076644
+          },
+          "scale": {
+            "x": 0.2057972,
+            "y": 0.27701283
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 234
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PeeshooterCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 235
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Card",
+        "properties": {
+          "peeShooterCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PeeshooterCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "sunFlowerCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/SunFlowerCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "potatoMineCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PotatoMineCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "cardType": "PeeShooter",
+          "uid": 255
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 5,
+    "name": "Card - PotatoMine",
+    "tag": "Card",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.3401831,
+            "y": 2.8076644
+          },
+          "scale": {
+            "x": 0.2057972,
+            "y": 0.27701283
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 234
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PotatoMineCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 235
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Card",
+        "properties": {
+          "peeShooterCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PeeshooterCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "sunFlowerCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/SunFlowerCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "potatoMineCardSpr": {
+            "width": 100.0,
+            "height": 131.0,
+            "texture": {
+              "filePath": "assets/images/PotatoMineCard.png",
+              "width": 100,
+              "height": 131
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "cardType": "PotatoMine",
+          "uid": 255
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 6,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.87,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 7,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.3699998,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 8,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.8699999,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 9,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.395,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 10,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.9450002,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 11,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.4450002,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 12,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.9700003,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 13,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.4700003,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 14,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.9950004,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 15,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.87000024,
+            "y": 1.8920001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 16,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.3700002,
+            "y": 1.8920001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 17,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.8700002,
+            "y": 1.8920001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 18,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.3950005,
+            "y": 1.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 19,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.9450006,
+            "y": 1.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 20,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.4450006,
+            "y": 1.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 21,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.9700007,
+            "y": 1.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 22,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.4700017,
+            "y": 1.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 23,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.995002,
+            "y": 1.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 24,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.8700019,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 25,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.3700019,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 26,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.8700018,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 27,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.395002,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 28,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.945002,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 29,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.445002,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 30,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.9700022,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 31,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.470002,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 32,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.9950023,
+            "y": 1.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 33,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.87000215,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 34,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.3700022,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 35,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.8700023,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 36,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.3950024,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 37,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.9450026,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 38,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.4450026,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 39,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.9700027,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 40,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.4700027,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 41,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.9950027,
+            "y": 0.8920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 42,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.8700026,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 43,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.3700026,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 44,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 1.8700027,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 45,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.3950028,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 46,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.945003,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 47,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.445003,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 48,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.9700031,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 49,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.470003,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 50,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.995003,
+            "y": 0.3920002
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 51,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.87,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 52,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.37,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 53,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.87,
+            "y": 2.367
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 54,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.87,
+            "y": 1.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 55,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.37,
+            "y": 1.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 56,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.87,
+            "y": 1.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 57,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.87,
+            "y": 1.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 58,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.37,
+            "y": 1.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 59,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.87,
+            "y": 1.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 60,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.87,
+            "y": 0.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 61,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.37,
+            "y": 0.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 62,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.87,
+            "y": 0.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 63,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.87,
+            "y": 0.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 64,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 6.37,
+            "y": 0.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 65,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 5.87,
+            "y": 0.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 66,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 7.37,
+            "y": 0.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 67,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 7.37,
+            "y": 0.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 68,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 7.37,
+            "y": 1.3670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 69,
+    "name": "Spot",
+    "tag": "Spot",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "57x8Sqkoag",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 7.37,
+            "y": 1.8670001
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 168
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "sprite": {
+            "width": 40.0,
+            "height": 40.0,
+            "texture": {
+              "filePath": "system-assets/images/Default Sprite.png",
+              "width": 40,
+              "height": 40
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 169
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Spot",
+        "properties": {
+          "uid": 316
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 70,
+    "name": "Zombie",
+    "tag": "Enemy",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "ETSRCKY9pW",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.0499997,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.476
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 60
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 91.0,
+            "height": 127.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/Zombie-Move.png",
+              "width": 910,
+              "height": 508
+            },
+            "texCoords": [
+              {
+                "x": 0.7,
+                "y": 0.5
+              },
+              {
+                "x": 0.7,
+                "y": 0.75
+              },
+              {
+                "x": 0.6,
+                "y": 0.75
+              },
+              {
+                "x": 0.6,
+                "y": 0.5
+              }
+            ]
+          },
+          "uid": 61
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Move",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.25
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.75
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.75
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Eat",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.0
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 95.0,
+                    "height": 124.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Eat.png",
+                      "width": 950,
+                      "height": 248
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Dead",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                },
+                {
+                  "sprite": {
+                    "width": 144.0,
+                    "height": 99.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Dead.png",
+                      "width": 1440,
+                      "height": 99
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.2
+                }
+              ],
+              "doesLoop": false
+            },
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                },
+                {
+                  "sprite": {
+                    "width": 91.0,
+                    "height": 127.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/Zombie-Move.png",
+                      "width": 910,
+                      "height": 508
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.3
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Move",
+          "uid": 81
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": -0.05,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 336
+        }
+      },
+      {
+        "type": "components.DemoPVZ.ZombieMoving",
+        "properties": {
+          "speed": 0.05,
+          "uid": 337
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.46
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 488
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 71,
+    "name": "PeeShooter",
+    "tag": "Plant",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "jJPHkRS62J",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.875,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.35,
+            "y": 0.35
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 250.0,
+            "height": 239.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/PeeShooter.png",
+              "width": 2500,
+              "height": 478
+            },
+            "texCoords": [
+              {
+                "x": 0.2,
+                "y": 0.0
+              },
+              {
+                "x": 0.2,
+                "y": 0.5
+              },
+              {
+                "x": 0.1,
+                "y": 0.5
+              },
+              {
+                "x": 0.1,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Idle",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.5
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.5
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "Shoot",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.6,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.8,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.9,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.3,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                },
+                {
+                  "sprite": {
+                    "width": 250.0,
+                    "height": 239.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/PeeShooter.png",
+                      "width": 2500,
+                      "height": 478
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.5
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.5
+                      }
+                    ]
+                  },
+                  "frameTime": 0.08
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Idle",
+          "uid": 40
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "friction": 0.1,
+          "angularVelocity": 0.0,
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": true,
+          "continuousCollision": true,
+          "uid": 379
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.35
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 380
+        }
+      },
+      {
+        "type": "components.DemoPVZ.Plant",
+        "properties": {
+          "uid": 403
+        }
+      },
+      {
+        "type": "components.DemoPVZ.PeeShooter",
+        "properties": {
+          "uid": 508
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 72,
+    "name": "PeeShooterBullet",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 2.625,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 529
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 1000.0,
+            "height": 1000.0,
+            "texture": {
+              "filePath": "assets/images/PeeShooterBullet.png",
+              "width": 1000,
+              "height": 1000
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 530
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

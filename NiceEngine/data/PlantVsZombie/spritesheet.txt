@@ -1,0 +1,8 @@
+assets/images/spritesheets/PotatoMine.png|250|250|8|0|0
+assets/images/spritesheets/chess.png|144|144|12|0|0
+assets/images/spritesheets/SunFlower.png|203|219|20|0|0
+assets/images/spritesheets/numbers and alphabet.png|120|120|40|0|0
+assets/images/spritesheets/Zombie-Move.png|91|127|34|0|0
+assets/images/spritesheets/Zombie-Eat.png|95|124|14|0|0
+assets/images/spritesheets/PeeShooter.png|250|239|15|0|0
+assets/images/spritesheets/Zombie-Dead.png|144|99|10|0|0

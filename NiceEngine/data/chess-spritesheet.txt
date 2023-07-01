@@ -1,2 +1,0 @@
-assets/images/spritesheets/chess.png|144|144|12|0|0
-assets/images/spritesheets/numbers and alphabet.png|120|120|40|0|0

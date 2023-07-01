@@ -15,6 +15,7 @@ import util.FileUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.List;
 
 public abstract class Component {
     //region Fields
@@ -127,12 +128,17 @@ public abstract class Component {
                         value = type.getEnumConstants()[0];
                         field.set(this, value);
                     }
-                    String enumType = ((Enum) value).name();
-                    ImInt index = new ImInt(indexOf(enumType, enumValues));
+//                    String enumType = ((Enum) value).name();
+//                    ImInt index = new ImInt(indexOf(enumType, enumValues));
+//
+//                    if (ImGui.combo(name, index, enumValues, enumValues.length)) {
+//                        field.set(this, type.getEnumConstants()[index.get()]);
+//                    }
 
-                    if (ImGui.combo(name, index, enumValues, enumValues.length)) {
-                        field.set(this, type.getEnumConstants()[index.get()]);
-                    }
+                    String selectedValue = NiceImGui.comboBox(name, value.toString(), ImGuiComboFlags.None,
+                                    List.of(enumValues), name + this.gameObject.hashCode() + this.uid);
+                    int index = indexOf(selectedValue, enumValues);
+                    field.set(this, type.getEnumConstants()[index]);
                 } else if (type == String.class) {
                     field.set(this,
                             NiceImGui.inputText(

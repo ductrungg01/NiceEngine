@@ -41,7 +41,6 @@ public class ImGuiLayer {
     }
     //endregion
 
-
     //region Methods
     // Initialize Dear ImGui
     public void initImGui() {
@@ -174,6 +173,8 @@ public class ImGuiLayer {
         FileDialog.getInstance().render();
         AddingSpritesheetWindow.getInstance().spritesheetPreview();
         PrefabsWindow.getInstance().imgui();
+        OpenProjectWindow.imgui();
+        CreateNewProjectWindow.imgui();
 
         assetsWindow.imgui();
         messageBox.imgui();

@@ -78,6 +78,13 @@ public class GameViewWindow {
     }
 
     public boolean getWantCaptureMouse() {
+        if (FileDialog.getInstance().isOpen()
+            || CreateNewProjectWindow.isOpen()
+            || OpenProjectWindow.isOpen()
+            || AddingSpritesheetWindow.getInstance().isOpened()) {
+            return false;
+        }
+
         if (debounceTimeToCapture > 0) return false;
 
         return MouseListener.getX() >= leftX && MouseListener.getX() <= rightX &&

@@ -2,6 +2,9 @@ package editor;
 
 import editor.windows.AssetsWindow;
 import imgui.ImGui;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
+import system.Window;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,11 +43,17 @@ public class MessageBox {
     public void imgui() {
         if (!showMsb) return;
         //region Message Box
-        ImGui.setNextWindowSize(500, 200);
         if (showMsb) {
             ImGui.openPopup("Message Box");
+            float popupWidth = Window.getWidth() * 0.3f;
+            float popupHeight = Window.getHeight() * 0.25f;
+            ImGui.setNextWindowSize(popupWidth, popupHeight);
+
+            float popupPosX = (float) Window.getWidth() / 2 - popupWidth / 2;
+            float popupPosY = (float) Window.getHeight() / 2 - popupHeight / 2;
+            ImGui.setNextWindowPos(popupPosX, popupPosY, ImGuiCond.Always);
         }
-        if (ImGui.beginPopupModal("Message Box")) {
+        if (ImGui.beginPopupModal("Message Box", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)) {
             ImGui.text(msbText);
             ImGui.separator();
 

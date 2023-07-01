@@ -1,6 +1,8 @@
 package physics2d;
 
 import components.Component;
+import editor.Debug;
+import org.jbox2d.dynamics.Fixture;
 import system.GameObject;
 import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.collision.Manifold;

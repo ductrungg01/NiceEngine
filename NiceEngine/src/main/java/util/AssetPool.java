@@ -130,6 +130,10 @@ public class AssetPool {
             AssetPool.spritesheets.remove(filePath);
         }
     }
+
+    public static void removeAllSpritesheet(){
+        AssetPool.spritesheets.clear();
+    }
     //endregion
 
 }

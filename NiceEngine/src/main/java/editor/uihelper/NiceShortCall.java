@@ -18,7 +18,7 @@ public class NiceShortCall {
 
     public static final Vector4f COLOR_Green = new Vector4f(0.0f, 1.0f, 0.0f, 1.0f);
     public static final Vector4f COLOR_LightGreen = new Vector4f(0.75f, 1.0f, 0.75f, 1.0f);
-    public static final Vector4f COLOR_DarkGreen = new Vector4f(0.0f, 0.8f, 0.0f, 1.0f);
+    public static final Vector4f COLOR_DarkGreen = new Vector4f(0.03f, 0.45f, 0.06f, 0.8f);
 
     public static final Vector4f COLOR_Orange = new Vector4f(1.0f, 0.5f, 0.0f, 1.0f);
     public static final Vector4f COLOR_LightOrange = new Vector4f(1.0f, 0.85f, 0.65f, 1.0f);
