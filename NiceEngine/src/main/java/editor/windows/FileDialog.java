@@ -4,7 +4,9 @@ import components.Sprite;
 import editor.Debug;
 import editor.NiceImGui;
 import editor.ReferenceType;
+import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiHoveredFlags;
+import imgui.flag.ImGuiWindowFlags;
 import system.Spritesheet;
 import editor.uihelper.ButtonColor;
 import editor.uihelper.ColorHelp;
@@ -74,9 +76,18 @@ public class FileDialog {
     public void render() {
         if (isOpen) {
             ImGui.openPopup("FileDialog");
-            ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
+
+            float popupWidth = Window.getWidth() * 0.75f;
+            float popupHeight = Window.getHeight() * 0.75f;
+            ImGui.setNextWindowSize(popupWidth, popupHeight);
+
+            float popupPosX = (float) Window.getWidth() / 2 - popupWidth / 2;
+            float popupPosY = (float) Window.getHeight() / 2 - popupHeight / 2;
+            ImGui.setNextWindowPos(popupPosX, popupPosY, ImGuiCond.Always);
+
+            //ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
         }
-        if (ImGui.beginPopupModal("FileDialog")) {
+        if (ImGui.beginPopupModal("FileDialog", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)) {
             if (ImGui.beginTabBar("FileDialogTabBar")) {
 
                 if (this.showSpritesheetAlso)
@@ -163,7 +174,7 @@ public class FileDialog {
                             spritesheet_has_just_used = "";
                         }
 
-                        ImGui.beginChild("##Select sprite from spritesheet on FileDialog with spritesheet " + spritesheetName, ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.75f, true);
+                        ImGui.beginChild("##Select sprite from spritesheet on FileDialog with spritesheet " + spritesheetName, ImGui.getContentRegionMaxX(), ImGui.getContentRegionMaxY() * 0.7f, true);
 
                         ImVec2 windowPos = new ImVec2();
                         ImGui.getWindowPos(windowPos);

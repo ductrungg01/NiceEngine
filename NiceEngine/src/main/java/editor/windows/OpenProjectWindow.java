@@ -4,6 +4,9 @@ import editor.MessageBox;
 import editor.NiceImGui;
 import editor.uihelper.ButtonColor;
 import imgui.ImGui;
+import imgui.flag.ImGuiCol;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
@@ -24,7 +27,6 @@ import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_RIGHT;
-import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 
 public class OpenProjectWindow {
     private static boolean isOpen = false;
@@ -44,9 +46,15 @@ public class OpenProjectWindow {
         if (!isOpen) return;
 
         ImGui.openPopup("Open project");
-        ImGui.setNextWindowSize(Window.getWidth() * 0.3f, Window.getHeight() * 0.7f);
+        float popupWidth = Window.getWidth() * 0.3f;
+        float popupHeight = Window.getHeight() * 0.7f;
+        ImGui.setNextWindowSize(popupWidth, popupHeight);
 
-        if (ImGui.beginPopupModal("Open project")){
+        float popupPosX = (float) Window.getWidth() / 2 - popupWidth / 2;
+        float popupPosY = (float) Window.getHeight() / 2 - popupHeight / 2;
+        ImGui.setNextWindowPos(popupPosX, popupPosY, ImGuiCond.Always);
+
+        if (ImGui.beginPopupModal("Open project", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)){
             ImGui.text("Select a project below or");
             ImGui.sameLine();
             NiceImGui.drawButton("Create new project", new ButtonColor(COLOR_DarkGreen, COLOR_Green, COLOR_DarkGreen), new Vector2f(200, 25));

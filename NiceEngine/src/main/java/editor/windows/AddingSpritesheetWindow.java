@@ -2,6 +2,8 @@ package editor.windows;
 
 import components.Sprite;
 import editor.NiceImGui;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
 import system.Spritesheet;
 import editor.uihelper.ButtonColor;
 import imgui.ImColor;
@@ -62,10 +64,18 @@ public class AddingSpritesheetWindow {
         if (this.isOpen) {
             ImGui.openPopup(popupId);
 
-            ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
+            float popupWidth = Window.getWidth() * 0.75f;
+            float popupHeight = Window.getHeight() * 0.75f;
+            ImGui.setNextWindowSize(popupWidth, popupHeight);
+
+            float popupPosX = (float) Window.getWidth() / 2 - popupWidth / 2;
+            float popupPosY = (float) Window.getHeight() / 2 - popupHeight / 2;
+            ImGui.setNextWindowPos(popupPosX, popupPosY, ImGuiCond.Always);
+
+            //ImGui.setNextWindowSizeConstraints(Window.getWidth() * 0.75f, Window.getHeight() * 0.75f, Window.getWidth(), Window.getHeight());
         }
 
-        if (ImGui.beginPopupModal(popupId, new ImBoolean(this.isOpen))) {
+        if (ImGui.beginPopupModal(popupId, new ImBoolean(this.isOpen), ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)) {
             ImGui.columns(2);
             final float SETTING_COLUMN_WIDTH = 300f;
             ImGui.setColumnWidth(0, SETTING_COLUMN_WIDTH);
