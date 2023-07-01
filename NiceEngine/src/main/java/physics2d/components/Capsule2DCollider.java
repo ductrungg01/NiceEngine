@@ -18,8 +18,18 @@ public class Capsule2DCollider extends Component {
         this.box2DCollider.gameObject = this.gameObject;
     }
 
+    private void setThisGO(){
+        if (this.topCircle.gameObject == null || this.bottomCircle.gameObject == null || this.box2DCollider.gameObject == null){
+            this.topCircle.gameObject = this.gameObject;
+            this.bottomCircle.gameObject = this.gameObject;
+            this.box2DCollider.gameObject = this.gameObject;
+        }
+    }
+
     @Override
     public void editorUpdate(float dt) {
+        setThisGO();
+
         bottomCircle.editorUpdate(dt);
         box2DCollider.editorUpdate(dt);
         topCircle.editorUpdate(dt);
@@ -31,6 +41,8 @@ public class Capsule2DCollider extends Component {
 
     @Override
     public void update(float dt) {
+        setThisGO();
+
         if (resetFixtureNextFrame){
             resetFixture();
         }
@@ -38,6 +50,8 @@ public class Capsule2DCollider extends Component {
 
     @Override
     public void imgui() {
+        setThisGO();
+
         ImGui.text("Top circle:");
         this.topCircle.imgui();
 
