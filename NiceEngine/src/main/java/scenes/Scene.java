@@ -9,18 +9,18 @@ import deserializers.PrefabDeserializer;
 import editor.KeyControls;
 import editor.MessageBox;
 import editor.MouseControls;
+import editor.windows.OpenProjectWindow;
 import renderer.Texture;
 import system.*;
 import org.joml.Vector2f;
 import physics2d.Physics2D;
 import renderer.Renderer;
 import util.AssetPool;
+import util.FileUtils;
 import util.ProjectUtils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -321,6 +321,15 @@ public class Scene {
 
     public void load() {
         if (ProjectUtils.CURRENT_PROJECT.isEmpty()) return;
+        File folder = new File("data\\" + ProjectUtils.CURRENT_PROJECT);
+        if (!folder.exists()) {
+            JOptionPane.showMessageDialog(null, "Cannot find the previous project (" + ProjectUtils.CURRENT_PROJECT + ")",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+            Window.get().changeCurrentProject("", false, false);
+            OpenProjectWindow.open(false);
+            return;
+        }
+
         String level_path = "data\\" + ProjectUtils.CURRENT_PROJECT  + "\\" + LEVEL_PATH;
         String prefab_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  PREFAB_PATH;
         String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  SPRITESHEET_PATH;
