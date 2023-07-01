@@ -9,5 +9,6 @@ public class Debug {
 
     public static void Clear() {
         ConsoleWindow.getInstance().debugLogs.clear();
+        ConsoleWindow.getInstance().isRemoved = false;
     }
 }

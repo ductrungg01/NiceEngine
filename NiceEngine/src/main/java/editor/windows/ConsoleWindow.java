@@ -10,11 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleWindow {
+    static boolean scrollToBottom = true;
+    static boolean firstFrame = true;
+    private static ConsoleWindow instance = null;
+
+    //endregion
+    private final int MAX_DEBUGLOG_SIZE = 50;
+    public List<String> debugLogs = new ArrayList<>();
+    public boolean isRemoved = false;
+
     //region Singleton
     private ConsoleWindow() {
     }
-
-    private static ConsoleWindow instance = null;
 
     public static ConsoleWindow getInstance() {
         if (instance == null) {
@@ -23,14 +30,6 @@ public class ConsoleWindow {
 
         return instance;
     }
-
-    //endregion
-
-    public List<String> debugLogs = new ArrayList<>();
-    private final int MAX_DEBUGLOG_SIZE = 50;
-    private boolean isRemoved = false;
-    static boolean scrollToBottom = true;
-    static boolean firstFrame = true;
 
     public void imgui() {
         ImGui.setNextWindowSizeConstraints(Settings.MIN_WIDTH_GROUP_WIDGET, Settings.MIN_HEIGHT_GROUP_WIDGET, Window.getWidth(), Window.getHeight());
@@ -49,7 +48,7 @@ public class ConsoleWindow {
         }
 
         if (isRemoved) {
-            ImGui.text("The old value was be removed by because low performance");
+            ImGui.text("The old value was removed");
         }
 
         for (int i = 0; i < debugLogs.size(); i++) {
