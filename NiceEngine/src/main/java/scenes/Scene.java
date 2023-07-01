@@ -326,6 +326,7 @@ public class Scene {
         String spritesheet_path = "data\\" + ProjectUtils.CURRENT_PROJECT + "\\" +  SPRITESHEET_PATH;
 
         //region Load spritesheet
+        AssetPool.removeAllSpritesheet();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(spritesheet_path));
             String line;
