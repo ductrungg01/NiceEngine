@@ -1,17 +1,14 @@
-package physics2d;
+package components.DemoPVZ;
 
-import components.DemoPVZ.PeeShooter;
-import editor.Debug;
-import org.jbox2d.callbacks.DebugDraw;
 import org.jbox2d.callbacks.RayCastCallback;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Fixture;
 import system.GameObject;
 
-public class CustomRaycastCallback implements RayCastCallback {
+public class PVZRaycastCallback implements RayCastCallback {
     private GameObject requestObject;
 
-    public CustomRaycastCallback(GameObject requestObject){
+    public PVZRaycastCallback(GameObject requestObject){
         this.requestObject = requestObject;
         this.requestObject.getComponent(PeeShooter.class).isHaveEnemy = false;
 

@@ -2,13 +2,8 @@ package components.DemoPVZ;
 
 import components.Component;
 import editor.Debug;
-import org.jbox2d.callbacks.RayCastCallback;
-import org.jbox2d.common.Vec2;
-import org.jbox2d.dynamics.Fixture;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
-import physics2d.CustomRaycastCallback;
-import physics2d.RaycastInfo;
 import physics2d.components.RigidBody2D;
 import renderer.DebugDraw;
 import system.GameObject;
@@ -44,7 +39,7 @@ public class PeeShooter extends Component {
         Vector2f end = new Vector2f(start).add(3, 0);
 
         DebugDraw.addLine2D(start, end, new Vector3f(1, 0, 0));
-        CustomRaycastCallback raycast = new CustomRaycastCallback(this.gameObject);
+        PVZRaycastCallback raycast = new PVZRaycastCallback(this.gameObject);
         Window.getPhysics().raycast(raycast, start, end);
         Debug.Clear();
     }
