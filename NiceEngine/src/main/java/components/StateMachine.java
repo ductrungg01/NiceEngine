@@ -1,12 +1,11 @@
 package components;
 
 import editor.Debug;
-import editor.uihelper.ButtonColor;
 import editor.NiceImGui;
+import editor.uihelper.ButtonColor;
 import imgui.ImGui;
 import imgui.flag.ImGuiComboFlags;
 import imgui.flag.ImGuiTreeNodeFlags;
-import imgui.type.ImBoolean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,38 +14,11 @@ import java.util.Objects;
 
 
 public class StateMachine extends Component {
-    private class StateTrigger {
-        public String state;
-        public String trigger;
-
-        public StateTrigger() {
-        }
-
-        public StateTrigger(String state, String trigger) {
-            this.state = state;
-            this.trigger = trigger;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (o.getClass() != StateTrigger.class) return false;
-
-            StateTrigger t2 = (StateTrigger) o;
-            return t2.trigger.equals(this.trigger) && t2.state.equals(this.state);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(trigger, state);
-        }
-    }
-
     //region Fields
     public HashMap<StateTrigger, String> stateTransfers = new HashMap<>();
     private List<AnimationState> states = new ArrayList<>();
     private transient AnimationState currentState = null;
     private String defaultStateTitle = "";
-    //endregion
 
     //region Methods
     public void refreshTextures() {
@@ -54,6 +26,7 @@ public class StateMachine extends Component {
             state.refreshTextures();
         }
     }
+    //endregion
 
     public void addStateTrigger(String from, String to, String onTrigger) {
         this.stateTransfers.put(new StateTrigger(from, onTrigger), to);
@@ -84,6 +57,8 @@ public class StateMachine extends Component {
     }
 
     public void setCurrentState(String animationTitle) {
+        if (getCurrentStateTitle().equals(animationTitle)) return;
+
         for (AnimationState state : states) {
             if (state.title.equals(animationTitle)) {
                 currentState = state;
@@ -125,9 +100,6 @@ public class StateMachine extends Component {
 
         return -1;
     }
-    //endregion
-
-    //region Override Methods
 
     /**
      * Start is called before the first frame update
@@ -141,6 +113,9 @@ public class StateMachine extends Component {
             state.start();
         }
     }
+    //endregion
+
+    //region Override Methods
 
     /**
      * Update is called once per frame
@@ -208,6 +183,32 @@ public class StateMachine extends Component {
                     i--;
                 }
             }
+        }
+    }
+
+    private class StateTrigger {
+        public String state;
+        public String trigger;
+
+        public StateTrigger() {
+        }
+
+        public StateTrigger(String state, String trigger) {
+            this.state = state;
+            this.trigger = trigger;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(trigger, state);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o.getClass() != StateTrigger.class) return false;
+
+            StateTrigger t2 = (StateTrigger) o;
+            return t2.trigger.equals(this.trigger) && t2.state.equals(this.state);
         }
     }
     //endregion
