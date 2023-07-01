@@ -4,7 +4,7 @@ import components.Component;
 import components.StateMachine;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-import physics2d.Physics2D;
+import physics2d.RaycastInfo;
 import physics2d.components.RigidBody2D;
 import system.Camera;
 import system.GameObject;
@@ -131,9 +131,20 @@ public class GoombaAI extends Component {
     }
 
     public void checkOnGround() {
-        float innerPlayerWidth = 0.25f * 0.7f;
-        float yVal = -0.14f;
-        onGround = Physics2D.checkOnGround(this.gameObject, innerPlayerWidth, yVal);
+        Vector2f raycastBegin = new Vector2f(gameObject.transform.position);
+        raycastBegin.sub(this.gameObject.transform.scale.x / 2.0f, 0.0f);
+        Vector2f raycastEnd = new Vector2f(raycastBegin).sub(0.0f, this.gameObject.transform.scale.y / 2);
+        RaycastInfo info = Window.getPhysics().raycast(gameObject, raycastBegin, raycastEnd);
+
+        Vector2f raycast2Begin = new Vector2f(raycastBegin).add(this.gameObject.transform.scale.x, 0.0f);
+        Vector2f raycast2End = new Vector2f(raycastEnd).add(this.gameObject.transform.scale.x, 0.0f);
+        RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
+
+//        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+//        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
+
+        onGround = (info.hit && info.hitObject != null && info.hitObject.tag.toLowerCase().contains("ground")) ||
+                (info2.hit && info2.hitObject != null && info2.hitObject.tag.toLowerCase().contains("ground"));
     }
 
     //endregion

@@ -19,6 +19,7 @@ public class ItemBox extends Component {
     @Override
     public void start() {
         stateMachine = this.gameObject.getComponent(StateMachine.class);
+        this.listState.clear();
         this.listState.add("Mushroom");
         this.listState.add("Flower");
         this.listState.add("Star");

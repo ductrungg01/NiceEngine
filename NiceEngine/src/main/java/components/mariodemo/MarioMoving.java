@@ -4,7 +4,6 @@ import components.Component;
 import components.SpriteRenderer;
 import components.StateMachine;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.glfw.GLFW;
 import physics2d.RaycastInfo;
@@ -12,7 +11,6 @@ import physics2d.components.Box2DCollider;
 import physics2d.components.Capsule2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
-import renderer.DebugDraw;
 import system.KeyListener;
 import system.Window;
 
@@ -326,8 +324,8 @@ public class MarioMoving extends Component {
         Vector2f raycast2End = new Vector2f(raycastEnd).add(this.gameObject.transform.scale.x, 0.0f);
         RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
 
-        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
-        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
+//        DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
+//        DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
 
         return (info.hit && info.hitObject != null && info.hitObject.tag.toLowerCase().contains("ground")) ||
                 (info2.hit && info2.hitObject != null && info2.hitObject.tag.toLowerCase().contains("ground"));

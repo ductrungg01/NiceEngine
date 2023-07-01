@@ -1,22 +1,17 @@
 package physics2d;
 
-import editor.Debug;
 import org.jbox2d.callbacks.RayCastCallback;
-import physics2d.components.Capsule2DCollider;
-import system.GameObject;
-import system.Transform;
-import system.Window;
 import org.jbox2d.collision.shapes.CircleShape;
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.*;
 import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
+import physics2d.components.Capsule2DCollider;
 import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
-
-import java.util.ArrayList;
-import java.util.List;
+import system.GameObject;
+import system.Transform;
 
 public class Physics2D {
     //region Fields
@@ -52,26 +47,6 @@ public class Physics2D {
             physicsTime -= physicsTimeStep;
             world.step(physicsTimeStep, velocityIterations, positionIterations);
         }
-    }
-
-    public static boolean checkOnGround(GameObject gameObject,
-                                        float innerPlayerWidth,
-                                        float height) {
-        Vector2f raycastBegin = new Vector2f(gameObject.transform.position);
-        raycastBegin.sub(innerPlayerWidth / 2.0f, 0.0f);
-        Vector2f raycastEnd = new Vector2f(raycastBegin).add(0.0f, height);
-
-        RaycastInfo info = Window.getPhysics().raycast(gameObject, raycastBegin, raycastEnd);
-
-        Vector2f raycast2Begin = new Vector2f(raycastBegin).add(innerPlayerWidth, 0.0f);
-        Vector2f raycast2End = new Vector2f(raycastEnd).add(innerPlayerWidth, 0.0f);
-        RaycastInfo info2 = Window.getPhysics().raycast(gameObject, raycast2Begin, raycast2End);
-
-        //DebugDraw.addLine2D(raycastBegin, raycastEnd, new Vector3f(1, 0, 0));
-        //DebugDraw.addLine2D(raycast2Begin, raycast2End, new Vector3f(1, 0, 0));
-
-        return (info.hit && info.hitObject != null && info.hitObject.compareTag("Ground")) ||
-                (info2.hit && info2.hitObject != null && info2.hitObject.compareTag("Ground"));
     }
 
     public void setIsSensor(RigidBody2D rb) {
@@ -164,12 +139,12 @@ public class Physics2D {
         body.createFixture(fixtureDef);
     }
 
-    public void resetCapsule2dCollider(RigidBody2D rb, Capsule2DCollider cd){
+    public void resetCapsule2dCollider(RigidBody2D rb, Capsule2DCollider cd) {
         Body body = rb.getRawBody();
         if (body == null) return;
 
         int size = fixtureListSize(body);
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             body.destroyFixture(body.getFixtureList());
         }
 
@@ -192,7 +167,7 @@ public class Physics2D {
         return callback;
     }
 
-    public void raycast(RayCastCallback customRaycast, Vector2f point1, Vector2f point2){
+    public void raycast(RayCastCallback customRaycast, Vector2f point1, Vector2f point2) {
         world.raycast(customRaycast, new Vec2(point1.x, point1.y), new Vec2(point2.x, point2.y));
     }
 
