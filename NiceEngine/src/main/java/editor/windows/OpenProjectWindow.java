@@ -57,7 +57,10 @@ public class OpenProjectWindow {
         if (ImGui.beginPopupModal("Open project", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)){
             ImGui.text("Select a project below or");
             ImGui.sameLine();
-            NiceImGui.drawButton("Create new project", new ButtonColor(COLOR_DarkGreen, COLOR_Green, COLOR_DarkGreen), new Vector2f(200, 25));
+            if (NiceImGui.drawButton("Create new project", new ButtonColor(COLOR_DarkGreen, COLOR_Green, COLOR_DarkGreen), new Vector2f(200, 25))) {
+                CreateNewProjectWindow.open(true);
+                isOpen = false;
+            }
 
             Vector4f textColor = Settings.NAME_COLOR;
             ImGui.textColored(textColor.x, textColor.y, textColor.z, textColor.w, "Project list");
