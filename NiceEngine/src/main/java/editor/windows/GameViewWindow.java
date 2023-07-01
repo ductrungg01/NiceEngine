@@ -1,5 +1,6 @@
 package editor.windows;
 
+import editor.MessageBox;
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiWindowFlags;
@@ -81,7 +82,8 @@ public class GameViewWindow {
         if (FileDialog.getInstance().isOpen()
             || CreateNewProjectWindow.isOpen()
             || OpenProjectWindow.isOpen()
-            || AddingSpritesheetWindow.getInstance().isOpened()) {
+            || AddingSpritesheetWindow.getInstance().isOpened()
+            || MessageBox.showMsb) {
             return false;
         }
 

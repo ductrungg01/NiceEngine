@@ -18,7 +18,7 @@ public class MessageBox {
         NORMAL_MESSAGE
     }
 
-    private static boolean showMsb = false;
+    public static boolean showMsb = false;
     private static TypeOfMsb typeOfMsb = TypeOfMsb.ERROR;
     private static String msbText = "";
 
