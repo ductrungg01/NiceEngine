@@ -33,10 +33,7 @@ import util.Time;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -159,18 +156,7 @@ public class Window implements Observer {
             Time.deltaTime = dt;
 
             if (glfwWindowShouldClose(glfwWindow)) {
-                if (!ProjectUtils.CURRENT_PROJECT.isEmpty()) {
-                    int response = JOptionPane.showConfirmDialog(null,
-                            "Do you want to SAVE the scene before close?",
-                            "CLOSE",
-                            JOptionPane.YES_NO_CANCEL_OPTION);
-                    if (response == JOptionPane.YES_OPTION) {
-                        EventSystem.notify(null, new Event(EventType.SaveLevel));
-                    }
-                    if (response == JOptionPane.CANCEL_OPTION) {
-                        glfwSetWindowShouldClose(glfwWindow, false);
-                    }
-                }
+                askToSave(true);
             }
         }
     }
@@ -276,9 +262,56 @@ public class Window implements Observer {
         if (previousProject.isEmpty()) {
             OpenProjectWindow.open(false);
         } else {
-            ProjectUtils.CURRENT_PROJECT = previousProject;
+            changeCurrentProject(previousProject, false, false);
         }
         Window.changeScene(new EditorSceneInitializer());
+    }
+
+    public void changeCurrentProject(String projectName, boolean askToSaveCurrentProject, boolean needToReload){
+        if (askToSaveCurrentProject){
+            askToSave(false);
+        }
+
+        ProjectUtils.CURRENT_PROJECT = projectName;
+        glfwSetWindowTitle(glfwWindow, this.title + " - " + projectName);
+        if (needToReload) {
+            EventSystem.notify(null, new Event(EventType.LoadLevel));
+        }
+
+        saveCurrentProjectName();
+    }
+
+    public void askToSave(boolean askFromCloseWindow){
+        String message = (askFromCloseWindow ? "Save the project data before close?"
+                : "Save the data of current project (" + ProjectUtils.CURRENT_PROJECT + ") before open/create other project?");
+        int jOptionPane = (askFromCloseWindow ? JOptionPane.YES_NO_CANCEL_OPTION : JOptionPane.YES_OPTION);
+
+        if (!ProjectUtils.CURRENT_PROJECT.isEmpty() && checkHaveAnyChance()) {
+            int response = JOptionPane.showConfirmDialog(null, message, "SAVE", jOptionPane);
+            if (response == JOptionPane.YES_OPTION) {
+                EventSystem.notify(null, new Event(EventType.SaveLevel));
+            }
+            if (response == JOptionPane.CANCEL_OPTION) {
+                glfwSetWindowShouldClose(glfwWindow, false);
+            }
+        }
+    }
+
+    private void saveCurrentProjectName(){
+        try {
+            FileWriter writer = new FileWriter("EngineConfig.ini");
+
+            writer.write("PREVIOUS PROJECT:" + ProjectUtils.CURRENT_PROJECT);
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean checkHaveAnyChance(){
+        // TODO: implement asap
+        return true;
     }
 
     private String getPreviousProject(){
