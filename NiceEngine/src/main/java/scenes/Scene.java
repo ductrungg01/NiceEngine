@@ -267,7 +267,7 @@ public class Scene {
             writer.write(gson.toJson(objsToSerialize));
             writer.close();
             if (isShowMessage)
-                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save project '" + ProjectUtils.CURRENT_PROJECT + "' successfully");
         } catch (IOException e) {
             e.printStackTrace();
             if (isShowMessage)
@@ -291,8 +291,7 @@ public class Scene {
             writer.write(gson.toJson(objsToSerialize));
             writer.close();
             if (isShowMessage)
-                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
-        } catch (IOException e) {
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save project '" + ProjectUtils.CURRENT_PROJECT + "' successfully");        } catch (IOException e) {
             e.printStackTrace();
             if (isShowMessage)
                 MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
@@ -312,23 +311,10 @@ public class Scene {
 
             writer.close();
             if (isShowMessage)
-                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save successfully");
-        } catch (IOException e) {
+                MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save project '" + ProjectUtils.CURRENT_PROJECT + "' successfully");        } catch (IOException e) {
             e.printStackTrace();
             if (isShowMessage)
                 MessageBox.setContext(true, MessageBox.TypeOfMsb.NORMAL_MESSAGE, "Save failed");
-        }
-        //endregion
-
-        //region Save previous project
-        try {
-            FileWriter writer = new FileWriter("EngineConfig.ini");
-
-            writer.write("PREVIOUS PROJECT:" + ProjectUtils.CURRENT_PROJECT);
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         //endregion
     }
