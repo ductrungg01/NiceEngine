@@ -1,6 +1,7 @@
 package editor;
 
 import components.StateMachine;
+import editor.windows.CreateNewProjectWindow;
 import editor.windows.InspectorWindow;
 import editor.windows.OpenProjectWindow;
 import observers.EventSystem;
@@ -32,6 +33,10 @@ public class KeyControls {
 
         if (KeyListener.isKeyRelease(GLFW_KEY_O) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
             OpenProjectWindow.open(true);
+        }
+
+        if (KeyListener.isKeyRelease(GLFW_KEY_N) && (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT_CONTROL) || KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT_CONTROL))) {
+            CreateNewProjectWindow.open(false);
         }
 
         InspectorWindow inspectorWindow = Window.getImguiLayer().getInspectorWindow();

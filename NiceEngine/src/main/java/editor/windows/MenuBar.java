@@ -1,4 +1,4 @@
-package editor;
+package editor.windows;
 
 import editor.windows.OpenProjectWindow;
 import imgui.ImGui;
@@ -12,14 +12,17 @@ public class MenuBar {
         ImGui.beginMenuBar();
 
         if (ImGui.beginMenu("File")) {
-            if (ImGui.menuItem("Save", "Ctrl+S")) {
-                EventSystem.notify(null, new Event(EventType.SaveLevel));
+            if (ImGui.menuItem("New", "Ctrl+N")){
+                CreateNewProjectWindow.open(false);
             }
 
             if (ImGui.menuItem("Open", "Ctrl+O")) {
                 OpenProjectWindow.open(true);
             }
 
+            if (ImGui.menuItem("Save", "Ctrl+S")) {
+                EventSystem.notify(null, new Event(EventType.SaveLevel));
+            }
             ImGui.endMenu();
         }
 
