@@ -100,11 +100,15 @@ public class OpenProjectWindow {
                     }
                 } else {
                     ImGui.button(p);
+
+                    boolean currentProjectIsHovered = false;
+
                     if (p.equals(ProjectUtils.CURRENT_PROJECT)){
+                        if (ImGui.isItemHovered()) currentProjectIsHovered = true;
                         ImGui.sameLine();
                         ImGui.textUnformatted("(This is current project)");
                     }
-                    if (ImGui.isItemHovered()){
+                    if (ImGui.isItemHovered() || currentProjectIsHovered){
                         ImGui.beginTooltip();
                         ImGui.textColored(textColor.x, textColor.y, textColor.z, textColor.w, "Double-click to open this project!");
                         ImGui.text("Right-click to more option");
@@ -140,7 +144,8 @@ public class OpenProjectWindow {
                                     "DELETE PROJECT", JOptionPane.YES_NO_OPTION);
                             if (response == JOptionPane.YES_OPTION) {
                                 if (p.equals(ProjectUtils.CURRENT_PROJECT)){
-                                    Window.get().changeCurrentProject("", false, true);
+                                    Window.get().changeCurrentProject("", false, false);
+                                    OpenProjectWindow.open(false);
                                 }
 
                                 try {
