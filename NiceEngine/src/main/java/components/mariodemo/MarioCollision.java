@@ -1,7 +1,6 @@
 package components.mariodemo;
 
 import components.Component;
-import editor.Debug;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import physics2d.components.RigidBody2D;
@@ -25,18 +24,22 @@ public class MarioCollision extends Component {
             return;
         }
         if (collidingObject.compareTag("Coin")) {
-            collidingObject.destroy();
-            MarioEventHandler.handleEvent(MarioEvent.GetCoin);
+            if (!collidingObject.isDead()) {
+                MarioEventHandler.handleEvent(MarioEvent.GetCoin);
+                collidingObject.destroy();
+            }
         }
 
         if (collidingObject.compareTag("Mushroom") && !collidingObject.isDead()) {
-            collidingObject.destroy();
-            Debug.Log("mushroom");
-            MarioEventHandler.handleEvent(MarioEvent.LevelUp);
+            if (!collidingObject.isDead()) {
+                collidingObject.destroy();
+                MarioEventHandler.addPoint(collidingObject.transform.position, 1000);
+                MarioEventHandler.handleEvent(MarioEvent.LevelUp);
+            }
         }
 
-        if (collidingObject.compareTag("Wall")) {
-
+        if (collidingObject.compareTag("InvisibleWall") && MarioMoving.endScene) {
+            MarioEventHandler.handleEvent(MarioEvent.GameOver);
         }
 
         if (collidingObject.compareTag("HighGround")) {

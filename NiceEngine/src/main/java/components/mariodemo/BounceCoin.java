@@ -29,7 +29,10 @@ public class BounceCoin extends Component {
             this.gameObject.transform.position.y += velocityY;
         } else {
             this.gameObject.transform.position.y -= velocityY;
-            if (this.gameObject.transform.position.y <= startPosition.y) this.gameObject.destroy();
+            if (this.gameObject.transform.position.y <= startPosition.y && !this.gameObject.isDead()) {
+                this.gameObject.destroy();
+                MarioEventHandler.addPoint(this.gameObject.transform.position, 100);
+            }
         }
     }
 }

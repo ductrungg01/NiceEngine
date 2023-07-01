@@ -139,6 +139,7 @@ public class TurtleAI extends Component {
                 if (contactNormal.y > 0.5f) {
                     MarioEventHandler.handleEvent(MarioEvent.EnemyGetHit);
                     MarioEventHandler.handleEvent(MarioEvent.MarioBounce);
+                    MarioEventHandler.addPoint(this.gameObject.transform.position, 100);
                     isDead = true;
                     isMoving = false;
                     movingDebounce = movingDebounceTime;
@@ -152,13 +153,17 @@ public class TurtleAI extends Component {
                     MarioEventHandler.handleEvent(MarioEvent.EnemyGetHit);
                     isMoving = true;
                     goingRight = contactNormal.x < 0;
-                    if (contactNormal.y > 0.5f) MarioEventHandler.handleEvent(MarioEvent.MarioBounce);
+                    if (contactNormal.y > 0.5f) {
+                        MarioEventHandler.handleEvent(MarioEvent.MarioBounce);
+                        MarioEventHandler.addPoint(this.gameObject.transform.position, 100);
+                    }
                 } else {
                     if (contactNormal.y <= 0.5f) MarioMoving.getHit();
                     else {
                         isMoving = false;
                         MarioEventHandler.handleEvent(MarioEvent.EnemyGetHit);
                         MarioEventHandler.handleEvent(MarioEvent.MarioBounce);
+                        MarioEventHandler.addPoint(this.gameObject.transform.position, 200);
                     }
                 }
             }
@@ -196,6 +201,7 @@ public class TurtleAI extends Component {
         enemy.getComponent(RigidBody2D.class).setIsSensor();
         enemy.transform.scale.y *= -1;
         SoundController.PlaySound(MarioEvent.KickEnemy);
+        MarioEventHandler.addPoint(enemy.transform.position, 100);
     }
 
     void openQuestionBlock(GameObject questionBlock) {

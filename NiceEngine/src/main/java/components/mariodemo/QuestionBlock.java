@@ -9,7 +9,7 @@ import system.Prefabs;
 import system.Window;
 
 public class QuestionBlock extends Component {
-    private transient static boolean isColliding = false;
+    private transient static boolean isColliding;
     protected transient boolean shake = false;
     private transient boolean active = true;
     private BlockType blockType = BlockType.Coin;
@@ -21,6 +21,7 @@ public class QuestionBlock extends Component {
     @Override
     public void start() {
         startPosition = new Vector2f(this.gameObject.transform.position);
+        isColliding = false;
     }
 
     @Override
@@ -30,6 +31,7 @@ public class QuestionBlock extends Component {
                 mushroomAppearTime -= dt;
             } else {
                 GameObject mushroom = Prefabs.createChildFrom("mushroom");
+                mushroom.setNoSerialize();
                 mushroom.transform.position = new Vector2f(this.gameObject.transform.position);
                 Window.getScene().addGameObjectToScene(mushroom);
                 mushroomAppear = false;
@@ -81,8 +83,9 @@ public class QuestionBlock extends Component {
                 shake = true;
                 isColliding = true;
                 if (blockType == BlockType.Coin) {
-                    SoundController.PlaySound(MarioEvent.GetCoin);
+                    MarioEventHandler.handleEvent(MarioEvent.GetCoin);
                     GameObject coin = Prefabs.createChildFrom("coin");
+                    coin.setNoSerialize();
                     coin.transform.position = new Vector2f(this.gameObject.transform.position).add(0, 0.25f);
                     coin.addComponent(new BounceCoin());
                     Window.getScene().addGameObjectToScene(coin);

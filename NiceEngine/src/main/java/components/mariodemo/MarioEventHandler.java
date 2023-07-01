@@ -5,6 +5,10 @@ import components.StateMachine;
 import observers.EventSystem;
 import observers.events.Event;
 import observers.events.EventType;
+import org.joml.Vector2f;
+import system.GameObject;
+import system.Prefabs;
+import system.Window;
 
 public class MarioEventHandler extends Component {
     private static MarioMoving marioMoving;
@@ -24,7 +28,10 @@ public class MarioEventHandler extends Component {
                 SoundController.PlaySound(MarioEvent.MarioDie);
             }
             case MarioJump -> SoundController.PlaySound(MarioEvent.MarioJump);
-            case GetCoin -> SoundController.PlaySound(MarioEvent.GetCoin);
+            case GetCoin -> {
+                SoundController.PlaySound(MarioEvent.GetCoin);
+                HUDController.coin += 1;
+            }
             case JumpHitBlock -> MarioMoving.hitBlock();
             case ChangeDirection -> SoundController.PlaySound(MarioEvent.ChangeDirection);
             case EnemyGetHit -> SoundController.PlaySound(MarioEvent.EnemyGetHit);
@@ -37,7 +44,20 @@ public class MarioEventHandler extends Component {
                 MarioMoving.hurtInvincibilityTimeLeft = MarioMoving.hurtInvincibilityTime;
                 SoundController.PlaySound(MarioEvent.LevelUp);
             }
+            case EndScene -> {
+                SoundController.StopAllSound();
+                SoundController.PlaySound(MarioEvent.EndScene);
+            }
         }
+    }
+
+    public static void addPoint(Vector2f position, int pointValue) {
+        GameObject point = Prefabs.createChildFrom("point");
+        point.setNoSerialize();
+        point.transform.position = new Vector2f(position);
+        point.getComponent(StateMachine.class).setDefaultState(String.valueOf(pointValue));
+        Window.getScene().addGameObjectToScene(point);
+        HUDController.point += pointValue;
     }
 
     @Override

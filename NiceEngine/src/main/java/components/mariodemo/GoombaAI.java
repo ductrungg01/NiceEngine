@@ -108,7 +108,8 @@ public class GoombaAI extends Component {
                 this.rb.setIsSensor();
                 MarioEventHandler.handleEvent(MarioEvent.EnemyGetHit);
                 MarioEventHandler.handleEvent(MarioEvent.MarioBounce);
-            } else {
+                MarioEventHandler.addPoint(this.gameObject.transform.position, 100);
+            } else if (!isDead) {
                 contact.setEnabled(false);
                 MarioEventHandler.handleEvent(MarioEvent.MarioGetHit);
             }

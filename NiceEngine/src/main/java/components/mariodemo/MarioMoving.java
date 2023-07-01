@@ -30,6 +30,7 @@ public class MarioMoving extends Component {
     protected transient static float hurtInvincibilityTimeLeft = 0;
     protected transient static float hurtInvincibilityTime = 2f;
     protected transient static boolean updateForm = false;
+    protected transient static boolean endScene = false;
     protected transient Capsule2DCollider capsule2DCollider;
     protected transient RigidBody2D rb;
     protected transient SpriteRenderer spr;
@@ -72,10 +73,6 @@ public class MarioMoving extends Component {
                 MarioEventHandler.handleEvent(MarioEvent.MarioDie);
             }
         }
-    }
-
-    static void die() {
-
     }
 
     void changeForm() {
@@ -131,11 +128,24 @@ public class MarioMoving extends Component {
         this.directionChangeTime = 0;
         this.onGroundTime = 0;
         this.marioHP = 1;
+        this.endScene = false;
 
     }
 
     @Override
     public void update(float dt) {
+        if (endScene) {
+            isOnGround = checkOnGround();
+            if (!isOnGround) {
+                velocity = new Vector2f(0, -2f);
+            } else {
+                velocity = new Vector2f(0.75f, -1f);
+            }
+            this.rb.setVelocity(velocity);
+            this.rb.setAngularVelocity(0);
+            setState();
+            return;
+        }
         if (isDead) {
             if (dieTime > 0) {
                 dieTime -= dt;
@@ -152,6 +162,7 @@ public class MarioMoving extends Component {
             }
             return;
         }
+
         if (updateForm) {
             changeForm();
             updateForm = false;

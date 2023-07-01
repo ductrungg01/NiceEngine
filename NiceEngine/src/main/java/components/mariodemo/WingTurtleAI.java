@@ -64,6 +64,7 @@ public class WingTurtleAI extends Component {
             if (hitNormal.y > 0.5f) {
                 MarioEventHandler.handleEvent(MarioEvent.EnemyGetHit);
                 MarioEventHandler.handleEvent(MarioEvent.MarioBounce);
+                MarioEventHandler.addPoint(this.gameObject.transform.position, 200);
                 this.turtleAI.wingEnable = false;
             } else {
                 MarioMoving.getHit();

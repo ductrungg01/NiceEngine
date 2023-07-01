@@ -36,6 +36,7 @@ public class SoundController implements Observer {
             case MarioGetHit -> filePath = "pipe.ogg";
             case LevelUp -> filePath = "1-up.ogg";
             case KickEnemy -> filePath = "kick.ogg";
+            case EndScene -> filePath = "stage_clear.ogg";
         }
         return defaultFilePath + filePath;
     }
@@ -70,7 +71,7 @@ public class SoundController implements Observer {
         }
     }
 
-    private void StopAllSound() {
+    public static void StopAllSound() {
         for (MarioEvent event : MarioEvent.values()) {
             StopSound(event);
         }

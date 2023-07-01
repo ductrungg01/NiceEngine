@@ -2,15 +2,18 @@ package components.mariodemo;
 
 import components.Component;
 import components.StateMachine;
+import org.jbox2d.dynamics.contacts.Contact;
+import org.joml.Vector2f;
+import system.GameObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemBox extends Component {
-    private float changeStateTime = 0.08f;
-    private float stateTime = changeStateTime;
     protected transient StateMachine stateMachine;
     protected transient int currentState;
+    private float changeStateTime = 0.08f;
+    private float stateTime = changeStateTime;
     private List<String> listState = new ArrayList<>();
 
     @Override
@@ -33,5 +36,15 @@ public class ItemBox extends Component {
             } else currentState = 0;
         }
         stateMachine.setCurrentState(listState.get(currentState));
+    }
+
+    @Override
+    public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
+        if (collidingObject.compareTag("Mario")) {
+            this.gameObject.destroy();
+            MarioEventHandler.handleEvent(MarioEvent.EndScene);
+            MarioMoving.endScene = true;
+            MarioMoving.jumpTime = 0;
+        }
     }
 }

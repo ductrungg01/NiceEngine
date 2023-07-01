@@ -45,6 +45,7 @@ public class FireFlowerAI extends Component {
                     readyToFireTimeLeft -= dt;
                     if (readyToFireTimeLeft > 0) return;
                     GameObject fireball = Prefabs.createChildFrom("flowerfire");
+                    fireball.setNoSerialize();
                     fireball.transform.position = new Vector2f(posX - this.gameObject.transform.scale.x, posY - gameObject.transform.scale.y / 2.5f);
                     EnemyFireBall enemyFireBall = fireball.getComponent(EnemyFireBall.class);
                     enemyFireBall.goingRight = posX < posXPlayer;
