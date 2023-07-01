@@ -79,7 +79,7 @@ public class DebugDraw {
                 // Load position
                 vertexArray[index] = position.x;
                 vertexArray[index + 1] = position.y;
-                vertexArray[index + 2] = -10.0f;
+                vertexArray[index + 2] = 15.0f;
 
                 // Load color
                 vertexArray[index + 3] = color.x;
