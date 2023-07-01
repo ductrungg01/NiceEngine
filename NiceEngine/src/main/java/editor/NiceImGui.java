@@ -150,7 +150,7 @@ public class NiceImGui {
 
         ImGui.sameLine();
         float[] vecValuesX = {values.x};
-        ImGui.dragFloat("##x", vecValuesX, 0.01f);
+        ImGui.dragFloat("##x", vecValuesX, 0.003f);
         ImGui.popItemWidth();
         ImGui.sameLine();
 
@@ -165,7 +165,7 @@ public class NiceImGui {
 
         ImGui.sameLine();
         float[] vecValuesY = {values.y};
-        ImGui.dragFloat("##y", vecValuesY, 0.01f);
+        ImGui.dragFloat("##y", vecValuesY, 0.003f);
         ImGui.popItemWidth();
         ImGui.sameLine();
 
@@ -450,7 +450,7 @@ public class NiceImGui {
     //endregion
 
     //region Float
-    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.1f;
+    static final float DEFAULT_FLOAT_DRAG_SPEED = 0.003f;
 
     public static float dragFloat(String label, float value) {
         return dragFloat(label, value, (float) -1E5, (float) 1E5, DEFAULT_FLOAT_DRAG_SPEED, new float[2], label);
