@@ -228,4 +228,8 @@ public class OpenProjectWindow {
             projects.set(0, ProjectUtils.CURRENT_PROJECT);
         }
     }
+
+    public static boolean isOpen(){
+        return isOpen;
+    }
 }

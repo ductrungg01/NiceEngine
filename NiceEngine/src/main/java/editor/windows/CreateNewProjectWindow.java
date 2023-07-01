@@ -148,4 +148,8 @@ public class CreateNewProjectWindow {
         }
         return true;
     }
+
+    public static boolean isOpen(){
+        return isOpen;
+    }
 }
