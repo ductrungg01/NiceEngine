@@ -10,17 +10,17 @@ import physics2d.enums.BodyType;
 public class RigidBody2D extends Component {
     //region Fields
     private Vector2f velocity = new Vector2f();
-    private float angularDamping = 0.8f;
-    private float linearDamping = 0.9f;
-    private float mass = 0;
+    private transient float angularDamping = 0.8f;
+    private transient float linearDamping = 0.9f;
+    private transient float mass = 0;
     private BodyType bodyType = BodyType.Dynamic;
-    private float friction = 0.1f;
-    public float angularVelocity = 0.0f;
+    private transient float friction = 0.1f;
+    public transient float angularVelocity = 0.0f;
     public float gravityScale = 1.0f;
     private boolean isSensor = false;
 
     private boolean fixedRotation = false;
-    private boolean continuousCollision = true;
+    private transient boolean continuousCollision = true;
 
     private transient Body rawBody = null;
     //endregion
