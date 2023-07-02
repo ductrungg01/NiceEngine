@@ -216,7 +216,12 @@ public class Window implements Observer {
             Time.deltaTime = dt;
 
             if (glfwWindowShouldClose(glfwWindow)) {
-                askToSave(true);
+                if (this.runtimePlaying) {
+                    int response = JOptionPane.showConfirmDialog(null, "Close the engine?", "CLOSE", JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.NO_OPTION) {
+                        glfwSetWindowShouldClose(glfwWindow, false);
+                    }
+                } else askToSave(true);
             }
         }
     }
