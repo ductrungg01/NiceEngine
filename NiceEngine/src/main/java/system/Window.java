@@ -328,7 +328,7 @@ public class Window implements Observer {
     }
 
     public void changeCurrentProject(String projectName, boolean askToSaveCurrentProject, boolean needToReload) {
-        if (projectName.equals(ProjectUtils.CURRENT_PROJECT)){
+        if (projectName.equals(ProjectUtils.CURRENT_PROJECT)) {
             return;
         }
 
@@ -505,6 +505,8 @@ public class Window implements Observer {
 
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(":");
+
+                if (values.length <= 1) return "";
 
                 String title = values[0];
                 String value = values[1];
