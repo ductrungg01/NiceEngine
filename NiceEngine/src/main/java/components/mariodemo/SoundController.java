@@ -6,6 +6,7 @@ import observers.events.Event;
 import system.GameObject;
 import system.Sound;
 import util.AssetPool;
+import util.ProjectUtils;
 
 public class SoundController implements Observer {
     private static String defaultFilePath = "assets/sounds/";
@@ -79,6 +80,7 @@ public class SoundController implements Observer {
 
     @Override
     public void onNotify(GameObject object, Event event) {
+        if (!ProjectUtils.CURRENT_PROJECT.equals("Mario")) return;
         switch (event.type) {
             case GameEngineStartPlay:
                 PlayLoopSound(MarioEvent.GamePlay);
