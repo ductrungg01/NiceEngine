@@ -338,6 +338,8 @@ public class Window implements Observer {
 
         ProjectUtils.CURRENT_PROJECT = projectName;
         glfwSetWindowTitle(glfwWindow, this.title + " - " + projectName);
+        SceneHierarchyWindow.clearSelectedGameObject();
+        Window.getImguiLayer().getInspectorWindow().clearSelected();
         if (needToReload) {
             EventSystem.notify(null, new Event(EventType.LoadLevel));
         }
@@ -509,7 +511,7 @@ public class Window implements Observer {
                 if (values.length <= 1) return "";
 
                 String title = values[0];
-                String value = values[1];
+                String value = values[1].trim();
 
                 if (title.equals("PREVIOUS PROJECT")) {
                     return value;

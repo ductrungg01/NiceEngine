@@ -6,9 +6,7 @@ import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
 import org.joml.Vector2f;
-import org.joml.Vector4f;
 import system.Window;
-import util.FileUtils;
 import util.ProjectUtils;
 
 import javax.swing.*;
@@ -24,7 +22,8 @@ public class CreateNewProjectWindow {
     private static boolean isOpen = false;
     private static boolean showOpenProjectWindow = false;
     private static String projectName = "";
-    public static void open(boolean showOpenProjectWindowAfterCancel){
+
+    public static void open(boolean showOpenProjectWindowAfterCancel) {
         isOpen = true;
         projectName = "";
         showOpenProjectWindow = showOpenProjectWindowAfterCancel;
@@ -43,13 +42,15 @@ public class CreateNewProjectWindow {
         float popupPosY = (float) Window.getHeight() / 2 - popupHeight / 2;
         ImGui.setNextWindowPos(popupPosX, popupPosY, ImGuiCond.Always);
 
-        if (ImGui.beginPopupModal("Create new project", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)){
+        if (ImGui.beginPopupModal("Create new project", ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize)) {
             projectName = NiceImGui.inputText("", projectName, "Enter project name", 0, "NewProjectName");
 
             if (NiceImGui.drawButton("Create", new ButtonColor(COLOR_DarkBlue, COLOR_Blue, COLOR_DarkBlue), new Vector2f(100, 30))) {
-                if (createNewProject(projectName)){
-                    isOpen = false;
-                    Window.get().changeCurrentProject(projectName, true, true);
+                if (!projectName.isEmpty()) {
+                    if (createNewProject(projectName)) {
+                        isOpen = false;
+                        Window.get().changeCurrentProject(projectName, true, true);
+                    }
                 }
             }
 
@@ -66,8 +67,8 @@ public class CreateNewProjectWindow {
         }
     }
 
-    private static boolean createNewProject(String projectName){
-        if (!isValidName(projectName)){
+    private static boolean createNewProject(String projectName) {
+        if (!isValidName(projectName)) {
             return false;
         }
 
@@ -92,7 +93,7 @@ public class CreateNewProjectWindow {
         }
     }
 
-    private static void createFile(String projectName){
+    private static void createFile(String projectName) {
         try {
             FileWriter writer = new FileWriter("data\\" + projectName + "\\" + "level.txt");
             writer.write("[]");
@@ -118,8 +119,8 @@ public class CreateNewProjectWindow {
         }
     }
 
-    private static boolean isValidName(String name){
-        if (name.startsWith(" ") || name.endsWith(" ")){
+    private static boolean isValidName(String name) {
+        if (name.startsWith(" ") || name.endsWith(" ")) {
             JOptionPane.showMessageDialog(null, "Project name cannot contain leading and trailing spaces",
                     "INVALID NAME", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -130,12 +131,12 @@ public class CreateNewProjectWindow {
         File[] filesList = directory.listFiles();
         if (filesList != null) {
             for (File file : filesList) {
-                if (file.isDirectory()){
+                if (file.isDirectory()) {
                     projects.add(file.getName());
                 }
             }
         }
-        if (projects.contains(ProjectUtils.CURRENT_PROJECT)){
+        if (projects.contains(ProjectUtils.CURRENT_PROJECT)) {
             int currProjectIndex = projects.indexOf(ProjectUtils.CURRENT_PROJECT);
             projects.set(currProjectIndex, projects.get(0));
             projects.set(0, ProjectUtils.CURRENT_PROJECT);
@@ -149,7 +150,7 @@ public class CreateNewProjectWindow {
         return true;
     }
 
-    public static boolean isOpen(){
+    public static boolean isOpen() {
         return isOpen;
     }
 }
