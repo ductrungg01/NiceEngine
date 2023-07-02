@@ -39,8 +39,8 @@ public class CircleCollider extends Component {
 
     @Override
     public void imgui() {
-        NiceImGui.drawVec2Control("Offset", this.offset, "Offset of Circle2dCollider" + this.hashCode() + this.gameObject.hashCode());
-        this.radius = NiceImGui.dragFloat("Radius", this.radius, 0, Float.MAX_VALUE, "Radius of Circle2DCollider" + this.hashCode() + this.gameObject.hashCode());
+        NiceImGui.drawVec2ForCollider("Offset", this.offset, 0, "Offset of Circle2dCollider" + this.hashCode() + this.gameObject.hashCode());
+        this.radius = NiceImGui.dragFloat("Radius", this.radius, 0, Float.MAX_VALUE, 0.003f, "Radius of Circle2DCollider" + this.hashCode() + this.gameObject.hashCode());
     }
 
     //endregion

@@ -31,7 +31,6 @@ import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_RIGHT;
 public class OpenProjectWindow {
     private static boolean isOpen = false;
     private static List<String> projects = new ArrayList<>();
-    private static int projectIconTexId = -1;
     private static boolean allowToCancel = false;
     private static String projectNeedToRename = "";
     private static String search = "";
@@ -39,7 +38,6 @@ public class OpenProjectWindow {
     public static void open(boolean allowToCancel){
         isOpen = true;
         getListProject();
-        projectIconTexId = FileUtils.getIcon(FileUtils.ICON_NAME.PROJECT).getTexId();
         OpenProjectWindow.allowToCancel = allowToCancel;
         search = "";
     }
@@ -65,7 +63,6 @@ public class OpenProjectWindow {
             }
             ImGui.separator();
 
-
             search = NiceImGui.inputText("Search: ", search, "Enter project name to search", 0, "SearchProjectFromOpenProjectWindow");
 
             Vector4f textColor = Settings.NAME_COLOR;
@@ -79,9 +76,6 @@ public class OpenProjectWindow {
                     boolean needToBreakFlag = false;
 
                     ImGui.pushID("project" + p);
-//                    ImGui.image(projectIconTexId, 25f, 25f);
-//                    ImGui.sameLine();
-
 
                     if (p.equals(projectNeedToRename)) {
                         boolean changeCurrentProjectFlag = p.equals(ProjectUtils.CURRENT_PROJECT);

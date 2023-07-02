@@ -56,8 +56,8 @@ public class Box2DCollider extends Component {
 
     @Override
     public void imgui() {
-        NiceImGui.drawVec2Control("Offset", this.offset, "Offset of Box2D " + this.gameObject.hashCode() + this.hashCode());
-        NiceImGui.drawVec2Control("Size", this.halfSize, "Size of Box2D " + this.gameObject.hashCode() + this.hashCode());
+        NiceImGui.drawVec2ForCollider("Offset", this.offset, 0, "Offset of Box2D " + this.gameObject.hashCode() + this.hashCode());
+        NiceImGui.drawVec2ForCollider("Size", this.halfSize, 0.25f, "Size of Box2D " + this.gameObject.hashCode() + this.hashCode());
     }
 
     //endregion
