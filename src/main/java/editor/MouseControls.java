@@ -140,7 +140,9 @@ public class MouseControls {
                 for (Integer gameObjectId : uniqueGameObjectIds) {
                     GameObject pickedObj = Window.getScene().getGameObject(gameObjectId);
                     if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                        Window.getImguiLayer().getInspectorWindow().addActiveGameObject(pickedObj);
+                        if (!pickedObj.name.equals("LevelEditorSceneInitializer")) {
+                            Window.getImguiLayer().getInspectorWindow().addActiveGameObject(pickedObj);
+                        }
                     }
                 }
                 this.debounce = debounceTime;
