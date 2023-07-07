@@ -36,19 +36,16 @@ public class ChessManager extends Component {
         chessPieces = Window.getScene().findAllGameObjectWithTag("ChessPiece");
 
         //region Create Effect
-        highLightSelectedPieceEffect = Prefabs.generateSpriteObject(selectedPieceEffectSpr, 0.25f, 0.25f, "HighLightSelectedChessPiece");
-        highLightSelectedPieceEffect.setNoSerialize();
+        highLightSelectedPieceEffect = new GameObject("HighLightSelectedChessPiece", selectedPieceEffectSpr, new Vector2f(0.25f, 0.25f));
         highLightSelectedPieceEffect.transform.position = new Vector2f(-100, -100);
         Window.getScene().addGameObjectToScene(highLightSelectedPieceEffect);
 
-        highLightWrongPieceEffect = Prefabs.generateSpriteObject(wrongPieceSpr, 0.25f, 0.25f, "HighLightWrongChessPiece");
-        highLightWrongPieceEffect.setNoSerialize();
+        highLightWrongPieceEffect = new GameObject("HighLightWrongChessPiece", wrongPieceSpr, new Vector2f(0.25f, 0.25f));
         highLightWrongPieceEffect.transform.position = new Vector2f(-100, -100);
         Window.getScene().addGameObjectToScene(highLightWrongPieceEffect);
 
         for (int i = 0; i < 64; i++) {
-            GameObject go = Prefabs.generateSpriteObject(squareCanGoEffectSpr, 0.15f, 0.15f);
-            go.setNoSerialize();
+            GameObject go = new GameObject("squareCanGo", squareCanGoEffectSpr, new Vector2f(0.15f, 0.15f));
             go.transform.position = new Vector2f(-100, -100);
             Window.getScene().addGameObjectToScene(go);
             highlightSquareCanGoEffect.add(go);

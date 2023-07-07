@@ -3,6 +3,7 @@ package system;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import components.Component;
+import components.Sprite;
 import components.StateMachine;
 import deserializers.ComponentDeserializer;
 import components.SpriteRenderer;
@@ -22,12 +23,14 @@ import physics2d.components.CircleCollider;
 import physics2d.components.RigidBody2D;
 import util.AssetPool;
 import util.FileUtils;
+import util.Settings;
 
 import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 import static editor.uihelper.NiceShortCall.COLOR_Blue;
 import static editor.uihelper.NiceShortCall.COLOR_DarkBlue;
@@ -38,32 +41,73 @@ public class GameObject {
     private int uid = -1;
     public String name = "";
     public String tag = "";
-    private boolean isPrefab = false;
+    public boolean isPrefab = false;
     public String prefabId = "";
     public String parentId = "";
     public static List<GameObject> PrefabLists = new ArrayList<>();
-    private List<Component> components;
+    private List<Component> components = new ArrayList<>();
     public transient Transform transform;
-    private boolean doSerialization = true;
+    private boolean doSerialization = false;
     private boolean isDead = false;
     //endregion
 
     //region Constructors
-    public GameObject(String name) {
-        this.name = name;
-        this.components = new ArrayList<>();
+    public GameObject() {
+        this.name = "New GameObject";
 
         this.uid = ID_COUNTER++;
     }
 
-    public GameObject(String name, String prefabId) {
+    public GameObject(String name) {
         this.name = name;
-        this.components = new ArrayList<>();
+
+        this.addComponent(new Transform());
+        this.transform = this.getComponent(Transform.class);
+    }
+
+    public GameObject(String name, Sprite spr) {
+        if (spr.getTexId() == -1) {
+            String texturePath = spr.getTexture().getFilePath();
+            spr.setTexture(AssetPool.getTexture(texturePath));
+        }
+
+        float MIN_SCALE_X = Settings.GRID_WIDTH;
+        float MIN_SCALE_Y = Settings.GRID_HEIGHT;
+
+        float offset = Math.max(MIN_SCALE_X / spr.getWidth(), MIN_SCALE_Y / spr.getHeight());
+
+        Vector2f size = new Vector2f(spr.getWidth() * offset, spr.getHeight() * offset);
+
+        this.name = name;
+
+        this.addComponent(new Transform());
+        this.transform = this.getComponent(Transform.class);
+        this.transform.scale.x = size.x;
+        this.transform.scale.y = size.y;
+        SpriteRenderer renderer = new SpriteRenderer();
+        renderer.setSprite(spr);
+        this.addComponent(renderer);
 
         this.uid = ID_COUNTER++;
+    }
 
-        this.prefabId = prefabId;
-        this.isPrefab = true;
+    public GameObject(String name, Sprite spr, Vector2f size){
+        if (spr.getTexId() == -1) {
+            String texturePath = spr.getTexture().getFilePath();
+            spr.setTexture(AssetPool.getTexture(texturePath));
+        }
+
+        this.name = name;
+
+        this.addComponent(new Transform());
+        this.transform = this.getComponent(Transform.class);
+        this.transform.scale.x = size.x;
+        this.transform.scale.y = size.y;
+        SpriteRenderer renderer = new SpriteRenderer();
+        renderer.setSprite(spr);
+        this.addComponent(renderer);
+
+        this.uid = ID_COUNTER++;
     }
     //endregion
 
@@ -115,7 +159,7 @@ public class GameObject {
         return obj;
     }
 
-    // a child object override it's prefab
+    // A Child object override it's prefab
     public void overrideThePrefab() {
         for (int i = 0; i < GameObject.PrefabLists.size(); i++) {
             GameObject p = GameObject.PrefabLists.get(i);
@@ -329,6 +373,9 @@ public class GameObject {
     public void setNoSerialize() {
         this.doSerialization = false;
     }
+    public void setSerialize() {
+        this.doSerialization = true;
+    }
 
     public void generateUid() {
         this.uid = ID_COUNTER++;
@@ -373,7 +420,7 @@ public class GameObject {
         newGo.isPrefab = false;
         newGo.prefabId = "";
         newGo.isDead = false;
-        newGo.doSerialization();
+        newGo.setSerialize();
         newGo.parentId = this.prefabId;
 
         return newGo;

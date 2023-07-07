@@ -38,7 +38,8 @@ public class InspectorWindow {
     private GameObject copyGameObject = null;
     private PickingTexture pickingTexture;
 
-    boolean firstTime = true;
+    String searchText = "";
+    boolean showAddComponentMenu = false;
 
     Set<Class<? extends Component>> classes;
     //endregion
@@ -77,9 +78,6 @@ public class InspectorWindow {
         classes.removeAll(classesToRemove);
     }
     //endregion
-
-    String searchText = "";
-    boolean showAddComponentMenu = false;
 
     //region Methods
     public void imgui() {

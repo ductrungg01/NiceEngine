@@ -97,14 +97,8 @@ public class SceneHierarchyWindow {
 
                     if (ImGui.beginPopupContextWindow("Hierarchy")) {
                         if (ImGui.menuItem("New GameObject")) {
-                            GameObject go = new GameObject("New GameObject");
-                            go.addComponent(new Transform());
-
-                            SpriteRenderer spriteRenderer = new SpriteRenderer();
-                            spriteRenderer.setSprite(FileUtils.getDefaultSprite());
-
-                            go.addComponent(spriteRenderer);
-                            go.transform = go.getComponent(Transform.class);
+                            GameObject go = new GameObject("New GameObject", FileUtils.getDefaultSprite());
+                            go.setSerialize();
 
                             Window.getScene().addGameObjectToScene(go);
                         }

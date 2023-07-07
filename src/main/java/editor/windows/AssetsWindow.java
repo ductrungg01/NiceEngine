@@ -95,10 +95,10 @@ public class AssetsWindow {
                 Sprite tmp = new Sprite();
                 tmp.setTexture(AssetPool.getTexture(item.getPath()));
                 tmp.calcWidthAndHeight();
-                GameObject object = Prefabs.generateSpriteObject(tmp, FileUtils.getFileNameWithoutExtension(itemName));
+                GameObject object = new GameObject(FileUtils.getFileNameWithoutExtension(itemName), tmp);
+                object.setSerialize();
                 Window.getScene().getMouseControls().pickupObject(object);
             } else if (ImGui.isMouseClicked(GLFW.GLFW_MOUSE_BUTTON_LEFT) && !isFolder) {
-                //Debug.Log(selectedItem);
             }
 
             if (!isFolder) {

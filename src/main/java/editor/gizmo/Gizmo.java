@@ -42,10 +42,8 @@ public class Gizmo extends Component implements INonAddableComponent {
 
     //region Constructors
     public Gizmo(Sprite sprite, InspectorWindow inspectorWindow) {
-        this.xAxisObject = Prefabs.generateSpriteObject(sprite, gizmoWidth, gizmoHeight);
-        this.xAxisObject.name = "Gizmo - xAxisObject";
-        this.yAxisObject = Prefabs.generateSpriteObject(sprite, gizmoWidth, gizmoHeight);
-        this.yAxisObject.name = "Gizmo - yAxisObject";
+        this.xAxisObject = new GameObject("Gizmo - xAxisObject", sprite, new Vector2f(gizmoWidth, gizmoHeight));
+        this.yAxisObject = new GameObject("Gizmo - yAxisObject", sprite, new Vector2f(gizmoWidth, gizmoHeight));
         this.xAxisSprite = this.xAxisObject.getComponent(SpriteRenderer.class);
         this.yAxisSprite = this.yAxisObject.getComponent(SpriteRenderer.class);
         this.inspectorWindow = inspectorWindow;

@@ -19,7 +19,10 @@ public class PrefabDeserializer implements JsonDeserializer<GameObject> {
         if (isPrefab) {
             JsonArray components = jsonObject.getAsJsonArray("components");
 
-            GameObject go = new GameObject(name, prefabId);
+            GameObject go = new GameObject(name);
+            go.prefabId = prefabId;
+            go.isPrefab = true;
+            go.setSerialize();
             for (JsonElement e : components) {
                 Component c = context.deserialize(e, Component.class);
                 if (c != null) {

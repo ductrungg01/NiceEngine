@@ -29,8 +29,7 @@ public class Spot extends Component {
         }
 
         if (cardManager.getPickingPlant() != null){
-            previewGo = Prefabs.generateSpriteObject(cardManager.getPickingPlant().getComponent(SpriteRenderer.class).getSprite(), "previewGo");
-            previewGo.setNoSerialize();
+            previewGo = new GameObject("previewGo", cardManager.getPickingPlant().getComponent(SpriteRenderer.class).getSprite());
             previewGo.transform.position = new Vector2f(this.gameObject.transform.position).add(0, 0.074f);
             previewGo.transform.zIndex = 5;
             Window.getScene().addGameObjectToScene(previewGo);

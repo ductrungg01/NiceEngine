@@ -73,8 +73,13 @@ public class MouseControls {
             int gameObjectId = pickingTexture.readPixel(x, y);
             GameObject pickedObj = currentScene.getGameObject(gameObjectId);
             if (pickedObj != null && pickedObj.getComponent(NonPickable.class) == null) {
-                Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
-                SceneHierarchyWindow.setSelectedGameObject(pickedObj);
+                if (pickedObj.name.equals("LevelEditorSceneInitializer")) {
+                    Window.getImguiLayer().getInspectorWindow().clearSelected();
+                    SceneHierarchyWindow.clearSelectedGameObject();
+                } else {
+                    Window.getImguiLayer().getInspectorWindow().setActiveGameObject(pickedObj);
+                    SceneHierarchyWindow.setSelectedGameObject(pickedObj);
+                }
                 GizmoSystem.setUsingTranslateGizmo();
             } else if (pickedObj == null && !MouseListener.isDragging()) {
                 if (Gizmo.getUsingGizmo()) return;
@@ -157,7 +162,7 @@ public class MouseControls {
     public void place() {
         if (!Window.getImguiLayer().getGameViewWindow().getWantCaptureMouse()) return;
         GameObject newObj = holdingObject.copy();
-        newObj.doSerialization();
+        newObj.setSerialize();
         if (newObj.getComponent(StateMachine.class) != null) {
             newObj.getComponent(StateMachine.class).refreshTextures();
         }

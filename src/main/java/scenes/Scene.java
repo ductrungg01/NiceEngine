@@ -45,7 +45,7 @@ public class Scene {
     private KeyControls keyControls = new KeyControls();
     //endregion
 
-
+    //region Constructors
     public Scene(SceneInitializer sceneInitializer) {
         this.sceneInitializer = sceneInitializer;
         this.physics2D = new Physics2D();
@@ -54,12 +54,12 @@ public class Scene {
         this.pendingObjects = new ArrayList<>();
         this.isRunning = false;
     }
+    //endregion
 
     //region Properties
     public Physics2D getPhysics() {
         return this.physics2D;
     }
-    //endregion
 
     public List<GameObject> getGameObjects() {
         return this.gameObjects;
@@ -80,6 +80,7 @@ public class Scene {
 
         return result.orElse(null);
     }
+    //endregion
 
     //region Methods
     public void init() {
@@ -230,15 +231,9 @@ public class Scene {
     public void imgui() {
         this.sceneInitializer.imgui();
     }
+    //endregion
 
-    public GameObject createGameObject(String name) {
-        GameObject go = new GameObject(name);
-        go.addComponent(new Transform());
-        go.transform = go.getComponent(Transform.class);
-
-        return go;
-    }
-
+    //region Save and Load
     public void save(boolean isShowMessage) {
         Window.getImguiLayer().getInspectorWindow().clearSelected();
         SceneHierarchyWindow.clearSelectedGameObject();
