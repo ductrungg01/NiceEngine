@@ -109,7 +109,7 @@ public class AnimationState implements INonAddableComponent {
             frame.sprite = (Sprite) NiceImGui.ReferenceButton("    Sprite: ", ReferenceType.SPRITE, frame.sprite, columnWidth, "AnimationState" + this.title + "Frame" + index);
             frame.frameTime = NiceImGui.dragFloat("    Time(s): ", frame.frameTime, 0f, Float.MAX_VALUE, 0.001f, columnWidth, "Frame time of" + this.title + index);
 
-            ImGui.text("                  ");
+            ImGui.text("                       ");
             ImGui.sameLine();
             if (ImGui.button("Remove frame (" + index + ")")) {
                 int response = JOptionPane.showConfirmDialog(null,
