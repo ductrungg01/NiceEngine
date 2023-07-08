@@ -361,16 +361,10 @@
             "x": 0.0,
             "y": 0.0
           },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
           "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
           "gravityScale": 1.0,
           "isSensor": false,
           "fixedRotation": false,
-          "continuousCollision": true,
           "uid": 404
         }
       },
@@ -2036,16 +2030,10 @@
             "x": -0.05,
             "y": 0.0
           },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
           "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
           "gravityScale": 0.0,
           "isSensor": false,
           "fixedRotation": true,
-          "continuousCollision": true,
           "uid": 336
         }
       },
@@ -2680,16 +2668,10 @@
             "x": 0.0,
             "y": 0.0
           },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
           "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
           "gravityScale": 0.0,
           "isSensor": false,
           "fixedRotation": true,
-          "continuousCollision": true,
           "uid": 379
         }
       },
@@ -3413,16 +3395,10 @@
             "x": 0.0,
             "y": 0.0
           },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
           "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
           "gravityScale": 1.0,
           "isSensor": false,
           "fixedRotation": false,
-          "continuousCollision": true,
           "uid": 400
         }
       },
@@ -3597,16 +3573,10 @@
             "x": 0.0,
             "y": 0.0
           },
-          "angularDamping": 0.8,
-          "linearDamping": 0.9,
-          "mass": 0.0,
           "bodyType": "Dynamic",
-          "friction": 0.1,
-          "angularVelocity": 0.0,
           "gravityScale": 0.0,
           "isSensor": true,
           "fixedRotation": false,
-          "continuousCollision": true,
           "uid": 428
         }
       },
