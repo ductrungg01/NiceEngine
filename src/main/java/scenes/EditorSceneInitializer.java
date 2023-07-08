@@ -26,6 +26,7 @@ public class EditorSceneInitializer extends SceneInitializer {
         Spritesheet gizmos = FileUtils.getGizmosSprSheet();
 
         levelEditorStuff = new GameObject("LevelEditorSceneInitializer");
+        levelEditorStuff.transform.zIndex = -20;
         levelEditorStuff.addComponent(new GridLines());
         levelEditorStuff.addComponent(new EditorCamera(scene.camera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));

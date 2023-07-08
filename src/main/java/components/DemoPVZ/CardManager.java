@@ -54,7 +54,6 @@ public class CardManager extends Component {
             }
         }
 
-        this.pickingPlant.setNoSerialize();
         Window.getScene().addGameObjectToScene(this.pickingPlant);
     }
 }

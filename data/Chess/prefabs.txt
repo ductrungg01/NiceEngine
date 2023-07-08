@@ -1,6 +1,6 @@
 [
   {
-    "uid": -1,
+    "uid": 129,
     "name": "table-1",
     "tag": "Square",
     "isPrefab": true,
@@ -481,7 +481,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 130,
     "name": "table-2",
     "tag": "Square",
     "isPrefab": true,
@@ -962,7 +962,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 131,
     "name": "Pawn - white",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -1485,7 +1485,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 132,
     "name": "Queen - white",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -1975,7 +1975,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 133,
     "name": "King - white",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -2465,7 +2465,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 134,
     "name": "Bishop - white",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -2955,7 +2955,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 135,
     "name": "Knight - white",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -3451,7 +3451,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 136,
     "name": "Rook - white",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -3941,7 +3941,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 137,
     "name": "Pawn - Black",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -4469,7 +4469,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 138,
     "name": "Rook - Black",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -4959,7 +4959,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 139,
     "name": "Knight - Black",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -5460,7 +5460,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 140,
     "name": "Bishop - Black",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -5950,7 +5950,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 141,
     "name": "King - White",
     "tag": "ChessPiece",
     "isPrefab": true,
@@ -6440,7 +6440,7 @@
     "isDead": false
   },
   {
-    "uid": -1,
+    "uid": 142,
     "name": "Queen - Black",
     "tag": "ChessPiece",
     "isPrefab": true,

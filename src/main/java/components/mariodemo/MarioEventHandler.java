@@ -53,7 +53,6 @@ public class MarioEventHandler extends Component {
 
     public static void addPoint(Vector2f position, int pointValue) {
         GameObject point = Prefabs.createChildFrom("point");
-        point.setNoSerialize();
         point.transform.position = new Vector2f(position);
         point.getComponent(StateMachine.class).setDefaultState(String.valueOf(pointValue));
         Window.getScene().addGameObjectToScene(point);

@@ -46,7 +46,6 @@ public class PeeShooter extends Component {
 
     private void generateBullet(){
         GameObject bullet = Prefabs.createChildFrom("PeeShooterBullet");
-        bullet.setNoSerialize();
 
         bullet.transform.position = new Vector2f(this.gameObject.transform.position).add(3, 0);
         bullet.getComponent(RigidBody2D.class).setVelocity(new Vector2f(0, 1f));

@@ -31,7 +31,6 @@ public class QuestionBlock extends Component {
                 mushroomAppearTime -= dt;
             } else {
                 GameObject mushroom = Prefabs.createChildFrom("mushroom");
-                mushroom.setNoSerialize();
                 mushroom.transform.position = new Vector2f(this.gameObject.transform.position);
                 Window.getScene().addGameObjectToScene(mushroom);
                 mushroomAppear = false;
@@ -85,7 +84,6 @@ public class QuestionBlock extends Component {
                 if (blockType == BlockType.Coin) {
                     MarioEventHandler.handleEvent(MarioEvent.GetCoin);
                     GameObject coin = Prefabs.createChildFrom("coin");
-                    coin.setNoSerialize();
                     coin.transform.position = new Vector2f(this.gameObject.transform.position).add(0, 0.25f);
                     coin.addComponent(new BounceCoin());
                     Window.getScene().addGameObjectToScene(coin);

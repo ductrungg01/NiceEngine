@@ -420,7 +420,6 @@ public class GameObject {
         newGo.isPrefab = false;
         newGo.prefabId = "";
         newGo.isDead = false;
-        newGo.setSerialize();
         newGo.parentId = this.prefabId;
 
         return newGo;

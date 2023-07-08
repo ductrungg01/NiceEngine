@@ -66,21 +66,18 @@ public class HUDController extends Component {
     void initText() {
         for (int i = 0; i < 2; i++) {
             GameObject text = Prefabs.createChildFrom("text");
-            text.setNoSerialize();
             listCoinText.add(text);
             Window.getScene().addGameObjectToScene(text);
         }
 
         for (int i = 0; i < 3; i++) {
             GameObject text = Prefabs.createChildFrom("text");
-            text.setNoSerialize();
             listTimeText.add(text);
             Window.getScene().addGameObjectToScene(text);
         }
 
         for (int i = 0; i < 7; i++) {
             GameObject text = Prefabs.createChildFrom("text");
-            text.setNoSerialize();
             listPointText.add(text);
             Window.getScene().addGameObjectToScene(text);
         }
