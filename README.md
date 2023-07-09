@@ -1,5 +1,4 @@
 # NiceEngine
-## Loading 99%...
 
 ## Project purpose 
 NiceEngine is a 2D Game Engine, its purpose is for learning purposes, making it easy for those who are beginner of game programming to understand how a Game Engine works. In addition, it can also be applied in teaching game programming subjects
@@ -20,13 +19,9 @@ NiceEngine is a 2D Game Engine, its purpose is for learning purposes, making it 
 - OpenAL: cross-platform 3D audio API
 - ...
 
-## Use tutorial of game Engine
-... Update later ...
-
 ## Authors
 - [Vũ Đức Trung](https://www.facebook.com/ductrungg01/) - Full-stack developer, PM
 - [Lương Mạnh Hùng](https://www.facebook.com/h8u1n3g) - Full-stack developer
-- [Nguyễn Viết Lưu](https://www.facebook.com/vietluu.nguyen.31) - Tester
 
 ## Table of Contents
 
@@ -34,6 +29,8 @@ NiceEngine is a 2D Game Engine, its purpose is for learning purposes, making it 
 - [Basic concepts](#basic-concepts)
 - [NiceEngine Interface](#niceengine-interface)
 - [Create New Project](#create-new-project-in-niceengine)
+- [Game Object](#game-object)
+- [Component](#component)
 
 
 ## Installation Instructions
@@ -218,28 +215,79 @@ In **Game Object** in Inspector window, press **"X"** button
    <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/987a613a-8cad-4c0f-9c33-964eddb0813d" width="300" height="auto" ></p>
    
    Explanation:
-   - **Position**: stores the position of the game object on the scene.
-   - **Scale**: stores the size of the game object on the scene.
-   - **Rotation**: rotation of the game object in degree value.
-   - **Z-index**: a value used for layering game objects. The higher the Z-index value, the more the game object will be displayed in front of objects with lower Z-index values.
+   - **Position**: Stores the position of the game object on the scene.
+   - **Scale**: Stores the size of the game object on the scene.
+   - **Rotation**: Rotation of the game object in degree value.
+   - **Z-index**: A value used for layering game objects. The higher the Z-index value, the more the game object will be displayed in front of objects with lower Z-index values.
 
 **2. SpriteRenderer**
    <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/3a8c7859-c807-4620-8572-197e6d31e7a1" width="300" height="auto" ></p>
    
    Explanation:
-   - **Color picker**: represents the color overlay applied to the sprite of the game object.
-   - **Sprite**: refers to the visual representation of the game object.
+   - **Color picker**: Represents the color overlay applied to the sprite of the game object.
+   - **Sprite**: Refers to the visual representation of the game object.
 
 </details>
 
-### StateMachine
-<p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/14c9ccb0-9ba9-4bb5-9054-312ea18b399b" width="300" height="auto" ></p>
+<details>
+   <summary>
+     <h3>StateMachine</h3> 
+   </summary>
+   <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/14c9ccb0-9ba9-4bb5-9054-312ea18b399b" width="300" height="auto" ></p>
 
 A StateMachine can be a list of AnimationState và a Default state to show in default when run start (Read more in [Script](#script))
 
-**AnimationState**
+### AnimationState
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/a53830a6-9e84-496f-9582-4a2299e73033" width="300" height="auto" ></p>
 
 - AnimationState is a list of Frame, title and a Loop checkbox to determine Animation will loop or not.
 - Frame include Sprite và time to show of this Sprite.
 
+</details>
+
+<details>
+   <summary>
+     <h3>Physic & Collision Component</h3> 
+   </summary>
+   
+### RigidBody2D
+<p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/f3c34c8b-6983-4585-a196-54dfb5a5ebf3" width="300" height="auto" ></p>
+
+Include information:
+- **Velocity**: Velocity of object.
+- **BodyType**: The type of body, including Dynamic, Static, Kinematic. The meanings of these BodyType options will be explained in the next section.
+- **GravityScale**: The coefficient of gravity - default value is 1, representing the effect of gravity multiplied by the default gravity scale.
+- **IsSensor**: Can be understood as a sensor. If its value is set to true, it will not contact with other objects in the physics world.
+- **FixedRotation**: If set to true, it fixes the rotation, meaning it cannot rotate along any axis in the physics world.
+  
+---
+### Box2DCollider
+<p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/59cbfddc-6b59-44b8-8a27-6601d62d7b9d" width="300" height="auto" ></p>
+
+Box2dCollider represents a collision shape in the form of a box in a two-dimensional space.
+Include information:
+- **Offset**: The positional difference between the center of the Box2dCollider and the Game Object that contains it.
+- **Size**: The size of the Box2dCollider.
+---
+### CircleCollider
+<p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/43a1d6fe-ea9f-40a0-ad79-f6c48fa235bc" width="300" height="auto" ></p>
+
+CircleCollider represents a circle collision shape in a two-dimensional space.
+Include information:
+- **Offset**: The positional difference between the center of the CircleCollider and the Game Object that contains it.
+- **Radius**: The Radius of the CircleCollider.
+---
+### Capsule2dCollider
+<p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/a717d9fa-244f-40df-9a72-c1e369840632" width="300" height="auto" ></p>
+
+Capsule2dCollider represents a collision shape in the form of a capsule in a two-dimensional space.
+Capsule2dCollider is a combination of a Box2dCollider in the middle and two CircleColliders at the top and bottom.
+
+</details>
+
+<details>
+   <summary>
+     <h3>Script</h3> 
+   </summary>
+   
+</details>
