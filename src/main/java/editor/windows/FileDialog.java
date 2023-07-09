@@ -5,7 +5,6 @@ import editor.Debug;
 import editor.NiceImGui;
 import editor.ReferenceType;
 import imgui.flag.ImGuiCond;
-import imgui.flag.ImGuiHoveredFlags;
 import imgui.flag.ImGuiWindowFlags;
 import system.Spritesheet;
 import editor.uihelper.ButtonColor;
@@ -27,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static editor.uihelper.NiceShortCall.*;
-import static editor.uihelper.NiceShortCall.COLOR_Blue;
 import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class FileDialog {
@@ -56,6 +54,7 @@ public class FileDialog {
     static float BUTTON_SIZE_BOOST_DEFAULT_VALUE = 1;
     public static String spritesheet_has_just_used = "";
     public boolean showSpritesheetAlso = true;
+    public boolean removeSpritesheet = false;
 
     public void open(String idWaiting, ReferenceType typeRequest) {
         selectedObject = null;
@@ -70,6 +69,19 @@ public class FileDialog {
             itemList.addAll(FileUtils.getAllFiles());
         } else {
             itemList.addAll(FileUtils.getFilesWithReferenceType(referenceType));
+        }
+
+        if (this.removeSpritesheet){
+            for (Spritesheet spritesheet : AssetPool.getAllSpritesheets()){
+                String sprsPath = spritesheet.getTexture().getFilePath().replace("/", "\\");
+                for (int i = 0; i < itemList.size(); i++){
+                    File file = (File) itemList.get(i);
+                    if (file.getPath().equals(sprsPath)){
+                        itemList.remove(i);
+                        break;
+                    }
+                }
+            }
         }
     }
 
@@ -384,6 +396,7 @@ public class FileDialog {
         this.itemList.clear();
         this.spritesheetList.clear();
         this.showSpritesheetAlso = true;
+        this.removeSpritesheet = false;
     }
 
     public boolean isOpen() {

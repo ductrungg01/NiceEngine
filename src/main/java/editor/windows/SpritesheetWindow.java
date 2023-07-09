@@ -164,6 +164,7 @@ public class SpritesheetWindow {
         final String ID_WAITING_FILE_DIALOG = "Add new spritesheet imgui id";
         if (ImGui.button("Add new spritesheet")) {
             FileDialog.getInstance().showSpritesheetAlso = false;
+            FileDialog.getInstance().removeSpritesheet = true;
             FileDialog.getInstance().open(ID_WAITING_FILE_DIALOG, ReferenceType.SPRITE);
         }
 
