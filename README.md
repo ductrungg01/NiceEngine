@@ -31,6 +31,18 @@ NiceEngine is a 2D Game Engine, its purpose is for learning purposes, making it 
 - [Create New Project](#create-new-project-in-niceengine)
 - [Game Object](#game-object)
 - [Component](#component)
+- [Script](#script)
+- [Input from Mouse & Keyboard](#input-from-mouse--keyboard)
+- [BodyType in Rigidbody2D](#bodytype-in-rigidbody2d)
+- [EditorScene & GamePlayingScene](#editorscene-vs-gameplayingscene)
+- [Transient Variable](#transient-variable)
+- [Serialize Game Object](#serialize-game-object)
+- [Prefab](#prefab)
+- [Working with Spritesheet](#working-with-spritesheet)
+- [Working with Console & Debug.Log](#working-with-console--debuglog)
+- [Working with Inspector](#working-with-inspector)
+- [Working with Hierarchy](#working-with-hierarchy)
+- [Run Flow of Engine](#run-flow-of-engine)
 
 
 ## Installation Instructions
@@ -287,12 +299,12 @@ Capsule2dCollider is a combination of a Box2dCollider in the middle and two Circ
 
 </details>
 
+## Script
 <details>
    <summary>
-     <h3>Script</h3> 
+     <h3>Create & use Script</h3> 
    </summary>
 
-### Create & use Script
 To create a script, simply create a new class file, and always remember to extend Component to make it a Component to using it in Game Object:
    <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/cae4c8b7-1ab6-4670-84ed-85b2210a29f0" width="300" height="auto" ></p>
 
@@ -302,7 +314,13 @@ To add a script to a game object, on the Inspectors screen, select "Add Componen
 In code, just add Script same as a Component by using addComponent function:
    <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/0e8324ff-764a-4109-bf45-88c07e077480" width="600" height="auto" ></p>
 
-### Default function in Script
+</details>
+
+<details>
+   <summary>
+     <h3>Default function in Script</h3> 
+   </summary>
+
 #### Start
 The start function is called once when the object is created and initialized in the game. When the start function of a game object is called, it goes through all the components and runs the start function of each component.
 
@@ -343,10 +361,7 @@ This function is called after the actual collision processing has been completed
 
 </details>
 
-<details>
-   <summary>
-     <h3>Input From Mouse & Keyboard</h3> 
-   </summary>
+## Input From Mouse & Keyboard
 
 #### KeyListener
 There are three functions used with KeyListener:
@@ -370,12 +385,7 @@ The buttonCode here is usually one of two values: **GLFW_MOUSE_BUTTON_LEFT** (le
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/edf5f90c-c079-4500-90b3-bf0821d9d9e9" width="600" height="auto" ></p>
 
-</details>
-
-<details>
-   <summary>
-     <h3>BodyType In Rigidbody2D</h3> 
-   </summary>
+## BodyType In Rigidbody2D
 
 There are 3 type:
 
@@ -398,21 +408,13 @@ BodyType Dynamic represents objects that can move and are affected by forces fro
 - **Static**: A static object that does not move and is not affected by external forces.
 - **Kinematic**: An object that can move and actively change its position and velocity, does not experience external forces, but can collide and affect other objects.
 - **Dynamic**: An object that can move and is affected by external forces, such as gravity, collision forces, and forces from other objects.
-</details>
 
-<details>
-   <summary>
-     <h3>EditorScene vs GamePlayingScene</h3> 
-   </summary>
+## EditorScene vs GamePlayingScene
 
 - **EditorScene** is the screen where you can edit, modify, and design your game. 
 - **GamePlayingScene**: is the screen where the game is actually played.
-</details>
 
-<details>
-   <summary>
-     <h3>Transient Variable</h3> 
-   </summary>
+## Transient Variable
 
 **Transient** variable is a type of variable whose value is created when the Game Engine is initialized. However, this value is not saved as information.
 
@@ -421,24 +423,16 @@ For example, in **Mario** games, we need to keep track of whether our character 
 Here is an example of how to use a transient variable:
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/6382cfce-1c30-4984-95cb-d5d7f5483bdd" width="600" height="auto" ></p>
 
-</details>
 
-<details>
-   <summary>
-     <h3>Serialize Game Object</h3> 
-   </summary>
+## Serialize Game Object
 
 If a game object is marked as serialize, it will be saved in your game project. Entities such as trees, characters, enemies, etc. need to be saved, so we set them to serialize. However, entities such as bullets, smoke, falling leaves, etc. are created during gameplay and do not need to be saved. Therefore, we set these game objects to NoSerialize so that they will be ignored when saving the project.
 
 When you create a game object using a script, it is set to NoSerialize by default. If you want to set it to serialize, remember to call the setSerialize() function for that game object.
 
 For game objects created on the engine interface, such as creating game objects from the assets screen, spritesheet, or prefabs, these game objects are set to Serialize by default.
-</details>
 
-<details>
-   <summary>
-     <h3>Prefab</h3> 
-   </summary>
+## Prefab
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/69eb790b-af25-4a23-8676-3f661c84f214" width="400" height="auto" ></p>
 
@@ -457,12 +451,7 @@ Ex:
 After create this, remember to add it to Scene by **Window.getScene().addGameObjectToScene**
 
 
-</details>
-
-<details>
-   <summary>
-     <h3>Working with Spritesheet</h3> 
-   </summary>
+## Working with Spritesheet
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/f2e6a7de-9484-46dc-84de-be36898b77ed" width="400" height="auto" ></p>
 
@@ -498,12 +487,7 @@ To edit Spritesheet, right-click in Spritesheet and choose Remove this spriteshe
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/203622cb-4349-4603-87d8-2a81cc1d5434" width="400" height="auto" ></p>
 
-</details>
-
-<details>
-   <summary>
-     <h3>Working with Console & Debug.Log</h3> 
-   </summary>
+## Working with Console & Debug.Log
 
 The **ConsoleWindow** is a screen created to support debugging.
 
@@ -514,12 +498,8 @@ Add this Script to some Active Object in game. When you click A. Console will sh
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/61fe27f2-8d5b-4d5a-8bfd-a256af2aaf2c" width="400" height="auto" ></p>
 
-</details>
 
-<details>
-   <summary>
-     <h3>Working with Inspector</h3> 
-   </summary>
+## Working with Inspector
 
 **Inspectors** window displays information about a GameObject, such as its name, tag, and list of components. It also provides operations related to Prefabs and the ability to add a new component to the GameObject.
 
@@ -539,12 +519,8 @@ Finally, there is the "**Add component**" button. When you click this button, a 
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/76384929-f285-4af0-8800-e3efc84d5c4d" width="400" height="auto" ></p>
 
-</details>
 
-<details>
-   <summary>
-     <h3>Working with Inspector</h3> 
-   </summary>
+## Working with Hierarchy
 
 **Hierarchy** window displays all the game objects currently in the Scene. Since the number of game objects in a Scene can be quite large, the Engine is divided into multiple tabs, each displaying a list of game objects by their tags.
 
@@ -552,12 +528,8 @@ If you click on a game object in the **Hierarchy**, the selected game object wil
 
 <p align="center" style="margin: 0;"><img src="https://github.com/ductrungg01/NiceEngine/assets/72084491/45830955-409b-45e8-a505-1c0c913d1ff6" width="400" height="auto" ></p>
 
-</details>
 
-<details>
-   <summary>
-     <h3>Run Flow of Engine</h3> 
-   </summary>
+## Run Flow of Engine
 
 In this section, you will understand the workflow of the Engine according to the following diagram:
 
@@ -567,5 +539,3 @@ There are a few points to note:
 
 - When the Engine is first initialized, data is loaded, and then the start -> editorUpdate functions are executed. At this point, the EditorScene is being run.
 - If the user clicks the "Play" button, the game data will be saved, and the Engine will switch to the GamePlayingScene. Then, the game data will be loaded, and the start -> update functions will be executed.
-
-</details>
