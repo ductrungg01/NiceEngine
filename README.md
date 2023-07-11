@@ -551,4 +551,6 @@ There are a few points to note:
 
 - When the Engine is first initialized, data is loaded, and then the start -> editorUpdate functions are executed. At this point, the EditorScene is being run.
 - If the user clicks the "Play" button, the game data will be saved, and the Engine will switch to the GamePlayingScene. Then, the game data will be loaded, and the start -> update functions will be executed.
-  ⬆️ [Back to Top](#table-of-contents)
+
+  
+⬆️ [Back to Top](#table-of-contents)
