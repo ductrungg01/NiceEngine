@@ -39,7 +39,7 @@ public class MarioEventHandler extends Component {
             case MarioGetHit -> MarioMoving.getHit();
             case GameOver -> EventSystem.notify(null, new Event(EventType.GameEngineStopPlay));
             case LevelUp -> {
-                MarioMoving.marioHP += 1;
+                if (MarioMoving.marioHP < 2) MarioMoving.marioHP += 1;
                 MarioMoving.updateForm = true;
                 MarioMoving.hurtInvincibilityTimeLeft = MarioMoving.hurtInvincibilityTime;
                 SoundController.PlaySound(MarioEvent.LevelUp);

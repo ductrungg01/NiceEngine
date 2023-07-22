@@ -158,6 +158,7 @@ public class MarioMoving extends Component {
                     MarioEventHandler.handleEvent(MarioEvent.GameOver);
                 }
             }
+            this.stateMachine.setCurrentState("Die");
             return;
         }
 
