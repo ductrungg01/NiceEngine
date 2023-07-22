@@ -10,6 +10,7 @@ import scenes.GamePlayingSceneInitializer;
 import system.GameObject;
 import system.KeyListener;
 import system.Window;
+import util.AssetPool;
 
 public class Player extends Component {
     private transient RigidBody2D rb;
@@ -43,11 +44,13 @@ public class Player extends Component {
 
         if (collidingObject.compareTag("Obstacle")){
             Debug.Log("GAME OVER");
+            AssetPool.getSound("assets/sounds/stomp.ogg").play();
             Window.changeScene(new GamePlayingSceneInitializer());
         }
 
         if (collidingObject.compareTag("target")){
             Debug.Log("WIN");
+            AssetPool.getSound("assets/sounds/1-up.ogg").play();
             Window.changeScene(new GamePlayingSceneInitializer());
         }
     }

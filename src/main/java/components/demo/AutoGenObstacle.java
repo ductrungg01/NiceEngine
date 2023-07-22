@@ -9,17 +9,16 @@ import java.util.Random;
 
 public class AutoGenObstacle extends Component {
     private transient float timeRemain = 0;
+    private int numOfObstacle = 7;
 
     @Override
     public void update(float dt) {
         timeRemain -= dt;
         if (timeRemain < 0){
             timeRemain = 2;
-            genObstacle();
-            genObstacle();
-            genObstacle();
-            genObstacle();
-            genObstacle();
+            for (int i = 0; i < numOfObstacle; i++) {
+                genObstacle();
+            }
         }
     }
 

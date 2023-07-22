@@ -17,7 +17,7 @@ public class Obstacle extends Component {
         this.gameObject.getComponent(RigidBody2D.class).setGravityScale(0);
 
         Random rnd = new Random();
-        velo = new Vector2f(0, -rnd.nextFloat(0, 1));
+        velo = new Vector2f(0, -rnd.nextFloat(0.5f, 2));
     }
 
     @Override

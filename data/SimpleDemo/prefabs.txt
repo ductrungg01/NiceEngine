@@ -1,6 +1,6 @@
 [
   {
-    "uid": 9,
+    "uid": 19,
     "name": "Obstacle",
     "tag": "Obstacle",
     "isPrefab": true,
