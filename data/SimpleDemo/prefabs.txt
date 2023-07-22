@@ -1,1 +1,107 @@
-[]
+[
+  {
+    "uid": 9,
+    "name": "Obstacle",
+    "tag": "Obstacle",
+    "isPrefab": true,
+    "prefabId": "XGfYAzIUZo",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 90
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 256.0,
+            "height": 256.0,
+            "texture": {
+              "filePath": "assets/images/WrongPiece.png",
+              "width": 256,
+              "height": 256
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 91
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Dynamic",
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 93
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 94
+        }
+      },
+      {
+        "type": "components.demo.Obstacle",
+        "properties": {
+          "uid": 115
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

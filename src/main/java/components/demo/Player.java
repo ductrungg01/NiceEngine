@@ -1,4 +1,4 @@
-package components.mariodemo;
+package components.demo;
 
 import components.Component;
 import editor.Debug;
@@ -6,10 +6,12 @@ import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 import org.lwjgl.glfw.GLFW;
 import physics2d.components.RigidBody2D;
+import scenes.GamePlayingSceneInitializer;
 import system.GameObject;
 import system.KeyListener;
+import system.Window;
 
-public class DemoScript extends Component {
+public class Player extends Component {
     private transient RigidBody2D rb;
     private float moveSpeed = 5f;
 
@@ -38,6 +40,16 @@ public class DemoScript extends Component {
     @Override
     public void beginCollision(GameObject collidingObject, Contact contact, Vector2f hitNormal) {
         Debug.Log("beginCollision " + collidingObject.tag);
+
+        if (collidingObject.compareTag("Obstacle")){
+            Debug.Log("GAME OVER");
+            Window.changeScene(new GamePlayingSceneInitializer());
+        }
+
+        if (collidingObject.compareTag("target")){
+            Debug.Log("WIN");
+            Window.changeScene(new GamePlayingSceneInitializer());
+        }
     }
 
     @Override
