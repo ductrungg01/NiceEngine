@@ -1,0 +1,200 @@
+[
+  {
+    "uid": 0,
+    "name": "PeeShooterBullet",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 3.375,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 36
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 1000.0,
+            "height": 1000.0,
+            "texture": {
+              "filePath": "assets/images/PeeShooterBullet.png",
+              "width": 1000,
+              "height": 1000
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 37
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Dynamic",
+          "gravityScale": 0.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 42
+        }
+      },
+      {
+        "type": "physics2d.components.CircleCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "radius": 0.127,
+          "uid": 43
+        }
+      },
+      {
+        "type": "components.mariodemo.DemoScript",
+        "properties": {
+          "moveSpeed": 8.5,
+          "uid": 46
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1,
+    "name": "table-2",
+    "tag": "tttt",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": 4.125,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 39
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/table-2.png",
+              "width": 16,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 40
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 44
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 45
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  }
+]

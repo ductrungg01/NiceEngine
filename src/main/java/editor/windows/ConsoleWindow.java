@@ -17,7 +17,7 @@ public class ConsoleWindow {
     private static ConsoleWindow instance = null;
 
     //endregion
-    private final int MAX_DEBUGLOG_SIZE = 50;
+    private final int MAX_DEBUGLOG_SIZE = 200;
     public List<String> debugLogs = new ArrayList<>();
     public boolean isRemoved = false;
 
@@ -49,7 +49,7 @@ public class ConsoleWindow {
             isRemoved = true;
         }
 
-        if (isRemoved) {
+        if (isRemoved && debugLogs.size() >= MAX_DEBUGLOG_SIZE) {
             ImGui.text("The old value was removed");
         }
 
