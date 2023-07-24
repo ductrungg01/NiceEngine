@@ -26,15 +26,20 @@ public class Player extends Component {
     public void update(float dt) {
         if (KeyListener.isKeyPressed(GLFW.GLFW_KEY_UP)) {
             rb.addForce(new Vector2f(0, moveSpeed * dt));
+            Debug.Log("Press UP key");
         }
         if (KeyListener.isKeyPressed(GLFW.GLFW_KEY_DOWN)) {
             rb.addForce(new Vector2f(0, -moveSpeed * dt));
+            Debug.Log("Press DOWN key");
         }
         if (KeyListener.isKeyPressed(GLFW.GLFW_KEY_LEFT)) {
             rb.addForce(new Vector2f( -moveSpeed * dt, 0));
+            Debug.Log("Press LEFT key");
         }
         if (KeyListener.isKeyPressed(GLFW.GLFW_KEY_RIGHT)) {
             rb.addForce(new Vector2f( moveSpeed * dt,0 ));
+            Debug.Log("Press RIGHT key");
+
         }
     }
 
