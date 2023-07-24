@@ -67,6 +67,7 @@ To use the engine, please follow these steps:
    <summary>
       <h3>GameObject</h3>
    </summary>
+   
    In simple terms, a **GameObject** is an entity within a game. It represents characters, enemies, items, environments, and more. Each GameObject typically has its own attributes, behaviors, and abilities, which are defined using **components** and **scripts**.
 </details>
 <details>
