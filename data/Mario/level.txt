@@ -387,19 +387,19 @@
             },
             "texCoords": [
               {
-                "x": 0.4090909,
+                "x": 0.36363637,
                 "y": 0.0
               },
               {
-                "x": 0.4090909,
-                "y": 1.0
-              },
-              {
                 "x": 0.36363637,
                 "y": 1.0
               },
               {
-                "x": 0.36363637,
+                "x": 0.3181818,
+                "y": 1.0
+              },
+              {
+                "x": 0.3181818,
                 "y": 0.0
               }
             ]
@@ -1443,19 +1443,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -1678,19 +1678,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -1913,19 +1913,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -2148,19 +2148,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -2383,19 +2383,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -2618,19 +2618,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -2853,19 +2853,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -3088,19 +3088,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -3323,19 +3323,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -3558,19 +3558,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -3793,19 +3793,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -4028,19 +4028,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -4263,19 +4263,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -4498,19 +4498,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -4733,19 +4733,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -4968,19 +4968,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -5203,19 +5203,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -5438,19 +5438,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -5673,19 +5673,19 @@
             },
             "texCoords": [
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 0.0
               },
               {
-                "x": 0.32894737,
+                "x": 0.21710527,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 1.0
               },
               {
-                "x": 0.2236842,
+                "x": 0.1118421,
                 "y": 0.0
               }
             ]
@@ -140620,19 +140620,19 @@
             },
             "texCoords": [
               {
-                "x": 0.09090909,
+                "x": 0.045454547,
                 "y": 0.0
               },
               {
-                "x": 0.09090909,
-                "y": 1.0
-              },
-              {
                 "x": 0.045454547,
                 "y": 1.0
               },
               {
-                "x": 0.045454547,
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
                 "y": 0.0
               }
             ]
@@ -142164,19 +142164,19 @@
             },
             "texCoords": [
               {
-                "x": 0.09090909,
+                "x": 0.045454547,
                 "y": 0.0
               },
               {
-                "x": 0.09090909,
-                "y": 1.0
-              },
-              {
                 "x": 0.045454547,
                 "y": 1.0
               },
               {
-                "x": 0.045454547,
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
                 "y": 0.0
               }
             ]
@@ -142655,19 +142655,19 @@
             },
             "texCoords": [
               {
-                "x": 0.09090909,
+                "x": 0.045454547,
                 "y": 0.0
               },
               {
-                "x": 0.09090909,
-                "y": 1.0
-              },
-              {
                 "x": 0.045454547,
                 "y": 1.0
               },
               {
-                "x": 0.045454547,
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
                 "y": 0.0
               }
             ]
@@ -143146,19 +143146,19 @@
             },
             "texCoords": [
               {
-                "x": 0.09090909,
+                "x": 0.045454547,
                 "y": 0.0
               },
               {
-                "x": 0.09090909,
-                "y": 1.0
-              },
-              {
                 "x": 0.045454547,
                 "y": 1.0
               },
               {
-                "x": 0.045454547,
+                "x": 0.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.0,
                 "y": 0.0
               }
             ]
@@ -144209,19 +144209,19 @@
             },
             "texCoords": [
               {
-                "x": 0.4090909,
+                "x": 0.36363637,
                 "y": 0.0
               },
               {
-                "x": 0.4090909,
-                "y": 1.0
-              },
-              {
                 "x": 0.36363637,
                 "y": 1.0
               },
               {
-                "x": 0.36363637,
+                "x": 0.3181818,
+                "y": 1.0
+              },
+              {
+                "x": 0.3181818,
                 "y": 0.0
               }
             ]
@@ -144640,12 +144640,12 @@
         "type": "system.Transform",
         "properties": {
           "position": {
-            "x": -0.9732683,
-            "y": 2.362825
+            "x": -1.273,
+            "y": 2.163
           },
           "scale": {
-            "x": 0.292,
-            "y": 0.263
+            "x": 0.256,
+            "y": 0.25134304
           },
           "rotation": 0.0,
           "zIndex": 10,
@@ -145253,6 +145253,3066 @@
           "onGroundTimeDebounce": 0.05,
           "maxJumpTime": 0.5,
           "uid": 1560
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1844,
+    "name": "flower.png(4)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -2.125,
+            "y": 2.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 2192
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/flower.png",
+              "width": 256,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.3125,
+                "y": 0.0
+              },
+              {
+                "x": 0.3125,
+                "y": 1.0
+              },
+              {
+                "x": 0.25,
+                "y": 1.0
+              },
+              {
+                "x": 0.25,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 2193
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1845,
+    "name": "flower.png(4)",
+    "tag": "",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -1.375,
+            "y": 2.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.5
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 2192
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 32.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/flower.png",
+              "width": 256,
+              "height": 32
+            },
+            "texCoords": [
+              {
+                "x": 0.3125,
+                "y": 0.0
+              },
+              {
+                "x": 0.3125,
+                "y": 1.0
+              },
+              {
+                "x": 0.25,
+                "y": 1.0
+              },
+              {
+                "x": 0.25,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 2193
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1846,
+    "name": "coin",
+    "tag": "Coin",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "m9pUpRn3ai",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -0.375,
+            "y": 2.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/coin.png",
+              "width": 64,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FromBlock",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "uid": 1480
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1500
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1847,
+    "name": "coin",
+    "tag": "Coin",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "m9pUpRn3ai",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -0.375,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/coin.png",
+              "width": 64,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FromBlock",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "uid": 1480
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1500
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1848,
+    "name": "coin",
+    "tag": "Coin",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "m9pUpRn3ai",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -0.125,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/coin.png",
+              "width": 64,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FromBlock",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "uid": 1480
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1500
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1849,
+    "name": "coin",
+    "tag": "Coin",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "m9pUpRn3ai",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -0.125,
+            "y": 2.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/coin.png",
+              "width": 64,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FromBlock",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "uid": 1480
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1500
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1850,
+    "name": "coin",
+    "tag": "Coin",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "m9pUpRn3ai",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -0.375,
+            "y": 1.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/coin.png",
+              "width": 64,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FromBlock",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "uid": 1480
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1500
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1851,
+    "name": "coin",
+    "tag": "Coin",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "m9pUpRn3ai",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -0.125,
+            "y": 2.375
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 19
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/coin.png",
+              "width": 64,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 1.0,
+                "y": 0.0
+              },
+              {
+                "x": 1.0,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 1.0
+              },
+              {
+                "x": 0.75,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 20
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.12
+                }
+              ],
+              "doesLoop": true
+            },
+            {
+              "title": "FromBlock",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.25,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/coin.png",
+                      "width": 64,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 1.0,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 1.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.75,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.1
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 22
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": true,
+          "fixedRotation": false,
+          "uid": 1480
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 1500
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1852,
+    "name": "shine-block",
+    "tag": "Ground",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "FyK0oWYH32",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -2.875,
+            "y": 0.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 42
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/animation-block.png",
+              "width": 152,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 0.21710527,
+                "y": 0.0
+              },
+              {
+                "x": 0.21710527,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 43
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.10526316,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21710527,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.21710527,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.32894737,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.32894737,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.44078946,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.44078946,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 45
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 164
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 489
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1853,
+    "name": "shine-block",
+    "tag": "Ground",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "FyK0oWYH32",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -2.875,
+            "y": 0.875
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 42
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/animation-block.png",
+              "width": 152,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 0.21710527,
+                "y": 0.0
+              },
+              {
+                "x": 0.21710527,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 43
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.10526316,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21710527,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.21710527,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.32894737,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.32894737,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.44078946,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.44078946,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 45
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 164
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 489
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1854,
+    "name": "shine-block",
+    "tag": "Ground",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "FyK0oWYH32",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -2.875,
+            "y": 1.125
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 42
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/animation-block.png",
+              "width": 152,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 0.21710527,
+                "y": 0.0
+              },
+              {
+                "x": 0.21710527,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 43
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.10526316,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21710527,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.21710527,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.32894737,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.32894737,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.44078946,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.44078946,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 45
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 164
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 489
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 1855,
+    "name": "shine-block",
+    "tag": "Ground",
+    "isPrefab": false,
+    "prefabId": "",
+    "parentId": "FyK0oWYH32",
+    "components": [
+      {
+        "type": "system.Transform",
+        "properties": {
+          "position": {
+            "x": -2.875,
+            "y": 1.625
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 42
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filePath": "assets/images/spritesheets/animation-block.png",
+              "width": 152,
+              "height": 16
+            },
+            "texCoords": [
+              {
+                "x": 0.21710527,
+                "y": 0.0
+              },
+              {
+                "x": 0.21710527,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 1.0
+              },
+              {
+                "x": 0.1118421,
+                "y": 0.0
+              }
+            ]
+          },
+          "uid": 43
+        }
+      },
+      {
+        "type": "components.StateMachine",
+        "properties": {
+          "stateTransfers": {},
+          "states": [
+            {
+              "title": "Default",
+              "animationFrames": [
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.10526316,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.10526316,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.0,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.21710527,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.21710527,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.1118421,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.32894737,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.32894737,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.2236842,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                },
+                {
+                  "sprite": {
+                    "width": 16.0,
+                    "height": 16.0,
+                    "texture": {
+                      "filePath": "assets/images/spritesheets/animation-block.png",
+                      "width": 152,
+                      "height": 16
+                    },
+                    "texCoords": [
+                      {
+                        "x": 0.44078946,
+                        "y": 0.0
+                      },
+                      {
+                        "x": 0.44078946,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 1.0
+                      },
+                      {
+                        "x": 0.33552632,
+                        "y": 0.0
+                      }
+                    ]
+                  },
+                  "frameTime": 0.15
+                }
+              ],
+              "doesLoop": true
+            }
+          ],
+          "defaultStateTitle": "Default",
+          "uid": 45
+        }
+      },
+      {
+        "type": "physics2d.components.Box2DCollider",
+        "properties": {
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "halfSize": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 164
+        }
+      },
+      {
+        "type": "physics2d.components.RigidBody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "bodyType": "Static",
+          "gravityScale": 1.0,
+          "isSensor": false,
+          "fixedRotation": false,
+          "uid": 489
         }
       }
     ],

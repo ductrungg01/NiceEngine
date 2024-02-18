@@ -5,6 +5,7 @@ assets/images/spritesheets/map.png|16|16|110|0|0
 assets/images/spritesheets/animation-block.png|16|16|9|1|1
 assets/images/spritesheets/Mario.png|16|16|10|0|0
 assets/images/spritesheets/font.png|8|8|36|2|2
+assets/images/spritesheets/flower.png|16|32|16|0|0
 assets/images/spritesheets/goomba.png|20|23|7|0|0
 assets/images/spritesheets/turtle.png|16|32|22|0|0
 assets/images/spritesheets/item.png|16|16|8|1|1
